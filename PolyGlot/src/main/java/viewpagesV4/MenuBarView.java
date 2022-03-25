@@ -4,6 +4,8 @@
  */
 package viewpagesV4;
 
+import java.util.Random;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -72,51 +74,26 @@ public class MenuBarView extends javax.swing.JFrame {
         UListBttn.setText("User List");
         UListBttn.setBorder(null);
         UListBttn.setPreferredSize(new java.awt.Dimension(90, 90));
-        UListBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UListBttnActionPerformed(evt);
-            }
-        });
 
         SettBttn.setBackground(new java.awt.Color(204, 204, 204));
         SettBttn.setText("Settings");
         SettBttn.setBorder(null);
         SettBttn.setPreferredSize(new java.awt.Dimension(90, 90));
-        SettBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SettBttnActionPerformed(evt);
-            }
-        });
 
         ProVBttn.setBackground(new java.awt.Color(204, 204, 204));
         ProVBttn.setText("Profile View");
         ProVBttn.setBorder(null);
         ProVBttn.setPreferredSize(new java.awt.Dimension(90, 90));
-        ProVBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProVBttnActionPerformed(evt);
-            }
-        });
 
         DlgListBttn.setBackground(new java.awt.Color(204, 204, 204));
         DlgListBttn.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         DlgListBttn.setText("Dialogue List");
         DlgListBttn.setBorder(null);
         DlgListBttn.setPreferredSize(new java.awt.Dimension(90, 90));
-        DlgListBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DlgListBttnActionPerformed(evt);
-            }
-        });
 
         SupportBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         SupportBttn.setText("Help");
         SupportBttn.setPreferredSize(new java.awt.Dimension(25, 25));
-        SupportBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupportBttnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout MenuBarPanelLayout = new javax.swing.GroupLayout(MenuBarPanel);
         MenuBarPanel.setLayout(MenuBarPanelLayout);
@@ -175,26 +152,6 @@ public class MenuBarView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UListBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UListBttnActionPerformed
-
-    private void SettBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SettBttnActionPerformed
-
-    private void ProVBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProVBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProVBttnActionPerformed
-
-    private void DlgListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DlgListBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DlgListBttnActionPerformed
-
-    private void SupportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupportBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupportBttnActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -249,10 +206,70 @@ public class MenuBarView extends javax.swing.JFrame {
 
     public void setPageTopicContent(JPanel PageTopicContent) {
         this.PageTopicContent.add(PageTopicContent);
-                //= PageTopicContent;
-        
-        
+                //= PageTopicContent; 
     }
+
+    public void setDlgListBttn(JButton DlgListBttn) {
+        this.DlgListBttn = DlgListBttn;
+    }
+
+
+    public void setProVBttn(JButton ProVBttn) {
+        this.ProVBttn = ProVBttn;
+    }
+
+    public void setSettBttn(JButton SettBttn) {
+        this.SettBttn = SettBttn;
+    }
+
+    public void setSupportBttn(JButton SupportBttn) {
+        this.SupportBttn = SupportBttn;
+    }
+
+    public void setUListBttn(JButton UListBttn) {
+        this.UListBttn = UListBttn;
+    }
+    
+    public JButton getDlgListBttn() { 
+        return DlgListBttn; 
+          
+    }
+
+    public JLabel getPageTitle() {
+        return PageTitle;
+    }
+
+    public JPanel getPageTopicContent() {
+        return PageTopicContent;
+    }
+
+    public JButton getProVBttn() {
+        return ProVBttn;
+    }
+
+    public JButton getSettBttn() {
+        return SettBttn;
+    }
+
+    public JButton getSupportBttn() {
+        return SupportBttn;
+    }
+
+    // getter for Ulist will for now return String for controller to check which Ulist to open 
+    public String getUListBttn() { // change it to JButton return type later
+        //return UListBttn; //use as actual return
+        int min=1;
+        int max=2;
+        
+        int random = (int)Math.floor(Math.random()*(max-min+1)+min);
+        if(random%2==0){
+            return "T";
+        }else{
+            return "S";
+        }
+          
+    }
+    
     
 
     

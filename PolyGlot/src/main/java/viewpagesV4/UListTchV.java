@@ -5,6 +5,9 @@
  */
 package viewpagesV4;
 
+import javax.swing.JComboBox;
+import javax.swing.JTable;
+
 /**
  *
  * @author mones
@@ -101,7 +104,7 @@ public class UListTchV extends javax.swing.JFrame {
                         .addComponent(ULvlLbl)
                         .addGap(18, 18, 18)
                         .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         UListContentLayout.setVerticalGroup(
             UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +120,7 @@ public class UListTchV extends javax.swing.JFrame {
                     .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ULvlLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
@@ -141,6 +144,39 @@ public class UListTchV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JComboBox<String> getSortCbox() {
+        return SortCbox;
+    }
+
+    public JTable getTblofStd() {
+        return TblofStd;
+    }
+
+    public JComboBox<String> getULvlFilterCbox() {
+        return ULvlFilterCbox;
+    }
+
+    public JComboBox<String> getGroupFilterCbox() {
+        return groupFilterCbox;
+    }
+
+    public void setSortCbox(JComboBox<String> SortCbox) {
+        this.SortCbox = SortCbox;
+    }
+
+    public void setTblofStd(JTable TblofStd) {
+        this.TblofStd = TblofStd;
+    }
+
+    public void setULvlFilterCbox(JComboBox<String> ULvlFilterCbox) {
+        this.ULvlFilterCbox = ULvlFilterCbox;
+    }
+
+    public void setGroupFilterCbox(JComboBox<String> groupFilterCbox) {
+        this.groupFilterCbox = groupFilterCbox;
+    }
+
+    
     /**
      * @param args the command line arguments
      */

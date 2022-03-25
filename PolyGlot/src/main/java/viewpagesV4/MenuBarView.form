@@ -147,9 +147,6 @@
               <Dimension value="[90, 90]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UListBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SettBttn">
           <Properties>
@@ -164,9 +161,6 @@
               <Dimension value="[90, 90]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SettBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ProVBttn">
           <Properties>
@@ -181,9 +175,6 @@
               <Dimension value="[90, 90]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProVBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DlgListBttn">
           <Properties>
@@ -201,9 +192,6 @@
               <Dimension value="[90, 90]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DlgListBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="SupportBttn">
           <Properties>
@@ -215,9 +203,6 @@
               <Dimension value="[25, 25]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SupportBttnActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

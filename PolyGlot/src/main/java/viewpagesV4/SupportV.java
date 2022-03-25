@@ -6,6 +6,7 @@ package viewpagesV4;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -21,11 +22,8 @@ public class SupportV extends javax.swing.JFrame {
         MenuBarView menu= new MenuBarView();
         this.setContentPane(menu.getContentPane());
         
-        
         menu.setPageTitle("Support Page");
-        menu.setPageTopicContent(jPanel1);
-        
-        
+        menu.setPageTopicContent(supportContent);
     }
 
     /**
@@ -37,7 +35,7 @@ public class SupportV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        supportContent = new javax.swing.JPanel();
         SupContTxtScrollP = new javax.swing.JScrollPane();
         SupportContent = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -57,7 +55,7 @@ public class SupportV extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(414, 667));
         setResizable(false);
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(414, 480));
+        supportContent.setPreferredSize(new java.awt.Dimension(414, 480));
 
         SupContTxtScrollP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         SupContTxtScrollP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -133,17 +131,17 @@ public class SupportV extends javax.swing.JFrame {
 
         SupContTxtScrollP.setViewportView(SupportContent);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout supportContentLayout = new javax.swing.GroupLayout(supportContent);
+        supportContent.setLayout(supportContentLayout);
+        supportContentLayout.setHorizontalGroup(
+            supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(supportContentLayout.createSequentialGroup()
                 .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        supportContentLayout.setVerticalGroup(
+            supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(supportContentLayout.createSequentialGroup()
                 .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 10, Short.MAX_VALUE))
         );
@@ -152,18 +150,84 @@ public class SupportV extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(supportContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(supportContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 305, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public JTextArea getjTextArea1() {
+        return jTextArea1;
+    }
+
+    public JTextArea getjTextArea2() {
+        return jTextArea2;
+    }
+
+    public JTextArea getjTextArea3() {
+        return jTextArea3;
+    }
+
+    public JTextArea getjTextArea4() {
+        return jTextArea4;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public void setjTextArea1(JTextArea jTextArea1) {
+        this.jTextArea1 = jTextArea1;
+    }
+
+    public void setjTextArea2(JTextArea jTextArea2) {
+        this.jTextArea2 = jTextArea2;
+    }
+
+    public void setjTextArea3(JTextArea jTextArea3) {
+        this.jTextArea3 = jTextArea3;
+    }
+
+    public void setjTextArea4(JTextArea jTextArea4) {
+        this.jTextArea4 = jTextArea4;
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -207,7 +271,6 @@ public class SupportV extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -216,5 +279,6 @@ public class SupportV extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JPanel supportContent;
     // End of variables declaration//GEN-END:variables
 }
