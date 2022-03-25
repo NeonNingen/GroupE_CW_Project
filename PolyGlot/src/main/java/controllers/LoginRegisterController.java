@@ -17,10 +17,7 @@ import viewpagesV4.progV;
  */
 public class LoginRegisterController implements ActionListener
 {
-    //test test test test test test e
-    //test commitss
     private loginView loginPage;
-    //testA
     
     public LoginRegisterController(loginView loginPage) 
     {
@@ -33,22 +30,19 @@ public class LoginRegisterController implements ActionListener
         if(e.getSource() == loginPage.getLoginBttn())
         {
             loginPage.dispose();
-            progV progPage = new progV();
-            progPage.show();
+            new progV().show();
         }
         
         if(e.getSource() == loginPage.getRegisterBttn())
         {
             loginPage.dispose();
-            RegisterView regPage = new RegisterView();
-            regPage.show();
+            new RegisterView().show();
         }
         
         if(e.getSource() == loginPage.getSupportBttn())
         {
            loginPage.dispose();
-           SupportV supportPage = new SupportV();
-           supportPage.show(); 
+           new SupportV().show(); 
         }
     }
 
