@@ -5,6 +5,8 @@
 package viewpagesV4;
 
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -44,12 +46,12 @@ public class CardScrollV extends javax.swing.JFrame {
         DlgYRateLbl1 = new javax.swing.JLabel();
         DlgPartRateLbl1 = new javax.swing.JLabel();
         OCnfirmOKbttn = new javax.swing.JButton();
-        closeBttn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        closedBttn = new javax.swing.JButton();
+        Congrats = new javax.swing.JLabel();
         RateWindow = new javax.swing.JDialog();
         RateWindowPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jSlider1 = new javax.swing.JSlider();
+        rateLbl = new javax.swing.JLabel();
+        RateSlider = new javax.swing.JSlider();
         rateBttn = new javax.swing.JButton();
         CardScrollPagePanel = new javax.swing.JPanel();
         CloseBttn = new javax.swing.JButton();
@@ -89,20 +91,10 @@ public class CardScrollV extends javax.swing.JFrame {
         DlgPartRateLbl1.setText("10 points");
 
         OCnfirmOKbttn.setText("OK");
-        OCnfirmOKbttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OCnfirmOKbttnActionPerformed(evt);
-            }
-        });
 
-        closeBttn.setText("X");
-        closeBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeBttnActionPerformed(evt);
-            }
-        });
+        closedBttn.setText("X");
 
-        jLabel1.setText("Congratulation in finishing!");
+        Congrats.setText("Congratulation in finishing!");
 
         javax.swing.GroupLayout ConfirmWindowPanelLayout = new javax.swing.GroupLayout(ConfirmWindowPanel);
         ConfirmWindowPanel.setLayout(ConfirmWindowPanelLayout);
@@ -147,19 +139,19 @@ public class CardScrollV extends javax.swing.JFrame {
                                 .addComponent(DlgTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(58, 58, 58))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConfirmWindowPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(Congrats)
                         .addGap(112, 112, 112))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConfirmWindowPanelLayout.createSequentialGroup()
-                        .addComponent(closeBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(closedBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         ConfirmWindowPanelLayout.setVerticalGroup(
             ConfirmWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConfirmWindowPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(closeBttn)
+                .addComponent(closedBttn)
                 .addGap(23, 23, 23)
-                .addComponent(jLabel1)
+                .addComponent(Congrats)
                 .addGap(29, 29, 29)
                 .addComponent(Results)
                 .addGap(18, 18, 18)
@@ -209,18 +201,13 @@ public class CardScrollV extends javax.swing.JFrame {
 
         RateWindowPanel.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel2.setText("Rate your partner");
+        rateLbl.setText("Rate your partner");
 
-        jSlider1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jSlider1.setMaximum(10);
-        jSlider1.setValue(5);
+        RateSlider.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        RateSlider.setMaximum(10);
+        RateSlider.setValue(5);
 
         rateBttn.setText("Complete");
-        rateBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rateBttnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout RateWindowPanelLayout = new javax.swing.GroupLayout(RateWindowPanel);
         RateWindowPanel.setLayout(RateWindowPanelLayout);
@@ -228,13 +215,13 @@ public class CardScrollV extends javax.swing.JFrame {
             RateWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RateWindowPanelLayout.createSequentialGroup()
                 .addGap(106, 106, 106)
-                .addComponent(jLabel2)
+                .addComponent(rateLbl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RateWindowPanelLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(RateWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RateWindowPanelLayout.createSequentialGroup()
-                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RateSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RateWindowPanelLayout.createSequentialGroup()
                         .addComponent(rateBttn)
@@ -244,10 +231,10 @@ public class CardScrollV extends javax.swing.JFrame {
             RateWindowPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RateWindowPanelLayout.createSequentialGroup()
                 .addGap(78, 78, 78)
-                .addComponent(jLabel2)
+                .addComponent(rateLbl)
                 .addGap(52, 52, 52)
-                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(RateSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addComponent(rateBttn)
                 .addGap(84, 84, 84))
         );
@@ -380,24 +367,139 @@ public class CardScrollV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void OCnfirmOKbttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OCnfirmOKbttnActionPerformed
-        // TODO add your handling code here:
-        
-        System.out.println("I recieved confirmation message with results info");
-        ConfirmWindow.dispose();
-    }//GEN-LAST:event_OCnfirmOKbttnActionPerformed
+    public void setCardTxtDisplayTxtArea(JTextArea CardTxtDisplayTxtArea) {
+        this.CardTxtDisplayTxtArea = CardTxtDisplayTxtArea;
+    }
 
-    private void rateBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rateBttnActionPerformed
-        // TODO add your handling code here:
-        RateWindow.dispose();
-        ConfirmWindow.show(true);
-        
-    }//GEN-LAST:event_rateBttnActionPerformed
+    /**
+     *
+     * @param CloseBttn
+     */
+    public void setCloseBttn(JButton CloseBttn) {
+        this.CloseBttn = CloseBttn;
+    }
 
-    private void closeBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeBttnActionPerformed
+    public void setConfirmWindow(JDialog ConfirmWindow) {
+        this.ConfirmWindow = ConfirmWindow;
+    }
 
+    public void setDlgLvlLbl1(JLabel DlgLvlLbl1) {
+        this.DlgLvlLbl1 = DlgLvlLbl1;
+    }
+
+    public void setDlgNameAsTitle(JLabel DlgNameAsTitle) {
+        this.DlgNameAsTitle = DlgNameAsTitle;
+    }
+
+    public void setDlgNameLbl1(JLabel DlgNameLbl1) {
+        this.DlgNameLbl1 = DlgNameLbl1;
+    }
+
+    public void setDlgPartRateLbl1(JLabel DlgPartRateLbl1) {
+        this.DlgPartRateLbl1 = DlgPartRateLbl1;
+    }
+
+    public void setDlgTimeLbl1(JLabel DlgTimeLbl1) {
+        this.DlgTimeLbl1 = DlgTimeLbl1;
+    }
+
+    public void setDlgYRateLbl1(JLabel DlgYRateLbl1) {
+        this.DlgYRateLbl1 = DlgYRateLbl1;
+    }
+
+    public void setNextCardBttn(JButton NextCardBttn) {
+        this.NextCardBttn = NextCardBttn;
+    }
+
+    public void setOCnfirmOKbttn(JButton OCnfirmOKbttn) {
+        this.OCnfirmOKbttn = OCnfirmOKbttn;
+    }
+
+    public void setPrevCardBttn(JButton PrevCardBttn) {
+        this.PrevCardBttn = PrevCardBttn;
+    }
+
+    public void setRateWindow(JDialog RateWindow) {
+        this.RateWindow = RateWindow;
+    }
+
+    public void setClosedBttn(JButton closedBttn) {
+        this.closedBttn = closedBttn;
+    }
+
+    public void setRateBttn(JButton rateBttn) {
+        this.rateBttn = rateBttn;
+    }
+
+    public void setRoleNameLbl(JLabel roleNameLbl) {
+        this.roleNameLbl = roleNameLbl;
+    }
+
+    public JTextArea getCardTxtDisplayTxtArea() {
+        return CardTxtDisplayTxtArea;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public JButton getCloseBttn() {
+        return CloseBttn;
+    }
+
+    public JDialog getConfirmWindow() {
+        return ConfirmWindow;
+    }
+
+    public JLabel getDlgLvlLbl1() {
+        return DlgLvlLbl1;
+    }
+
+    public JLabel getDlgNameAsTitle() {
+        return DlgNameAsTitle;
+    }
+
+    public JLabel getDlgNameLbl1() {
+        return DlgNameLbl1;
+    }
+
+    public JLabel getDlgPartRateLbl1() {
+        return DlgPartRateLbl1;
+    }
+
+    public JLabel getDlgYRateLbl1() {
+        return DlgYRateLbl1;
+    }
+
+    public JButton getNextCardBttn() {
+        return NextCardBttn;
+    }
+
+    public JButton getOCnfirmOKbttn() {
+        return OCnfirmOKbttn;
+    }
+
+    public JButton getPrevCardBttn() {
+        return PrevCardBttn;
+    }
+
+    public JDialog getRateWindow() {
+        return RateWindow;
+    }
+
+    public JButton getClosedBttn() {
+        return closedBttn;
+    }
+
+    public JButton getRateBttn() {
+        return rateBttn;
+    }
+
+    public JLabel getRoleNameLbl() {
+        return roleNameLbl;
+    }
+    
+    
     
     /**
      * @param args the command line arguments
@@ -456,6 +558,7 @@ public class CardScrollV extends javax.swing.JFrame {
     private javax.swing.JButton CloseBttn;
     private javax.swing.JDialog ConfirmWindow;
     private javax.swing.JPanel ConfirmWindowPanel;
+    private javax.swing.JLabel Congrats;
     private javax.swing.JLabel DlgLvlLbl;
     private javax.swing.JLabel DlgLvlLbl1;
     private javax.swing.JLabel DlgNameAsTitle;
@@ -470,14 +573,13 @@ public class CardScrollV extends javax.swing.JFrame {
     private javax.swing.JButton NextCardBttn;
     private javax.swing.JButton OCnfirmOKbttn;
     private javax.swing.JButton PrevCardBttn;
+    private javax.swing.JSlider RateSlider;
     private javax.swing.JDialog RateWindow;
     private javax.swing.JPanel RateWindowPanel;
     private javax.swing.JLabel Results;
-    private javax.swing.JButton closeBttn;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JSlider jSlider1;
+    private javax.swing.JButton closedBttn;
     private javax.swing.JButton rateBttn;
+    private javax.swing.JLabel rateLbl;
     private javax.swing.JLabel roleNameLbl;
     // End of variables declaration//GEN-END:variables
 }
