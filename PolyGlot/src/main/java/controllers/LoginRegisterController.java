@@ -18,7 +18,7 @@ import viewpagesV4.progV;
 public class LoginRegisterController implements ActionListener
 {
     //test test test test test test e
-    //test commit
+    //test commitss
     private loginView loginPage;
 
     public LoginRegisterController(loginView loginPage) 
