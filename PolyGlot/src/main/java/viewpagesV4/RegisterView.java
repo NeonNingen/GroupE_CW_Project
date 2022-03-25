@@ -5,6 +5,12 @@
  */
 package viewpagesV4;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author mones
@@ -29,7 +35,7 @@ public class RegisterView extends javax.swing.JFrame {
 
         registerPanel = new javax.swing.JPanel();
         regTitle = new javax.swing.JLabel();
-        SupportBttn = new javax.swing.JButton();
+        supportBttn = new javax.swing.JButton();
         nameReg = new javax.swing.JTextField();
         SurnameReg = new javax.swing.JTextField();
         emailReg = new javax.swing.JTextField();
@@ -41,14 +47,14 @@ public class RegisterView extends javax.swing.JFrame {
         pwdReg2Lbl = new javax.swing.JLabel();
         termsCond = new javax.swing.JCheckBox();
         regBttn = new javax.swing.JButton();
-        CancelBttn = new javax.swing.JButton();
+        cancelBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         regTitle.setText("Create new user account");
 
-        SupportBttn.setText("Help");
+        supportBttn.setText("Help");
 
         nameReg.setText("Name");
 
@@ -72,7 +78,7 @@ public class RegisterView extends javax.swing.JFrame {
 
         regBttn.setText("Register");
 
-        CancelBttn.setText("Cancel");
+        cancelBttn.setText("Cancel");
 
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
@@ -80,7 +86,7 @@ public class RegisterView extends javax.swing.JFrame {
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(SupportBttn))
+                .addComponent(supportBttn))
             .addGroup(registerPanelLayout.createSequentialGroup()
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registerPanelLayout.createSequentialGroup()
@@ -107,13 +113,13 @@ public class RegisterView extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(regBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CancelBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cancelBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         registerPanelLayout.setVerticalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerPanelLayout.createSequentialGroup()
-                .addComponent(SupportBttn)
+                .addComponent(supportBttn)
                 .addGap(29, 29, 29)
                 .addComponent(regTitle)
                 .addGap(54, 54, 54)
@@ -141,7 +147,7 @@ public class RegisterView extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(regBttn)
                 .addGap(18, 18, 18)
-                .addComponent(CancelBttn)
+                .addComponent(cancelBttn)
                 .addContainerGap(167, Short.MAX_VALUE))
         );
 
@@ -159,6 +165,88 @@ public class RegisterView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JTextField getSurnameReg() {
+        return SurnameReg;
+    }
+
+    public void setSurnameReg(JTextField SurnameReg) {
+        this.SurnameReg = SurnameReg;
+    }
+
+    public JButton getCancelBttn() {
+        return cancelBttn;
+    }
+
+    public void setCancelBttn(JButton cancelBttn) {
+        this.cancelBttn = cancelBttn;
+    }
+
+    public JTextField getEmailReg() {
+        return emailReg;
+    }
+
+    public void setEmailReg(JTextField emailReg) {
+        this.emailReg = emailReg;
+    }
+
+    public JComboBox<String> getGroupIdSelect() {
+        return groupIdSelect;
+    }
+
+    public void setGroupIdSelect(JComboBox<String> groupIdSelect) {
+        this.groupIdSelect = groupIdSelect;
+    }
+
+    public JTextField getNameReg() {
+        return nameReg;
+    }
+
+    public void setNameReg(JTextField nameReg) {
+        this.nameReg = nameReg;
+    }
+
+    public JPasswordField getPwdReg1() {
+        return pwdReg1;
+    }
+
+    public void setPwdReg1(JPasswordField pwdReg1) {
+        this.pwdReg1 = pwdReg1;
+    }
+
+    public JPasswordField getPwdReg2() {
+        return pwdReg2;
+    }
+
+    public void setPwdReg2(JPasswordField pwdReg2) {
+        this.pwdReg2 = pwdReg2;
+    }
+
+    public JButton getRegBttn() {
+        return regBttn;
+    }
+
+    public void setRegBttn(JButton regBttn) {
+        this.regBttn = regBttn;
+    }
+
+    public JButton getSupportBttn() {
+        return supportBttn;
+    }
+
+    public void setSupportBttn(JButton supportBttn) {
+        this.supportBttn = supportBttn;
+    }
+
+    public JCheckBox getTermsCond() {
+        return termsCond;
+    }
+
+    public void setTermsCond(JCheckBox termsCond) {
+        this.termsCond = termsCond;
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -196,9 +284,8 @@ public class RegisterView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CancelBttn;
-    private javax.swing.JButton SupportBttn;
     private javax.swing.JTextField SurnameReg;
+    private javax.swing.JButton cancelBttn;
     private javax.swing.JTextField emailReg;
     private javax.swing.JLabel groupIdLblReg;
     private javax.swing.JComboBox<String> groupIdSelect;
@@ -210,6 +297,7 @@ public class RegisterView extends javax.swing.JFrame {
     private javax.swing.JButton regBttn;
     private javax.swing.JLabel regTitle;
     private javax.swing.JPanel registerPanel;
+    private javax.swing.JButton supportBttn;
     private javax.swing.JCheckBox termsCond;
     // End of variables declaration//GEN-END:variables
 }
