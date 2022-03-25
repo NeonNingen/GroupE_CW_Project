@@ -304,11 +304,6 @@ public class CardScrollV extends javax.swing.JFrame {
         });
 
         NextCardBttn.setText("next");
-        NextCardBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextCardBttnActionPerformed(evt);
-            }
-        });
 
         CardScrollPaneExtra.setBackground(CardScrollPagePanel.getBackground());
         CardScrollPaneExtra.setBorder(null);
@@ -400,51 +395,6 @@ public class CardScrollV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PrevCardBttnActionPerformed
     int count=0;
-    private void NextCardBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextCardBttnActionPerformed
-        // TODO add your handling code here:
-        boolean done= false;
-        
-        /*JLabel dlgName= new JLabel("Dialogue name");
-        JLabel dlgLvl= new JLabel("Dialogue level");
-        JLabel dlgTime= new JLabel("Time taken\n\n");
-        JLabel yourRate= new JLabel("Your rating");
-        JLabel partRate= new JLabel("Partner rating");
-        
-        JTextArea txt= new JTextArea();
-        txt.add(dlgName);
-        txt.add(dlgLvl);
-        txt.add(dlgTime);
-        txt.add(yourRate);
-        txt.add(partRate);
-        */
-        
-        //CardScrollPagePanel.add(jInternalFrame1);
-        //jInternalFrame1.setVisible(true);
-        
-        count++;
-        
-        if(count==3){
-            done=true;
-        }
-        
-        
-        
-        if(done){
-            
-            
-            //JOptionPane.showMessageDialog(this, RateWindow,"Please, Rate your partner", JOptionPane.PLAIN_MESSAGE);
-            
-            RateWindow.show(true);
-            //jInternalFrame1.setVisible(true);
-            //CardScrollPagePanel.add(CompConformationWindow);//jInternalFrame1);
-            //CompConformationWindow.setVisible(true);
-            
-            count=0;
-        }
-        
-        
-    }//GEN-LAST:event_NextCardBttnActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
