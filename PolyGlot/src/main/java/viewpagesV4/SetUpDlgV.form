@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="dlgRoleC">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
@@ -30,7 +34,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="SetUpPagePanel" min="-2" max="-2" attributes="0"/>
+          <Component id="SetUpPagePanel" alignment="1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -79,7 +83,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="PartnerLbl" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="PartnerTxtFld" min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Component id="dlgPartnerC" min="-2" pref="140" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -89,13 +93,13 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="DlgNameLbl1" max="32767" attributes="0"/>
+                                                  <Component id="dlgNameC" max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="DlgLvlLbl1" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                                                      <Component id="DlgTopicLbl1" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                                      <Component id="dlgLevelC" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                                      <Component id="dlgTopicC" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -106,12 +110,12 @@
                                               <Component id="DlgTopicLbl" alignment="1" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="DlgGramLbl1" max="32767" attributes="0"/>
+                                          <Component id="dlgGrmmarC" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="65" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -132,27 +136,27 @@
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="DlgNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DlgNameLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dlgNameC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="DlgLevelLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DlgLvlLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dlgLevelC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="DlgTopicLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DlgTopicLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dlgTopicC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="DlgGramLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DlgGramLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dlgGrmmarC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="PartnerLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="PartnerTxtFld" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dlgPartnerC" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -162,7 +166,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="StartDlgBttn" min="-2" pref="66" max="-2" attributes="0"/>
-                  <EmptySpace pref="149" max="32767" attributes="0"/>
+                  <EmptySpace pref="154" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -186,7 +190,7 @@
             <Property name="text" type="java.lang.String" value="Dialogue Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="PartnerTxtFld">
+        <Component class="javax.swing.JTextField" name="dlgPartnerC">
           <Properties>
             <Property name="text" type="java.lang.String" value="jTextField1"/>
           </Properties>
@@ -203,6 +207,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="RoleARadBttn">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="dlgRoleC"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Role A"/>
           </Properties>
           <AccessibilityProperties>
@@ -210,12 +217,12 @@
               <ComponentRef name="RoleLbl"/>
             </Property>
           </AccessibilityProperties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RoleARadBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="RoleBRadBttn">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="dlgRoleC"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Role B"/>
           </Properties>
           <AccessibilityProperties>
@@ -244,22 +251,22 @@
             <Property name="text" type="java.lang.String" value="Grammar:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="DlgGramLbl1">
+        <Component class="javax.swing.JLabel" name="dlgGrmmarC">
           <Properties>
             <Property name="text" type="java.lang.String" value="Grammar"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="DlgTopicLbl1">
+        <Component class="javax.swing.JLabel" name="dlgTopicC">
           <Properties>
             <Property name="text" type="java.lang.String" value="Topic"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="DlgLvlLbl1">
+        <Component class="javax.swing.JLabel" name="dlgLevelC">
           <Properties>
             <Property name="text" type="java.lang.String" value="Level"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="DlgNameLbl1">
+        <Component class="javax.swing.JLabel" name="dlgNameC">
           <Properties>
             <Property name="text" type="java.lang.String" value="Dialogue Name"/>
           </Properties>
@@ -274,9 +281,6 @@
               <Dimension value="[25, 25]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CloseBttnActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

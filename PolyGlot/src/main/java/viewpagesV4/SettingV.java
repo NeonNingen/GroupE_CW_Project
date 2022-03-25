@@ -5,6 +5,9 @@
  */
 package viewpagesV4;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author mones
@@ -38,7 +41,6 @@ public class SettingV extends javax.swing.JFrame {
         logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(414, 667));
 
         SettingContent.setBackground(new java.awt.Color(255, 255, 255));
         SettingContent.setPreferredSize(new java.awt.Dimension(414, 515));
@@ -46,18 +48,8 @@ public class SettingV extends javax.swing.JFrame {
         settingLabel.setText("Choose language of study: ");
 
         selectLang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        selectLang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectLangActionPerformed(evt);
-            }
-        });
 
         logout.setText("Logout");
-        logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
@@ -104,21 +96,29 @@ public class SettingV extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(SettingContent, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
+                    .addComponent(SettingContent, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutActionPerformed
+    public JButton getLogout() {
+        return logout;
+    }
 
-    private void selectLangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectLangActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_selectLangActionPerformed
+    public void setLogout(JButton logout) {
+        this.logout = logout;
+    }
 
+    public JComboBox<String> getSelectLang() {
+        return selectLang;
+    }
+
+    public void setSelectLang(JComboBox<String> selectLang) {
+        this.selectLang = selectLang;
+    }
+    
     /**
      * @param args the command line arguments
      */
