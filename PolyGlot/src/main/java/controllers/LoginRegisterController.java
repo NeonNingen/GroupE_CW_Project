@@ -6,8 +6,6 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import viewpagesV4.RegisterView;
 import viewpagesV4.SupportV;
 import viewpagesV4.loginView;
@@ -19,6 +17,7 @@ import viewpagesV4.progV;
  */
 public class LoginRegisterController implements ActionListener
 {
+    //test test test test test test e
     private loginView loginPage;
 
     public LoginRegisterController(loginView loginPage) 
