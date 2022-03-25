@@ -49,29 +49,14 @@ public class RegisterView extends javax.swing.JFrame {
         regTitle.setText("Create new user account");
 
         SupportBttn.setText("Help");
-        SupportBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupportBttnActionPerformed(evt);
-            }
-        });
 
         nameReg.setText("Name");
-        nameReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameRegActionPerformed(evt);
-            }
-        });
 
         SurnameReg.setText("Surname");
 
         emailReg.setText("Email");
 
         groupIdSelect.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        groupIdSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupIdSelectActionPerformed(evt);
-            }
-        });
 
         groupIdLblReg.setText("Group ID :");
 
@@ -84,18 +69,8 @@ public class RegisterView extends javax.swing.JFrame {
         pwdReg2Lbl.setText("Reapeat Password:");
 
         termsCond.setText("I agree with the terms and conditions *");
-        termsCond.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                termsCondActionPerformed(evt);
-            }
-        });
 
         regBttn.setText("Register");
-        regBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regBttnActionPerformed(evt);
-            }
-        });
 
         CancelBttn.setText("Cancel");
 
@@ -127,7 +102,7 @@ public class RegisterView extends javax.swing.JFrame {
                                     .addComponent(groupIdSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(pwdReg1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                     .addComponent(pwdReg2)))
-                            .addComponent(termsCond, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)))
+                            .addComponent(termsCond, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)))
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -183,26 +158,6 @@ public class RegisterView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nameRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRegActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameRegActionPerformed
-
-    private void groupIdSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupIdSelectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_groupIdSelectActionPerformed
-
-    private void termsCondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_termsCondActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_termsCondActionPerformed
-
-    private void regBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_regBttnActionPerformed
-
-    private void SupportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupportBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupportBttnActionPerformed
 
     /**
      * @param args the command line arguments

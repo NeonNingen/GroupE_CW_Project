@@ -68,7 +68,7 @@
                                       <Component id="pwdReg2" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="termsCond" alignment="0" pref="259" max="32767" attributes="0"/>
+                              <Component id="termsCond" alignment="0" pref="261" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -134,17 +134,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SupportBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="nameReg">
           <Properties>
             <Property name="text" type="java.lang.String" value="Name"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameRegActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="SurnameReg">
           <Properties>
@@ -167,9 +161,6 @@
               </StringArray>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="groupIdSelectActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -203,17 +194,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="I agree with the terms and conditions *"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="termsCondActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="regBttn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CancelBttn">
           <Properties>

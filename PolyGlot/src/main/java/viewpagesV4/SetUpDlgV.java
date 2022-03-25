@@ -255,8 +255,15 @@ public class SetUpDlgV extends javax.swing.JFrame {
         this.dlgTopicC = dlgTopicC;
     }
 
-    
-    
+    public JButton getCloseBttn() {
+        return CloseBttn;
+    }
+
+    public void setCloseBttn(JButton CloseBttn) {
+        this.CloseBttn = CloseBttn;
+    }
+
+      
     /**
      * @param args the command line arguments
      */
