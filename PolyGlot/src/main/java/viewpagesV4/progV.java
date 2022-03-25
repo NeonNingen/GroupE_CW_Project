@@ -5,6 +5,10 @@
  */
 package viewpagesV4;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 /**
  *
  * @author mones
@@ -65,11 +69,6 @@ public class progV extends javax.swing.JFrame {
 
         dlgHistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         dlgHistBtn.setText("View Dialogue History");
-        dlgHistBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dlgHistBtnActionPerformed(evt);
-            }
-        });
 
         DataGraph.setBackground(new java.awt.Color(255, 153, 153));
 
@@ -156,10 +155,79 @@ public class progV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dlgHistBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dlgHistBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dlgHistBtnActionPerformed
+    public JButton getDlgHistBtn() {
+        return dlgHistBtn;
+    }
 
+    public JPanel getDataGraph() {
+        return DataGraph;
+    }
+
+    public JLabel getCurrentLvlP() {
+        return currentLvlP;
+    }
+
+    public JLabel getEmailP() {
+        return emailP;
+    }
+
+    public JLabel getGroupIdP() {
+        return groupIdP;
+    }
+
+    public JLabel getNameP() {
+        return nameP;
+    }
+
+    public JLabel getNextLvlP() {
+        return nextLvlP;
+    }
+
+    public JLabel getUserIdP() {
+        return userIdP;
+    }
+
+    public JLabel getUserTypeP() {
+        return userTypeP;
+    }
+    
+
+    public void setDlgHistBtn(JButton dlgHistBtn) {
+        this.dlgHistBtn = dlgHistBtn;
+    }
+
+    public void setDataGraph(JPanel DataGraph) {
+        this.DataGraph = DataGraph;
+    }
+
+    public void setCurrentLvlP(JLabel currentLvlP) {
+        this.currentLvlP = currentLvlP;
+    }
+
+    public void setEmailP(JLabel emailP) {
+        this.emailP = emailP;
+    }
+
+    public void setGroupIdP(JLabel groupIdP) {
+        this.groupIdP = groupIdP;
+    }
+
+    public void setNameP(JLabel nameP) {
+        this.nameP = nameP;
+    }
+
+    public void setNextLvlP(JLabel nextLvlP) {
+        this.nextLvlP = nextLvlP;
+    }
+
+    public void setUserIdP(JLabel userIdP) {
+        this.userIdP = userIdP;
+    }
+
+    public void setUserTypeP(JLabel userTypeP) {
+        this.userTypeP = userTypeP;
+    }
+    
     /**
      * @param args the command line arguments
      */
