@@ -5,6 +5,9 @@
  */
 package viewpagesV4;
 
+import javax.swing.JLabel;
+import javax.swing.JTable;
+
 /**
  *
  * @author mones
@@ -113,7 +116,7 @@ public class UListStdV extends javax.swing.JFrame {
                         .addComponent(GroupTeach1)))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -136,6 +139,30 @@ public class UListStdV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JLabel getGroupIdLbl1() {
+        return GroupIdLbl1;
+    }
+
+    public JLabel getGroupTeach1() {
+        return GroupTeach1;
+    }
+
+    public JTable getTblofStd() {
+        return TblofStd;
+    }
+
+    public void setGroupIdLbl1(JLabel GroupIdLbl1) {
+        this.GroupIdLbl1 = GroupIdLbl1;
+    }
+
+    public void setGroupTeach1(JLabel GroupTeach1) {
+        this.GroupTeach1 = GroupTeach1;
+    }
+
+    public void setTblofStd(JTable TblofStd) {
+        this.TblofStd = TblofStd;
+    }
+    
     /**
      * @param args the command line arguments
      */
