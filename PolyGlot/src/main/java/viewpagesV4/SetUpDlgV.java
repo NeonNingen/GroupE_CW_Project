@@ -4,6 +4,11 @@
  */
 package viewpagesV4;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 
 /**
  *
@@ -23,11 +28,12 @@ public class SetUpDlgV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dlgRoleC = new javax.swing.ButtonGroup();
         SetUpPagePanel = new javax.swing.JPanel();
         SetUpDlgTitle = new javax.swing.JLabel();
         PartnerLbl = new javax.swing.JLabel();
         DlgNameLbl = new javax.swing.JLabel();
-        PartnerTxtFld = new javax.swing.JTextField();
+        dlgPartnerC = new javax.swing.JTextField();
         RoleLbl = new javax.swing.JLabel();
         RoleARadBttn = new javax.swing.JRadioButton();
         RoleBRadBttn = new javax.swing.JRadioButton();
@@ -35,10 +41,10 @@ public class SetUpDlgV extends javax.swing.JFrame {
         DlgLevelLbl = new javax.swing.JLabel();
         DlgTopicLbl = new javax.swing.JLabel();
         DlgGramLbl = new javax.swing.JLabel();
-        DlgGramLbl1 = new javax.swing.JLabel();
-        DlgTopicLbl1 = new javax.swing.JLabel();
-        DlgLvlLbl1 = new javax.swing.JLabel();
-        DlgNameLbl1 = new javax.swing.JLabel();
+        dlgGrmmarC = new javax.swing.JLabel();
+        dlgTopicC = new javax.swing.JLabel();
+        dlgLevelC = new javax.swing.JLabel();
+        dlgNameC = new javax.swing.JLabel();
         CloseBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,17 +62,14 @@ public class SetUpDlgV extends javax.swing.JFrame {
 
         DlgNameLbl.setText("Dialogue Name:");
 
-        PartnerTxtFld.setText("jTextField1");
+        dlgPartnerC.setText("jTextField1");
 
         RoleLbl.setText("Choose Role:");
 
+        dlgRoleC.add(RoleARadBttn);
         RoleARadBttn.setText("Role A");
-        RoleARadBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RoleARadBttnActionPerformed(evt);
-            }
-        });
 
+        dlgRoleC.add(RoleBRadBttn);
         RoleBRadBttn.setText("Role B");
 
         StartDlgBttn.setText("Start");
@@ -77,22 +80,17 @@ public class SetUpDlgV extends javax.swing.JFrame {
 
         DlgGramLbl.setText("Grammar:");
 
-        DlgGramLbl1.setText("Grammar");
+        dlgGrmmarC.setText("Grammar");
 
-        DlgTopicLbl1.setText("Topic");
+        dlgTopicC.setText("Topic");
 
-        DlgLvlLbl1.setText("Level");
+        dlgLevelC.setText("Level");
 
-        DlgNameLbl1.setText("Dialogue Name");
+        dlgNameC.setText("Dialogue Name");
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         CloseBttn.setText("X");
         CloseBttn.setPreferredSize(new java.awt.Dimension(25, 25));
-        CloseBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseBttnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout SetUpPagePanelLayout = new javax.swing.GroupLayout(SetUpPagePanel);
         SetUpPagePanel.setLayout(SetUpPagePanelLayout);
@@ -120,7 +118,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                                     .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                                         .addComponent(PartnerLbl)
                                         .addGap(18, 18, 18)
-                                        .addComponent(PartnerTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(dlgPartnerC, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                                         .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(DlgLevelLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -128,19 +126,19 @@ public class SetUpDlgV extends javax.swing.JFrame {
                                         .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(DlgNameLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(dlgNameC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SetUpPagePanelLayout.createSequentialGroup()
                                                 .addGap(12, 12, 12)
                                                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(DlgLvlLbl1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(DlgTopicLbl1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addComponent(dlgLevelC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(dlgTopicC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                                         .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(DlgGramLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                                             .addComponent(DlgTopicLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(12, 12, 12)
-                                        .addComponent(DlgGramLbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGap(0, 51, Short.MAX_VALUE))
+                                        .addComponent(dlgGrmmarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                        .addGap(0, 65, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SetUpPagePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -156,23 +154,23 @@ public class SetUpDlgV extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DlgNameLbl)
-                    .addComponent(DlgNameLbl1))
+                    .addComponent(dlgNameC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DlgLevelLbl)
-                    .addComponent(DlgLvlLbl1))
+                    .addComponent(dlgLevelC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DlgTopicLbl)
-                    .addComponent(DlgTopicLbl1))
+                    .addComponent(dlgTopicC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DlgGramLbl)
-                    .addComponent(DlgGramLbl1))
+                    .addComponent(dlgGrmmarC))
                 .addGap(66, 66, 66)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PartnerLbl)
-                    .addComponent(PartnerTxtFld, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dlgPartnerC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RoleLbl)
@@ -180,10 +178,10 @@ public class SetUpDlgV extends javax.swing.JFrame {
                     .addComponent(RoleBRadBttn))
                 .addGap(80, 80, 80)
                 .addComponent(StartDlgBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
-        PartnerTxtFld.getAccessibleContext().setAccessibleParent(PartnerLbl);
+        dlgPartnerC.getAccessibleContext().setAccessibleParent(PartnerLbl);
         RoleARadBttn.getAccessibleContext().setAccessibleParent(RoleLbl);
         RoleBRadBttn.getAccessibleContext().setAccessibleParent(RoleLbl);
 
@@ -191,7 +189,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SetUpPagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(SetUpPagePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,14 +199,64 @@ public class SetUpDlgV extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RoleARadBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoleARadBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RoleARadBttnActionPerformed
+    public JButton getStartDlgBttn() {
+        return StartDlgBttn;
+    }
 
-    private void CloseBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CloseBttnActionPerformed
+    public void setStartDlgBttn(JButton StartDlgBttn) {
+        this.StartDlgBttn = StartDlgBttn;
+    }
 
+    public JLabel getDlgGrmmarC() {
+        return dlgGrmmarC;
+    }
+
+    public void setDlgGrmmarC(JLabel dlgGrmmarC) {
+        this.dlgGrmmarC = dlgGrmmarC;
+    }
+
+    public JLabel getDlgLevelC() {
+        return dlgLevelC;
+    }
+
+    public void setDlgLevelC(JLabel dlgLevelC) {
+        this.dlgLevelC = dlgLevelC;
+    }
+
+    public JLabel getDlgNameC() {
+        return dlgNameC;
+    }
+
+    public void setDlgNameC(JLabel dlgNameC) {
+        this.dlgNameC = dlgNameC;
+    }
+
+    public JTextField getDlgPartnerC() {
+        return dlgPartnerC;
+    }
+
+    public void setDlgPartnerC(JTextField dlgPartnerC) {
+        this.dlgPartnerC = dlgPartnerC;
+    }
+
+    public ButtonGroup getDlgRoleC() {
+        return dlgRoleC;
+    }
+
+    public void setDlgRoleC(ButtonGroup dlgRoleC) {
+        this.dlgRoleC = dlgRoleC;
+    }
+
+    public JLabel getDlgTopicC() {
+        return dlgTopicC;
+    }
+
+    public void setDlgTopicC(JLabel dlgTopicC) {
+        this.dlgTopicC = dlgTopicC;
+    }
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -254,21 +302,22 @@ public class SetUpDlgV extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseBttn;
     private javax.swing.JLabel DlgGramLbl;
-    private javax.swing.JLabel DlgGramLbl1;
     private javax.swing.JLabel DlgLevelLbl;
-    private javax.swing.JLabel DlgLvlLbl1;
     private javax.swing.JLabel DlgNameLbl;
-    private javax.swing.JLabel DlgNameLbl1;
     private javax.swing.JLabel DlgTopicLbl;
-    private javax.swing.JLabel DlgTopicLbl1;
     private javax.swing.JLabel PartnerLbl;
-    private javax.swing.JTextField PartnerTxtFld;
     private javax.swing.JRadioButton RoleARadBttn;
     private javax.swing.JRadioButton RoleBRadBttn;
     private javax.swing.JLabel RoleLbl;
     private javax.swing.JLabel SetUpDlgTitle;
     private javax.swing.JPanel SetUpPagePanel;
     private javax.swing.JButton StartDlgBttn;
+    private javax.swing.JLabel dlgGrmmarC;
+    private javax.swing.JLabel dlgLevelC;
+    private javax.swing.JLabel dlgNameC;
+    private javax.swing.JTextField dlgPartnerC;
+    private javax.swing.ButtonGroup dlgRoleC;
+    private javax.swing.JLabel dlgTopicC;
     // End of variables declaration//GEN-END:variables
 }
 
