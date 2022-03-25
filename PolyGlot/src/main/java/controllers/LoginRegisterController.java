@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import viewpagesV4.RegisterView;
+import viewpagesV4.SupportV;
 import viewpagesV4.loginView;
 import viewpagesV4.progV;
 
@@ -18,18 +20,16 @@ import viewpagesV4.progV;
 public class LoginRegisterController implements ActionListener
 {
     private loginView loginPage;
-    private JButton bttn;
 
     public LoginRegisterController(loginView loginPage) 
     {
         this.loginPage = loginPage;
-        this.bttn = loginPage.getLoginBttn();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        if(e.getSource() == bttn)
+        if(e.getSource() == loginPage.getLoginBttn())
         {
             loginPage.dispose();
             progV progPage = new progV();
@@ -38,7 +38,16 @@ public class LoginRegisterController implements ActionListener
         
         if(e.getSource() == loginPage.getRegisterBttn())
         {
-            JOptionPane.showMessageDialog(loginPage, "hey");
+            loginPage.dispose();
+            RegisterView regPage = new RegisterView();
+            regPage.show();
+        }
+        
+        if(e.getSource() == loginPage.getSupportBttn())
+        {
+           loginPage.dispose();
+           SupportV supportPage = new SupportV();
+           supportPage.show(); 
         }
     }
 

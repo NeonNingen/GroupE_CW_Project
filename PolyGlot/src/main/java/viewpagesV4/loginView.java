@@ -7,6 +7,8 @@ package viewpagesV4;
 
 import controllers.LoginRegisterController;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,6 +21,9 @@ public class loginView extends javax.swing.JFrame {
      */
     public loginView() {
         initComponents();
+        loginBttn.addActionListener(new LoginRegisterController(this));
+        registerBttn.addActionListener(new LoginRegisterController(this));
+        SupportBttn.addActionListener(new LoginRegisterController(this));
         //loginBttnRedirect();
     }
 
@@ -48,22 +53,12 @@ public class loginView extends javax.swing.JFrame {
         loginPanel.setPreferredSize(new java.awt.Dimension(414, 667));
 
         SupportBttn.setText("Help");
-        SupportBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupportBttnActionPerformed(evt);
-            }
-        });
 
         appTitle.setText("PolyLang");
 
         loginLbl.setText("Login");
 
         uNameLogin.setText("Username");
-        uNameLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uNameLoginActionPerformed(evt);
-            }
-        });
 
         pwdLogin.setText("password");
 
@@ -72,18 +67,8 @@ public class loginView extends javax.swing.JFrame {
         pwdLbl.setText("Password:");
 
         loginBttn.setText("Login");
-        loginBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginBttnActionPerformed(evt);
-            }
-        });
 
         registerBttn.setText("Register");
-        registerBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBttnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
@@ -105,7 +90,7 @@ public class loginView extends javax.swing.JFrame {
                     .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(registerBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SupportBttn)
@@ -132,7 +117,7 @@ public class loginView extends javax.swing.JFrame {
                 .addComponent(loginBttn)
                 .addGap(18, 18, 18)
                 .addComponent(registerBttn)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,31 +134,6 @@ public class loginView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SupportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupportBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupportBttnActionPerformed
-
-    private void uNameLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uNameLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_uNameLoginActionPerformed
-
-    private void loginBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBttnActionPerformed
-        // TODO add your handling code here:
-        loginBttn.addActionListener(new LoginRegisterController(this));
-    }//GEN-LAST:event_loginBttnActionPerformed
-
-    private void registerBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerBttnActionPerformed
-
-    
-//    private void loginBttnRedirect()
-//    {
-//        loginBttn.addActionListener(new LoginRegisterController(this));
-//        registerBttn.addActionListener(new LoginRegisterController(this));
-//        
-//    }
-
     public JButton getRegisterBttn() {
         return registerBttn;
     }
@@ -181,8 +141,6 @@ public class loginView extends javax.swing.JFrame {
     public void setRegisterBttn(JButton registerBttn) {
         this.registerBttn = registerBttn;
     }
-
-    
     
     public JButton getLoginBttn() {
         return loginBttn;
@@ -191,6 +149,32 @@ public class loginView extends javax.swing.JFrame {
     public void setLoginBttn(JButton loginBttn) {
         this.loginBttn = loginBttn;
     }
+
+    public JButton getSupportBttn() {
+        return SupportBttn;
+    }
+
+    public void setSupportBttn(JButton SupportBttn) {
+        this.SupportBttn = SupportBttn;
+    }
+
+    public JPasswordField getPwdLogin() {
+        return pwdLogin;
+    }
+
+    public void setPwdLogin(JPasswordField pwdLogin) {
+        this.pwdLogin = pwdLogin;
+    }
+
+    public JTextField getuNameLogin() {
+        return uNameLogin;
+    }
+
+    public void setuNameLogin(JTextField uNameLogin) {
+        this.uNameLogin = uNameLogin;
+    }
+    
+    
     
     
     /**

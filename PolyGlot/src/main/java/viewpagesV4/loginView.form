@@ -65,7 +65,7 @@
                           <Component id="loginBttn" min="-2" pref="80" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="116" max="32767" attributes="0"/>
+                  <EmptySpace pref="111" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -97,7 +97,7 @@
                   <Component id="loginBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="registerBttn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="237" max="32767" attributes="0"/>
+                  <EmptySpace pref="229" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -107,9 +107,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SupportBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="appTitle">
           <Properties>
@@ -125,9 +122,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Username"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uNameLoginActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pwdLogin">
           <Properties>
@@ -148,17 +142,11 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="registerBttn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Register"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBttnActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
