@@ -4,6 +4,7 @@
  */
 package viewpagesV4;
 
+import controllers.PerfmDlgController;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -22,6 +23,8 @@ public class SetUpDlgV extends javax.swing.JFrame {
     public SetUpDlgV() {
         initComponents();
         setSize(414,667);
+        StartDlgBttn.addActionListener(new PerfmDlgController(this));
+        CloseBttn.addActionListener(new PerfmDlgController(this));
     }
 
     @SuppressWarnings("unchecked")

@@ -6,6 +6,9 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import viewpagesV4.CardScrollV;
+import viewpagesV4.DlgHistV;
+import viewpagesV4.DlgListV;
 import viewpagesV4.SetUpDlgV;
 
 /**
@@ -14,17 +17,30 @@ import viewpagesV4.SetUpDlgV;
  */
 public class PerfmDlgController implements ActionListener
  {
-    private SetUpDlgV SetUpDialoguePage;
+    private SetUpDlgV SetUpDlgPage;
+
+    public PerfmDlgController(SetUpDlgV SetUpDlgPage) 
+    {
+        this.SetUpDlgPage = SetUpDlgPage;
+    }
+    
+    
     
     @Override
-    public void actionPerformed(ActionEvent e) {
-     /**  
-        if(e.getSource() == SetUpDialoguePage.getStartDlgBttn())
+    public void actionPerformed(ActionEvent e) 
+    {
        
-        {
-            SetUpDialoguePage.dispose();
-            new SetUpDlgV().show();
-        }*/
+       if(e.getSource() == SetUpDlgPage.getStartDlgBttn())
+       {
+           SetUpDlgPage.dispose();
+           new CardScrollV().show();
+       }
+       
+       if(e.getSource() == SetUpDlgPage.getCloseBttn())
+       {
+          SetUpDlgPage.dispose();
+          new DlgListV().show();
+       }
     }
 
 }

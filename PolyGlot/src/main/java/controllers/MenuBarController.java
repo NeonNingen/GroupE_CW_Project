@@ -78,7 +78,7 @@ public class MenuBarController implements ActionListener
             }
             
         }
-//        
+        
         if(e.getSource() == menu.getSettBttn())
         {
             if(!(currentPage instanceof SettingV))

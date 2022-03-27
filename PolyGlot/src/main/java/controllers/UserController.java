@@ -23,8 +23,15 @@ public class UserController implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
+      /*
+        after checking both UserList Pages, I noticed that the code written below won't be needed 
+        as the 'linking' part is done by the MenuBarController
         
-      /*if(e.getSource() == UserListSudentPage.getUserListBttn())
+        [Amit]
+      */
+        
+        
+        /*if(e.getSource() == UserListSudentPage.getUserListBttn())
        
         {
             UserListSudentPage.dispose();
