@@ -224,4 +224,6 @@ public class UListTchV extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel orderByLbl;
     // End of variables declaration//GEN-END:variables
+
+   
 }
