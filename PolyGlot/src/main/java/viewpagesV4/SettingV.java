@@ -5,6 +5,7 @@
  */
 package viewpagesV4;
 
+import controllers.MenuBarController;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -24,6 +25,12 @@ public class SettingV extends javax.swing.JFrame {
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("Setting");
         menu.setPageTopicContent(SettingContent);
+        
+        //add actionlistener
+        //menu.getSettBttn().disable();
+        menu.getProVBttn().addActionListener(new MenuBarController(this, menu));
+        menu.getDlgListBttn().addActionListener(new MenuBarController(this, menu));
+        menu.getSupportBttn().addActionListener(new MenuBarController(this, menu));
     }
 
     /**

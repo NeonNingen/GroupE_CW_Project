@@ -17,6 +17,7 @@ public class MenuBarView extends javax.swing.JFrame {
     public MenuBarView() {
         initComponents();
         setSize(414,667);
+       
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 package viewpagesV4;
 
+import controllers.MenuBarController;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,6 +26,22 @@ public class progV extends javax.swing.JFrame {
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("Progress View");
         menu.setPageTopicContent(ProgViewContent);
+        
+        //menu.getProVBttn().disable();
+        menu.getSettBttn().addActionListener(new MenuBarController(this, menu));
+        menu.getDlgListBttn().addActionListener(new MenuBarController(this, menu));
+        menu.getSupportBttn().addActionListener(new MenuBarController(this, menu));
+        
+        /*
+         ALTERNATIVE METHOD TO ADD ACTION LISTENER TO THE COMPONENTS OF MenuBarView
+        
+         MenuBarView menu = new MenuBarView(this); it will pass the page itself to menubar,
+         by doing this we will avoid adding the same addActionListener codes for every other page, and do it
+         directly on the MenuBarView 
+         with a getter retrieve the current page in the MenuBarController and use it in the if statements
+         [Amit]
+        
+        */
     }
 
     /**
