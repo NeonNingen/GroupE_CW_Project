@@ -21,10 +21,13 @@ import java.util.logging.Logger;
  */
 abstract class DatabaseModel 
 {
+
+    static Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     //variables
     protected Statement stm; //variable needed to run the query
     protected ResultSet rs;  //variable used to store the result of the query
-    protected String url  = "jdbc:sqlite:test2.db";    //variable that stores the address of the SQLite database
     protected String query;  //variable used to store the query code
     
 
@@ -69,7 +72,7 @@ abstract class DatabaseModel
      * @param querySql the query to execute in the function
      * @return the result of the query in an ArrayList
      */
-    public ArrayList<ArrayList<Object>> retrieve(String querySql)
+    public ArrayList<ArrayList<Object>> retrieve(String querySql, String url)
     {
         Connection con = getConnection(url);
         ArrayList<Object> test = null;

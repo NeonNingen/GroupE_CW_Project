@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Contains all database methods
  */
 package model;
 
@@ -12,20 +10,18 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Amit
- */
+
 public class UserModel extends DatabaseModel
 {
     //variables
     private String name;
     private String surname;
     private String email;
+    private String url;
 
     public UserModel() 
     {
-        
+        this.url = "jdbc:sqlite:polyLang.db";
     }
     
     //getters
@@ -67,7 +63,7 @@ public class UserModel extends DatabaseModel
     public void retrieveUserList()
     {
         String querySql = "SELECT * FROM User";
-        ArrayList<ArrayList<Object>> data = super.retrieve(querySql);
+        ArrayList<ArrayList<Object>> data = super.retrieve(querySql, this.url);
 //        ArrayList data = new ArrayList();
         
 //        try {
@@ -96,7 +92,7 @@ public class UserModel extends DatabaseModel
      */
     public void delete() 
     {
-        Connection con = super.getConnection(super.url);
+        Connection con = super.getConnection(this.url);
         try 
         {
             super.stm = con.createStatement();
@@ -126,7 +122,7 @@ public class UserModel extends DatabaseModel
     @Override
     public void insert() 
     {
-        Connection con = super.getConnection(url);
+        Connection con = super.getConnection(this.url);
         try 
         {
             super.stm = con.createStatement();
@@ -157,7 +153,7 @@ public class UserModel extends DatabaseModel
     @Override
     public void update() 
     {
-        Connection con = super.getConnection(super.url);
+        Connection con = super.getConnection(this.url);
         try 
         {
             super.stm = con.createStatement();    //since the variable stm is protected it can be accessed directly with or without super
