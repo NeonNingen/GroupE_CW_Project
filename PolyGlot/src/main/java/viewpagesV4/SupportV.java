@@ -6,6 +6,7 @@ package viewpagesV4;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
@@ -37,7 +38,7 @@ public class SupportV extends javax.swing.JFrame {
 
         supportContent = new javax.swing.JPanel();
         SupContTxtScrollP = new javax.swing.JScrollPane();
-        SupportContent = new javax.swing.JPanel();
+        scrollPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -59,11 +60,12 @@ public class SupportV extends javax.swing.JFrame {
 
         SupContTxtScrollP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         SupContTxtScrollP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        SupContTxtScrollP.setAutoscrolls(true);
         SupContTxtScrollP.setPreferredSize(new java.awt.Dimension(414, 470));
 
-        SupportContent.setBackground(new java.awt.Color(255, 255, 255));
-        SupportContent.setAutoscrolls(true);
-        SupportContent.setPreferredSize(new java.awt.Dimension(414, 1000));
+        scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPanel.setAutoscrolls(true);
+        scrollPanel.setPreferredSize(new java.awt.Dimension(414, 1000));
 
         jLabel1.setText("jLabel1");
 
@@ -89,27 +91,27 @@ public class SupportV extends javax.swing.JFrame {
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
 
-        javax.swing.GroupLayout SupportContentLayout = new javax.swing.GroupLayout(SupportContent);
-        SupportContent.setLayout(SupportContentLayout);
-        SupportContentLayout.setHorizontalGroup(
-            SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SupportContentLayout.createSequentialGroup()
+        javax.swing.GroupLayout scrollPanelLayout = new javax.swing.GroupLayout(scrollPanel);
+        scrollPanel.setLayout(scrollPanelLayout);
+        scrollPanelLayout.setHorizontalGroup(
+            scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollPanelLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane4)
                     .addComponent(jLabel4)
                     .addComponent(jScrollPane3)
                     .addComponent(jScrollPane2)
-                    .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel3)
                         .addComponent(jLabel2)
                         .addComponent(jLabel1))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
-        SupportContentLayout.setVerticalGroup(
-            SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SupportContentLayout.createSequentialGroup()
+        scrollPanelLayout.setVerticalGroup(
+            scrollPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollPanelLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
@@ -129,7 +131,7 @@ public class SupportV extends javax.swing.JFrame {
                 .addGap(103, 103, 103))
         );
 
-        SupContTxtScrollP.setViewportView(SupportContent);
+        SupContTxtScrollP.setViewportView(scrollPanel);
 
         javax.swing.GroupLayout supportContentLayout = new javax.swing.GroupLayout(supportContent);
         supportContent.setLayout(supportContentLayout);
@@ -226,6 +228,10 @@ public class SupportV extends javax.swing.JFrame {
         this.jTextArea4 = jTextArea4;
     }
 
+    public JPanel getSupportContent() {
+        return supportContent;
+    }
+
     
     
     /**
@@ -266,7 +272,6 @@ public class SupportV extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane SupContTxtScrollP;
-    private javax.swing.JPanel SupportContent;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -279,6 +284,7 @@ public class SupportV extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JPanel scrollPanel;
     private javax.swing.JPanel supportContent;
     // End of variables declaration//GEN-END:variables
 }

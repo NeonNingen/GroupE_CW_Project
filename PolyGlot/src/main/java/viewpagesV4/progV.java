@@ -5,7 +5,6 @@
  */
 package viewpagesV4;
 
-import controllers.MenuBarController;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,33 +14,17 @@ import javax.swing.JPanel;
  * @author mones
  */
 public class progV extends javax.swing.JFrame {
-
+    private String pageName= "prog";
     /**
      * Creates new form progV
      */
     public progV() {
         initComponents();
         setSize(414,667);
-        MenuBarView menu = new MenuBarView();
-        this.setContentPane(menu.getContentPane());
-        menu.setPageTitle("Progress View");
-        menu.setPageTopicContent(ProgViewContent);
-        
-        //menu.getProVBttn().disable();
-        menu.getSettBttn().addActionListener(new MenuBarController(this, menu));
-        menu.getDlgListBttn().addActionListener(new MenuBarController(this, menu));
-        menu.getSupportBttn().addActionListener(new MenuBarController(this, menu));
-        
-        /*
-         ALTERNATIVE METHOD TO ADD ACTION LISTENER TO THE COMPONENTS OF MenuBarView
-        
-         MenuBarView menu = new MenuBarView(this); it will pass the page itself to menubar,
-         by doing this we will avoid adding the same addActionListener codes for every other page, and do it
-         directly on the MenuBarView 
-         with a getter retrieve the current page in the MenuBarController and use it in the if statements
-         [Amit]
-        
-        */
+        //MenuBarView menu = new MenuBarView();
+        //this.setContentPane(menu.getContentPane());
+        //menu.setPageTitle("Progress View");
+        //menu.setPageTopicContent(ProgViewContent);
     }
 
     /**
@@ -107,7 +90,7 @@ public class progV extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProgViewContentLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(DataGraph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(emailP, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userTypeP, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,7 +132,7 @@ public class progV extends javax.swing.JFrame {
                 .addComponent(nextLvlP)
                 .addGap(61, 61, 61)
                 .addComponent(dlgHistBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,19 +141,23 @@ public class progV extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ProgViewContent, 394, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ProgViewContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ProgViewContent, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+                .addComponent(ProgViewContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(152, 152, 152))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JPanel getProgViewContent() {
+        return ProgViewContent;
+    }
 
     public JButton getDlgHistBtn() {
         return dlgHistBtn;

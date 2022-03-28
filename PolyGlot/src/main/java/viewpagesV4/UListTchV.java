@@ -6,6 +6,7 @@
 package viewpagesV4;
 
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
@@ -104,7 +105,7 @@ public class UListTchV extends javax.swing.JFrame {
                         .addComponent(ULvlLbl)
                         .addGap(18, 18, 18)
                         .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         UListContentLayout.setVerticalGroup(
             UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +121,7 @@ public class UListTchV extends javax.swing.JFrame {
                     .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ULvlLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
@@ -174,6 +175,10 @@ public class UListTchV extends javax.swing.JFrame {
 
     public void setGroupFilterCbox(JComboBox<String> groupFilterCbox) {
         this.groupFilterCbox = groupFilterCbox;
+    }
+
+    public JPanel getUListContent() {
+        return UListContent;
     }
 
     

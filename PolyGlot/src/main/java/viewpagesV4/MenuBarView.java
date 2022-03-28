@@ -4,20 +4,23 @@
  */
 package viewpagesV4;
 
+import controllers.MenuBarController;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class MenuBarView extends javax.swing.JFrame {
-
+    String currentPage;
     /**
      * Creates new form MenuBar
      */
     public MenuBarView() {
         initComponents();
         setSize(414,667);
-       
+        UListBttn.addActionListener(new MenuBarController(this));
+        ProVBttn.addActionListener(new MenuBarController(this));
+        SupportBttn.addActionListener(new MenuBarController(this));
     }
 
     /**
@@ -37,6 +40,7 @@ public class MenuBarView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        emptyContentPage = new javax.swing.JPanel();
         MenuBarPanel = new javax.swing.JPanel();
         PageTitle = new javax.swing.JLabel();
         PageTopicContent = new javax.swing.JPanel();
@@ -45,6 +49,19 @@ public class MenuBarView extends javax.swing.JFrame {
         ProVBttn = new javax.swing.JButton();
         DlgListBttn = new javax.swing.JButton();
         SupportBttn = new javax.swing.JButton();
+
+        emptyContentPage.setPreferredSize(new java.awt.Dimension(414, 515));
+
+        javax.swing.GroupLayout emptyContentPageLayout = new javax.swing.GroupLayout(emptyContentPage);
+        emptyContentPage.setLayout(emptyContentPageLayout);
+        emptyContentPageLayout.setHorizontalGroup(
+            emptyContentPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        emptyContentPageLayout.setVerticalGroup(
+            emptyContentPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -198,6 +215,7 @@ public class MenuBarView extends javax.swing.JFrame {
     private javax.swing.JButton SettBttn;
     private javax.swing.JButton SupportBttn;
     private javax.swing.JButton UListBttn;
+    private javax.swing.JPanel emptyContentPage;
     // End of variables declaration//GEN-END:variables
 
     public void setPageTitle(String text) {
@@ -205,8 +223,13 @@ public class MenuBarView extends javax.swing.JFrame {
                 //= PageTitle;
     }
 
+  
     public void setPageTopicContent(JPanel PageTopicContent) {
+        this.PageTopicContent.removeAll();
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
         this.PageTopicContent.add(PageTopicContent);
+        
                 //= PageTopicContent; 
     }
 
@@ -256,20 +279,11 @@ public class MenuBarView extends javax.swing.JFrame {
         return SupportBttn;
     }
 
-    // getter for Ulist will for now return String for controller to check which Ulist to open 
-    public String getUListBttn() { // change it to JButton return type later
-        //return UListBttn; //use as actual return
-        int min=1;
-        int max=2;
-        
-        int random = (int)Math.floor(Math.random()*(max-min+1)+min);
-        if(random%2==0){
-            return "T";
-        }else{
-            return "S";
-        }
+    public JButton getUListBttn() { 
+        return UListBttn; 
           
     }
+    
     
     
 
