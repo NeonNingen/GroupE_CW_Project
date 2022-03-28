@@ -7,6 +7,7 @@ package viewpagesV4;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 
 /**
  *
@@ -107,6 +108,10 @@ public class SettingV extends javax.swing.JFrame {
         return logout;
     }
 
+    public JPanel getSettingContent() {
+        return SettingContent;
+    }
+    
     public void setLogout(JButton logout) {
         this.logout = logout;
     }

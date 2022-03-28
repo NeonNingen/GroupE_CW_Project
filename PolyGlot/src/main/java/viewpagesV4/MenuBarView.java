@@ -21,6 +21,9 @@ public class MenuBarView extends javax.swing.JFrame {
         UListBttn.addActionListener(new MenuBarController(this));
         ProVBttn.addActionListener(new MenuBarController(this));
         SupportBttn.addActionListener(new MenuBarController(this));
+        DlgListBttn.addActionListener(new MenuBarController(this));
+        SettBttn.addActionListener(new MenuBarController(this));
+        
     }
 
     /**
@@ -225,7 +228,7 @@ public class MenuBarView extends javax.swing.JFrame {
 
   
     public void setPageTopicContent(JPanel PageTopicContent) {
-        this.PageTopicContent.removeAll();
+        this.PageTopicContent.removeAll(); //removes
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
         this.PageTopicContent.add(PageTopicContent);

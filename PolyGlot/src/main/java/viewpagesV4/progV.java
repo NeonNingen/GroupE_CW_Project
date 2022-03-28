@@ -5,6 +5,8 @@
  */
 package viewpagesV4;
 
+import controllers.LoginRegisterController;
+import controllers.UserController;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +23,8 @@ public class progV extends javax.swing.JFrame {
     public progV() {
         initComponents();
         setSize(414,667);
+        
+        dlgHistBtn.addActionListener(new UserController(this));
         //MenuBarView menu = new MenuBarView();
         //this.setContentPane(menu.getContentPane());
         //menu.setPageTitle("Progress View");

@@ -4,7 +4,11 @@
  */
 package viewpagesV4;
 
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -130,7 +134,7 @@ public class DlgListV extends javax.swing.JFrame {
                     .addComponent(ChooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ChooseTopicCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ChooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -201,6 +205,54 @@ public class DlgListV extends javax.swing.JFrame {
                 new DlgListV().setVisible(true);
             }
         });
+    }
+
+    public void setChooseGramCbox(JComboBox<String> ChooseGramCbox) {
+        this.ChooseGramCbox = ChooseGramCbox;
+    }
+
+    public void setChooseLvlCbox(JComboBox<String> ChooseLvlCbox) {
+        this.ChooseLvlCbox = ChooseLvlCbox;
+    }
+
+    public void setChooseTopicCbox(JComboBox<String> ChooseTopicCbox) {
+        this.ChooseTopicCbox = ChooseTopicCbox;
+    }
+
+    public void setDlgListContent(JPanel DlgListContent) {
+        this.DlgListContent = DlgListContent;
+    }
+
+    public void setjScrollDlgListTbl(JScrollPane jScrollDlgListTbl) {
+        this.jScrollDlgListTbl = jScrollDlgListTbl;
+    }
+
+    public void setjTableDlgList(JTable jTableDlgList) {
+        this.jTableDlgList = jTableDlgList;
+    }
+
+    public JComboBox<String> getChooseGramCbox() {
+        return ChooseGramCbox;
+    }
+
+    public JComboBox<String> getChooseLvlCbox() {
+        return ChooseLvlCbox;
+    }
+
+    public JComboBox<String> getChooseTopicCbox() {
+        return ChooseTopicCbox;
+    }
+
+    public JPanel getDlgListContent() {
+        return DlgListContent;
+    }
+
+    public JScrollPane getjScrollDlgListTbl() {
+        return jScrollDlgListTbl;
+    }
+
+    public JTable getjTableDlgList() {
+        return jTableDlgList;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

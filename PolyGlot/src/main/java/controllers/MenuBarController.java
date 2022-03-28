@@ -38,16 +38,31 @@ public class MenuBarController implements ActionListener
             menuBar.setPageTitle("Profile");
             menuBar.setPageTopicContent(new progV().getProgViewContent());
             
-        }if(e.getSource() == menuBar.getUListBttn()){
+        }
+        
+        if(e.getSource() == menuBar.getUListBttn()){
             menuBar.setPageTitle("User List");
             menuBar.setPageTopicContent(new UListTchV().getUListContent());
            
-        }if(e.getSource() == menuBar.getSupportBttn()){
+        }
+        
+        if(e.getSource() == menuBar.getSupportBttn()){
             menuBar.setPageTitle("Support");
             menuBar.setPageTopicContent(new SupportV().getSupportContent());
             
         }
         
+        if(e.getSource() == menuBar.getSettBttn()){
+            menuBar.setPageTitle("Settings"); //change title
+            menuBar.setPageTopicContent(new SettingV().getSettingContent()); //clear page content and add content of view class Jpanel 
+            
+        }
+        
+        if(e.getSource() == menuBar.getDlgListBttn()){
+            menuBar.setPageTitle("Dialogue List");
+            menuBar.setPageTopicContent(new DlgListV().getDlgListContent());
+            
+        }
 //        if(e.getSource() == menuBar.getProVBttn())
 //        {
 //            new progV().show();

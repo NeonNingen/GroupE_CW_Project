@@ -4,6 +4,8 @@
  */
 package viewpagesV4;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author aisana
@@ -97,6 +99,10 @@ public class DlgHistV extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public JPanel getDlgHistConent() {
+        return dlgHistConent;
+    }
 
     /**
      * @param args the command line arguments
