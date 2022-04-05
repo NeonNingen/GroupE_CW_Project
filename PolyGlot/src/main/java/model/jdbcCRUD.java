@@ -21,6 +21,7 @@ class Connect {
     private Driver driverSQLite;
     private Connection con;
 
+    // Download SQLite Driver
     public Connect() {
         urlSQLite = "jdbc:sqlite:polyLang.db";
 
@@ -66,6 +67,7 @@ public class jdbcCRUD {
         }
     }
     
+    //To be unused
     public static String[] produceTables(int arr_lines) throws FileNotFoundException { //Setup SQL Table
         String[] tableParameters = new String[2];
         String sqlString = "";
@@ -85,13 +87,14 @@ public class jdbcCRUD {
             }
             sqlString += "\n" + data;
       }
-        System.out.println(sqlString);
+        //System.out.println(sqlString);
         myReader.close();
         tableParameters[0] = sqlString;
         tableParameters[1] = Integer.toString(lines);
       return tableParameters;
     }
     
+    //To be unused
     public static void createTable() throws FileNotFoundException {
         String[] tableParameters = new String[2];
         String sqlString = "";
@@ -129,7 +132,8 @@ public class jdbcCRUD {
         }
     }
     
-    public static void insertDefault() throws FileNotFoundException { // Default
+    //To be unused
+    public static void insertDefault() throws FileNotFoundException {
         String sqlString = "";
         
         Connection con = getConnection();
@@ -180,66 +184,172 @@ public class jdbcCRUD {
         }
     }
     
-    public static void insertTable(int choice) {
-    // Placeholder method for testing insertTable options
-    // Replace variable idea
-        int card_id = 20;
-        String date = "2022-03-28";
-        String logintime = "16:19 PM";
-        String logouttime = "17:19 PM";
-        String user_id = "W69420";
-        int points = 100;
-        String role = "A";
-        String text = "BRUH";
-        String order = "ngl what is this";
-        String vocab = "english lmao";
-        int dial_id = 69;
-        String name = "bob";
-        String topic = "sleeping";
-        String lvl = "100";
-        String grammar = "fix this engrish pls";
-        String state = "True";
-        String completed = "Yes";
-        String lang = "English";
-        String d_completed = "2022-03-28";
-        String t_completed = "16:35 PM";
-        String userA_id = "W69420";
-        String userB_id = "W42069";
-        int userA_points = 69;
-        int userB_points = 420;
-        String sname = "smith";
-        String email = "bobsmith@outlook.com";
-        String pass = "bobsmith1";
-        String lang_lvl = "100";
-        String progress_points = "200";
-        int type = 1;
-        String admin_access = "crazy";
-        String user_group_id = "20";
+    //Insert Tables
+    
+    // Access_Record
+    public static void insertTable(int access_id, String date, String logintime,
+                                   String logouttime, int user_id) {
+        
+        updateTable("INSERT INTO Access_Record (accessrecord_id, date, "
+                         + "logintime, logouttime, user_id) VALUES "
+                         + "(" + access_id + "," + date + ",'" + logintime 
+                         + "','" + logouttime + "'," + user_id + ")");
+    }
+    
+    // Card
+    public static void insertTable(int card_id, int points, String role,
+                                   String text, String order, String vocab,
+                                   int dial_id) {
+        
+        updateTable("INSERT INTO Card (card_id, card_points, "
+                         + "card_role, card_text, card_order, "
+                         + "card_vocab, dialogue_id) VALUES "
+                         + "(" + card_id + "," + points + ",'" + role 
+                         + "','" + text + "','" + order 
+                         + "','" + vocab + "'," + dial_id + ")");
+    }
+    
+    // Dialogue
+    public static void insertTable(int dial_id, String name, String topic,
+                                   String lvl, String grammar, int points,
+                                   String state, String completed, 
+                                   String lang) {
+        
+        updateTable("INSERT INTO Dialogue (dialogue_id, dialogue_name, "
+                         + "dialogue_topic, dialogue_lvl, dialogue_grammar, "
+                         + "dialogue_points, dialogue_state, "
+                         + "dialogue_completed, dialogue_language) VALUES "
+                         + "(" + dial_id + ",'" + name + "','" + topic 
+                         + "','" + lvl + "','" + grammar 
+                         + "'," + points + ",'" + state + "','" 
+                         + completed + "','" + lang + "')");
+    }
+    
+    // Dialogue_Record
+    public static void insertTable(String dial_id, int user_id, 
+                                   String d_completed, String t_completed, 
+                                   String userA_id, String userB_id, 
+                                   int userA_points,  int userB_points) {
+        
+        updateTable("INSERT INTO Dialogue_Record (dialogue_id, user_id, "
+                         + "date_completed, time_completed, userA_id, "
+                         + "userB_id, userA_points, userB_points) VALUES "
+                         + "('" + dial_id + "'," + user_id + ",'" + d_completed
+                         + "','" + t_completed + "','" + userA_id 
+                         + "','" + userB_id + "'," + userA_points + "," 
+                         + userB_points + ")");
+    }
+    
+    // User
+    public static void insertTable(int user_id, String name, String sname,
+                                   String email, String pass, 
+                                   String lang_lvl, String progress_points, 
+                                   int user_type, String admin_access,
+                                   String user_group_id) {
+        
+        updateTable("INSERT INTO User (user_id, user_name, user_sname,"
+                         + "user_email, user_pass, user_lang_lvl, "
+                         + "user_progresspoints, "
+                         + "user_type, admin_access, user_group_id) VALUES "
+                         + "(" + user_id + ",'" + name + "','" + sname
+                         + "','" + email + "','" + pass 
+                         + "','" + lang_lvl + "','" + progress_points + "'," 
+                         +  user_type + ",'" + admin_access + "','" 
+                         + user_group_id + "')");
+    }
+    
+    // Delete Statement for String value
+    public static void delRecord(String tableName, String rowName, 
+                                 String value) {
+        
+        updateTable("DELETE from " + tableName + " WHERE " + rowName + "= '" +
+                    value + "'");
+    }
+    
+    // Delete Statement for Integer value
+    public static void delRecord(String tableName, String rowName, 
+                                 int value) {
+        
+        updateTable("DELETE from " + tableName + " WHERE " + rowName + "= " +
+                    value);
+    }
+    
+    // Change an Existing Value in a table
+    // keyRow refers to primary (key) column
+    public static void changeValue(String tableName, String rowName, 
+                                   String value, String keyRow,
+                                   String keyValue) {
+        
+        updateTable("UPDATE " + tableName + " set " + rowName + " = '" + 
+                     value + "' WHERE " + keyRow + " = " + keyValue);
+        
+    }
+    
+    public static void changeValue(String tableName, String rowName, 
+                                   int value, String keyRow, int keyValue) {
+        
+        updateTable("UPDATE " + tableName + " set " + rowName + "= " + 
+                     value + " WHERE " + keyRow + "= " + keyValue);
+        
+    }
+    
+    public static void showData(String rowName, String tableName, String keyRow,
+                                String keyValue) {
+        queryData("SELECT " + rowName + " FROM "+ tableName + 
+                        " WHERE " + keyRow + "= '" + keyValue + "'",
+                  rowName);
+    }
+    
+    public static void showData(String rowName, String tableName, String keyRow,
+                                int keyValue) {
+        queryData("SELECT " + rowName + " FROM "+ tableName + 
+                        " WHERE " + keyRow + "= " + keyValue,
+                  rowName);
+    }
+    
+    // Pull data from the database
+    public static void queryData(String sqlString, String rowName) {
         
         Connection con = getConnection();
         Statement stmt = null;
-        String sqlString = "";
+        ResultSet rs = null;
         
-        switch (choice) {
-            case 1: // Access_Record
-                sqlString = "INSERT INTO Access_Record (accessrecord_id, date, "
-                         + "logintime, logouttime, user_id) VALUES "
-                         + "(" + card_id + "," + date + ",'" + logintime 
-                         + "','" + logouttime + "','" + user_id + "')";
-                break;
-            case 2: // Card
-                sqlString = "INSERT INTO employee (empName, empID, empSal, empJob) VALUES ('" + card_id + "'," + date + "," + logintime + ",'" + user_id + "')";
-                break;
-            case 3: // Dialogue
-                sqlString = "INSERT INTO employee (empName, empID, empSal, empJob) VALUES ('" + card_id + "'," + date + "," + logintime + ",'" + user_id + "')";
-                break;
-            case 4: // Dialogue_Record
-                sqlString = "INSERT INTO employee (empName, empID, empSal, empJob) VALUES ('" + card_id + "'," + date + "," + logintime + ",'" + user_id + "')";
-                break;
-            case 5: // User
-                sqlString = "INSERT INTO employee (empName, empID, empSal, empJob) VALUES ('" + card_id + "'," + date + "," + logintime + ",'" + user_id + "')";
-                break;
+        try {
+            con.setAutoCommit(false);
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sqlString);
+            while (rs.next()) {
+                String rowValue = rs.getString(rowName);
+                System.out.println(rowValue + "\n");
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }
+    }
+    
+    
+        
+    // Any SQL Action executed into the database
+    public static void updateTable(String sqlString) {
+        
+        Connection con = getConnection();
+        Statement stmt = null;
         
         try {
             con.setAutoCommit(false);
@@ -267,131 +377,33 @@ public class jdbcCRUD {
         }
         }
 
-    public static void delEmp(int Eid) {
-
-        Connection con = getConnection();
-        Statement stmt = null;
-        //String sqlString = "SELECT empID, empName, empJob " +" FROM employee WHERE EmployeeID=1001";
-        String sqlString = "DELETE from employee WHERE empID=" + Eid;
-        try {
-            con.setAutoCommit(false);
-            stmt = con.createStatement();
-            stmt.executeUpdate(sqlString);
-            con.commit();
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public static void amendEmp(int Eid) {
-
-        Connection con = getConnection();
-        Statement stmt = null;
-        String sqlString = ("UPDATE employee set empSal =" + 12345 + " WHERE empID=" + Eid);
-        try {
-            con.setAutoCommit(false);
-            stmt = con.createStatement();
-            stmt.executeUpdate(sqlString);
-            con.commit();
-
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-    }
-
-    public static void showAll() {
-        Connection con = getConnection();
-        Statement stmt = null;
-        try {
-            stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("Select * from employee ");
-//
-
-            int n = 0;
-            while (rs.next()) {
-                int numColumns = rs.getMetaData().getColumnCount();
-                n++;
-                for (int i = 1; i <= numColumns; i++) {
-                    System.out.print(" " + rs.getObject(i));
-                }
-
-                System.out.println("");
-            }
-
-            rs.close();
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-
-    }
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws FileNotFoundException {
-
-        //insertEmp();
-        //showAll();
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
-        if (!f.exists()) {
-        createTable();
-        insertDefault();
-        System.out.println("This shouldn't print");
-        }
-        insertTable(1);
-        //showAll();
-        //delEmp(11)
-        //amendEmp(11);
-        //showAll();
-
     }
-    
-    
 
 }
+
+/* 
+Create Set Table & Values
+createTable();
+insertDefault();
+
+Insert Values into any table
+insertTable(20, "2022-03-28", "16:19 PM", "17:19 PM", 50);
+insertTable(6, 100, "A", "BRUH", "ngl what is this", "english lmao", 69);
+insertTable(890, "bob", "sleeping", "100", "fix this engrish pls", 100, "True",
+"yes", "English");
+insertTable("Reading", 100, "2020", "07:30 a.m", "400", "100", 30, 40);
+insertTable(50, "bob", "smith", "bobsmith@outlook.com", "bobsmith1", "100", 
+"200", 1, "crazy", "20");
+
+Delete Values from any table
+delRecord("Access_Record", "user_id", 50);
+
+Change Values from any table
+changeValue("Access_Record", "logintime", "18:02 PM", "user_id", "50");
+
+Show Values from any table
+showData("logintime", "Access_Record", "user_id", "50");
+*/
