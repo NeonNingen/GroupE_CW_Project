@@ -6,7 +6,6 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
 import views.DlgListV;
 import views.MenuBarV;
 import views.SettingV;
@@ -15,10 +14,6 @@ import views.UListStdV;
 import views.UListTchV;
 import views.ProgV;
 
-/**
- *
- * @author Amit
- */
 public class MenuBarCont implements ActionListener
 {
 

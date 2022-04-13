@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  * @author mones
  */
 public class ProgV extends javax.swing.JFrame {
-    private String pageName= "prog";
+    private String pageName= "progV";
     /**
      * Creates new form progV
      */
