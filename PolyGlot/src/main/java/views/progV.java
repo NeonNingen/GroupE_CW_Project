@@ -6,7 +6,6 @@
 package views;
 
 import controllers.LoginRegisterCont;
-import controllers.MenuBarCont;
 import controllers.UserCont;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,7 +25,6 @@ public class ProgV extends javax.swing.JFrame {
         setSize(414,667);
         
         dlgHistBtn.addActionListener(new UserCont(this));
-       // dlgHistBtn.addActionListener(new MenuBarCont(this));
         //MenuBarView menu = new MenuBarView();
         //this.setContentPane(menu.getContentPane());
         //menu.setPageTitle("Progress View");

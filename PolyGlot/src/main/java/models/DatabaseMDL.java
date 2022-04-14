@@ -307,7 +307,8 @@ public class DatabaseMDL {
     }
     
     // Pull data from the database
-    public static void queryData(String sqlString, String rowName) {
+    // Redo Query Data Mathod
+    public static void queryData(String sqlString, String searchCondition) {
         
         Connection con = getConnection();
         Statement stmt = null;
@@ -318,7 +319,7 @@ public class DatabaseMDL {
             stmt = con.createStatement();
             rs = stmt.executeQuery(sqlString);
             while (rs.next()) {
-                String rowValue = rs.getString(rowName);
+                String rowValue = rs.getString(searchCondition);
                 System.out.println(rowValue + "\n");
             }
             stmt.close();
@@ -379,6 +380,7 @@ public class DatabaseMDL {
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
+        queryData("Select user_id from Access_Record WHERE accessrecord_id", "user_id");
     }
 
 }
