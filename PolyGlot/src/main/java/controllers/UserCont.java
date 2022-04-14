@@ -36,10 +36,10 @@ public class UserCont implements ActionListener
         if(e.getSource() == ProfilePage.getDlgHistBtn()){
             ProfilePage.dispose();
             MenuBarV menu= new MenuBarV();
-            menu.setPageTitle("Dialogeu History");
+            menu.setPageTitle("Dialogue History");
             menu.setPageTopicContent(new DlgHistV().getDlgHistConent());
             menu.show();
-            menu.setPageTitle("Dialogue History");
+            //menu.setPageTitle("Dialogue History");
             
         }
       /*

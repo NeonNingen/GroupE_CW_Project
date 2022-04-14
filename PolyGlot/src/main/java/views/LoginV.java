@@ -2,6 +2,7 @@
 package views;
 
 import controllers.LoginRegisterCont;
+import controllers.MenuBarCont;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -10,6 +11,10 @@ public class LoginV extends javax.swing.JFrame {
 
     public LoginV() {
         initComponents();
+        //loginBttn.addActionListener(new MenuBarCont(this));
+        //registerBttn.addActionListener(new MenuBarCont(this));
+        //SupportBttn.addActionListener(new MenuBarCont(this));
+        
         loginBttn.addActionListener(new LoginRegisterCont(this));
         registerBttn.addActionListener(new LoginRegisterCont(this));
         SupportBttn.addActionListener(new LoginRegisterCont(this));
