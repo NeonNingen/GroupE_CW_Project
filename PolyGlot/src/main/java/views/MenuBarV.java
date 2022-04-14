@@ -237,6 +237,8 @@ public class MenuBarV extends javax.swing.JFrame {
         
                 //= PageTopicContent; 
     }
+    
+    
 
     public void setDlgListBttn(JButton DlgListBttn) {
         this.DlgListBttn = DlgListBttn;
@@ -288,6 +290,11 @@ public class MenuBarV extends javax.swing.JFrame {
         return UListBttn; 
           
     }
+
+    public JPanel getMenuBarPanel() {
+        return MenuBarPanel;
+    }
+    
     
     
     

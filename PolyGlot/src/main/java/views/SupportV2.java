@@ -5,6 +5,8 @@
 package views;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
@@ -226,6 +228,36 @@ public class SupportV2 extends javax.swing.JFrame {
     public void setjTextArea4(JTextArea jTextArea4) {
         this.jTextArea4 = jTextArea4;
     }
+
+    public JScrollPane getSupContTxtScrollP() {
+        return SupContTxtScrollP;
+    }
+
+    public JPanel getSupportContent() {
+        return SupportContent;
+    }
+
+    public JLabel getHelpTitle() {
+        return helpTitle;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public JScrollPane getjScrollPane4() {
+        return jScrollPane4;
+    }
+
+    
 
     
     /**

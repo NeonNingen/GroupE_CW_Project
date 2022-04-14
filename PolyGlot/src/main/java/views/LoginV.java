@@ -2,7 +2,9 @@
 package views;
 
 import controllers.LoginRegisterCont;
+import controllers.MenuBarCont;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -10,10 +12,14 @@ public class LoginV extends javax.swing.JFrame {
 
     public LoginV() {
         initComponents();
-        loginBttn.addActionListener(new LoginRegisterCont(this));
-        registerBttn.addActionListener(new LoginRegisterCont(this));
-        SupportBttn.addActionListener(new LoginRegisterCont(this));
-        //loginBttnRedirect();
+        
+        loginBttn.addActionListener(new MenuBarCont(this));
+        registerBttn.addActionListener(new MenuBarCont(this));
+        SupportBttn.addActionListener(new MenuBarCont(this));
+        //loginBttn.addActionListener(new LoginRegisterCont(this));
+        //registerBttn.addActionListener(new LoginRegisterCont(this));
+        //SupportBttn.addActionListener(new LoginRegisterCont(this));
+        
     }
 
     /**
@@ -79,7 +85,7 @@ public class LoginV extends javax.swing.JFrame {
                     .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(registerBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SupportBttn)
@@ -106,7 +112,7 @@ public class LoginV extends javax.swing.JFrame {
                 .addComponent(loginBttn)
                 .addGap(18, 18, 18)
                 .addComponent(registerBttn)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,6 +149,11 @@ public class LoginV extends javax.swing.JFrame {
         return SupportBttn;
     }
 
+    public JPanel getLoginPanel() {
+        return loginPanel;
+    }
+    
+
     public void setSupportBttn(JButton SupportBttn) {
         this.SupportBttn = SupportBttn;
     }
@@ -162,7 +173,6 @@ public class LoginV extends javax.swing.JFrame {
     public void setuNameLogin(JTextField uNameLogin) {
         this.uNameLogin = uNameLogin;
     }
-    
     
     
     

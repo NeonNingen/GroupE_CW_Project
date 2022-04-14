@@ -10,6 +10,7 @@
             <groupId>sqlite</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.30.1</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <properties>

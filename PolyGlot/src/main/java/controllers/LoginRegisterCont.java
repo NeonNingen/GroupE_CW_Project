@@ -6,6 +6,9 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import models.Main;
 import views.MenuBarV;
 import views.RegisterV;
 import views.SupportV;
@@ -19,23 +22,29 @@ import views.ProgV;
 public class LoginRegisterCont implements ActionListener
 {
     private LoginV loginPage;
-    
+    private JFrame mainFrame;
+    private MenuBarCont menuCont;
     public LoginRegisterCont(LoginV loginPage) 
     {
         this.loginPage = loginPage;
     }
+    
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent e) 
-    {
+    {   /*
         if(e.getSource() == loginPage.getLoginBttn())
         {
-            loginPage.dispose();
+            //loginPage.dispose();
+            
             MenuBarV menu= new MenuBarV();
+            
             menu.setPageTitle("Profile");
             menu.setPageTopicContent(new ProgV().getProgViewContent());
             
-            menu.show();
+            //menu.show();
             
             //new ProgV().show();
         }
@@ -50,7 +59,7 @@ public class LoginRegisterCont implements ActionListener
         {
            loginPage.dispose();
            new SupportV().show(); 
-        }
+        }*/
     }
 
     

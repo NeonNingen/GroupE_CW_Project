@@ -8,6 +8,7 @@ package views;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -243,6 +244,10 @@ public class RegisterV extends javax.swing.JFrame {
 
     public void setTermsCond(JCheckBox termsCond) {
         this.termsCond = termsCond;
+    }
+
+    public JPanel getRegisterPanel() {
+        return registerPanel;
     }
 
     
