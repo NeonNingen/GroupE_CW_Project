@@ -33,8 +33,8 @@ public class LoginRegisterCont implements ActionListener
             loginPage.dispose();
             MenuBarV menu= new MenuBarV();
             menu.setPageTitle("Profile");
-            menu.setPageTopicContent(new ProgV().getProgViewContent());
-            
+            menu.setProgPageTopicContent(new ProgV().getProgViewContent());
+            //menu.addHistBttn();
             menu.show();
             
             //new ProgV().show();

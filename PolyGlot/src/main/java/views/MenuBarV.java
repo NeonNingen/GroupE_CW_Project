@@ -23,6 +23,7 @@ public class MenuBarV extends javax.swing.JFrame {
         SupportBttn.addActionListener(new MenuBarCont(this));
         DlgListBttn.addActionListener(new MenuBarCont(this));
         SettBttn.addActionListener(new MenuBarCont(this));
+        DlgHistBttn2.addActionListener(new MenuBarCont(this));
         
     }
 
@@ -43,7 +44,7 @@ public class MenuBarV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        emptyContentPage = new javax.swing.JPanel();
+        DlgHistBttn2 = new javax.swing.JButton();
         MenuBarPanel = new javax.swing.JPanel();
         PageTitle = new javax.swing.JLabel();
         PageTopicContent = new javax.swing.JPanel();
@@ -53,18 +54,7 @@ public class MenuBarV extends javax.swing.JFrame {
         DlgListBttn = new javax.swing.JButton();
         SupportBttn = new javax.swing.JButton();
 
-        emptyContentPage.setPreferredSize(new java.awt.Dimension(414, 515));
-
-        javax.swing.GroupLayout emptyContentPageLayout = new javax.swing.GroupLayout(emptyContentPage);
-        emptyContentPage.setLayout(emptyContentPageLayout);
-        emptyContentPageLayout.setHorizontalGroup(
-            emptyContentPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        emptyContentPageLayout.setVerticalGroup(
-            emptyContentPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        DlgHistBttn2.setText("View Dialogue History");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -88,7 +78,7 @@ public class MenuBarV extends javax.swing.JFrame {
         );
         PageTopicContentLayout.setVerticalGroup(
             PageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
 
         UListBttn.setBackground(new java.awt.Color(204, 204, 204));
@@ -212,6 +202,7 @@ public class MenuBarV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DlgHistBttn2;
     private javax.swing.JButton DlgListBttn;
     private javax.swing.JPanel MenuBarPanel;
     private javax.swing.JLabel PageTitle;
@@ -220,7 +211,6 @@ public class MenuBarV extends javax.swing.JFrame {
     private javax.swing.JButton SettBttn;
     private javax.swing.JButton SupportBttn;
     private javax.swing.JButton UListBttn;
-    private javax.swing.JPanel emptyContentPage;
     // End of variables declaration//GEN-END:variables
 
     public void setPageTitle(String text) {
@@ -234,10 +224,27 @@ public class MenuBarV extends javax.swing.JFrame {
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
         this.PageTopicContent.add(PageTopicContent);
-        
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
+                //= PageTopicContent; 
+    }
+    
+    public void setProgPageTopicContent(JPanel PageTopicContent) {
+        this.PageTopicContent.removeAll(); //removes
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
+        this.PageTopicContent.add(PageTopicContent);
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
+        DlgHistBttn2.setBounds(137, 400, 150, 40);
+        //DlgHistBttn2.setLocation(100, 400);
+        PageTopicContent.add(DlgHistBttn2);
+        PageTopicContent.revalidate();
+        PageTopicContent.repaint();
                 //= PageTopicContent; 
     }
 
+    
     public void setDlgListBttn(JButton DlgListBttn) {
         this.DlgListBttn = DlgListBttn;
     }
@@ -287,6 +294,18 @@ public class MenuBarV extends javax.swing.JFrame {
     public JButton getUListBttn() { 
         return UListBttn; 
           
+    }
+
+    public String getCurrentPage() {
+        return currentPage;
+    }
+
+    public JButton getDlgHistBttn2() {
+        return DlgHistBttn2;
+    }
+
+    public JPanel getMenuBarPanel() {
+        return MenuBarPanel;
     }
     
     

@@ -7,6 +7,7 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import views.DlgHistV;
 import views.DlgListV;
 import views.MenuBarV;
 import views.SettingV;
@@ -23,24 +24,44 @@ public class MenuBarCont implements ActionListener
 {
 
     private MenuBarV menuBar;
+    //private ProgV progPage;
     
     public MenuBarCont(MenuBarV menuBar) 
     {
         this.menuBar = menuBar;
     }
+    
+    /*public MenuBarCont(ProgV progPage) 
+    {
+        this.progPage = progPage;
+    }*/
 
     @Override
     public void actionPerformed(ActionEvent e) 
     {
         //JPanel current= menuBar.getPageTopicContent().;
+        
+        
         if(e.getSource() == menuBar.getProVBttn()){
-            System.out.println("pressed progress page button");
+            //System.out.println("pressed progress page button");
             menuBar.setPageTitle("Profile");
-            menuBar.setPageTopicContent(new ProgV().getProgViewContent());
+            menuBar.setProgPageTopicContent(new ProgV().getProgViewContent());
+            //menuBar.addHistBttn();
+            //menuBar.getDlgHistBttn2().isVisible();
+            
+        }
+        if(e.getSource() == menuBar.getDlgHistBttn2()){
+                //menuBar.dispose();
+               // MenuBarV menu= new MenuBarV();
+                menuBar.setPageTitle("Dialogeu History");
+                menuBar.setPageTopicContent(new DlgHistV().getDlgHistConent());
+                //menuBar.show();
+                //menu.setPageTitle("Dialogue History");
             
         }
         
         if(e.getSource() == menuBar.getUListBttn()){
+            menuBar.remove(menuBar.getDlgHistBttn2());
             menuBar.setPageTitle("User List");
             menuBar.setPageTopicContent(new UListTchV().getUListContent());
            

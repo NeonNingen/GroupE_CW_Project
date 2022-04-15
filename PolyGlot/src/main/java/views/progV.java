@@ -6,6 +6,7 @@
 package views;
 
 import controllers.LoginRegisterCont;
+import controllers.MenuBarCont;
 import controllers.UserCont;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -24,7 +25,7 @@ public class ProgV extends javax.swing.JFrame {
         initComponents();
         setSize(414,667);
         
-        dlgHistBtn.addActionListener(new UserCont(this));
+        //dlgHistBtn.addActionListener(new MenuBarCont(this));//UserCont(this));
         //MenuBarView menu = new MenuBarView();
         //this.setContentPane(menu.getContentPane());
         //menu.setPageTitle("Progress View");
@@ -40,6 +41,7 @@ public class ProgV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dlgHistBtn = new javax.swing.JButton();
         ProgViewContent = new javax.swing.JPanel();
         nameP = new javax.swing.JLabel();
         userIdP = new javax.swing.JLabel();
@@ -48,8 +50,10 @@ public class ProgV extends javax.swing.JFrame {
         userTypeP = new javax.swing.JLabel();
         currentLvlP = new javax.swing.JLabel();
         nextLvlP = new javax.swing.JLabel();
-        dlgHistBtn = new javax.swing.JButton();
         DataGraph = new javax.swing.JPanel();
+
+        dlgHistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        dlgHistBtn.setText("View Dialogue History");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,9 +73,6 @@ public class ProgV extends javax.swing.JFrame {
         currentLvlP.setText("Current Level: B1");
 
         nextLvlP.setText("Next Level: B2");
-
-        dlgHistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        dlgHistBtn.setText("View Dialogue History");
 
         DataGraph.setBackground(new java.awt.Color(255, 153, 153));
 
@@ -102,16 +103,11 @@ public class ProgV extends javax.swing.JFrame {
                     .addComponent(nameP, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
             .addGroup(ProgViewContentLayout.createSequentialGroup()
+                .addGap(138, 138, 138)
                 .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
-                        .addGap(138, 138, 138)
-                        .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nextLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(currentLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(dlgHistBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nextLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(currentLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         ProgViewContentLayout.setVerticalGroup(
             ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,9 +129,7 @@ public class ProgV extends javax.swing.JFrame {
                 .addComponent(currentLvlP)
                 .addGap(18, 18, 18)
                 .addComponent(nextLvlP)
-                .addGap(61, 61, 61)
-                .addComponent(dlgHistBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

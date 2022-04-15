@@ -33,7 +33,7 @@ public class UserCont implements ActionListener
     public void actionPerformed(ActionEvent e) 
     {
         
-        if(e.getSource() == ProfilePage.getDlgHistBtn()){
+        /*if(e.getSource() == ProfilePage.getDlgHistBtn()){
             ProfilePage.dispose();
             MenuBarV menu= new MenuBarV();
             menu.setPageTitle("Dialogeu History");
@@ -41,7 +41,7 @@ public class UserCont implements ActionListener
             menu.show();
             menu.setPageTitle("Dialogue History");
             
-        }
+        }*/
       /*
         after checking both UserList Pages, I noticed that the code written below won't be needed 
         as the 'linking' part is done by the MenuBarController
