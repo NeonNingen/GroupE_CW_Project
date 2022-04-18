@@ -312,13 +312,14 @@ public class DatabaseMDL {
         Connection con = getConnection();
         Statement stmt = null;
         ResultSet rs = null;
-        
+        String rowValue = "";
         try {
             con.setAutoCommit(false);
             stmt = con.createStatement();
             rs = stmt.executeQuery(sqlString);
+            
             while (rs.next()) {
-                String rowValue = rs.getString(rowName);
+                rowValue = rs.getString(rowName);
                 System.out.println(rowValue + "\n");
             }
             stmt.close();

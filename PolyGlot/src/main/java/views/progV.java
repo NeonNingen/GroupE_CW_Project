@@ -11,6 +11,7 @@ import controllers.UserCont;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import models.UserMDL;
 
 /**
  *

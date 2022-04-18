@@ -17,12 +17,28 @@ public class UserMDL extends DatabaseMDL
     private String name;
     private String surname;
     private String email;
-    private String url;
-
+    private String langLvl;
+    private int progPoints;
+    private String userType;
+    private int userID;
+    private int groupID;
+    
     public UserMDL() 
     {
-        this.url = "jdbc:sqlite:polyLang.db";
+        
     }
+
+    public UserMDL(String name, String surname, String email, String langLvl, int progPoints, String userType, int userID, int groupID) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.langLvl = langLvl;
+        this.progPoints = progPoints;
+        this.userType = userType;
+        this.userID = userID;
+        this.groupID = groupID;
+    }
+    
     
     //getters
     public String getName() 
@@ -40,6 +56,26 @@ public class UserMDL extends DatabaseMDL
         return email;
     }
 
+    public String getLangLvl() {
+        return langLvl;
+    }
+
+    public int getProgPoints() {
+        return progPoints;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public int getGroupID() {
+        return groupID;
+    }
+
     //setters
     public void setName(String name) 
     {
@@ -55,7 +91,26 @@ public class UserMDL extends DatabaseMDL
     {
         this.email = email;
     }
-    
+
+    public void setLangLvl(String langLvl) {
+        this.langLvl = langLvl;
+    }
+
+    public void setProgPoints(int progPoints) {
+        this.progPoints = progPoints;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public void setGroupID(int groupID) {
+        this.groupID = groupID;
+    } 
     
     /**
      * custom retrieve method that will pass the query of retrieving the user list to super.retrieve()
