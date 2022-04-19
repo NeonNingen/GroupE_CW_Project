@@ -53,7 +53,7 @@ public class MenuBarCont implements ActionListener
         if(e.getSource() == menuBar.getDlgHistBttn2()){
                 //menuBar.dispose();
                // MenuBarV menu= new MenuBarV();
-                menuBar.setPageTitle("Dialogeu History");
+                menuBar.setPageTitle("Dialogue History");
                 menuBar.setPageTopicContent(new DlgHistV().getDlgHistConent());
                 //menuBar.show();
                 //menu.setPageTitle("Dialogue History");

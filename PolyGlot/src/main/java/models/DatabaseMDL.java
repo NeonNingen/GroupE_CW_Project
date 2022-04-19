@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //This page was developed mainly by Zain and Rafael
@@ -341,6 +342,53 @@ public class DatabaseMDL {
                 }
             }
         }
+    }
+    
+    //method created to test the UListTeacher page - Amit
+    public static ArrayList<ArrayList<String>> queryDataUList(String sqlString) 
+    {
+        
+        Connection con = getConnection();
+        Statement stmt = null;
+        ResultSet rs = null;
+        String rowValue = "";
+        ArrayList<ArrayList<String>> test = new ArrayList<>();
+        
+        try {
+            con.setAutoCommit(false);
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(sqlString);
+            int col = rs.getMetaData().getColumnCount();
+            
+            while (rs.next()) 
+            {
+                ArrayList<String> test2 = new ArrayList<>();
+                for(int i = 1; i <= col; i++)
+                {
+                    test2.add(rs.getString(i));
+                }
+                test.add(test2);
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+        }
+        return test;
     }
     
     

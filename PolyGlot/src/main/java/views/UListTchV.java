@@ -5,9 +5,11 @@
  */
 package views;
 
+import controllers.UserCont;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,6 +26,9 @@ public class UListTchV extends javax.swing.JFrame {
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("Student List");
         menu.setPageTopicContent(UListContent);
+        this.groupFilterCbox.addActionListener(new UserCont(this));
+        this.SortCbox.addActionListener(new UserCont(this));
+        this.ULvlFilterCbox.addActionListener(new UserCont(this));
     }
 
     /**
@@ -82,7 +87,7 @@ public class UListTchV extends javax.swing.JFrame {
 
         ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "points (lowest)", "points (highest)", "dialogues (lowest)", "dialogues (highest)" }));
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
         UListContent.setLayout(UListContentLayout);
@@ -104,7 +109,7 @@ public class UListTchV extends javax.swing.JFrame {
                         .addComponent(ULvlLbl)
                         .addGap(18, 18, 18)
                         .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         UListContentLayout.setVerticalGroup(
             UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +125,7 @@ public class UListTchV extends javax.swing.JFrame {
                     .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ULvlLbl))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
