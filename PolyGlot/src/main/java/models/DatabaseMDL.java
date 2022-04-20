@@ -10,9 +10,14 @@ import java.sql.Statement;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-//This page was developed mainly by Zain and Rafael
+/**
+ * This class is used to:
+ * - Download SQLite Driver.
+ * - And creates the SQL Database (if it does not exist).
+ * - Once the connect instance is closed, then the connection is turned off.
+ * @author Zain and Rafael
+ */
 
 class Connect {
     
@@ -20,7 +25,7 @@ class Connect {
     private Driver driverSQLite;
     private Connection con;
 
-    // Download SQLite Driver
+    
     public Connect() {
         
         urlSQLite = "jdbc:sqlite:polyLang.db";
@@ -30,14 +35,17 @@ class Connect {
             DriverManager.registerDriver(driverSQLite);
             System.out.println("Driver for SQLite downloaded.");
         } catch (SQLException e) {
-            System.out.println("Problem with download driver for SQLite: " + e.getMessage());
+            System.out.println("Problem with download driver for SQLite: " 
+                                                        + e.getMessage());
         }
 
         try {
-            con = DriverManager.getConnection(urlSQLite);// create database if it does not exist.
+            //create database if it does not exist.
+            con = DriverManager.getConnection(urlSQLite);
             System.out.println("Connection to SQLite is done.");
         } catch (SQLException e) {
-            System.out.println("Problem with connection to SQLite: " + e.getMessage());
+            System.out.println("Problem with connection to SQLite: " 
+                                                        + e.getMessage());
         }
 
         try {
@@ -51,8 +59,17 @@ class Connect {
     }
 }
 
+/**
+ * Main Class for the database functionality
+ */
 public class DatabaseMDL {
     
+    /**
+     * This method is used for:
+     * - Connecting to the existing SQL database.
+     * - Catches an exception if it cannot connect find or connect to the 
+     *   database.
+     */
     public static Connection getConnection() {
 
         try {
@@ -67,128 +84,24 @@ public class DatabaseMDL {
         }
     }
     
-    //To be unused
-    public static String[] produceTables(int arr_lines) throws FileNotFoundException { //Setup SQL Table
-        String[] tableParameters = new String[2];
-        String sqlString = "";
-        int lines = arr_lines;
-        
-        File myObj = new File(".\\src\\main\\java\\models\\dbTables.txt");
-        Scanner myReader = new Scanner(myObj);
-        for(int i = 0; i < lines; ++i) {
-                myReader.nextLine();
-            }
-        while (myReader.hasNextLine()) {
-            lines++;
-            String data = myReader.nextLine();
-            if (data.isEmpty() == true) {
-                myReader.close();
-                break;
-            }
-            sqlString += "\n" + data;
-      }
-        //System.out.println(sqlString);
-        myReader.close();
-        tableParameters[0] = sqlString;
-        tableParameters[1] = Integer.toString(lines);
-      return tableParameters;
-    }
+    /**
+     * Insert Tables
+     * - Each method is used for a separate SQL database table, to insert values 
+     * into each individual table.
+     * - Using the UpdateTable method to send the statements to the table, to
+     * add the values to each table.
+     */
     
-    //To be unused
-    public static void createTable() throws FileNotFoundException {
-        String[] tableParameters = new String[2];
-        String sqlString = "";
-        int lines = 0;
-        
-        Connection con = getConnection();
-        Statement stmt = null;
-        try {
-            stmt = con.createStatement();
-            con.setAutoCommit(false);
-            for (int i = 0; i < 5; i++) {
-                tableParameters = produceTables(lines);
-                sqlString = tableParameters[0];
-                lines = Integer.valueOf(tableParameters[1]);
-                stmt.executeUpdate(sqlString);
-            }
-            con.commit();
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-    }
-    
-    //To be unused
-    public static void insertDefault() throws FileNotFoundException {
-        String sqlString = "";
-        
-        Connection con = getConnection();
-        Statement stmt = null;
-        File myObj = new File(".\\src\\main\\java\\models\\defaultValues.txt");
-        Scanner myReader = new Scanner(myObj);
-        while (myReader.hasNextLine()) {
-            String data = myReader.nextLine();
-            if (data.isEmpty() == true) {
-                myReader.close();
-                break;
-            }
-            sqlString += data + "\n";
-      }
-        myReader.close();
-        try {
-            con.setAutoCommit(false);
-            stmt = con.createStatement();
-            String user = sqlString.substring(0, 398);
-            String access_Record = sqlString.substring(398, 646);
-            String dialogue = sqlString.substring(646, 1054);
-            String card = sqlString.substring(1054, 1292);
-            String dialogue_Record = sqlString.substring(1292, 1578);
-            stmt.executeUpdate(user);
-            stmt.executeUpdate(access_Record);
-            stmt.executeUpdate(dialogue);
-            stmt.executeUpdate(card);
-            stmt.executeUpdate(dialogue_Record);
-            stmt.close();
-            con.commit();
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-    }
-    
-    //Insert Tables
-    
-    // Access_Record
+    /**
+     * Access_Record
+     * @param access_id: int - AccessRecord ID.
+     * @param date: String - User's date logged when accessing the system.
+     * @param logintime: String - Time when the user logs in.
+     * @param logouttime: String - Time when the user logs out.
+     * @param user_id: String - User's ID logged when accessing the system.
+     */
     public static void insertTable(int access_id, String date, String logintime,
-                                   String logouttime, int user_id) {
+                                   String logouttime, String user_id) {
         
         updateTable("INSERT INTO Access_Record (accessrecord_id, date, "
                          + "logintime, logouttime, user_id) VALUES "
@@ -196,7 +109,16 @@ public class DatabaseMDL {
                          + "','" + logouttime + "'," + user_id + ")");
     }
     
-    // Card
+    /**
+     * Card
+     * @param card_id: int - Card ID.
+     * @param points: int - Points given to users for each card.
+     * @param role: String - User given either Role A or Role B.
+     * @param text: String - Text on the card.
+     * @param order: String - Card order placement.
+     * @param vocab: String - Vocab for each card.
+     * @param dial_id: int - Dialogue ID.
+     */
     public static void insertTable(int card_id, int points, String role,
                                    String text, String order, String vocab,
                                    int dial_id) {
@@ -209,10 +131,21 @@ public class DatabaseMDL {
                          + "','" + vocab + "'," + dial_id + ")");
     }
     
-    // Dialogue
+    /**
+     * Dialogue
+     * @param dial_id: int - Dialogue ID.
+     * @param name: String - Dialogue's given name
+     * @param topic: String - What this dialogue entry is about.
+     * @param lvl: String - Dialogue's difficulty.
+     * @param grammar: String - Grammar parts of the text.
+     * @param points: int - Points given to users for each dialogue.
+     * @param state: String - If dialogue card has been completed or not.
+     * @param completed: int - The amount of dialogue's completed.
+     * @param lang: String - Language of the dialogue.
+     */
     public static void insertTable(int dial_id, String name, String topic,
                                    String lvl, String grammar, int points,
-                                   String state, String completed, 
+                                   String state, int completed, 
                                    String lang) {
         
         updateTable("INSERT INTO Dialogue (dialogue_id, dialogue_name, "
@@ -225,8 +158,18 @@ public class DatabaseMDL {
                          + completed + "','" + lang + "')");
     }
     
-    // Dialogue_Record
-    public static void insertTable(String dial_id, int user_id, 
+    /**
+     * Dialogue_Record
+     * @param dial_id: int - Dialogue ID.
+     * @param user_id: String - User's ID logged when accessing the system.
+     * @param d_completed: String - What year the dialogue was completed.
+     * @param t_completed: String - What time the dialogue wad completed.
+     * @param userA_id: String - UserA's ID.
+     * @param userB_id: String - UserB's ID.
+     * @param userA_points: int - The amount of points userA has.
+     * @param userB_points: int - The amount of points userB has.
+     */
+    public static void insertTable(String dial_id, String user_id, 
                                    String d_completed, String t_completed, 
                                    String userA_id, String userB_id, 
                                    int userA_points,  int userB_points) {
@@ -240,25 +183,43 @@ public class DatabaseMDL {
                          + userB_points + ")");
     }
     
-    // User
-    public static void insertTable(int user_id, String name, String sname,
-                                   String email, String pass, 
-                                   String lang_lvl, String progress_points, 
-                                   int user_type, String admin_access,
+    /**
+     * User
+     * @param user_id: String - User's ID logged when accessing the system.
+     * @param name: String - User's first name
+     * @param sname: String - User's surname.
+     * @param email: String - User's Email.
+     * @param pswd: String - User's Password.
+     * @param lang_lvl: String - Dialogue's difficulty.
+     * @param progress_points: int - The amount of points userB has.
+     * @param user_type: String - What category is the user, Teacher or Student.
+     * @param admin_access: String - Access to admin level features.
+     * @param user_group_id: String - What group ID is the user under.
+     */
+    public static void insertTable(String user_id, String name, String sname,
+                                   String email, String pswd, 
+                                   String lang_lvl, int progress_points, 
+                                   String user_type, String admin_access,
                                    String user_group_id) {
         
         updateTable("INSERT INTO User (user_id, user_name, user_sname,"
-                         + "user_email, user_pass, user_lang_lvl, "
+                         + "user_email, user_pswd, user_lang_lvl, "
                          + "user_progresspoints, "
                          + "user_type, admin_access, user_group_id) VALUES "
                          + "(" + user_id + ",'" + name + "','" + sname
-                         + "','" + email + "','" + pass 
+                         + "','" + email + "','" + psed 
                          + "','" + lang_lvl + "','" + progress_points + "'," 
                          +  user_type + ",'" + admin_access + "','" 
                          + user_group_id + "')");
     }
     
-    // Delete Statement for String value
+    /**
+     * delRecord
+     * Delete statement for String values
+     * @param tableName: String - Given table name.
+     * @param rowName: String - Given row name.
+     * @param value: String - Given value.
+     */
     public static void delRecord(String tableName, String rowName, 
                                  String value) {
         
@@ -266,7 +227,13 @@ public class DatabaseMDL {
                     value + "'");
     }
     
-    // Delete Statement for Integer value
+    /**
+     * delRecord
+     * Delete statement for Integer values
+     * @param tableName: String - Given table name.
+     * @param rowName: String - Given row name.
+     * @param value: int - Given value.
+     */
     public static void delRecord(String tableName, String rowName, 
                                  int value) {
         
@@ -274,100 +241,66 @@ public class DatabaseMDL {
                     value);
     }
     
-    // Change an Existing Value in a table
-    // keyRow refers to primary (key) column
+    /**
+     * changeValue
+     * Change an Existing String Value in a table
+     * @param tableName: String - Given table name.
+     * @param rowName: String - Given row name.
+     * @param value: String - Given value.
+     * @param keyColumn: String - Primary (key) column.
+     * @param keyValue: String - Key value being replaced.
+     */
     public static void changeValue(String tableName, String rowName, 
-                                   String value, String keyRow,
+                                   String value, String keyColumn,
                                    String keyValue) {
         
         updateTable("UPDATE " + tableName + " set " + rowName + " = '" + 
-                     value + "' WHERE " + keyRow + " = " + keyValue);
+                     value + "' WHERE " + keyColumn + " = " + keyValue);
         
     }
     
+    /**
+     * changeValue
+     * Change an Existing int Value in a table
+     * @param tableName: String - Given table name.
+     * @param rowName: String - Given row name.
+     * @param value: int - Given value.
+     * @param keyColumn: String - Primary (key) column.
+     * @param keyValue: int - Key value being replaced.
+     */
     public static void changeValue(String tableName, String rowName, 
-                                   int value, String keyRow, int keyValue) {
+                                   int value, String keyColumn, int keyValue) {
         
         updateTable("UPDATE " + tableName + " set " + rowName + "= " + 
-                     value + " WHERE " + keyRow + "= " + keyValue);
+                     value + " WHERE " + keyColumn + "= " + keyValue);
         
     }
     
-    public static void showData(String rowName, String tableName, String keyRow,
-                                String keyValue) {
-        queryData("SELECT " + rowName + " FROM "+ tableName + 
-                        " WHERE " + keyRow + "= '" + keyValue + "'",
-                  rowName);
-    }
-    
-    public static void showData(String rowName, String tableName, String keyRow,
-                                int keyValue) {
-        queryData("SELECT " + rowName + " FROM "+ tableName + 
-                        " WHERE " + keyRow + "= " + keyValue,
-                  rowName);
-    }
-    
-    // Pull data from the database
-    public static void queryData(String sqlString, String rowName) {
+    /**
+     * QueryData
+     * This is used to send a SQL statement to the database that will query
+     * the existing tables for data requested.
+     * @param sqlString: String - SQl Strings
+     * @retrun The queried data within an ArrayList<String>.
+     */
+    public static ArrayList<String> queryData(String sqlString) {
         
         Connection con = getConnection();
         Statement stmt = null;
         ResultSet rs = null;
         String rowValue = "";
-        try {
-            con.setAutoCommit(false);
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(sqlString);
-            
-            while (rs.next()) {
-                rowValue = rs.getString(rowName);
-                System.out.println(rowValue + "\n");
-            }
-            stmt.close();
-        } catch (SQLException ex) {
-            System.err.println("SQLException: " + ex.getMessage());
-        } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    System.err.println("SQLException: " + e.getMessage());
-                }
-            }
-        }
-    }
-    
-    //method created to test the UListTeacher page - Amit
-    public static ArrayList<ArrayList<String>> queryDataUList(String sqlString) 
-    {
-        
-        Connection con = getConnection();
-        Statement stmt = null;
-        ResultSet rs = null;
-        String rowValue = "";
-        ArrayList<ArrayList<String>> test = new ArrayList<>();
-        
+        ArrayList<String> data = new ArrayList<>();
         try {
             con.setAutoCommit(false);
             stmt = con.createStatement();
             rs = stmt.executeQuery(sqlString);
             int col = rs.getMetaData().getColumnCount();
             
-            while (rs.next()) 
-            {
-                ArrayList<String> test2 = new ArrayList<>();
+            while (rs.next()) {
                 for(int i = 1; i <= col; i++)
                 {
-                    test2.add(rs.getString(i));
+                    data.add(rs.getString(i));
                 }
-                test.add(test2);
             }
             stmt.close();
         } catch (SQLException ex) {
@@ -388,12 +321,16 @@ public class DatabaseMDL {
                 }
             }
         }
-        return test;
+        return data;
     }
-    
-    
         
-    // Any SQL Action executed into the database
+    /**
+     * updateTable
+     * This is used to send a SQL statement to the database that will update
+     * the existing tables with new/remove/replace data.
+     * @param sqlString: String - SQl Strings from the 
+     *                            insert/delete/change methods above.
+     */
     public static void updateTable(String sqlString) {
         
         Connection con = getConnection();
@@ -425,6 +362,10 @@ public class DatabaseMDL {
         }
         }
 
+    /**
+     * main
+     * Executes this file's code to the console.
+     */
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
@@ -433,9 +374,9 @@ public class DatabaseMDL {
 }
 
 /* 
-Create Set Table & Values
-createTable();
-insertDefault();
+Query Data
+ArrayList<String> data = queryData("SELECT date, logintime, logouttime, user_id FROM Access_Record WHERE accessrecord_id = 1234;");
+System.out.println(data);
 
 Insert Values into any table
 insertTable(20, "2022-03-28", "16:19 PM", "17:19 PM", 50);

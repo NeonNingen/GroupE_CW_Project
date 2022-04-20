@@ -15,4 +15,9 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <netbeans.hint.jdkPlatform>Oracle_OpenJDK_17.0.2_8</netbeans.hint.jdkPlatform>
     </properties>
+    <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+        <word>logintime</word>
+        <word>logouttime</word>
+        <word>lvl</word>
+    </spellchecker-wordlist>
 </project-shared-configuration>
