@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package views;
 
-import controllers.LoginRegisterCont;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import models.UserMDL;
 
 /**
  *
@@ -16,24 +13,10 @@ import javax.swing.JPanel;
  */
 public class SettingV extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SettingV
-     */
     public SettingV() {
+        
         initComponents();
-        
-//       MenuBarV  menu = new MenuBarV();
-//        this.setContentPane(menu.getContentPane());
-//        menu.setPageTitle("Setting");
-//        menu.setPageTopicContent(SettingContent);
-
-        //this.logoutBttn.addActionListener(new LoginRegisterCont(this));
-        
-        //setSize(414,667);
-        //MenuBarView menu = new MenuBarView();
-        //this.setContentPane(menu.getContentPane());
-        //menu.setPageTitle("Setting");
-        //menu.setPageTopicContent(SettingContent);
+        addinglang();
     }
 
     /**
@@ -56,8 +39,6 @@ public class SettingV extends javax.swing.JFrame {
         SettingContent.setPreferredSize(new java.awt.Dimension(414, 515));
 
         settingLabel.setText("Choose language of study: ");
-
-        selectLang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         logoutBttn.setText("Logout");
         logoutBttn.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +104,16 @@ public class SettingV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBttnActionPerformed
 
-
+    //Populating The langList
+    public void addinglang(){
+        
+        ArrayList<String> langList = new UserMDL().getLangList();
+        for (int i = 0; i < langList.size(); i++) {
+            selectLang.addItem(langList.get(i));
+            //System.out.println(langList.get(i)+"!!!");
+        }
+    }
+            
     public JPanel getSettingContent() {
         return SettingContent;
     }
@@ -144,41 +134,39 @@ public class SettingV extends javax.swing.JFrame {
         this.selectLang = selectLang;
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SettingV().setVisible(true);
-            }
-        });
-    }
+//    
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new SettingV().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel SettingContent;

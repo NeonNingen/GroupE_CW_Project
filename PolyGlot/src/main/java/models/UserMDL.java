@@ -39,6 +39,12 @@ public class UserMDL extends DatabaseMDL
         this.groupID = groupID;
     }
     
+    //Getting list of languages availbale in the application -by Monesha
+    public static ArrayList<String> getLangList(){
+        String sqlString= "SELECT user_name FROM User";
+        ArrayList<String> langList= queryData(sqlString);
+        return langList;
+    }
     
     //getters
     public String getName() 

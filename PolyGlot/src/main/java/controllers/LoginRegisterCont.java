@@ -12,6 +12,7 @@ import java.util.Random;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.swing.JOptionPane;
+import models.AccessRecordMDL;
 import models.UserMDL;
 import views.MenuBarV;
 import views.RegisterV;
@@ -28,17 +29,22 @@ public class LoginRegisterCont implements ActionListener
     private UserMDL user;
     private SettingV settingPage ;
     private MenuBarV menubar;
-            
+    private int accessrecord_id ;
+    private int user_id;
+    AccessRecordMDL accessRecMDL;
+    
     public LoginRegisterCont(LoginV loginPage) 
     {
         this.loginPage = loginPage;
         this.user = new UserMDL();
+        this.accessRecMDL = new AccessRecordMDL();
     }
     public LoginRegisterCont(SettingV set, MenuBarV menubar) 
     {
         this.settingPage = set;
         this.user = new UserMDL();
         this.menubar = menubar;
+        this.accessRecMDL = new AccessRecordMDL();
     }
     
 
@@ -58,7 +64,8 @@ public class LoginRegisterCont implements ActionListener
                     menu.setProgPageTopicContent(new ProgV().getProgViewContent());
                     //menu.addHistBttn();
                     menu.show();
-
+                    //Access the accessrecord id + store it locally
+                    //INSERT INTO method
                     //new ProgV().show();
                 } else {
                     JOptionPane.showMessageDialog(loginPage, "User and/or password incorrect!", "INVALID DETAILS", 0);
@@ -76,6 +83,7 @@ public class LoginRegisterCont implements ActionListener
                 break;
 
             case "Logout":
+                accessRecMDL.setLogoutTime(user_id,accessrecord_id);
                 menubar.dispose();
                 new LoginV().show();
                 break;

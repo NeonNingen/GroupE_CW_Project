@@ -26,9 +26,9 @@ public class UListTchV extends javax.swing.JFrame {
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("Student List");
         menu.setPageTopicContent(UListContent);
-        this.groupFilterCbox.addActionListener(new UserCont(this));
-        this.SortCbox.addActionListener(new UserCont(this));
-        this.ULvlFilterCbox.addActionListener(new UserCont(this));
+//        this.groupFilterCbox.addActionListener(new UserCont(this));
+//        this.SortCbox.addActionListener(new UserCont(this));
+//        this.ULvlFilterCbox.addActionListener(new UserCont(this));
     }
 
     /**
