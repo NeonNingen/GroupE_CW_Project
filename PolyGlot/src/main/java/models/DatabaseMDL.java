@@ -207,7 +207,7 @@ public class DatabaseMDL {
                          + "user_progresspoints, "
                          + "user_type, admin_access, user_group_id) VALUES "
                          + "(" + user_id + ",'" + name + "','" + sname
-                         + "','" + email + "','" + psed 
+                         + "','" + email + "','" + pswd 
                          + "','" + lang_lvl + "','" + progress_points + "'," 
                          +  user_type + ",'" + admin_access + "','" 
                          + user_group_id + "')");
