@@ -87,7 +87,7 @@ public class UListTchV extends javax.swing.JFrame {
 
         ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "points (lowest)", "points (highest)", "dialogues (lowest)", "dialogues (highest)" }));
+        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
         UListContent.setLayout(UListContentLayout);
@@ -147,6 +147,7 @@ public class UListTchV extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public JComboBox<String> getSortCbox() {

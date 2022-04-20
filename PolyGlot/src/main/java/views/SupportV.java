@@ -53,7 +53,6 @@ public class SupportV extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(414, 667));
         setResizable(false);
 
         supportContent.setPreferredSize(new java.awt.Dimension(414, 480));
@@ -162,6 +161,7 @@ public class SupportV extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getjLabel1() {

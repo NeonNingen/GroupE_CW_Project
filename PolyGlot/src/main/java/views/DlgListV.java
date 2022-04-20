@@ -149,6 +149,7 @@ public class DlgListV extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void ChooseLvlCboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChooseLvlCboxActionPerformed

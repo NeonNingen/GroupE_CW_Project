@@ -5,6 +5,7 @@
  */
 package views;
 
+import controllers.LoginRegisterCont;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
@@ -20,6 +21,14 @@ public class SettingV extends javax.swing.JFrame {
      */
     public SettingV() {
         initComponents();
+        
+//       MenuBarV  menu = new MenuBarV();
+//        this.setContentPane(menu.getContentPane());
+//        menu.setPageTitle("Setting");
+//        menu.setPageTopicContent(SettingContent);
+
+        //this.logoutBttn.addActionListener(new LoginRegisterCont(this));
+        
         //setSize(414,667);
         //MenuBarView menu = new MenuBarView();
         //this.setContentPane(menu.getContentPane());
@@ -39,7 +48,7 @@ public class SettingV extends javax.swing.JFrame {
         SettingContent = new javax.swing.JPanel();
         settingLabel = new javax.swing.JLabel();
         selectLang = new javax.swing.JComboBox<>();
-        logout = new javax.swing.JButton();
+        logoutBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,7 +59,12 @@ public class SettingV extends javax.swing.JFrame {
 
         selectLang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        logout.setText("Logout");
+        logoutBttn.setText("Logout");
+        logoutBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutBttnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
@@ -65,7 +79,7 @@ public class SettingV extends javax.swing.JFrame {
                             .addComponent(selectLang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(SettingContentLayout.createSequentialGroup()
                         .addGap(147, 147, 147)
-                        .addComponent(logout)))
+                        .addComponent(logoutBttn)))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         SettingContentLayout.setVerticalGroup(
@@ -76,7 +90,7 @@ public class SettingV extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(selectLang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(151, 151, 151)
-                .addComponent(logout)
+                .addComponent(logoutBttn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -102,20 +116,26 @@ public class SettingV extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public JButton getLogout() {
-        return logout;
-    }
+    private void logoutBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutBttnActionPerformed
+
 
     public JPanel getSettingContent() {
         return SettingContent;
     }
-    
-    public void setLogout(JButton logout) {
-        this.logout = logout;
+
+    public JButton getLogoutBttn() {
+        return logoutBttn;
     }
 
+    public void setLogoutBttn(JButton logoutBttn) {
+        this.logoutBttn = logoutBttn;
+    }
+    
     public JComboBox<String> getSelectLang() {
         return selectLang;
     }
@@ -162,7 +182,7 @@ public class SettingV extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel SettingContent;
-    private javax.swing.JButton logout;
+    private javax.swing.JButton logoutBttn;
     private javax.swing.JComboBox<String> selectLang;
     private javax.swing.JLabel settingLabel;
     // End of variables declaration//GEN-END:variables

@@ -18,6 +18,7 @@ import views.RegisterV;
 import views.SupportV;
 import views.LoginV;
 import views.ProgV;
+import views.SettingV;
 import views.SupportV2;
 
 
@@ -25,98 +26,105 @@ public class LoginRegisterCont implements ActionListener
 {
     private LoginV loginPage;
     private UserMDL user;
-    
+    private SettingV settingPage ;
+    private MenuBarV menubar;
+            
     public LoginRegisterCont(LoginV loginPage) 
     {
         this.loginPage = loginPage;
         this.user = new UserMDL();
     }
+    public LoginRegisterCont(SettingV set, MenuBarV menubar) 
+    {
+        this.settingPage = set;
+        this.user = new UserMDL();
+        this.menubar = menubar;
+    }
+    
+
 
     @Override
-    public void actionPerformed(ActionEvent e) 
-    {
-        if(e.getSource() == loginPage.getLoginBttn())
-        {
-            if(checkUser() == true)
-            {
-                //JOptionPane.showMessageDialog(loginPage, "", "Login", 1);
-                this.user = new UserMDL("", "", "", "", 0, "", 0, 0);
-                
-                loginPage.dispose();
-                MenuBarV menu = new MenuBarV();
-                menu.setPageTitle("Profile");
-                menu.setProgPageTopicContent(new ProgV().getProgViewContent());
-                //menu.addHistBttn();
-                menu.show();
+    public void actionPerformed(ActionEvent e) {
+        String test = e.getActionCommand();
 
-                //new ProgV().show();
-            }
-            else
-                JOptionPane.showMessageDialog(loginPage, "User and/or password incorrect!", "INVALID DETAILS", 0);
-            
-        }
-        
-        if(e.getSource() == loginPage.getRegisterBttn())
-        {
-            loginPage.dispose();
-            new RegisterV().show();
-        }
-        
-        if(e.getSource() == loginPage.getSupportBttn())
-        {
-           loginPage.dispose();
-           new SupportV2().show(); 
+        switch (test) {
+            case "Login":
+                if (checkUser() == true) {
+                    //JOptionPane.showMessageDialog(loginPage, "", "Login", 1);
+                    this.user = new UserMDL("", "", "", "", 0, "", 0, 0);
+                    MenuBarV menu = new MenuBarV();
+                    loginPage.dispose();
+                    menu.setPageTitle("Profile");
+                    menu.setProgPageTopicContent(new ProgV().getProgViewContent());
+                    //menu.addHistBttn();
+                    menu.show();
+
+                    //new ProgV().show();
+                } else {
+                    JOptionPane.showMessageDialog(loginPage, "User and/or password incorrect!", "INVALID DETAILS", 0);
+                }
+                break;
+
+            case "Register":
+                loginPage.dispose();
+                new RegisterV().show();
+                break;
+
+            case "Help":
+                loginPage.dispose();
+                new SupportV2().show();
+                break;
+
+            case "Logout":
+                menubar.dispose();
+                new LoginV().show();
+                break;
         }
     }
 
-    private Boolean checkUser()
-    {
+    private Boolean checkUser() {
         String username = loginPage.getuNameLogin().getText();
         String pswd = loginPage.getPwdLogin().getText();
-       
+
         //retrieve sql query
-        String query = 
-                "SELECT user_email FROM User WHERE user_email= '" + username + "'" + 
-                " AND user_pass = '" + pswd + "'";
-        
+        String query
+                = "SELECT user_email FROM User WHERE user_email= '" + username + "'"
+                + " AND user_pass = '" + pswd + "'";
+
         user.getConnection();
         //String result = user.queryData(query, "user_email");
-        
-        
+
 //        if(result.isBlank())
 //            return false;
 //        else 
 //            return true;
         return true;
     }
-    
-    
-    
-    
+
     //Methods by Monesha
     //GENERATING SECURE PASSWORDS 
     private final int ITERATIONS = 100;
-    private final int KEY_LENGHT =256;
-    
-    public static String getSalt(int lenght) throws NoSuchAlgorithmException{
+    private final int KEY_LENGHT = 256;
+
+    public static String getSalt(int lenght) throws NoSuchAlgorithmException {
         //Secure Random generator
         SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
         secureRandom.nextBytes(salt); //Generates salt
-        String finalSalt = new String(salt,StandardCharsets.UTF_8);
+        String finalSalt = new String(salt, StandardCharsets.UTF_8);
         return finalSalt;
     }
-    
+
     //Generate Hash of the password
-    public byte[] hash(char[] password, byte[] salt){
-        PBEKeySpec spec = new PBEKeySpec(password,salt,ITERATIONS,KEY_LENGHT);
-        try{
+    public byte[] hash(char[] password, byte[] salt) {
+        PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGHT);
+        try {
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-            byte[] hash=skf.generateSecret(spec).getEncoded();
+            byte[] hash = skf.generateSecret(spec).getEncoded();
             return hash;
-        }catch(NoSuchAlgorithmException|InvalidKeySpecException e){
-            throw new AssertionError("Error while hashing a password"+e.getMessage(),e);
-        }finally{
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new AssertionError("Error while hashing a password" + e.getMessage(), e);
+        } finally {
             spec.clearPassword();
             System.gc();
         }

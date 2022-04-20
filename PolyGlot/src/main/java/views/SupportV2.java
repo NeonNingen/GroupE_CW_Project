@@ -161,6 +161,7 @@ public class SupportV2 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public JLabel getjLabel1() {

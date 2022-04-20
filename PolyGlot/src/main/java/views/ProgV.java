@@ -151,6 +151,7 @@ public class ProgV extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public JPanel getProgViewContent() {
