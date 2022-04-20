@@ -6,10 +6,13 @@
 package views;
 
 import controllers.UserCont;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import models.UserMDL;
 
 /**
  *
@@ -20,15 +23,15 @@ public class UListTchV extends javax.swing.JFrame {
     /**
      * Creates new form UListTchV
      */
-    public UListTchV() {
+    public UListTchV() 
+    {
         initComponents();
-        MenuBarV menu = new MenuBarV();
-        this.setContentPane(menu.getContentPane());
-        menu.setPageTitle("Student List");
-        menu.setPageTopicContent(UListContent);
-//        this.groupFilterCbox.addActionListener(new UserCont(this));
-//        this.SortCbox.addActionListener(new UserCont(this));
-//        this.ULvlFilterCbox.addActionListener(new UserCont(this));
+        fillTable();
+        fillCombo();
+        
+        this.groupFilterCbox.addActionListener(new UserCont(this));
+        this.SortCbox.addActionListener(new UserCont(this));
+        this.ULvlFilterCbox.addActionListener(new UserCont(this));
     }
 
     /**
@@ -83,11 +86,11 @@ public class UListTchV extends javax.swing.JFrame {
 
         GroupSelectLbl.setText("Choose group");
 
-        groupFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        groupFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select group" }));
 
-        ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select level" }));
 
-        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "points (lowest)", "points (highest)" }));
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
         UListContent.setLayout(UListContentLayout);
@@ -186,6 +189,68 @@ public class UListTchV extends javax.swing.JFrame {
         return UListContent;
     }
 
+    /**
+     * by amit
+     */
+    public void fillTable()
+    {
+        UserMDL.getConnection();
+        ArrayList<String> resultQuery = UserMDL.queryData("SELECT user_lang_lvl, user_id, user_name, user_progresspoints FROM User WHERE user_type = 'Student'");
+       
+        String[] columnNames = {"Lvl", "Student ID", "Student Name", /*"Dialogues Done",*/ "points"};
+        int row = resultQuery.size()/columnNames.length;
+        String[][] data = new String[row][columnNames.length];
+        
+        int count = 0;
+        for (int i = 0; i < data.length; i++) 
+        {
+            for (int j = 0; j < columnNames.length; j++) 
+            {
+                data[i][j] = resultQuery.get(count);
+                count++;
+            }
+            
+        }
+        
+        DefaultTableModel td = new DefaultTableModel(data, columnNames)
+        {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+                    
+        };
+        getTblofStd().setModel(td);
+    }
+    
+    /**
+     * by amit
+     */
+    public void fillCombo()
+    {
+        String query;
+        
+        //user group id
+        query = "SELECT DISTINCT user_group_id FROM User WHERE user_type = 'Student'";
+        UserMDL.getConnection();
+        ArrayList<String> result = UserMDL.queryData(query);
+        
+        
+        for (int i = 0; i < result.size(); i++) 
+        {
+            getGroupFilterCbox().addItem(result.get(i));
+        }
+        
+        
+        //user lang level
+        query = "SELECT DISTINCT user_lang_lvl FROM User";
+        result = UserMDL.queryData(query);
+        
+        for (int i = 0; i < result.size(); i++) 
+        {
+            getULvlFilterCbox().addItem(result.get(i));;
+        }
+    }
     
     /**
      * @param args the command line arguments

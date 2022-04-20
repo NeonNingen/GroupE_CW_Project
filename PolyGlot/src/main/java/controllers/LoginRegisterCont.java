@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Random;
 import javax.crypto.SecretKeyFactory;
@@ -90,23 +91,30 @@ public class LoginRegisterCont implements ActionListener
         }
     }
 
-    private Boolean checkUser() {
+    private Boolean checkUser() 
+    {
+        Boolean userExist = false;
         String username = loginPage.getuNameLogin().getText();
         String pswd = loginPage.getPwdLogin().getText();
 
+        loginPage.getuNameLogin().setText("");
+        loginPage.getPwdLogin().setText("");
+        
         //retrieve sql query
         String query
                 = "SELECT user_email FROM User WHERE user_email= '" + username + "'"
-                + " AND user_pass = '" + pswd + "'";
+                + " AND user_pswd = '" + pswd + "'";
 
         user.getConnection();
-        //String result = user.queryData(query, "user_email");
+        ArrayList<String> result = user.queryData(query);
+        
+//        if(!result.isEmpty())
+//        {
+//            userExist = true;
+//        }
 
-//        if(result.isBlank())
-//            return false;
-//        else 
-//            return true;
-        return true;
+       // return userExist;
+       return true;
     }
 
     //Methods by Monesha
