@@ -84,7 +84,6 @@ public class DatabaseMDL {
         }
     }
     
-    
     /**
      * Insert Tables
      * - Each method is used for a separate SQL database table, to insert values 
@@ -106,8 +105,8 @@ public class DatabaseMDL {
         
         updateTable("INSERT INTO Access_Record (accessrecord_id, date, "
                          + "logintime, logouttime, user_id) VALUES "
-                         + "(" + access_id + "," + date + ",'" + logintime 
-                         + "','" + logouttime + "'," + user_id + ")");
+                         + "(" + access_id + ",'" + date + "','" + logintime 
+                         + "','" + logouttime + "','" + user_id + "')");
     }
     
     /**
@@ -155,8 +154,8 @@ public class DatabaseMDL {
                          + "dialogue_completed, dialogue_language) VALUES "
                          + "(" + dial_id + ",'" + name + "','" + topic 
                          + "','" + lvl + "','" + grammar 
-                         + "'," + points + ",'" + state + "','" 
-                         + completed + "','" + lang + "')");
+                         + "'," + points + ",'" + state + "'," 
+                         + completed + ",'" + lang + "')");
     }
     
     /**
@@ -178,7 +177,7 @@ public class DatabaseMDL {
         updateTable("INSERT INTO Dialogue_Record (dialogue_id, user_id, "
                          + "date_completed, time_completed, userA_id, "
                          + "userB_id, userA_points, userB_points) VALUES "
-                         + "('" + dial_id + "'," + user_id + ",'" + d_completed
+                         + "('" + dial_id + "','" + user_id + "','" + d_completed
                          + "','" + t_completed + "','" + userA_id 
                          + "','" + userB_id + "'," + userA_points + "," 
                          + userB_points + ")");
@@ -207,10 +206,10 @@ public class DatabaseMDL {
                          + "user_email, user_pswd, user_lang_lvl, "
                          + "user_progresspoints, "
                          + "user_type, admin_access, user_group_id) VALUES "
-                         + "(" + user_id + ",'" + name + "','" + sname
+                         + "('" + user_id + "','" + name + "','" + sname
                          + "','" + email + "','" + pswd 
-                         + "','" + lang_lvl + "','" + progress_points + "'," 
-                         +  user_type + ",'" + admin_access + "','" 
+                         + "','" + lang_lvl + "'," + progress_points + ",'" 
+                         +  user_type + "','" + admin_access + "','" 
                          + user_group_id + "')");
     }
     
