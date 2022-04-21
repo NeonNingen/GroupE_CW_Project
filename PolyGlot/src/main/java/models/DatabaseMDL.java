@@ -84,20 +84,20 @@ public class DatabaseMDL {
         }
     }
     
-      //Created Language Process Table in the database
+    //Created Language Process Table in the database
     public static void CreateLangTable() {
         // Connection con = connectDB.getConnection();
         Statement stmt = null;
         String sqlCREATE;
-        sqlCREATE = "CREATE TABLE if not exists LangProcess ("
-                + "langID        INTEGER AUTO_INCREMENT,"
+        sqlCREATE = "CREATE TABLE LangProcess ("
+                + "langID        INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "langName      VARCHAR (10) NOT NULL,"
                 + "progressPoint INT(11) NOT NULL,"
                 + "user_id       VARCHAR (10) NOT NULL,"
-                + "CONSTRAINT lp_lid_pk PRIMARY KEY (langID),"
                 + "CONSTRAINT lp_uid_fk FOREIGN KEY (user_id)REFERENCES User (user_id) ON DELETE CASCADE);";
         updateTable(sqlCREATE);
     }  
+    //+ "CONSTRAINT lp_lid_pk PRIMARY KEY (langID),"
     
     /**
      * Insert Tables

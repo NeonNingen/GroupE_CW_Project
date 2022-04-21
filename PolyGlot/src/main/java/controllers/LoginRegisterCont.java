@@ -32,7 +32,7 @@ public class LoginRegisterCont implements ActionListener {
     private MenuBarV menubar;
     private SupportV2 supportPage;
     private int accessrecord_id;
-    private int user_id;
+    private String user_id;
     AccessRecordMDL accessRecMDL;
 
     public LoginRegisterCont(LoginV loginPage) {
@@ -60,6 +60,7 @@ public class LoginRegisterCont implements ActionListener {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
             System.out.println("User choose language: " + langChoice);
             this.settingPage.changeLangOrder(langChoice);
+            userMDL.updateLangdb(user_id, langChoice);
 
         }
     }
@@ -140,7 +141,7 @@ public class LoginRegisterCont implements ActionListener {
                 break;
 
             case "Logout":
-                accessRecMDL.setLogoutTime(user_id, accessrecord_id);
+                accessRecMDL.setLogoutTime(accessrecord_id, user_id);
                 menubar.dispose();
                 new LoginV().show();
                 break;
