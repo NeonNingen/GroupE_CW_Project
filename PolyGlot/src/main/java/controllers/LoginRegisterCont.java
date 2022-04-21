@@ -67,6 +67,17 @@ public class LoginRegisterCont implements ActionListener {
         }
     }
 
+    public void actionPermHelp(ActionEvent e) {
+        if (e.getSource() == this.registerPage.getSupportBttn()) {
+            this.registerPage.dispose();
+            this.supportPage = new SupportV2();
+            this.supportPage.setVisible(true);
+        } else if (e.getSource() == this.loginPage.getSupportBttn()) {
+            loginPage.dispose();
+            new SupportV2().show();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         choosingLang(e);
@@ -132,14 +143,7 @@ public class LoginRegisterCont implements ActionListener {
                 break;
 
             case "Help":
-                if (e.getSource() == this.registerPage.getSupportBttn()) {
-                    this.registerPage.dispose();
-                    this.supportPage = new SupportV2();
-                    this.supportPage.setVisible(true);
-                } else if (e.getSource() == this.loginPage.getSupportBttn()) {
-                    loginPage.dispose();
-                    new SupportV2().show();
-                }
+                actionPermHelp(e);
                 break;
 
             case "Logout":
@@ -179,6 +183,8 @@ public class LoginRegisterCont implements ActionListener {
         return true;
     }
 
+    //Methods by Monesha
+    //It validates the inputs entered by User
     public boolean checkRegData(String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
         if (uName.isEmpty() && uSurname.isEmpty() && uEmail.isEmpty() && uGroup.isEmpty() && uPwd.isEmpty() && uPwdConfirm.isEmpty()) {
             System.out.println("Please fill in all the variables of the form");

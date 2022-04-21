@@ -3,13 +3,11 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JPanel;
 import views.DlgHistV;
 import views.DlgListV;
 import views.MenuBarV;
 import views.SettingV;
 import views.SupportV;
-import views.UListStdV;
 import views.UListTchV;
 import views.ProgV;
 
@@ -75,8 +73,6 @@ public class MenuBarCont implements ActionListener
                 SettingV setting = new SettingV(menuBar);
                 menuBar.setPageTitle("Settings"); //change title
                 menuBar.setPageTopicContent(setting.getSettingContent()); //clear page content and add content of view class Jpanel 
-
-                //setting.getLogoutBttn().addActionListener(new LoginRegisterCont(setting,menuBar)); //By Monesha
             }
 
         }
