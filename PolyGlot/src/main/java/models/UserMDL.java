@@ -45,19 +45,16 @@ public class UserMDL extends DatabaseMDL
     
     //This allows the user to put thrit choice of language in the database
     public void updateLangdb(String user_id, String langChoice) {
-
-        //SQL that retrieves the langid of the user who choose a specific language AND the user_id
-        //If return result is null then create a record and INSERT INTO Database (UserMDL)
         String SQLlangID = "SELECT langID FROM LangProcess WHERE langName='" + langChoice + "' AND user_id='" + user_id + "';";
         ArrayList<String> language = queryData(SQLlangID);
         if (language.size() == 1) {
             System.out.println("Language choosen on the database. ");
         } else if (language.isEmpty()) {
-            //INSERT new record of user and its choosen language
+            //INSERT new record of user and its choosen language if a record of it doesnt exists already
             String sqlInput = "INSERT INTO LangProcess(langName, progressPoint, user_id) "
                     + "VALUES ('"+langChoice+"',0,'"+user_id+"')";
             updateTable(sqlInput);
-            System.out.println("New record is created fr the language choosen option. ");
+            System.out.println("New record is created for the language choosen option. ");
         }
     }
     

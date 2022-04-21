@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controllers;
 
 import java.awt.event.ActionEvent;
@@ -64,30 +61,30 @@ public class MenuBarCont implements ActionListener
             menuBar.remove(menuBar.getDlgHistBttn2());
             menuBar.setPageTitle("User List");
             menuBar.setPageTopicContent(new UListTchV().getUListContent());
-           
+
         }
-        
-        if(e.getSource() == menuBar.getSupportBttn()){
+
+        if (e.getSource() == menuBar.getSupportBttn()) {
             menuBar.setPageTitle("Support");
             menuBar.setPageTopicContent(new SupportV().getSupportContent());
-            
+
         }
-        
-        if(e.getSource() == menuBar.getSettBttn()){
-            if(e.getSource() == menuBar.getSettBttn()){
-            SettingV setting = new SettingV(menuBar);
-            menuBar.setPageTitle("Settings"); //change title
-            menuBar.setPageTopicContent(setting.getSettingContent()); //clear page content and add content of view class Jpanel 
-            //setting.getLogoutBttn().addActionListener(new LoginRegisterCont(setting,menuBar)); //By Monesha
-            
+
+        if (e.getSource() == menuBar.getSettBttn()) {
+            if (e.getSource() == menuBar.getSettBttn()) {
+                SettingV setting = new SettingV(menuBar);
+                menuBar.setPageTitle("Settings"); //change title
+                menuBar.setPageTopicContent(setting.getSettingContent()); //clear page content and add content of view class Jpanel 
+
+                //setting.getLogoutBttn().addActionListener(new LoginRegisterCont(setting,menuBar)); //By Monesha
+            }
+
         }
-            
-        }
-        
-        if(e.getSource() == menuBar.getDlgListBttn()){
+
+        if (e.getSource() == menuBar.getDlgListBttn()) {
             menuBar.setPageTitle("Dialogue List");
             menuBar.setPageTopicContent(new DlgListV().getDlgListContent());
-            
+
         }
 //        if(e.getSource() == menuBar.getProVBttn())
 //        {

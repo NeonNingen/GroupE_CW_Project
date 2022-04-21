@@ -6,26 +6,24 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
-import models.UserMDL;
 
-/**
- *
- * @author mones
- */
 public class SettingV extends javax.swing.JFrame {
 
-      ArrayList<String> langList= new ArrayList<String>();
-    
+    ArrayList<String> langList= new ArrayList<String>();
+  
     public SettingV() {
         initComponents();
         addinglang();
+        //getSelectLang().setSelectedItem(langChoice);
     }
 
     public SettingV(MenuBarV menu) {
         initComponents();
         addinglang();
+        //getSelectLang().setSelectedItem(langChoice);
         this.getLogoutBttn().addActionListener(new LoginRegisterCont(this,menu)); //By Monesha
         this.getSelectLang().addActionListener(new LoginRegisterCont(this,menu));
+       
     }
 
     /**
@@ -113,8 +111,13 @@ public class SettingV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_logoutBttnActionPerformed
 
+    public void setSelectedLang(String langChoice){
+        if(!(langChoice.isEmpty())){
+            getSelectLang().setSelectedItem(langChoice);
+        }
+    }
     //Populating The langList
-    public void addinglang(){ 
+    private void addinglang(){ 
         //ArrayList<String> langList = new UserMDL().getLangList();
         langList.add("French");
         langList.add("Spanish");
@@ -135,6 +138,7 @@ public class SettingV extends javax.swing.JFrame {
         }
     }
 
+    
     public ArrayList<String> getLangList() {
         return langList;
     }

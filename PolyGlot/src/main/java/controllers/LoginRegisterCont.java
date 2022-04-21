@@ -59,9 +59,11 @@ public class LoginRegisterCont implements ActionListener {
         if (!(this.settingPage == null)) {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
             System.out.println("User choose language: " + langChoice);
-            this.settingPage.changeLangOrder(langChoice);
+            //this.settingPage.changeLangOrder(langChoice);
+            //settingPage.getSelectLang().setSelectedItem(langChoice);
+            //settingPage.setLangChoice(langChoice);
+            settingPage.setSelectedLang(langChoice);
             userMDL.updateLangdb(user_id, langChoice);
-
         }
     }
 
