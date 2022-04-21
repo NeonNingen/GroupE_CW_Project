@@ -35,7 +35,7 @@ public class UserMDL extends DatabaseMDL
     public void insertRegDetss(String userID, String name, String surname, String email, String groupID, String pswd){
       //  Connection con = getConnection();
         String userType = "Student";
-        String adminAccess = "No";
+        String adminAccess = "denied";
         String lang_lvl = "null";
         int progressPnt = 0;
         insertTable(userID ,name, surname, email, pswd, lang_lvl ,progressPnt,userType, adminAccess , groupID);

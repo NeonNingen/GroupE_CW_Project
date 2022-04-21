@@ -9,6 +9,8 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.crypto.SecretKeyFactory;
@@ -55,6 +57,8 @@ public class LoginRegisterCont implements ActionListener {
         this.accessRecMDL = new AccessRecordMDL();
     }
 
+    //Methods created by Monesha
+    //These are small methods that triggers an action made by user
     public void choosingLang(ActionEvent e) {
         if (!(this.settingPage == null)) {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
@@ -104,33 +108,10 @@ public class LoginRegisterCont implements ActionListener {
 
             case "Register":
                 if (e.getSource() == this.registerPage.getRegBttn()) {
-                    String uName = registerPage.getNameReg().getText().trim().toLowerCase();
-                    String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
-                    String uEmail = registerPage.getEmailReg().getText().trim();
-                    String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
-                    String uPwd = registerPage.getPwdReg1().getText();
-                    String uPwdConfirm = registerPage.getPwdReg2().getText();
-                    boolean selectTermCond = registerPage.getTermsCond().isSelected();
-                    String userID = "w16171819";
-
-                    System.out.println("Display"
-                            + "User name: " + uName + "\n"
-                            + "User last name: " + uSurname + "\n"
-                            + "User email: " + uEmail + "\n"
-                            + "User Group:" + uGroup + "\n"
-                            + "User pwd:" + uPwd + "\n"
-                            + "userID:" + userID + "\n"
-                            + "Did user select Item: " + selectTermCond + "\n");
-
-                    if (checkRegData(uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) {
-                        this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup);
-                        userMDL.insertRegDetss(userID, uName, uSurname, uEmail, uGroup, uPwd);
-                        this.registerPage.dispose();
-
-                        MenuBarV menu = new MenuBarV();
-                        menu.setPageTitle("Setting");
-                        menu.setPageTopicContent(new SettingV(menu).getSettingContent());
-                        menu.setVisible(true);
+                    try {
+                        registerUser(e);
+                    } catch (NoSuchAlgorithmException ex) {
+                        Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                 } else if (e.getSource() == this.loginPage.getRegisterBttn()) {
@@ -183,6 +164,30 @@ public class LoginRegisterCont implements ActionListener {
 
     //Methods by Monesha
     //It validates the inputs entered by User
+    public void registerUser(ActionEvent e) throws NoSuchAlgorithmException {
+        String uName = registerPage.getNameReg().getText().trim().toLowerCase();
+        String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
+        String uEmail = registerPage.getEmailReg().getText().trim();
+        String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
+        String uPwd = registerPage.getPwdReg1().getText();
+        String uPwdConfirm = registerPage.getPwdReg2().getText();
+        boolean selectTermCond = registerPage.getTermsCond().isSelected();
+        String userID = "wcry999";
+
+        if (checkRegData(uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) {
+            this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup);
+            String salt = getSalt(getRandomInteger(16,40));
+            String secure_pwd = generateSecurePwd(uPwd, salt);
+            userMDL.insertRegDetss(userID, uName, uSurname, uEmail, uGroup, secure_pwd);
+            this.registerPage.dispose();
+
+            MenuBarV menu = new MenuBarV();
+            menu.setPageTitle("Setting");
+            menu.setPageTopicContent(new SettingV(menu).getSettingContent());
+            menu.setVisible(true);
+        }
+    }
+
     public boolean checkRegData(String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
         if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) {
             String msgEpty = "Please fill in all the variables of the form";
@@ -229,9 +234,8 @@ public class LoginRegisterCont implements ActionListener {
             }
         }
     }
-    private static final String PATTERN = "^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*)[^\\s]{8,}$";
+    private static final String PATTERN = "^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%£?!^&+=]).*)[^\\s]{8,}$";
     public boolean isValidPassword(String password) {
-        //String regex = "^[a-zA-Z@#$%^&+=](?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=]).{8,}[a-zA-Z0-9]$";
         Pattern pattern = Pattern.compile(PATTERN); //Compiling the regex
         Matcher matcher = pattern.matcher(password);
         System.out.println("Password being valid status: "+matcher.matches());
@@ -253,7 +257,7 @@ public class LoginRegisterCont implements ActionListener {
     private final int ITERATIONS = 100;
     private final int KEY_LENGHT = 256;
 
-    public static String getSalt(int lenght) throws NoSuchAlgorithmException {
+    private static String getSalt(int lenght) throws NoSuchAlgorithmException {
         //Secure Random generator
         SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
@@ -263,7 +267,7 @@ public class LoginRegisterCont implements ActionListener {
     }
 
     //Generate Hash of the password
-    public byte[] hash(char[] password, byte[] salt) {
+    private byte[] hash(char[] password, byte[] salt) {
         PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGHT);
         try {
             SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
@@ -284,6 +288,10 @@ public class LoginRegisterCont implements ActionListener {
         return salt + ":" + returnValue;
     }
 
+    public static int getRandomInteger(int minNum, int maxNum){ 
+        return ((int) (Math.random()*(maxNum - minNum))) + minNum;
+    }
+    
     public boolean isValidPwd(String providedPwd, String storedPWD) {
         boolean returnValue = false;
         String[] params = storedPWD.split(":");
@@ -294,12 +302,4 @@ public class LoginRegisterCont implements ActionListener {
         returnValue = newSecurePWD.equalsIgnoreCase(storedPWD);
         return returnValue; //IF TRUE password matches
     }
-
-    //NEXT STEPS (for Monesha and Amit)
-    //GET User password from the database
-    //Input it into the function isValidPwd as a STRING
-    //If the resutl of function isValidPwd is true THEN LOGIN
-    //else Password incorrect
-    //GENERATE password using generateSecurePwd
-    //INPUT it into Database
 }
