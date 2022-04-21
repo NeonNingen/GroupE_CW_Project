@@ -59,6 +59,7 @@ public class LoginRegisterCont implements ActionListener {
 
     //Methods created by Monesha
     //These are small methods that triggers an action made by user
+    //Events get activated when user is choosing a language in Setting page
     public void choosingLang(ActionEvent e) {
         if (!(this.settingPage == null)) {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
@@ -71,14 +72,15 @@ public class LoginRegisterCont implements ActionListener {
         }
     }
 
+    //Events get activated when user is pressing on the help button in login/ register page
     public void actionPermHelp(ActionEvent e) {
+        this.supportPage = new SupportV2();
         if (e.getSource() == this.registerPage.getSupportBttn()) {
             this.registerPage.dispose();
-            this.supportPage = new SupportV2();
             this.supportPage.setVisible(true);
         } else if (e.getSource() == this.loginPage.getSupportBttn()) {
-            loginPage.dispose();
-            new SupportV2().show();
+            this.loginPage.dispose();
+            this.supportPage.setVisible(true);
         }
     }
 

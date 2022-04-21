@@ -23,7 +23,6 @@ public class SettingV extends javax.swing.JFrame {
         //getSelectLang().setSelectedItem(langChoice);
         this.getLogoutBttn().addActionListener(new LoginRegisterCont(this,menu)); //By Monesha
         this.getSelectLang().addActionListener(new LoginRegisterCont(this,menu));
-       
     }
 
     /**
