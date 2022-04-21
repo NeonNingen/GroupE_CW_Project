@@ -106,12 +106,12 @@ public class LoginRegisterCont implements ActionListener {
                 if (e.getSource() == this.registerPage.getRegBttn()) {
                     String uName = registerPage.getNameReg().getText().trim().toLowerCase();
                     String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
-                    String uEmail = registerPage.getEmailReg().getText().trim().toLowerCase();
+                    String uEmail = registerPage.getEmailReg().getText().trim();
                     String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
-                    String uPwd = registerPage.getPwdReg1().getText().trim().toLowerCase();
-                    String uPwdConfirm = registerPage.getPwdReg2().getText().trim().toLowerCase();
+                    String uPwd = registerPage.getPwdReg1().getText();
+                    String uPwdConfirm = registerPage.getPwdReg2().getText();
                     boolean selectTermCond = registerPage.getTermsCond().isSelected();
-                    String userID = "w111236";
+                    String userID = "w16171819";
 
                     System.out.println("Display"
                             + "User name: " + uName + "\n"
@@ -131,10 +131,6 @@ public class LoginRegisterCont implements ActionListener {
                         menu.setPageTitle("Setting");
                         menu.setPageTopicContent(new SettingV(menu).getSettingContent());
                         menu.setVisible(true);
-                    } else {
-                        String msg ="Enter correct details in correct format";
-                        JOptionPane.showMessageDialog(null, msg, "Problem", JOptionPane.ERROR_MESSAGE);
-                        System.out.println(msg);
                     }
 
                 } else if (e.getSource() == this.loginPage.getRegisterBttn()) {
@@ -233,11 +229,10 @@ public class LoginRegisterCont implements ActionListener {
             }
         }
     }
-
+    private static final String PATTERN = "^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*)[^\\s]{8,}$";
     public boolean isValidPassword(String password) {
-        //regex refer to user have to insert at least 8 chars. Lower case, uppercase, digit, special character occur at least once. No white spaces allowed.
-        String regex = "^[a-zA-Z@#$%^&+=](?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}[a-zA-Z0-9]$";
-        Pattern pattern = Pattern.compile(regex); //Compiling the regex
+        //String regex = "^[a-zA-Z@#$%^&+=](?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&+=]).{8,}[a-zA-Z0-9]$";
+        Pattern pattern = Pattern.compile(PATTERN); //Compiling the regex
         Matcher matcher = pattern.matcher(password);
         System.out.println("Password being valid status: "+matcher.matches());
         return matcher.matches();
