@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package views;
 
 import controllers.LoginRegisterCont;
@@ -13,10 +9,6 @@ import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-/**
- *
- * @author mones
- */
 public class RegisterV extends javax.swing.JFrame {
 
     ArrayList<String> groupList = new ArrayList<String>();
@@ -35,6 +27,9 @@ public class RegisterV extends javax.swing.JFrame {
         groupList.add("5COSSpanish1");
         groupList.add("5COSSpanish2");
         groupList.add("5COSSpanish3");
+        groupList.add("5COSFrench1");
+        groupList.add("5COSFrench2");
+        groupList.add("5COSFrench3");
         for (int i = 0; i < groupList.size(); i++) {
             groupIdSelect.addItem(groupList.get(i));
         }
