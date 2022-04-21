@@ -4,12 +4,14 @@
  */
 package views;
 
+import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import models.DialogueMDL;
 
 /**
  *
@@ -107,15 +109,17 @@ public class DlgListV extends javax.swing.JFrame {
             DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DlgListContentLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DlgListContentLayout.createSequentialGroup()
-                        .addComponent(ChooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ChooseTopicCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(ChooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ChooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ChooseTopicCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(ChooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DlgListContentLayout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         DlgListContentLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ChooseGramCbox, ChooseLvlCbox, ChooseTopicCbox});
@@ -128,8 +132,12 @@ public class DlgListV extends javax.swing.JFrame {
                     .addComponent(ChooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ChooseTopicCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ChooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(454, Short.MAX_VALUE))
+            .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DlgListContentLayout.createSequentialGroup()
+                    .addContainerGap(40, Short.MAX_VALUE)
+                    .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -222,19 +230,9 @@ public class DlgListV extends javax.swing.JFrame {
         this.jScrollDlgListTbl = jScrollDlgListTbl;
     }
 
-    public void setjTableDlgList(Integer rowCount){//JTable jTableDlgList) {
-        String[] colNames= {"Lvl","Dialogue Name","Topic"};
-        //this.jTableDlgList = jTableDlgList;
-        DefaultTableModel model= new DefaultTableModel();
-        model.setColumnIdentifiers(colNames);
-        jTableDlgList.setModel(model);
+    public void setjTableDlgList(JTable table){//JTable jTableDlgList) {
         
-        // dlgModel.getLevel(), dlgModel.getName(), dlgModel.getTopic()
-        
-        for(int i=0; i<rowCount;i++){
-            model.addRow(colNames );
-        }
-        
+        jTableDlgList= table;
     }
 
     public JComboBox<String> getChooseGramCbox() {
@@ -261,6 +259,37 @@ public class DlgListV extends javax.swing.JFrame {
         return jTableDlgList;
     }
 
+    public void generateJTable(Integer rowCount, ArrayList<DialogueMDL> dlgList){
+        
+        String[] headers= {"Lvl","Dialogue Name","Topic"};
+        String[][] empty= new String[rowCount][3];
+        DefaultTableModel model= new DefaultTableModel(empty, headers);
+        jTableDlgList.setModel(model);
+        model.setColumnIdentifiers(headers);
+        
+        //model.addRow(headers );
+        /*for(int i=0; i< rowCount;i++){
+            model.addRow(empty);
+            
+        }*/
+        
+        int count=0;
+        for(int i=0; i< rowCount;i++){
+            model.setValueAt(dlgList.get(i).getDlg_level(), i, 0); //obj, row, column
+            model.setValueAt(dlgList.get(i).getDlg_topic(), i, 1);
+            model.setValueAt(dlgList.get(i).getDlg_name(), i, 2);
+            count++;
+            System.out.println("Created row " +i+": "+ dlgList.get(i).getDlg_level()+" | "+
+                    dlgList.get(i).getDlg_topic()+" | "+
+                    dlgList.get(i).getDlg_name());
+            
+        }
+        
+        jTableDlgList.setModel(model);
+       // jScrollDlgListTbl.add(jTableDlgList);
+        
+        //jTableDlgList.show();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ChooseGramCbox;
     private javax.swing.JComboBox<String> ChooseLvlCbox;
@@ -270,3 +299,5 @@ public class DlgListV extends javax.swing.JFrame {
     private javax.swing.JTable jTableDlgList;
     // End of variables declaration//GEN-END:variables
 }
+
+

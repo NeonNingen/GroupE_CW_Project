@@ -7,6 +7,9 @@ package controllers;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Vector;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import models.DialogueMDL;
 import views.CardScrollV;
 import views.DlgHistV;
@@ -66,21 +69,32 @@ public class DialogueCont implements ActionListener
                 for(int j=0; j<clmnCount;j++){
                     
                     orderList[i][j]= draftList.get(count);
-                    dlgList.add(new DialogueMDL(draftList.get(0),draftList.get(1),draftList.get(2),
-                                                draftList.get(3),draftList.get(4),draftList.get(5),
-                                                draftList.get(6),draftList.get(7),draftList.get(8)));
-                    System.out.print(draftList.get(count)+" | ");
                     count++;
+                    
                 }
-                System.out.println();
+                dlgList.add(new DialogueMDL(orderList[i][0].toString(),orderList[i][1].toString(),orderList[i][2].toString(),
+                                            orderList[i][3].toString(),orderList[i][4].toString(),orderList[i][5].toString(),
+                                            orderList[i][6].toString(),orderList[i][7].toString(),orderList[i][8].toString()));
+                
+                
             }
         
+        printDlgList();
         //use dlg list to fill in JTable in dialgue view    
-            
+        dlgListPage.generateJTable(rowCount, dlgList);
+        dlgListPage.revalidate();
+        dlgListPage.repaint();
     
+        
     }
     
-    
+    public void printDlgList(){
+        System.out.println("Check dialogue list:");
+        for(int count=0; count<rowCount;count++){
+            System.out.print(dlgList.get(count).getDlg_name()+" | "+dlgList.get(count).getDlg_points());
+                System.out.println();
+        }
+    }
      
     
     

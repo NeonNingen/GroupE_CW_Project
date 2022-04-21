@@ -84,7 +84,7 @@ public class MenuBarCont implements ActionListener
             DlgListV dlgView= new DlgListV();
             DialogueCont cont= new DialogueCont(dlgView, dlgModel);
             menuBar.setPageTitle("Dialogue List");
-            menuBar.setPageTopicContent(new DlgListV().getDlgListContent());
+            menuBar.setPageTopicContent(dlgView.getDlgListContent());
             
         }
         

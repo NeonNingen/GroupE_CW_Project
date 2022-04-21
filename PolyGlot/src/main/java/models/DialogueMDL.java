@@ -79,6 +79,26 @@ public class DialogueMDL extends DatabaseMDL
     {
         return dlg_points;
     }
+
+    public String getDlg_name() {
+        return dlg_name;
+    }
+
+    public String getDlg_state() {
+        return dlg_state;
+    }
+
+    public String getDlg_completed() {
+        return dlg_completed;
+    }
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public int getClmnCount() {
+        return clmnCount;
+    }
     
     
     //setters
@@ -112,6 +132,7 @@ public class DialogueMDL extends DatabaseMDL
         this.dlg_points = dlg_points;
     }
 
+    
     //inherited methods from DatabaseMDL
 //    @Override
 //    public void insert() {
