@@ -84,6 +84,21 @@ public class DatabaseMDL {
         }
     }
     
+      //Created Language Process Table in the database
+    public static void CreateLangTable() {
+        // Connection con = connectDB.getConnection();
+        Statement stmt = null;
+        String sqlCREATE;
+        sqlCREATE = "CREATE TABLE if not exists LangProcess ("
+                + "langID        INTEGER AUTO_INCREMENT,"
+                + "langName      VARCHAR (10) NOT NULL,"
+                + "progressPoint INT(11) NOT NULL,"
+                + "user_id       VARCHAR (10) NOT NULL,"
+                + "CONSTRAINT lp_lid_pk PRIMARY KEY (langID),"
+                + "CONSTRAINT lp_uid_fk FOREIGN KEY (user_id)REFERENCES User (user_id) ON DELETE CASCADE);";
+        updateTable(sqlCREATE);
+    }  
+    
     /**
      * Insert Tables
      * - Each method is used for a separate SQL database table, to insert values 
@@ -369,6 +384,7 @@ public class DatabaseMDL {
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
+        CreateLangTable();
     }
 
 }

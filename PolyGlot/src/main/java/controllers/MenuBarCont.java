@@ -74,10 +74,13 @@ public class MenuBarCont implements ActionListener
         }
         
         if(e.getSource() == menuBar.getSettBttn()){
-            SettingV setting = new SettingV();
+            if(e.getSource() == menuBar.getSettBttn()){
+            SettingV setting = new SettingV(menuBar);
             menuBar.setPageTitle("Settings"); //change title
             menuBar.setPageTopicContent(setting.getSettingContent()); //clear page content and add content of view class Jpanel 
-            setting.getLogoutBttn().addActionListener(new LoginRegisterCont(setting,menuBar)); //By Monesha
+            //setting.getLogoutBttn().addActionListener(new LoginRegisterCont(setting,menuBar)); //By Monesha
+            
+        }
             
         }
         

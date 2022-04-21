@@ -3,12 +3,7 @@ Contains all database methods
  */
 package models;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 public class UserMDL extends DatabaseMDL
@@ -20,30 +15,52 @@ public class UserMDL extends DatabaseMDL
     private String langLvl;
     private int progPoints;
     private String userType;
-    private int userID;
-    private int groupID;
+    private String userID;
+    private String groupID;
     
     public UserMDL() 
     {
         
     }
 
-    public UserMDL(String name, String surname, String email, String langLvl, int progPoints, String userType, int userID, int groupID) {
+    
+    public UserMDL(String userID, String name, String surname, String email, String groupID) {
+        this.userID = userID;
         this.name = name;
         this.surname = surname;
         this.email = email;
-        this.langLvl = langLvl;
-        this.progPoints = progPoints;
-        this.userType = userType;
-        this.userID = userID;
         this.groupID = groupID;
     }
     
-    //Getting list of languages availbale in the application -by Monesha
-    public static ArrayList<String> getLangList(){
-        String sqlString= "SELECT user_name FROM User";
-        ArrayList<String> langList= queryData(sqlString);
-        return langList;
+    //Insert user details when registering into the database
+    public void insertRegDetss(String userID, String name, String surname, String email, String groupID, String pswd){
+      //  Connection con = getConnection();
+        String userType = "Student";
+        String adminAccess = "No";
+        String lang_lvl = "null";
+        int progressPnt = 0;
+        insertTable(userID ,name, surname, email, pswd, lang_lvl ,progressPnt,userType, adminAccess , groupID);
+       
+    }
+    
+    
+//    //Getting list of languages availbale in the application -by Monesha
+//    public static ArrayList<String> getLangList(){
+//        String sqlString= "SELECT user_name FROM User";
+//        ArrayList<String> langList= queryData(sqlString);
+//        return langList;
+//    }
+    
+    //This allows the user to put thrit choice of language in the database
+    public void updateLangdb(String user_id, String langChoice){
+        
+            //SQL that retrieves the langid of the user who choose a specific language AND the user_id
+            //If return result is null then create a record and INSERT INTO Database (UserMDL)
+            String SQLlangID = "SELECT langID FROM LangProcess WHERE langName='"+langChoice+"' AND user_id='"+user_id+"';";
+            ArrayList<String> language = queryData(SQLlangID);
+            if(language.size()==1){
+                System.out.println("Language choosen on the database. ");
+            }
     }
     
     //getters
@@ -74,11 +91,11 @@ public class UserMDL extends DatabaseMDL
         return userType;
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public int getGroupID() {
+    public String getGroupID() {
         return groupID;
     }
 
@@ -110,11 +127,11 @@ public class UserMDL extends DatabaseMDL
         this.userType = userType;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
-    public void setGroupID(int groupID) {
+    public void setGroupID(String groupID) {
         this.groupID = groupID;
     } 
     

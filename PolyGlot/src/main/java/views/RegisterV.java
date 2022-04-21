@@ -5,6 +5,8 @@
  */
 package views;
 
+import controllers.LoginRegisterCont;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -17,14 +19,27 @@ import javax.swing.JTextField;
  */
 public class RegisterV extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegisterView
-     */
+    ArrayList<String> groupList = new ArrayList<String>();
+   
     public RegisterV() {
         initComponents();
+        addGroups();
+        this.cancelBttn.addActionListener(new LoginRegisterCont(this));
+        this.regBttn.addActionListener(new LoginRegisterCont(this));
+        this.supportBttn.addActionListener(new LoginRegisterCont(this));
     }
-
    
+    //Adding the group ids manually (usually provided by Uni)
+    public void addGroups(){
+        this.groupList = new ArrayList<String>();
+        groupList.add("5COSSpanish1");
+        groupList.add("5COSSpanish2");
+        groupList.add("5COSSpanish3");
+        for (int i = 0; i < groupList.size(); i++) {
+            groupIdSelect.addItem(groupList.get(i));
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -243,44 +258,7 @@ public class RegisterV extends javax.swing.JFrame {
     }
 
     
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegisterV().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SurnameReg;

@@ -1,6 +1,7 @@
 
 package views;
 
+import controllers.LoginRegisterCont;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -13,10 +14,18 @@ import models.UserMDL;
  */
 public class SettingV extends javax.swing.JFrame {
 
+      ArrayList<String> langList= new ArrayList<String>();
+    
     public SettingV() {
-        
         initComponents();
         addinglang();
+    }
+
+    public SettingV(MenuBarV menu) {
+        initComponents();
+        addinglang();
+        this.getLogoutBttn().addActionListener(new LoginRegisterCont(this,menu)); //By Monesha
+        this.getSelectLang().addActionListener(new LoginRegisterCont(this,menu));
     }
 
     /**
@@ -105,15 +114,31 @@ public class SettingV extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutBttnActionPerformed
 
     //Populating The langList
-    public void addinglang(){
-        
-        ArrayList<String> langList = new UserMDL().getLangList();
+    public void addinglang(){ 
+        //ArrayList<String> langList = new UserMDL().getLangList();
+        langList.add("French");
+        langList.add("Spanish");
         for (int i = 0; i < langList.size(); i++) {
             selectLang.addItem(langList.get(i));
             //System.out.println(langList.get(i)+"!!!");
         }
     }
-            
+
+    public void changeLangOrder(String langChoice) {
+        int position;
+        if (getLangList().contains(langChoice)) {
+            position = getLangList().indexOf(langChoice);
+
+            String originalStr = getLangList().get(0);
+            getLangList().set(position, originalStr);
+            getLangList().set(0, langChoice);
+        }
+    }
+
+    public ArrayList<String> getLangList() {
+        return langList;
+    }
+         
     public JPanel getSettingContent() {
         return SettingContent;
     }
@@ -134,39 +159,7 @@ public class SettingV extends javax.swing.JFrame {
         this.selectLang = selectLang;
     }
     
-//    
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(SettingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new SettingV().setVisible(true);
-//            }
-//        });
-//    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel SettingContent;

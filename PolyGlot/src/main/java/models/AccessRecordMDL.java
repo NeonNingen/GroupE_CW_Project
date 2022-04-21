@@ -30,6 +30,7 @@ public class AccessRecordMDL extends DatabaseMDL
         System.out.println("LOGOUT TIME!!!!!!!!!: "+ dtf.format(now));
        //Only changes the logout date time
         String sqlString = "UPDATE Access_Record SET logouttime = '"+dtf.format(now)+"' WHERE accessrecord_id="+accessrecord_id+" AND user_id = "+user_id;
+      
         updateTable(sqlString);
     }
     
