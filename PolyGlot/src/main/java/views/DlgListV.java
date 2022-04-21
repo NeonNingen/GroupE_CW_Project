@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -83,16 +84,10 @@ public class DlgListV extends javax.swing.JFrame {
 
         jTableDlgList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"A1", "Order Monday", "Topic"},
-                {"A1", "France visit", "Travel"},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Lvl", "Dlg Name", "Details"
+
             }
         ));
         jTableDlgList.setAlignmentX(0.0F);
@@ -227,8 +222,19 @@ public class DlgListV extends javax.swing.JFrame {
         this.jScrollDlgListTbl = jScrollDlgListTbl;
     }
 
-    public void setjTableDlgList(JTable jTableDlgList) {
-        this.jTableDlgList = jTableDlgList;
+    public void setjTableDlgList(Integer rowCount){//JTable jTableDlgList) {
+        String[] colNames= {"Lvl","Dialogue Name","Topic"};
+        //this.jTableDlgList = jTableDlgList;
+        DefaultTableModel model= new DefaultTableModel();
+        model.setColumnIdentifiers(colNames);
+        jTableDlgList.setModel(model);
+        
+        // dlgModel.getLevel(), dlgModel.getName(), dlgModel.getTopic()
+        
+        for(int i=0; i<rowCount;i++){
+            model.addRow(colNames );
+        }
+        
     }
 
     public JComboBox<String> getChooseGramCbox() {

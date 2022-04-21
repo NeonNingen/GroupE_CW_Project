@@ -9,7 +9,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class is used to:
@@ -337,6 +340,56 @@ public class DatabaseMDL {
             }
         }
         return data;
+    }
+    
+    
+    /**
+     * @author Aisana
+     * Method to get number of rows in the sql table
+     * @param sqlTable -  table name, name of the table for which you want to know number of rows 
+     * @return 
+     */
+    public static int getRowCount(String sqlTable){
+        
+        int count = 0;
+        try {
+            
+            Connection con = getConnection();
+            Statement stmt;
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS rowcount FROM "+ sqlTable);
+            rs.next();
+            count = rs.getInt("rowCount");
+            return count;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
+    }
+    
+    /**
+     * @author Aisana
+     * Method to get number of columns in the sql table
+     * @param sqlTable -  table name, name of the table for which you want to know number of columns 
+     * @return 
+     */
+    public static int getColumnCount(String sqlTable){
+        
+        int count = 0;
+        try {
+            
+            Connection con = getConnection();
+            Statement stmt;
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM " + sqlTable);
+            ResultSetMetaData rsMD = rs.getMetaData();
+            count= rsMD.getColumnCount();
+            //System.out.println("Columns: "+ count);
+            return count;
+        } catch (SQLException ex) {
+            Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return count;
     }
         
     /**

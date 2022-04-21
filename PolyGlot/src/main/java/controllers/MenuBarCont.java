@@ -3,6 +3,7 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.DialogueMDL;
 import views.DlgHistV;
 import views.DlgListV;
 import views.MenuBarV;
@@ -13,7 +14,8 @@ import views.ProgV;
 
 /**
  *
- * @author Amit
+ * @author Amit 
+ * further edited by Aisana 
  */
 public class MenuBarCont implements ActionListener
 {
@@ -76,12 +78,16 @@ public class MenuBarCont implements ActionListener
             }
 
         }
-
-        if (e.getSource() == menuBar.getDlgListBttn()) {
+        
+        if(e.getSource() == menuBar.getDlgListBttn()){
+            DialogueMDL dlgModel= new DialogueMDL();
+            DlgListV dlgView= new DlgListV();
+            DialogueCont cont= new DialogueCont(dlgView, dlgModel);
             menuBar.setPageTitle("Dialogue List");
             menuBar.setPageTopicContent(new DlgListV().getDlgListContent());
-
+            
         }
+        
 //        if(e.getSource() == menuBar.getProVBttn())
 //        {
 //            new ProgV().show();

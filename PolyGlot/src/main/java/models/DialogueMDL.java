@@ -5,19 +5,48 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Amit
+ * @author Aisana - added main methods 
  */
 public class DialogueMDL extends DatabaseMDL
 {
     //varibles
     private String dlg_id;
-    private String dlg_lang;
+    private String dlg_name;
+    
     private String dlg_topic;
     private String dlg_level;
     private String dlg_grammar;
     private int dlg_points;
+    private String dlg_state;
+    private String dlg_completed;
+    private String dlg_lang;
+    private int rowCount=0;
+    private int clmnCount=0;
+    
+    
+    public DialogueMDL(String id, String name, String topic, String level, String grammar, String points, 
+            String state, String completed, String lang){
+        
+            this.dlg_id= id;
+            this.dlg_name= name;
+            this.dlg_topic= topic;
+            this.dlg_level= level;
+            this.dlg_grammar= grammar;
+            this.dlg_points= Integer.parseInt(points);
+            this.dlg_state= state;
+            this.dlg_completed= completed;
+            this.dlg_lang= lang;
+        
+    }
+
+    public DialogueMDL() {
+        
+    }
     
     
     //getters
