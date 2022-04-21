@@ -111,7 +111,7 @@ public class LoginRegisterCont implements ActionListener {
                     String uPwd = registerPage.getPwdReg1().getText().trim().toLowerCase();
                     String uPwdConfirm = registerPage.getPwdReg2().getText().trim().toLowerCase();
                     boolean selectTermCond = registerPage.getTermsCond().isSelected();
-                    String userID = "w12236";
+                    String userID = "w111236";
 
                     System.out.println("Display"
                             + "User name: " + uName + "\n"
@@ -122,18 +122,20 @@ public class LoginRegisterCont implements ActionListener {
                             + "userID:" + userID + "\n"
                             + "Did user select Item: " + selectTermCond + "\n");
 
-                    // if(checkRegData(uName, uSurname, uEmail, uGroup, uPwd,uPwdConfirm,selectTermCond)==true){
-                    this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup);
-                    userMDL.insertRegDetss(userID, uName, uSurname, uEmail, uGroup, uPwd);
-                    this.registerPage.dispose();
+                    if (checkRegData(uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) {
+                        this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup);
+                        userMDL.insertRegDetss(userID, uName, uSurname, uEmail, uGroup, uPwd);
+                        this.registerPage.dispose();
 
-                    MenuBarV menu = new MenuBarV();
-                    menu.setPageTitle("Setting");
-                    menu.setPageTopicContent(new SettingV(menu).getSettingContent());
-                    menu.setVisible(true);
-//                    }else{
-//                        System.out.println("ENTER CORRECT DETAILS!");
-//                    }
+                        MenuBarV menu = new MenuBarV();
+                        menu.setPageTitle("Setting");
+                        menu.setPageTopicContent(new SettingV(menu).getSettingContent());
+                        menu.setVisible(true);
+                    } else {
+                        String msg ="Enter correct details in correct format";
+                        JOptionPane.showMessageDialog(null, msg, "Problem", JOptionPane.ERROR_MESSAGE);
+                        System.out.println(msg);
+                    }
 
                 } else if (e.getSource() == this.loginPage.getRegisterBttn()) {
                     loginPage.dispose();
@@ -186,38 +188,46 @@ public class LoginRegisterCont implements ActionListener {
     //Methods by Monesha
     //It validates the inputs entered by User
     public boolean checkRegData(String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
-        if (uName.isEmpty() && uSurname.isEmpty() && uEmail.isEmpty() && uGroup.isEmpty() && uPwd.isEmpty() && uPwdConfirm.isEmpty()) {
-            System.out.println("Please fill in all the variables of the form");
+        if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) {
+            String msgEpty = "Please fill in all the variables of the form";
+            JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
+            System.out.println(msgEpty);
             return false;
         } else {
             if (selectTermCond == false) {
-                System.out.println("Please agrre our terms and condition before using our application");
+                String msgTC = "Please agree our terms and condition before using our application";
+                JOptionPane.showMessageDialog(null, msgTC, "Problem", JOptionPane.ERROR_MESSAGE);
+                System.out.println(msgTC);
                 return false;
             } else {
 
                 boolean isValidEmail = isValidEmail(uEmail);
                 if (isValidEmail == false) {
-                    System.out.println("Email not Valid");
+                    String msgE1 = "Email not Valid";
+                    JOptionPane.showMessageDialog(null, msgE1, "Problem", JOptionPane.ERROR_MESSAGE);
+                    System.out.println(msgE1);
                     return false;
                 } else {
-                    System.out.println("Email is valid");
-                }
-
-                boolean isValidPwd = isValidPassword(uPwd);
-                if (isValidPwd = false) {
-                    System.out.println("""
-                                       Password is not valid. 
-                                       Insert at least 8 chars. 
-                                       Insert Lower case, uppercase, digit, special character at least once. Do not include any white spaces!""");
-                    return false;
-                } else {
-                    System.out.println("Correct password format entered");
-                    if (!(uPwd.equalsIgnoreCase(uPwdConfirm))) {
-                        System.out.println("Please enter matching password!!");
+                    boolean isValidPwd = isValidPassword(uPwd);
+                    if (isValidPwd == false) {
+                        String msgVP = """
+                                    Password is not valid. 
+                                    Insert at least 8 chars. 
+                                    Insert Lower case, uppercase, digit, special character at least once. Do not include any white spaces!""";
+                        JOptionPane.showMessageDialog(null, msgVP, "Problem", JOptionPane.ERROR_MESSAGE);
+                        System.out.println(msgVP);
                         return false;
                     } else {
-                        System.out.println("All Registered details are entered correctly. Data is being processed...");
-                        return true;
+                        System.out.println("Correct password format entered");
+                        if (!(uPwd.equalsIgnoreCase(uPwdConfirm))) {
+                            String msgMP = "Password don't match";
+                            JOptionPane.showMessageDialog(null, msgMP, "Problem", JOptionPane.ERROR_MESSAGE);
+                            System.out.println(msgMP);
+                            return false;
+                        } else {
+                            System.out.println("All Registered details are entered correctly. Data is being processed...");
+                            return true;
+                        }
                     }
                 }
             }
@@ -226,17 +236,20 @@ public class LoginRegisterCont implements ActionListener {
 
     public boolean isValidPassword(String password) {
         //regex refer to user have to insert at least 8 chars. Lower case, uppercase, digit, special character occur at least once. No white spaces allowed.
-        String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$";
+        String regex = "^[a-zA-Z@#$%^&+=](?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}[a-zA-Z0-9]$";
         Pattern pattern = Pattern.compile(regex); //Compiling the regex
         Matcher matcher = pattern.matcher(password);
+        System.out.println("Password being valid status: "+matcher.matches());
         return matcher.matches();
     }
 
+    
     public boolean isValidEmail(String email) {
         //regex refer to user have to insert at least 8 chars. Lower case, uppercase, digit, special character occur at least once. No white spaces allowed.
-        String regex = "/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/";
+        String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         Pattern pattern = Pattern.compile(regex); //Compiling the regex
         Matcher matcher = pattern.matcher(email);
+        System.out.println("Email being valid status: "+matcher.matches());
         return matcher.matches();
     }
 
