@@ -39,28 +39,19 @@ public class UserCont implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {   
-        String selectedItem;
         if(e.getSource()== uListTeacherPage.getGroupFilterCbox())
         {
-            selectedItem = (String) uListTeacherPage.getGroupFilterCbox().getSelectedItem();
-            sortTableByFilter("user_group_id", selectedItem);
+            updateTeacherTable();
         }
         
         if(e.getSource() == uListTeacherPage.getULvlFilterCbox())
         {
-            selectedItem = (String) uListTeacherPage.getULvlFilterCbox().getSelectedItem();
-            sortTableByFilter("user_lang_lvl", selectedItem);
+            updateTeacherTable();
         }
         
         if(e.getSource() == uListTeacherPage.getSortCbox())
         {
-            selectedItem = (String) uListTeacherPage.getSortCbox().getSelectedItem();
-            if(selectedItem.contains("points"))
-            {
-                sortTableByPoints("user_progresspoints", selectedItem);
-            }
-            else
-                sortTableByPoints("totDlg", selectedItem);            
+            updateTeacherTable();          
         }
        
         
@@ -99,91 +90,151 @@ public class UserCont implements ActionListener
 
     }
     
-    private void sortTableByFilter(String column, String selectedItem) 
+    /**
+     * this method calls other method to update the data in the current table
+     */
+    private void updateTeacherTable() 
     {
-        String query;
+       String selectedItemGroup;
+       String selectedItemLvl;
+       String selectedItemSort;
+        
+       String query;
+       
+       selectedItemGroup = (String) uListTeacherPage.getGroupFilterCbox().getSelectedItem();
+       selectedItemLvl = (String) uListTeacherPage.getULvlFilterCbox().getSelectedItem();
+       selectedItemSort = (String) uListTeacherPage.getSortCbox().getSelectedItem();
+            
+       query = selectQuery(selectedItemGroup, selectedItemLvl);
+       query = query.concat(completeQuery(selectedItemSort)); 
+            
+       sortTableByFilter(query);
+    }
+    
+    /**
+     * shows the table's data based on the criteria selected by the user
+     * @param query the sql query that will be run to sort the table
+     */
+    private void sortTableByFilter(String query)
+    {
+        user.getConnection();
+        ArrayList<String> result = user.queryData(query);
+        
+        //System.out.println(result.toString());
+        
+        String[] columnNames = {"Lvl", "Student ID", "Student Name", "Group ID", "Points"};
+        int row = result.size()/columnNames.length;
+        String[][] data = new String[row][columnNames.length];
+        
+        int count = 0;
+        for (int i = 0; i < data.length; i++) 
+        {
+            for (int j = 0; j < columnNames.length; j++) 
+            {
+                data[i][j] = result.get(count);
+                count++;
+            }
+            
+        }
+        
+        DefaultTableModel tableMod = new DefaultTableModel(data, columnNames)
+        {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+                    
+        };
+        
+        uListTeacherPage.getTblofStd().setModel(tableMod);
+    }
+    
+    /**
+     * checks if the group filter or the level filter have default values
+     * @param selectedItem the combobox value to check
+     * @return true if the current value is default
+     */
+    private Boolean comboSelect(String selectedItem) 
+    {
         if(selectedItem.contains("Select"))
         {
-            query = "SELECT user_lang_lvl, user_id, user_name, user_progresspoints FROM User "
-               + "WHERE user_type = 'Student'";
+            return true;
         }
         else
-        {
-            query = "SELECT user_lang_lvl, user_id, user_name, user_progresspoints FROM User "
-               + "WHERE user_type = 'Student' AND " + column + " = '"+ selectedItem + "'";
-        }
-        
-        user.getConnection();
-        ArrayList<String> result = user.queryData(query);
-        
-        String[] columnNames = {"Lvl", "Student ID", "Student Name", /*"Dialogues Done",*/ "Points"};
-        int row = result.size()/columnNames.length;
-        String[][] data = new String[row][columnNames.length];
-        
-        int count = 0;
-        for (int i = 0; i < data.length; i++) 
-        {
-            for (int j = 0; j < columnNames.length; j++) 
-            {
-                data[i][j] = result.get(count);
-                count++;
-            }
-            
-        }
-        
-        DefaultTableModel tableMod = new DefaultTableModel(data, columnNames)
-        {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-                    
-        };
-        uListTeacherPage.getTblofStd().setModel(tableMod);
-        
+            return false;
     }
 
-    private void sortTableByPoints(String column, String selectedItem) 
+    /**
+     * returns a query depending if both, none or one of the combo boxes, used in the comboSelect method,
+     * have a default value
+     * @param selectedItemGroup current group item selected
+     * @param selectedItemLvl current level item selected
+     * @return a query
+     */
+    private String selectQuery(String selectedItemGroup, String selectedItemLvl) 
     {
-        String query;
+        Boolean itemG = comboSelect(selectedItemGroup);
+        Boolean itemLvl = comboSelect(selectedItemLvl);
         
-        if(selectedItem.contains("lowest"))
+        if( (itemG == true) && (itemLvl == true))
         {
-            query = "SELECT user_lang_lvl, user_id, user_name, user_progresspoints FROM User "
-               + "WHERE user_type = 'Student' ORDER BY " + column;
+            return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+                    + " WHERE user_type = 'Student'";
         }
         else
-            query = "SELECT user_lang_lvl, user_id, user_name, user_progresspoints FROM User "
-               + "WHERE user_type = 'Student' ORDER BY " + column + " DESC";
-        
-        user.getConnection();
-        ArrayList<String> result = user.queryData(query);
-        
-        String[] columnNames = {"Lvl", "Student ID", "Student Name", /*"Dialogues Done,*/ "points"};
-        int row = result.size()/columnNames.length;
-        String[][] data = new String[row][columnNames.length];
-        
-        int count = 0;
-        for (int i = 0; i < data.length; i++) 
         {
-            for (int j = 0; j < columnNames.length; j++) 
+            if(itemG == true)
             {
-                data[i][j] = result.get(count);
-                count++;
+                return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+                        + " WHERE user_type = 'Student' "
+                        + " AND user_lang_lvl = '" + selectedItemLvl + "'";
             }
+            else
+                if(itemLvl == true)
+                {
+                   return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+                        + " WHERE user_type = 'Student'"
+                        + " AND user_group_id = '" + selectedItemGroup + "'";
+                }
+                else
+                {
+                    return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+                        + " WHERE user_type = 'Student'"
+                        + " AND user_group_id = '" + selectedItemGroup + "'"
+                        + " AND user_lang_lvl = '" + selectedItemLvl + "'";
+                }
             
         }
         
-        DefaultTableModel tableMod = new DefaultTableModel(data, columnNames)
-        {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-                    
-        };
-        uListTeacherPage.getTblofStd().setModel(tableMod);
+        
     }
 
-    
+    /**
+     * adds a line to the query that will be used to sort the tables
+     * @param selectedItemSort current order item selected
+     * @return a query
+     */
+    private String completeQuery(String selectedItemSort) 
+    {
+        String query="";
+        
+        switch(selectedItemSort)
+        {
+            case "Select points":
+                query = "";
+                break;
+                    
+            case "points (lowest)":
+                query = " ORDER BY user_progresspoints";
+                break;
+            
+            case "points (highest)":
+                query = " ORDER BY user_progresspoints DESC";
+                break;
+        }
+        
+        
+        return query;
+    }
+
 }

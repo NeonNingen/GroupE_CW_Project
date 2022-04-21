@@ -90,7 +90,7 @@ public class UListTchV extends javax.swing.JFrame {
 
         ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select level" }));
 
-        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "points (lowest)", "points (highest)" }));
+        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select points", "points (lowest)", "points (highest)" }));
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
         UListContent.setLayout(UListContentLayout);
@@ -195,9 +195,9 @@ public class UListTchV extends javax.swing.JFrame {
     public void fillTable()
     {
         UserMDL.getConnection();
-        ArrayList<String> resultQuery = UserMDL.queryData("SELECT user_lang_lvl, user_id, user_name, user_progresspoints FROM User WHERE user_type = 'Student'");
+        ArrayList<String> resultQuery = UserMDL.queryData("SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User WHERE user_type = 'Student'");
        
-        String[] columnNames = {"Lvl", "Student ID", "Student Name", /*"Dialogues Done",*/ "points"};
+        String[] columnNames = {"Lvl", "Student ID", "Student Name", "Group ID", "Points"};
         int row = resultQuery.size()/columnNames.length;
         String[][] data = new String[row][columnNames.length];
         
