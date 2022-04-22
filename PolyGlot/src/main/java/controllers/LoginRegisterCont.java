@@ -151,7 +151,7 @@ public class LoginRegisterCont implements ActionListener {
                     this.userMDL = new UserMDL("", "", "", "", "");
                     
                     
-                    MenuBarV menu = new MenuBarV(); // do meubar controller. initialiseProflie instead of creating new menuBarV
+                    MenuBarV menu = new MenuBarV(); 
                     loginPage.dispose();
                     menu.setPageTitle("Profile");
                     menu.setProgPageTopicContent(new ProgV().getProgViewContent());

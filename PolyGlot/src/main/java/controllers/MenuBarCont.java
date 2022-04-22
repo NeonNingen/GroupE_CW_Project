@@ -147,7 +147,7 @@ public class MenuBarCont implements ActionListener
             DialogueMDL dlgModel= new DialogueMDL();
             DlgListV dlgView= new DlgListV();
             DialogueCont cont= new DialogueCont();
-            cont.setDlgList(dlgView, dlgModel);
+            cont.setDlgList(dlgView, dlgModel,"SELECT * FROM Dialogue");
             menuBar.setPageTitle("Dialogue List");
             menuBar.setPageTopicContent(dlgView.getDlgListContent());
             
