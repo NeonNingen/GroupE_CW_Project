@@ -16,6 +16,7 @@ public class MenuBarV extends javax.swing.JFrame {
      * Creates new form MenuBar
      */
     public MenuBarV() {
+        
         initComponents();
         setSize(414,667);
         UListBttn.addActionListener(new MenuBarCont(this));

@@ -23,18 +23,22 @@ import views.RegisterV;
 import views.LoginV;
 import views.ProgV;
 import views.SettingV;
+import views.SupportV;
 import views.SupportV2;
 
 public class LoginRegisterCont implements ActionListener {
 
     private LoginV loginPage;
+    private ProgV profilePage;
     private RegisterV registerPage;
     private UserMDL userMDL;
     private SettingV settingPage;
     private MenuBarV menubar;
     private SupportV2 supportPage;
+    private SupportV supportMenu;
     private int accessrecord_id;
     private String user_id;
+    private MenuBarCont menuCont;
     AccessRecordMDL accessRecMDL;
 
     public LoginRegisterCont(LoginV loginPage) {
@@ -50,11 +54,61 @@ public class LoginRegisterCont implements ActionListener {
         this.menubar = menubar;
         this.accessRecMDL = new AccessRecordMDL();
     }
+    
+    public LoginRegisterCont(SettingV set) {
+        this.settingPage = set;
+        this.accessRecMDL = new AccessRecordMDL();
+    }
+    
+    public void setAccRec(SettingV set) {
+        this.settingPage = set;
+        this.accessRecMDL = new AccessRecordMDL();
+    }
+    
+    
 
     public LoginRegisterCont(RegisterV reg) {
         this.registerPage = reg;
         this.userMDL = new UserMDL();
         this.accessRecMDL = new AccessRecordMDL();
+    }
+
+    public LoginRegisterCont() {
+        
+    }
+    
+    /**
+     * suggested by Aiasana
+     * method to set/reference up view and model for profile page
+     * @param login
+     * @param prog 
+     */
+    public void setProgClasses(LoginV login, ProgV prog){
+        this.loginPage=login;
+        this.profilePage=prog;
+    }
+    /**
+     * Suggested by Aisana [feedback]
+     * method that will retrieve specific user based on login view input
+     * 
+     */
+    public UserMDL getUserInfo(){ 
+        return userMDL;
+    }
+    
+    /**
+     * Suggested by Aisana (for main and menubar functionalities)
+     * Method will begin app with a specific userMDL
+     * @param user  - reference for user model object
+     */
+    public void startApp(){
+        LoginV loginPage = new LoginV();
+        loginPage.show();
+        
+    }
+    
+    public void setSmallSupport(SupportV support){
+        this.supportMenu = support;
     }
 
     //Methods created by Monesha
@@ -88,13 +142,16 @@ public class LoginRegisterCont implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         choosingLang(e);
         String test = e.getActionCommand();
+        
 
         switch (test) {
-            case "Login":
+            case "Login":  // will need to store userMDL variables: use main method-> recordUser(UserMDL user)
                 if (checkUser() == true) {
                     //JOptionPane.showMessageDialog(loginPage, "", "Login", 1);
                     this.userMDL = new UserMDL("", "", "", "", "");
-                    MenuBarV menu = new MenuBarV();
+                    
+                    
+                    MenuBarV menu = new MenuBarV(); // do meubar controller. initialiseProflie instead of creating new menuBarV
                     loginPage.dispose();
                     menu.setPageTitle("Profile");
                     menu.setProgPageTopicContent(new ProgV().getProgViewContent());
@@ -154,7 +211,7 @@ public class LoginRegisterCont implements ActionListener {
                 + " AND user_pswd = '" + pswd + "'";
 
         userMDL.getConnection();
-        ArrayList<String> result = userMDL.queryData(query);
+        ArrayList<String> result = userMDL.queryData(query); // could assign ber variable then forward whoel object to main
 
 //        if(!result.isEmpty())
 //        {

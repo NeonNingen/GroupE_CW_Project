@@ -29,6 +29,10 @@ public class DialogueCont implements ActionListener
     ArrayList<DialogueMDL> dlgList = new ArrayList <DialogueMDL>();
     ArrayList <String> draftList= new ArrayList<String>();
     
+    public DialogueCont() 
+    {
+        
+    }
 
     public DialogueCont(DlgListV dlgListPage) 
     {
@@ -51,7 +55,7 @@ public class DialogueCont implements ActionListener
      * @param dlgView - reference to the dialogue view class
      * @param dlgModel - reference to the dialogue model class
      */
-    DialogueCont(DlgListV dlgView, DialogueMDL dlgModel) {
+    public void setDlgList(DlgListV dlgView, DialogueMDL dlgModel) {
         
         // store data into dlh list of Dialogue objects
         dlgListPage= dlgView;
@@ -85,6 +89,18 @@ public class DialogueCont implements ActionListener
         dlgListPage.revalidate();
         dlgListPage.repaint();
     
+        
+    }
+    
+    /**
+     * Suggested by Aisana (as addition to menubar)
+     * Use this method to set up dialogue history list and display it into table
+     * note that menuBar controller will refer to this method to initialise dialogue hist list view
+     * Aisana created (as author of menubar), for any issues address her
+     * @param histList
+     * @param Model 
+     */
+    public void setDlgHist(DlgHistV histList, DialogueMDL Model){
         
     }
     

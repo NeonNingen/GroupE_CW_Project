@@ -14,9 +14,15 @@ public class UserCont implements ActionListener
 {
     private UListStdV uListStudentPage;
     private UListTchV uListTeacherPage;
+    private UserMDL user;
     private ProgV profilePage;
-    private UserMDL user = new UserMDL();
+    ArrayList <UserMDL> userList = new ArrayList <UserMDL>();
     
+    
+    public UserCont()
+    {
+        
+    }
     public UserCont(ProgV page)
     {
         this.profilePage=page;
@@ -26,6 +32,33 @@ public class UserCont implements ActionListener
     {
         this.uListTeacherPage = UserListTeacherPage;
     }
+    
+    
+    /**
+     * Suggested by Aisana (as addition to menubar)
+     * method would need to collect user list and store them into table for student list
+     * @param ulistStd
+     * @param userMDL 
+     */
+    public void setUserList(UListStdV ulistStd,UserMDL userMDL ){
+        this.uListStudentPage=ulistStd;
+        
+        
+        
+    }
+    
+    /**
+     * Suggested by Aisana (as addition to menubar)
+     * method would need to collect user list and store them into table for teacher list
+     * @param UListTchV
+     * @param userMDL 
+     */
+    public void setUserList(UListTchV ulistTch, UserMDL userMDL ){
+        this.uListTeacherPage=ulistTch;
+        this.user=userMDL;
+    }
+    
+    
     
     @Override
     public void actionPerformed(ActionEvent e) 

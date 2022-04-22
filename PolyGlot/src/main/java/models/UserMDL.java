@@ -23,6 +23,15 @@ public class UserMDL extends DatabaseMDL
         
     }
 
+    
+    public void getInfo(){
+        
+        
+        
+    }
+    
+    
+    
     public UserMDL(String userID, String name, String surname, String email, String groupID) {
         this.userID = userID;
         this.name = name;
