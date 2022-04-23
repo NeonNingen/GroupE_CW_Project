@@ -14,9 +14,9 @@ public class Main
     {
         //currentUser= new UserMDL();
         //to test that everything works, UserModel was used to test the methods
-        // UserModel user = new UserModel();
+        UserMDL user = new UserMDL();
         
-        LoginRegisterCont logRegCont= new LoginRegisterCont();
+        LoginRegisterCont logRegCont= new LoginRegisterCont(user);
         
         logRegCont.startApp();
         //currentUser= logRegCont.getUserInfo();

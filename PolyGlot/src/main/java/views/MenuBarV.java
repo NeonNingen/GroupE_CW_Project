@@ -12,20 +12,35 @@ import javax.swing.JPanel;
 
 public class MenuBarV extends javax.swing.JFrame {
     String currentPage;
+    private MenuBarCont menuC;
     /**
      * Creates new form MenuBar
      */
-    public MenuBarV() {
-        
+    public MenuBarV() 
+    {
         initComponents();
         setSize(414,667);
-        UListBttn.addActionListener(new MenuBarCont(this));
-        ProVBttn.addActionListener(new MenuBarCont(this));
-        SupportBttn.addActionListener(new MenuBarCont(this));
-        DlgListBttn.addActionListener(new MenuBarCont(this));
-        SettBttn.addActionListener(new MenuBarCont(this));
-        DlgHistBttn2.addActionListener(new MenuBarCont(this));
+        UListBttn.addActionListener(menuC);
+        ProVBttn.addActionListener(menuC);
+        SupportBttn.addActionListener(menuC);
+        DlgListBttn.addActionListener(menuC);
+        SettBttn.addActionListener(menuC);
+        DlgHistBttn2.addActionListener(menuC);   
+    }
+
+    public MenuBarV(MenuBarCont menuC) 
+    {
+        initComponents();
+        setSize(414,667);
         
+        //added and modified by Amit
+        menuC.setPage(this);
+        UListBttn.addActionListener(menuC);
+        ProVBttn.addActionListener(menuC);
+        SupportBttn.addActionListener(menuC);
+        DlgListBttn.addActionListener(menuC);
+        SettBttn.addActionListener(menuC);
+        DlgHistBttn2.addActionListener(menuC);
     }
 
     /**
@@ -309,12 +324,6 @@ public class MenuBarV extends javax.swing.JFrame {
     public JPanel getMenuBarPanel() {
         return MenuBarPanel;
     }
-    
-    
-    
-
-    
-
 
 }
 

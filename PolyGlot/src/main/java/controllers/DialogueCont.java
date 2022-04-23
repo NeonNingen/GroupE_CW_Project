@@ -102,6 +102,11 @@ public class DialogueCont implements ActionListener
         
     }
     
+    
+    public void setDlgHist(DlgHistV dlgHist, DialogueMDL dlgModel) {
+        
+    }
+    
     public void filterDlgList(DlgListV dlgView, DialogueMDL dlgModel, String query) {
         
         // store data into dlh list of Dialogue objects
@@ -153,10 +158,7 @@ public class DialogueCont implements ActionListener
      * @param histList
      * @param Model 
      */
-    public void setDlgHist(DlgHistV histList, DialogueMDL Model){
-        
-    }
-    
+
     public void printDlgList(){
         System.out.println("Check dialogue list:");
         for(int count=0; count<rowCount;count++){
@@ -253,6 +255,5 @@ public class DialogueCont implements ActionListener
             return "none";
         }
     }
-    
     
 }

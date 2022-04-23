@@ -6,6 +6,7 @@
 package views;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 
 /**
@@ -161,6 +162,14 @@ public class UListStdV extends javax.swing.JFrame {
 
     public void setTblofStd(JTable TblofStd) {
         this.TblofStd = TblofStd;
+    }
+
+    public JPanel getUListContent() {
+        return UListContent;
+    }
+
+    public void setUListContent(JPanel UListContent) {
+        this.UListContent = UListContent;
     }
     
     /**

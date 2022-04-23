@@ -17,12 +17,27 @@ public class SettingV extends javax.swing.JFrame {
         //getSelectLang().setSelectedItem(langChoice);
     }
 
-    public SettingV(MenuBarV menu) {
-        initComponents();
-        addinglang();
-        //getSelectLang().setSelectedItem(langChoice);
-        this.getLogoutBttn().addActionListener(new LoginRegisterCont(this,menu)); //By Monesha
-        this.getSelectLang().addActionListener(new LoginRegisterCont(this,menu));
+//    public SettingV(MenuBarV menu) {
+//        initComponents();
+//        addinglang();
+//        //getSelectLang().setSelectedItem(langChoice);
+//        this.getLogoutBttn().addActionListener(new LoginRegisterCont(this,menu)); //By Monesha
+//        this.getSelectLang().addActionListener(new LoginRegisterCont(this,menu));
+//    }
+
+//    public SettingV(MenuBarV menuBar, LoginRegisterCont logCont) {
+//        initComponents();
+//        addinglang();
+//        //getSelectLang().setSelectedItem(langChoice);
+//        //logCont.setAccRec(this, menuBar);
+//        this.getLogoutBttn().addActionListener(logCont); //By Monesha
+//        this.getSelectLang().addActionListener(logCont);
+//    }
+    
+    public void setContListener(LoginRegisterCont logCont) 
+    {
+        this.getLogoutBttn().addActionListener(logCont); //By Monesha
+        this.getSelectLang().addActionListener(logCont);
     }
 
     /**
@@ -47,11 +62,6 @@ public class SettingV extends javax.swing.JFrame {
         settingLabel.setText("Choose language of study: ");
 
         logoutBttn.setText("Logout");
-        logoutBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutBttnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
@@ -105,10 +115,6 @@ public class SettingV extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logoutBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutBttnActionPerformed
 
     public void setSelectedLang(String langChoice){
         if(!(langChoice.isEmpty())){
@@ -170,4 +176,5 @@ public class SettingV extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> selectLang;
     private javax.swing.JLabel settingLabel;
     // End of variables declaration//GEN-END:variables
+
 }

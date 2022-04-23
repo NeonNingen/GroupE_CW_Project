@@ -22,15 +22,6 @@ public class UserMDL extends DatabaseMDL
     {
         
     }
-
-    
-    public void getInfo(){
-        
-        
-        
-    }
-    
-    
     
     public UserMDL(String userID, String name, String surname, String email, String groupID) {
         this.userID = userID;
@@ -39,6 +30,17 @@ public class UserMDL extends DatabaseMDL
         this.email = email;
         this.groupID = groupID;
     }
+
+    public UserMDL(String userID, String name, String surname, String email, String groupID, String userType) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.userType = userType;
+        this.userID = userID;
+        this.groupID = groupID;
+    }
+    
+    
     
     //Insert user details when registering into the database
     public void insertRegDetss(String userID, String name, String surname, String email, String groupID, String pswd){
