@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class AccessRecordMDL extends DatabaseMDL
 {
@@ -36,7 +37,7 @@ public class AccessRecordMDL extends DatabaseMDL
         updateTable(sqlString);
     }
     
-    public void setLoginTime( UserMDL user) 
+    public void setLoginTime(String user_id) 
     {
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
@@ -46,7 +47,16 @@ public class AccessRecordMDL extends DatabaseMDL
         
         System.out.println(date + " : " + logintime);
         
-        insertTable( date, logintime, "", user.getUserID());
+        insertTable( date, logintime, "", user_id);
+    }
+    
+    public void storeAccessRecord(String user_id)
+    {
+        ArrayList<String> result;
+        String query = "SELECT MAX(date), MAX(logintime), accessrecord_id FROM Access_Record WHERE user_id = '" + user_id + "'";
+        result = queryData(query);
+        
+        this.accessRecord_id = Integer.parseInt(result.get(2));
     }
     
     

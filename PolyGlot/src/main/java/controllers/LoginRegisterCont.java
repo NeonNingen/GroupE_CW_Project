@@ -259,28 +259,24 @@ public class LoginRegisterCont implements ActionListener {
     {
         //this.userMDL = new UserMDL(userDetails.get(0), userDetails.get(1), userDetails.get(2), userDetails.get(3), userDetails.get(9));
         this.userMDL = new UserMDL(userDetails.get(0), userDetails.get(1), userDetails.get(2), userDetails.get(3), userDetails.get(9), userDetails.get(7));
-        //Access the accessrecord id + store it locally
-        //INSERT INTO method
-        //new ProgV().show();
         
-        ArrayList<String> result;
-        int access_id; 
+//        ArrayList<String> result;
+//        int access_id; 
+//        
+//        do 
+//        {
+//            access_id = (int) (Math.random()*9999);
+//            String query = "SELECT accessrecord_id FROM Access_Record WHERE accessrecord_id = " + access_id;
+//            result = accessRecMDL.queryData(query);
+//            
+//        } while (!result.isEmpty());
         
-        do 
-        {
-            access_id = (int) (Math.random()*9999);
-            String query = "SELECT accessrecord_id FROM Access_Record WHERE accessrecord_id = " + access_id;
-            result = accessRecMDL.queryData(query);
-            
-        } while (!result.isEmpty());
+        accessRecMDL.setLoginTime(userMDL.getUserID());
+        accessRecMDL.storeAccessRecord(userMDL.getUserID());
         
-        //accessRecMDL.setAccessRecord_id(access_id);
-       // System.out.println(accessRecMDL.getAccessRecord_id() + " : " + access_id);
-//        this.accessrecord_id = access_id;
-//        this.user_id = userMDL.getUserID();
-        accessRecMDL.setLoginTime(userMDL);
         //CREATE SQL QUERY AND GET ACCESS RECORD ID.
         //SET ACCESS RECORD ID: accessRecMDL.setAccessRecord_id(access_id);
+        
         loginPage.dispose();
         MenuBarCont menuCont = new MenuBarCont(userMDL, accessRecMDL);
         
@@ -474,5 +470,5 @@ public class LoginRegisterCont implements ActionListener {
         returnValue = newSecurePWD.equalsIgnoreCase(storedPWD);
         return returnValue; //IF TRUE password matches
     }
-
+    
 }
