@@ -1,6 +1,7 @@
 
 package controllers;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.charset.StandardCharsets;
@@ -15,7 +16,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import models.AccessRecordMDL;
 import models.UserMDL;
 import views.MenuBarV;
@@ -158,7 +161,13 @@ public class LoginRegisterCont implements ActionListener {
                 if (!userDetails.isEmpty()) 
                     openPage(userDetails);
                 else
+                {
                     JOptionPane.showMessageDialog(loginPage, "User and/or password incorrect!", "INVALID DETAILS", 0);
+                    Border border = BorderFactory.createLineBorder(Color.RED);
+                    loginPage.getuNameLogin().setBorder(border);
+                    loginPage.getPwdLogin().setBorder(border);
+                    loginPage.getPwdLogin().setText("");
+                }
                 
             } catch (NoSuchAlgorithmException ex) {
                 Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,9 +216,6 @@ public class LoginRegisterCont implements ActionListener {
         Boolean userExist = false;
         String username = loginPage.getuNameLogin().getText();
         String pswd = loginPage.getPwdLogin().getText();
-
-        loginPage.getuNameLogin().setText("");
-        loginPage.getPwdLogin().setText("");
         
         ArrayList<String> result = new ArrayList<>();
         if(!pswd.equals("") && !pswd.equals("password"))
