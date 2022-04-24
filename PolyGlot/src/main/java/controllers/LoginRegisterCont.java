@@ -131,10 +131,11 @@ public class LoginRegisterCont implements ActionListener {
             //this.settingPage.changeLangOrder(langChoice);
             //settingPage.getSelectLang().setSelectedItem(langChoice);
             //settingPage.setLangChoice(langChoice);
-            settingPage.setSelectedLang(langChoice);
+            this.userMDL.setApplang(langChoice);
+            settingPage.setSelectedLang(this.userMDL);
             userMDL.updateLangdb(userMDL.getUserID(), langChoice);
         }
-    }
+    } 
 
     //Events get activated when user is pressing on the help button in login/ register page
     public void actionPermHelp(ActionEvent e) {
@@ -223,28 +224,28 @@ public class LoginRegisterCont implements ActionListener {
         {
             userMDL.getConnection();
             String queryPswd
-                    = "SELECT user_pswd FROM User WHERE user_email = '" + username + "'";
+                    = "SELECT user_pswd FROM User WHERE user_id = '" + username + "'";
 
             ArrayList<String> resultPswd = userMDL.queryData(queryPswd);
 
             if(!resultPswd.isEmpty())
             {
-                String query
-                        = "SELECT * FROM User WHERE user_email= '" + username + "'"
-                        + " AND user_pswd = '" + resultPswd.get(0) + "'";
-
-                result = userMDL.queryData(query);
-//                String storedPswd = resultPswd.get(0);
-//                
-//                if (isValidPwd(pswd, storedPswd) == true) {
-//                    System.out.println("yahooo");
-//                    //retrieve sql query
-//                    String query
-//                            = "SELECT * FROM User WHERE user_email= '" + username + "'"
-//                            + " AND user_pswd = '" + storedPswd + "'";
+//                String query
+//                        = "SELECT * FROM User WHERE user_email= '" + username + "'"
+//                        + " AND user_pswd = '" + resultPswd.get(0) + "'";
 //
-//                    result = userMDL.queryData(query);
-//                }
+//                result = userMDL.queryData(query);
+                String storedPswd = resultPswd.get(0);
+                
+                if (isValidPwd(pswd, storedPswd) == true) {
+                    System.out.println("yahooo");
+                    //retrieve sql query
+                    String query
+                            = "SELECT * FROM User WHERE user_id= '" + username + "'"
+                            + " AND user_pswd = '" + storedPswd + "'";
+
+                    result = userMDL.queryData(query);
+                }
                 
             }
             
@@ -305,7 +306,7 @@ public class LoginRegisterCont implements ActionListener {
             MenuBarCont menuC = new MenuBarCont(userMDL,accessRecMDL); //added by Amit (start)
             
             MenuBarV menu = new MenuBarV(menuC);
-            SettingV setting= new SettingV();
+            SettingV setting= new SettingV(userMDL);
             setAccRec(setting, menu, accessRecMDL);
             setting.setContListener(this); //added by Amit (end)
             

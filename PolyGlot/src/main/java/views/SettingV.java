@@ -6,14 +6,18 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import models.UserMDL;
 
 public class SettingV extends javax.swing.JFrame {
 
     ArrayList<String> langList= new ArrayList<String>();
-  
-    public SettingV() {
+    String langName;
+    String langid;
+    UserMDL userMDL;
+    public SettingV(UserMDL userMDL) {
         initComponents();
         addinglang();
+        this.userMDL = userMDL;
         //getSelectLang().setSelectedItem(langChoice);
     }
 
@@ -116,11 +120,10 @@ public class SettingV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setSelectedLang(String langChoice){
-        if(!(langChoice.isEmpty())){
-            getSelectLang().setSelectedItem(langChoice);
-        }
+    public void setSelectedLang(UserMDL userMDL){
+        getSelectLang().setSelectedItem(userMDL.getApplang());
     }
+    
     //Populating The langList
     private void addinglang(){ 
         //ArrayList<String> langList = new UserMDL().getLangList();

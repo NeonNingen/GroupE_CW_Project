@@ -140,7 +140,7 @@ public class MenuBarCont implements ActionListener
 
         // Aisana edited to fix mennubar
         if (e.getSource() == menuBar.getSettBttn()) {
-                SettingV setting= new SettingV();
+                SettingV setting= new SettingV(user);
                 LoginRegisterCont logCont = new LoginRegisterCont(user);
                 logCont.setAccRec(setting, menuBar, accessRC);
                 setting.setContListener(logCont); //added by Amit

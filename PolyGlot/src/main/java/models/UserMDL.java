@@ -18,6 +18,10 @@ public class UserMDL extends DatabaseMDL
     private String userID;
     private String groupID;
     
+    private String applang;
+    private int progressPoint;
+    private int langID;
+    
     public UserMDL() 
     {
         
@@ -40,7 +44,7 @@ public class UserMDL extends DatabaseMDL
       //  Connection con = getConnection();
         String userType = "Student";
         String adminAccess = "denied";
-        String lang_lvl = "null";
+        String lang_lvl = "A1";
         int progressPnt = 0;
         insertTable(userID ,name, surname, email, pswd, lang_lvl ,progressPnt,userType, adminAccess , groupID);
        
@@ -49,16 +53,24 @@ public class UserMDL extends DatabaseMDL
     
     //This allows the user to put thrit choice of language in the database
     public void updateLangdb(String user_id, String langChoice) {
-        String SQLlangID = "SELECT langID FROM LangProcess WHERE langName='" + langChoice + "' AND user_id='" + user_id + "';";
-        ArrayList<String> language = queryData(SQLlangID);
-        if (language.size() == 1) {
+        String SQLlangID = "SELECT langID, langName, progressPoint FROM LangProcess WHERE langName='" + langChoice + "' AND user_id='" + user_id + "';";
+        ArrayList<String> sqlResult = queryData(SQLlangID);
+        if (sqlResult.size() == 1) {
             System.out.println("Language choosen on the database. ");
-        } else if (language.isEmpty()) {
+            this.langID = Integer.parseInt(sqlResult.get(0));
+            this.applang = sqlResult.get(1);
+            this.progPoints = Integer.parseInt(sqlResult.get(2));
+        } else if (sqlResult.isEmpty()) {
             //INSERT new record of user and its choosen language if a record of it doesnt exists already
             String sqlInput = "INSERT INTO LangProcess(langName, progressPoint, user_id) "
                     + "VALUES ('"+langChoice+"',0,'"+user_id+"')";
             updateTable(sqlInput);
             System.out.println("New record is created for the language choosen option. ");
+            
+            ArrayList<String> sqlResult2 = queryData(SQLlangID);
+            this.langID = Integer.parseInt(sqlResult2.get(0));
+            this.applang = sqlResult2.get(1);
+            this.progPoints = Integer.parseInt(sqlResult2.get(2));
         }
     }
     
@@ -133,5 +145,14 @@ public class UserMDL extends DatabaseMDL
     public void setGroupID(String groupID) {
         this.groupID = groupID;
     } 
+
+    public String getApplang() {
+        return applang;
+    }
+
+    public void setApplang(String applang) {
+        this.applang = applang;
+    }
+    
     
 }
