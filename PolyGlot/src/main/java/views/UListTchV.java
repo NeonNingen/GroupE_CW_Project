@@ -6,8 +6,10 @@
 package views;
 
 import controllers.UserCont;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -32,6 +34,7 @@ public class UListTchV extends javax.swing.JFrame {
         this.groupFilterCbox.addActionListener(new UserCont(this));
         this.SortCbox.addActionListener(new UserCont(this));
         this.ULvlFilterCbox.addActionListener(new UserCont(this));
+        this.resetBttn.addActionListener(new UserCont(this));
     }
 
     /**
@@ -52,6 +55,7 @@ public class UListTchV extends javax.swing.JFrame {
         groupFilterCbox = new javax.swing.JComboBox<>();
         ULvlFilterCbox = new javax.swing.JComboBox<>();
         SortCbox = new javax.swing.JComboBox<>();
+        resetBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -92,6 +96,8 @@ public class UListTchV extends javax.swing.JFrame {
 
         SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select points", "points (lowest)", "points (highest)" }));
 
+        resetBttn.setText("Reset");
+
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
         UListContent.setLayout(UListContentLayout);
         UListContentLayout.setHorizontalGroup(
@@ -109,6 +115,9 @@ public class UListTchV extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(groupFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UListContentLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(resetBttn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ULvlLbl)
                         .addGap(18, 18, 18)
                         .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -126,7 +135,8 @@ public class UListTchV extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ULvlLbl))
+                    .addComponent(ULvlLbl)
+                    .addComponent(resetBttn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
@@ -188,6 +198,15 @@ public class UListTchV extends javax.swing.JFrame {
     public JPanel getUListContent() {
         return UListContent;
     }
+
+    public JButton getResetBttn() {
+        return resetBttn;
+    }
+
+    public void setResetBttn(JButton resetBttn) {
+        this.resetBttn = resetBttn;
+    }
+    
 
     /**
      * by amit
@@ -263,6 +282,7 @@ public class UListTchV extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> groupFilterCbox;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel orderByLbl;
+    private javax.swing.JButton resetBttn;
     // End of variables declaration//GEN-END:variables
 
    

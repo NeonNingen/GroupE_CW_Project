@@ -77,6 +77,11 @@ public class UserCont implements ActionListener
         {
             updateTeacherTable();          
         }
+        
+        if(e.getSource() == uListTeacherPage.getResetBttn())
+        {
+            resetTable();
+        }
        
         
         /*if(e.getSource() == profilePage.getDlgHistBtn()){
@@ -259,6 +264,19 @@ public class UserCont implements ActionListener
         
         
         return query;
+    }
+
+    private void resetTable() 
+    {
+        uListTeacherPage.getULvlFilterCbox().setSelectedIndex(0);
+        uListTeacherPage.getSortCbox().setSelectedIndex(0);
+        uListTeacherPage.getGroupFilterCbox().setSelectedIndex(0);
+        
+        String query = 
+                 "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+                + " WHERE user_type = 'Student'";
+        
+        sortTableByFilter(query);
     }
 
 }
