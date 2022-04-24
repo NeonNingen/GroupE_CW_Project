@@ -274,12 +274,13 @@ public class LoginRegisterCont implements ActionListener {
             
         } while (!result.isEmpty());
         
-        accessRecMDL.setAccessRecord_id(access_id);
+        //accessRecMDL.setAccessRecord_id(access_id);
        // System.out.println(accessRecMDL.getAccessRecord_id() + " : " + access_id);
 //        this.accessrecord_id = access_id;
 //        this.user_id = userMDL.getUserID();
-        accessRecMDL.setLoginTime(accessRecMDL.getAccessRecord_id(), userMDL);
-        
+        accessRecMDL.setLoginTime(userMDL);
+        //CREATE SQL QUERY AND GET ACCESS RECORD ID.
+        //SET ACCESS RECORD ID: accessRecMDL.setAccessRecord_id(access_id);
         loginPage.dispose();
         MenuBarCont menuCont = new MenuBarCont(userMDL, accessRecMDL);
         

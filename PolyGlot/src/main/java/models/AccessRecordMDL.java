@@ -36,7 +36,7 @@ public class AccessRecordMDL extends DatabaseMDL
         updateTable(sqlString);
     }
     
-    public void setLoginTime(int access_id, UserMDL user) 
+    public void setLoginTime( UserMDL user) 
     {
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
@@ -46,7 +46,7 @@ public class AccessRecordMDL extends DatabaseMDL
         
         System.out.println(date + " : " + logintime);
         
-        insertTable(access_id, date, logintime, "", user.getUserID());
+        insertTable( date, logintime, "", user.getUserID());
     }
     
     

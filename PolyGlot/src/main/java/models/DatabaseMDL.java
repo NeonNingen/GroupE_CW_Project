@@ -100,7 +100,22 @@ public class DatabaseMDL {
                 + "CONSTRAINT lp_uid_fk FOREIGN KEY (user_id)REFERENCES User (user_id) ON DELETE CASCADE);";
         updateTable(sqlCREATE);
     }  
-    //+ "CONSTRAINT lp_lid_pk PRIMARY KEY (langID),"
+    
+    //Created Access Record Table in the database
+    public static void CreateRecordTable() {
+        // Connection con = connectDB.getConnection();
+        Statement stmt = null;
+        String sqlCREATE;
+        sqlCREATE = "CREATE TABLE if not exists Access_Record (\n"
+                + "accessrecord_id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + "date INTEGER,\n"
+                + "logintime VARCHAR (20) not NULL,\n"
+                + "logouttime VARCHAR (20) not NULL,\n"
+                + "user_id VARCHAR (30) not NULL,\n"
+                + "constraint ar_user_fk FOREIGN KEY (user_id) references User(user_id) ON DELETE CASCADE)";
+        
+        updateTable(sqlCREATE);
+    }  
     
     /**
      * Insert Tables
@@ -118,12 +133,12 @@ public class DatabaseMDL {
      * @param logouttime: String - Time when the user logs out.
      * @param user_id: String - User's ID logged when accessing the system.
      */
-    public static void insertTable(int access_id, String date, String logintime,
+    public static void insertTable( String date, String logintime,
                                    String logouttime, String user_id) {
         
-        updateTable("INSERT INTO Access_Record (accessrecord_id, date, "
+        updateTable("INSERT INTO Access_Record ( date, "
                          + "logintime, logouttime, user_id) VALUES "
-                         + "(" + access_id + ",'" + date + "','" + logintime 
+                         + "('" + date + "','" + logintime 
                          + "','" + logouttime + "','" + user_id + "')");
     }
     
@@ -468,7 +483,8 @@ public class DatabaseMDL {
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
-        CreateLangTable();
+       // CreateLangTable();
+       //CreateRecordTable();
     }
 
 }
