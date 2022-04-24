@@ -72,6 +72,7 @@ public class LoginRegisterCont implements ActionListener {
         this.settingPage = set;
         this.menubar = menu;
         this.accessRecMDL = accessRC;
+        
     }
     
     public LoginRegisterCont(RegisterV reg) {
@@ -260,22 +261,8 @@ public class LoginRegisterCont implements ActionListener {
         //this.userMDL = new UserMDL(userDetails.get(0), userDetails.get(1), userDetails.get(2), userDetails.get(3), userDetails.get(9));
         this.userMDL = new UserMDL(userDetails.get(0), userDetails.get(1), userDetails.get(2), userDetails.get(3), userDetails.get(9), userDetails.get(7));
         
-//        ArrayList<String> result;
-//        int access_id; 
-//        
-//        do 
-//        {
-//            access_id = (int) (Math.random()*9999);
-//            String query = "SELECT accessrecord_id FROM Access_Record WHERE accessrecord_id = " + access_id;
-//            result = accessRecMDL.queryData(query);
-//            
-//        } while (!result.isEmpty());
-        
         accessRecMDL.setLoginTime(userMDL.getUserID());
         accessRecMDL.storeAccessRecord(userMDL.getUserID());
-        
-        //CREATE SQL QUERY AND GET ACCESS RECORD ID.
-        //SET ACCESS RECORD ID: accessRecMDL.setAccessRecord_id(access_id);
         
         loginPage.dispose();
         MenuBarCont menuCont = new MenuBarCont(userMDL, accessRecMDL);
@@ -284,15 +271,6 @@ public class LoginRegisterCont implements ActionListener {
         menu.setPageTitle("Profile");
         menu.setProgPageTopicContent(new ProgV().getProgViewContent());
         menu.show();
-//        MenuBarCont menuCont = new MenuBarCont();
-//        menuCont.setUserInfo(this, userMDL);
-//        
-//        MenuBarV menu = new MenuBarV();
-//        menu.setController(menuCont);        
-//        menu.setPageTitle("Profile");
-//        menu.setProgPageTopicContent(new ProgV(userMDL).getProgViewContent());
-//        menu.show();
-        
     }
 
     //Methods by Monesha
@@ -303,44 +281,57 @@ public class LoginRegisterCont implements ActionListener {
         String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
         String uEmail = registerPage.getEmailReg().getText().trim();
         String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
- 
+        String userID = registerPage.getUseridReg().getText().trim().toLowerCase();
+        
         String uPwd = registerPage.getPwdReg1().getText();
         String uPwdConfirm = registerPage.getPwdReg2().getText();
         
         boolean selectTermCond = registerPage.getTermsCond().isSelected();
-        String userID = "wcry999";
 
-        if (checkRegData(uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) 
+        if (checkRegData(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) 
         {
-            this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup);
+            this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup, "Student");
             
             String salt = getSalt(getRandomInteger(16,40));
             String secure_pwd = generateSecurePwd(uPwd, salt);
             userMDL.insertRegDetss(userID, uName, uSurname, uEmail, uGroup, secure_pwd);
             
+            accessRecMDL.setLoginTime(userMDL.getUserID());
+            accessRecMDL.storeAccessRecord(userMDL.getUserID());
+            
             this.registerPage.dispose();
 
             
-            MenuBarCont menuC = new MenuBarCont(userMDL); //added by Amit (start)
-            //menuC.setUserInfo(this, userMDL);
+            MenuBarCont menuC = new MenuBarCont(userMDL,accessRecMDL); //added by Amit (start)
             
             MenuBarV menu = new MenuBarV(menuC);
-            
             SettingV setting= new SettingV();
-            setAccRec(setting, menu, new AccessRecordMDL());
+            setAccRec(setting, menu, accessRecMDL);
             setting.setContListener(this); //added by Amit (end)
             
             menu.setPageTitle("Setting");
             menu.setPageTopicContent(setting.getSettingContent());
             menu.setVisible(true);
-//            MenuBarV menu = new MenuBarV();
-//            menu.setPageTitle("Setting");
-//            menu.setPageTopicContent(new SettingV(menu).getSettingContent());
-//            menu.setVisible(true);
         }
     }
+    
+    //Checks if the userid is unique
+    private boolean uniqueID(String userID){
+        ArrayList<String> result;
+        String query = "SELECT user_id FROM User WHERE user_id = '" + userID+"'";
+        result = accessRecMDL.queryData(query);
+ 
+        if(!result.isEmpty()){
+            System.out.println("user_id already used. Choose another user id");
+            return false;
+        }else{
+            System.out.println("User id is unique");
+            return true;
+        }
+        
+    }
 
-    public boolean checkRegData(String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) 
+    public boolean checkRegData(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) 
     {
         if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) 
         {
@@ -393,8 +384,16 @@ public class LoginRegisterCont implements ActionListener {
                         } 
                         else 
                         {
-                            System.out.println("All Registered details are entered correctly. Data is being processed...");
-                            return true;
+                            boolean isValidUserID = uniqueID(userID);
+                            if(isValidUserID==false) {
+                                String msgUid = "User id is already in use.";
+                                JOptionPane.showMessageDialog(null, msgUid, "Problem", JOptionPane.ERROR_MESSAGE);
+                                System.out.println(msgUid);
+                                return false;
+                            }else{
+                                System.out.println("All Registered details are entered correctly. Data is being processed...");
+                                return true;
+                            }
                         }
                     }
                 }
