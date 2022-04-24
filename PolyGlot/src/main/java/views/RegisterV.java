@@ -54,6 +54,8 @@ public class RegisterV extends javax.swing.JFrame {
         termsCond = new javax.swing.JCheckBox();
         regBttn = new javax.swing.JButton();
         cancelBttn = new javax.swing.JButton();
+        useridLblReg = new javax.swing.JLabel();
+        useridReg = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -84,6 +86,14 @@ public class RegisterV extends javax.swing.JFrame {
 
         cancelBttn.setText("Cancel");
 
+        useridLblReg.setText("User ID :");
+
+        useridReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                useridRegActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
         registerPanelLayout.setHorizontalGroup(
@@ -112,7 +122,11 @@ public class RegisterV extends javax.swing.JFrame {
                                     .addComponent(groupIdSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(pwdReg1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
                                     .addComponent(pwdReg2)))
-                            .addComponent(termsCond, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)))
+                            .addComponent(termsCond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
+                                .addComponent(useridLblReg, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -138,21 +152,25 @@ public class RegisterV extends javax.swing.JFrame {
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addComponent(groupIdLblReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(3, 3, 3)))
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(useridLblReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pwdReg1))
+                    .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pwdReg2))
-                .addGap(32, 32, 32)
+                    .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addComponent(termsCond)
                 .addGap(45, 45, 45)
                 .addComponent(regBttn)
                 .addGap(18, 18, 18)
                 .addComponent(cancelBttn)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addGap(167, 167, 167))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -169,6 +187,10 @@ public class RegisterV extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void useridRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useridRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_useridRegActionPerformed
 
     public JTextField getSurnameReg() {
         return SurnameReg;
@@ -250,6 +272,14 @@ public class RegisterV extends javax.swing.JFrame {
         this.termsCond = termsCond;
     }
 
+    public JTextField getUseridReg() {
+        return useridReg;
+    }
+
+    public void setUseridReg(JTextField useridReg) {
+        this.useridReg = useridReg;
+    }
+
     
 
 
@@ -269,5 +299,7 @@ public class RegisterV extends javax.swing.JFrame {
     private javax.swing.JPanel registerPanel;
     private javax.swing.JButton supportBttn;
     private javax.swing.JCheckBox termsCond;
+    private javax.swing.JLabel useridLblReg;
+    private javax.swing.JTextField useridReg;
     // End of variables declaration//GEN-END:variables
 }
