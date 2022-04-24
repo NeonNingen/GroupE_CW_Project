@@ -352,10 +352,10 @@ public class DatabaseMDL {
     public static int getRowCount(String sqlTable){
         
         int count = 0;
+        Connection con = getConnection();
+        Statement stmt = null;
+        
         try {
-            
-            Connection con = getConnection();
-            Statement stmt;
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT COUNT(*) AS rowcount FROM "+ sqlTable);
             rs.next();
@@ -363,6 +363,21 @@ public class DatabaseMDL {
             return count;
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }
         return count;
     }
@@ -376,10 +391,11 @@ public class DatabaseMDL {
     public static int getColumnCount(String sqlTable){
         
         int count = 0;
+        Connection con = getConnection();
+        Statement stmt = null;
+        
         try {
-            
-            Connection con = getConnection();
-            Statement stmt;
+
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM " + sqlTable);
             ResultSetMetaData rsMD = rs.getMetaData();
@@ -388,6 +404,21 @@ public class DatabaseMDL {
             return count;
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
         }
         return count;
     }

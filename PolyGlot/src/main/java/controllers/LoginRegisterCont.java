@@ -211,7 +211,7 @@ public class LoginRegisterCont implements ActionListener {
         loginPage.getuNameLogin().setText("");
         loginPage.getPwdLogin().setText("");
         
-        ArrayList<String> result;
+        ArrayList<String> result = new ArrayList<>();
         if(!pswd.equals("") && !pswd.equals("password"))
         {
             userMDL.getConnection();
@@ -220,20 +220,21 @@ public class LoginRegisterCont implements ActionListener {
 
             ArrayList<String> resultPswd = userMDL.queryData(queryPswd);
 
-            String storedPswd = resultPswd.get(0);
-
-            result = new ArrayList<>();
-            if (isValidPwd(pswd, storedPswd) == true) 
+            if(!resultPswd.isEmpty())
             {
-                System.out.println("yahooo");
-                //retrieve sql query
-                String query
-                        = "SELECT * FROM User WHERE user_email= '" + username + "'"
-                        + " AND user_pswd = '" + storedPswd + "'";
+                String storedPswd = resultPswd.get(0);
+                
+                if (isValidPwd(pswd, storedPswd) == true) {
+                    System.out.println("yahooo");
+                    //retrieve sql query
+                    String query
+                            = "SELECT * FROM User WHERE user_email= '" + username + "'"
+                            + " AND user_pswd = '" + storedPswd + "'";
 
-                result = userMDL.queryData(query);
-
+                    result = userMDL.queryData(query);
+                }
             }
+            
         }
         else
             result = new ArrayList<>();

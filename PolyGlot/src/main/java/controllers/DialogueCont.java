@@ -69,6 +69,7 @@ public class DialogueCont implements ActionListener
         // store data into dlh list of Dialogue objects
         dlgListPage= dlgView;
         dlgMdlClass= dlgModel;
+        DialogueMDL.getConnection();
         rowCount= DialogueMDL.getRowCount("Dialogue");
         clmnCount= DialogueMDL.getColumnCount("Dialogue");
         draftList = DialogueMDL.queryData(query);
@@ -112,7 +113,7 @@ public class DialogueCont implements ActionListener
         // store data into dlh list of Dialogue objects
         dlgListPage= dlgView;
         dlgMdlClass= dlgModel;
-        
+       
         draftList = DialogueMDL.queryData(query);
         
         //rowCount= DialogueMDL.getRowCount("Dialogue");
@@ -168,6 +169,7 @@ public class DialogueCont implements ActionListener
     }
      
     public void queryCmbBoxes(){
+        
         grammarList=DialogueMDL.queryData("SELECT DISTINCT dialogue_grammar FROM Dialogue");
         
         /*String check;
@@ -188,6 +190,7 @@ public class DialogueCont implements ActionListener
         
         lvlList= DialogueMDL.queryData("SELECT DISTINCT dialogue_lvl FROM Dialogue");
         topicList=DialogueMDL.queryData("SELECT DISTINCT dialogue_topic FROM Dialogue");
+        
         
         System.out.println(grammarList);
         System.out.println(lvlList);
