@@ -222,17 +222,23 @@ public class LoginRegisterCont implements ActionListener {
 
             if(!resultPswd.isEmpty())
             {
-                String storedPswd = resultPswd.get(0);
-                
-                if (isValidPwd(pswd, storedPswd) == true) {
-                    System.out.println("yahooo");
-                    //retrieve sql query
-                    String query
-                            = "SELECT * FROM User WHERE user_email= '" + username + "'"
-                            + " AND user_pswd = '" + storedPswd + "'";
+                String query
+                        = "SELECT * FROM User WHERE user_email= '" + username + "'"
+                        + " AND user_pswd = '" + resultPswd.get(0) + "'";
 
-                    result = userMDL.queryData(query);
-                }
+                result = userMDL.queryData(query);
+//                String storedPswd = resultPswd.get(0);
+//                
+//                if (isValidPwd(pswd, storedPswd) == true) {
+//                    System.out.println("yahooo");
+//                    //retrieve sql query
+//                    String query
+//                            = "SELECT * FROM User WHERE user_email= '" + username + "'"
+//                            + " AND user_pswd = '" + storedPswd + "'";
+//
+//                    result = userMDL.queryData(query);
+//                }
+                
             }
             
         }
