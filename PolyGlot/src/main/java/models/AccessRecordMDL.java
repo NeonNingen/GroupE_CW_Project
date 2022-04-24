@@ -27,7 +27,7 @@ public class AccessRecordMDL extends DatabaseMDL
 
     //Records logout date&time in database
     public void setLogoutTime(int accessrecord_id, String user_id){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         System.out.println("LOGOUT TIME: "+ dtf.format(now));
        //Only changes the logout date time

@@ -2,14 +2,9 @@
 package models;
 
 import controllers.LoginRegisterCont;
-import controllers.MenuBarCont;
-import views.LoginV;
 
 public class Main 
 {
-    
-    private static UserMDL currentUser;
-    
     public static void main(String[] args) 
     {
         //currentUser= new UserMDL();
@@ -32,14 +27,14 @@ public class Main
        //user.update();
         
     }  
-    
-    
-    /**
-     * Suggested by Aisana
-     * Used to set up current user info
-     * @param user 
-     */
-    public void recordUser(UserMDL user){
-        this.currentUser= user;
-    }
+//    
+//    
+//    /**
+//     * Suggested by Aisana
+//     * Used to set up current user info
+//     * @param user 
+//     */
+//    public void recordUser(UserMDL user){
+//        this.currentUser= user;
+//    }
 }

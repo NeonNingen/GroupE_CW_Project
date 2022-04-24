@@ -124,7 +124,7 @@ public class LoginRegisterCont implements ActionListener {
     //These are small methods that triggers an action made by user
     //Events get activated when user is choosing a language in Setting page
     public void choosingLang(ActionEvent e) {
-        if (!(this.settingPage == null)) {
+        if (!(this.settingPage == null) && e.getSource()== this.settingPage.getSelectLang()) {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
             System.out.println("User choose language: " + langChoice);
             //this.settingPage.changeLangOrder(langChoice);
@@ -154,7 +154,7 @@ public class LoginRegisterCont implements ActionListener {
         
 
         switch (buttonAction) {
-            case "Login":  // will need to store userMDL variables: use main method-> recordUser(UserMDL user)
+            case "Login":  
                 ArrayList<String> userDetails;
             try {
                 userDetails = checkUser();
@@ -270,7 +270,6 @@ public class LoginRegisterCont implements ActionListener {
         {
             access_id = (int) (Math.random()*9999);
             String query = "SELECT accessrecord_id FROM Access_Record WHERE accessrecord_id = " + access_id;
-            accessRecMDL.getConnection();
             result = accessRecMDL.queryData(query);
             
         } while (!result.isEmpty());
@@ -306,9 +305,8 @@ public class LoginRegisterCont implements ActionListener {
         String uName = registerPage.getNameReg().getText().trim().toLowerCase();
         String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
         String uEmail = registerPage.getEmailReg().getText().trim();
-        
         String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
-        
+ 
         String uPwd = registerPage.getPwdReg1().getText();
         String uPwdConfirm = registerPage.getPwdReg2().getText();
         
