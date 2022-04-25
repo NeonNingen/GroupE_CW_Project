@@ -5,6 +5,7 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JTable;
 
 /**
  *
@@ -144,4 +145,14 @@ public class DlgHistV extends javax.swing.JFrame {
     private javax.swing.JTable dlgHistTable;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getDlgHistTable() {
+        return dlgHistTable;
+    }
+
+    public void setDlgHistTable(JTable dlgHistTable) {
+        this.dlgHistTable = dlgHistTable;
+    }
+
+  
 }

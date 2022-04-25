@@ -18,10 +18,12 @@ import views.CardScrollV;
 import views.DlgHistV;
 import views.DlgListV;
 import views.MenuBarV;
+import views.ProgV;
 import views.SetUpDlgV;
 
 public class DialogueCont implements ActionListener
 {
+    private ProgV progPage;
     private MenuBarV menuV;
     private DlgListV dlgListPage;
     private DlgHistV dlgHistPage;
@@ -228,6 +230,40 @@ public class DialogueCont implements ActionListener
         dlgListPage.getChooseLvlCbox().setSelectedIndex(0);
         dlgListPage.getChooseTopicCbox().setSelectedIndex(0);
     }
+     public void queryDlghPage(){
+        
+        dlgMdlClass.getConnection();
+         ArrayList<String> list = new ArrayList();
+        String query = "SELECT date_completed , dialogue_id FROM Dialogue_Record";
+        list = dlgMdlClass.queryData(query);
+        
+        String[] columnNames = {"Date", "Past Dialogues"};
+        int row = list.size()/columnNames.length;
+        String[][] data = new String[row][columnNames.length];
+        
+        int count = 0;
+        for (int i = 0; i < data.length; i++) 
+        {
+            for (int j = 0; j < columnNames.length; j++) 
+            {
+                data[i][j] = list.get(count);
+                count++;
+            }
+            
+        }
+         DefaultTableModel tableMod = new DefaultTableModel(data, columnNames)
+        {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+                    
+        };
+       
+     dlgHistPage.getDlgHistTable().setModel(tableMod);
+    }
+    
+
     
     @Override
     public void actionPerformed(ActionEvent e) 

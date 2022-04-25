@@ -154,6 +154,18 @@ public class ProgV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+
+    public ProgV(UserMDL user) {
+        initComponents();
+        setSize(414,667);
+        nameP.setText(user.getSurname());
+        userIdP.setText(user.getUserID());
+        groupIdP.setText(user.getGroupID());
+        emailP.setText(user.getEmail());
+        userTypeP.setText(user.getUserType());
+        currentLvlP.setText(user.getLangLvl());
+    }
+
     public JPanel getProgViewContent() {
         return ProgViewContent;
     }
