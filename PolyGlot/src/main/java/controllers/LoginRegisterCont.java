@@ -289,9 +289,10 @@ public class LoginRegisterCont implements ActionListener {
         String uPwdConfirm = registerPage.getPwdReg2().getText();
         
         boolean selectTermCond = registerPage.getTermsCond().isSelected();
-
+        
         if (checkRegData(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) 
         {
+            String currentUserID = userID;
             this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup, "Student");
             
             String salt = getSalt(getRandomInteger(16,40));
@@ -311,7 +312,7 @@ public class LoginRegisterCont implements ActionListener {
             this.settingPage = setting;
             setAccRec(settingPage, menu, accessRecMDL);
             setting.setContListener(this); //added by Amit (end)
-            userMDL.createLangData(user_id,  settingPage.getLangList());
+            userMDL.createLangData(currentUserID,  settingPage.getLangList());
             
             menu.setPageTitle("Setting");
             menu.setPageTopicContent(settingPage.getSettingContent());
