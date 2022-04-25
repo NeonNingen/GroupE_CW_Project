@@ -1,22 +1,32 @@
-
 package models;
+
+/**
+ * This class is used to:
+ * - Download SQLite Driver.
+ * - And creates the SQL Database (if it does not exist).
+ * - Once the connect instance is closed, then the connection is turned off.
+ * @author Zain
+ */
 
 public class Card 
 {
     //variables
-    private String card_id;
-    private int card_order;
+    private int card_id;
+    private int card_points;
+    private String card_role;
     private String card_text;
+    private String card_order;
     private String card_vocab;
+    private int dialogue_id;
 
     
     //getters
-    public String getCard_id() 
+    public int getCard_id() 
     {
         return card_id;
     }
 
-    public int getCard_order() 
+    public String getCard_order() 
     {
         return card_order;
     }
@@ -33,12 +43,12 @@ public class Card
 
     
     //setters
-    public void setCard_id(String card_id) 
+    public void setCard_id(int card_id) 
     {
         this.card_id = card_id;
     }
 
-    public void setCard_order(int card_order) 
+    public void setCard_order(String card_order) 
     {
         this.card_order = card_order;
     }

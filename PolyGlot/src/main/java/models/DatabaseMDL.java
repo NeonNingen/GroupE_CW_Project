@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  * - Download SQLite Driver.
  * - And creates the SQL Database (if it does not exist).
  * - Once the connect instance is closed, then the connection is turned off.
- * @author Zain and Rafael
+ * @author Zain
  */
 
 class Connect {
@@ -87,35 +88,138 @@ public class DatabaseMDL {
         }
     }
     
-    //Created Language Process Table in the database
-    public static void CreateLangTable() {
-        // Connection con = connectDB.getConnection();
-        Statement stmt = null;
-        String sqlCREATE;
-        sqlCREATE = "CREATE TABLE LangProcess ("
-                + "langID        INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "langName      VARCHAR (10) NOT NULL,"
-                + "progressPoint INT(11) NOT NULL,"
-                + "user_id       VARCHAR (10) NOT NULL,"
-                + "CONSTRAINT lp_uid_fk FOREIGN KEY (user_id)REFERENCES User (user_id) ON DELETE CASCADE);";
-        updateTable(sqlCREATE);
-    }  
-    
-    //Created Access Record Table in the database
-    public static void CreateRecordTable() {
-        // Connection con = connectDB.getConnection();
-        Statement stmt = null;
-        String sqlCREATE;
-        sqlCREATE = "CREATE TABLE if not exists Access_Record (\n"
-                + "accessrecord_id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-                + "date INTEGER,\n"
-                + "logintime VARCHAR (20) not NULL,\n"
-                + "logouttime VARCHAR (20) not NULL,\n"
-                + "user_id VARCHAR (30) not NULL,\n"
-                + "constraint ar_user_fk FOREIGN KEY (user_id) references User(user_id) ON DELETE CASCADE)";
+    /**
+     * This function works in tandem with createTable method
+     * Used to create each SQL tables with the required amount of rows
+     * @param arr_lines: int - Create the necessary amount of rows
+     * @return tableParameters
+     * @throws FileNotFoundException: If it doesn't find database file
+     */
+    public static String[] produceTables(int arr_lines) 
+           throws FileNotFoundException {
+        String[] tableParameters = new String[2];
+        String sqlString = "";
+        int lines = arr_lines;
         
-        updateTable(sqlCREATE);
-    }  
+        File myObj = new File(".\\src\\main\\java\\models\\dbTables.txt");
+        Scanner myReader = new Scanner(myObj);
+        for(int i = 0; i < lines; ++i) {
+                myReader.nextLine();
+            }
+        while (myReader.hasNextLine()) {
+            lines++;
+            String data = myReader.nextLine();
+            if (data.isEmpty() == true) {
+                myReader.close();
+                break;
+            }
+            sqlString += "\n" + data;
+      }
+        //System.out.println(sqlString);
+        myReader.close();
+        tableParameters[0] = sqlString;
+        tableParameters[1] = Integer.toString(lines);
+      return tableParameters;
+    }
+    
+    /**
+     * This method creates the SQL tables for the database and it shows in 
+     * SQLiteStudio
+     * @throws FileNotFoundException 
+     */
+    public static void createTable() throws FileNotFoundException {
+        String[] tableParameters = new String[2];
+        String sqlString = "";
+        int lines = 0;
+        
+        Connection con = getConnection();
+        Statement stmt = null;
+        try {
+            stmt = con.createStatement();
+            con.setAutoCommit(false);
+            for (int i = 0; i < 7; i++) {
+                tableParameters = produceTables(lines);
+                sqlString = tableParameters[0];
+                lines = Integer.valueOf(tableParameters[1]);
+                stmt.executeUpdate(sqlString);
+            }
+            con.commit();
+        } catch (SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+        }
+    }
+    
+    /**
+     * This method inserts default values from a text file into the table
+     * @throws FileNotFoundException 
+     */
+    public static void insertDefault() throws FileNotFoundException {
+        String sqlString = "";
+        
+        Connection con = getConnection();
+        Statement stmt = null;
+        File myObj = new File(".\\src\\main\\java\\models\\defaultValues.txt");
+        Scanner myReader = new Scanner(myObj);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            if (data.isEmpty() == true) {
+                myReader.close();
+                break;
+            }
+            sqlString += data + "\n";
+      }
+        myReader.close();
+        try {
+            con.setAutoCommit(false);
+            stmt = con.createStatement();
+            String user = sqlString.substring(0, 491);
+            String access_Record = sqlString.substring(491, 759);
+            String dialogue = sqlString.substring(759, 1159);
+            String card = sqlString.substring(1159, 1382);
+            String dialogue_Record = sqlString.substring(1382, 1664);
+            String LangProcess = sqlString.substring(1664, 1813);
+            stmt.executeUpdate(user);
+            stmt.executeUpdate(access_Record);
+            stmt.executeUpdate(dialogue);
+            stmt.executeUpdate(card);
+            stmt.executeUpdate(dialogue_Record);
+            stmt.executeUpdate(LangProcess);
+            stmt.close();
+            con.commit();
+        } catch (SQLException ex) {
+            System.err.println("SQLException: " + ex.getMessage());
+        } finally {
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    System.err.println("SQLException: " + e.getMessage());
+                }
+            }
+        }
+    }
     
     /**
      * Insert Tables
@@ -314,7 +418,7 @@ public class DatabaseMDL {
      * This is used to send a SQL statement to the database that will query
      * the existing tables for data requested.
      * @param sqlString: String - SQl Strings
-     * @retrun The queried data within an ArrayList<String>.
+     * @return The queried data within an ArrayList<String>.
      */
     public static ArrayList<String> queryData(String sqlString) {
         
@@ -360,7 +464,7 @@ public class DatabaseMDL {
     
     /**
      * @author Aisana
-     * Method to get number of rows in the sql table
+     * Method to get number of rows in the SQL table
      * @param sqlTable -  table name, name of the table for which you want to know number of rows 
      * @return 
      */
@@ -399,7 +503,7 @@ public class DatabaseMDL {
     
     /**
      * @author Aisana
-     * Method to get number of columns in the sql table
+     * Method to get number of columns in the SQL table
      * @param sqlTable -  table name, name of the table for which you want to know number of columns 
      * @return 
      */
@@ -475,21 +579,24 @@ public class DatabaseMDL {
             }
         }
         }
-
+    
     /**
      * main
      * Executes this file's code to the console.
+     * If database file is empty, populate it with tables and default values
      */
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
-        //CreateLangTable();
-       //CreateRecordTable();
+        if (f.length() == 0) {
+            createTable();
+            insertDefault();
+        }
     }
 
 }
 
-/* 
+/*
 Query Data
 ArrayList<String> data = queryData("SELECT date, logintime, logouttime, user_id FROM Access_Record WHERE accessrecord_id = 1234;");
 System.out.println(data);
