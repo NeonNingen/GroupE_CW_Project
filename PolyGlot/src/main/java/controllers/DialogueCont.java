@@ -30,6 +30,7 @@ public class DialogueCont implements ActionListener
     private SetUpDlgV dlgSetUpPage;
     private DialogueMDL dlgMdlClass;
     private DialogueMDL currentDlg;
+    private String currentLang;
     String tableName= "Dialogue";
     int rowCount=0;
     int clmnCount=0;
@@ -43,10 +44,17 @@ public class DialogueCont implements ActionListener
     ArrayList <String> lvlList= new ArrayList<String>();
     ArrayList <String> topicList= new ArrayList<String>();
     
+    
     public DialogueCont(MenuBarV menu) 
     {
         menuV= menu;
-        
+    }
+    public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang) 
+    {
+        menuV= menu;
+        dlgListPage= dlgView;
+        dlgMdlClass= dlgModel;
+        this.currentLang= lang;
     }
 
     public DialogueCont(DlgListV dlgListPage) 
@@ -83,6 +91,10 @@ public class DialogueCont implements ActionListener
     {
         this.dlgSetUpPage = dlgSetUpPage;
     }
+    
+    public void setCurrentLang(String lang){
+        this.currentLang= lang;
+    }
 
     /**
      * When initialising the controller its constructor will create instance of dialogue Model and diallogue list view classes
@@ -90,20 +102,22 @@ public class DialogueCont implements ActionListener
      * @param dlgView - reference to the dialogue view class
      * @param dlgModel - reference to the dialogue model class
      * @param query
+     * @param lang
      */
-    public void setDlgList(DlgListV dlgView, DialogueMDL dlgModel, String query) {
+    public void setDlgList( String query){//) {
         
-        
+        //this.currentLang=lang;
         // store data into dlh list of Dialogue objects
-        dlgListPage= dlgView;
-        dlgMdlClass= dlgModel;
+        
         
         queryCmbBoxes(); // could trigger comboboxes?
-        
-        
-        rowCount= DialogueMDL.getRowCount("Dialogue");
+        //String query= "SELECT * FROM Dialogue WHERE dialogue_language ='" + currentLang+ "'"; //OK
+        System.out.println("Pring query orignin: "+query);
+        //rowCount= DialogueMDL.getRowCount("Dialogue");
         clmnCount= DialogueMDL.getColumnCount("Dialogue");
         draftList = DialogueMDL.queryData(query);
+        
+        rowCount= draftList.size()/clmnCount;
         System.out.println("Check query for original list: "+ draftList.toString());
         System.out.println("Rows: "+ rowCount);
         System.out.println("Columns: "+ clmnCount);
@@ -123,13 +137,12 @@ public class DialogueCont implements ActionListener
                 
                 
             }
-        
         printDlgList();
         //use dlg list to fill in JTable in dialgue view    
         
         
         dlgListPage.generateJTable(rowCount, dlgList);
-        dlgListPage.setActList();
+        dlgListPage.setActList(this);
         dlgListPage.revalidate();
         dlgListPage.repaint();
         
@@ -148,12 +161,14 @@ public class DialogueCont implements ActionListener
     }
     
     public void filterDlgList(DlgListV dlgView, DialogueMDL dlgModel, String query) {
-        System.out.println("filtering table"); 
+        
+        System.out.println("filtering table: lang: "+ currentLang); 
         // store data into dlh list of Dialogue objects
         filteredList.clear();
-        dlgListPage= dlgView;
-        dlgMdlClass= dlgModel;
+        //dlgListPage= dlgView;
+        //dlgMdlClass= dlgModel;
         //DialogueMDL.getConnection();
+       
         draftList = DialogueMDL.queryData(query);
         
         
@@ -180,6 +195,7 @@ public class DialogueCont implements ActionListener
                 
                 
             }
+        
         
         printDlgList();
         //use dlg list to fill in JTable in dialgue view    
@@ -272,16 +288,16 @@ public class DialogueCont implements ActionListener
     public void actionPerformed(ActionEvent e) 
     {
         if(e.getSource()== dlgListPage.getChooseGramCbox()){
-            System.out.println("action for box 1"); 
+            System.out.println("action for box 1: lang: "+ this.currentLang); 
             //dlgListPage.getChooseGramCbox().getSelectedItem();
             filterTable("none");
         } 
         if(e.getSource()== dlgListPage.getChooseLvlCbox()){
-            System.out.println("action for box 2"); 
+            System.out.println("action for box 2, lang: "+ currentLang); 
             filterTable("none");
         }
         if( e.getSource()== dlgListPage.getChooseTopicCbox()){
-            System.out.println("action for box 2"); 
+            System.out.println("action for box 3, lang: "+ currentLang); 
             filterTable("none");
         }if( e.getSource()== dlgListPage.getresetBttn()){
             filterTable("reset");
@@ -307,7 +323,9 @@ public class DialogueCont implements ActionListener
    
     
     public void filterTable(String str){
+        System.out.println("Print lang:"+ currentLang);
         
+        //this.currentLang= this.dlgList.get(0).getDlg_lang();
         
         String checkG= (String) dlgListPage.getChooseGramCbox().getSelectedItem();
         String checkL= (String) dlgListPage.getChooseLvlCbox().getSelectedItem();
@@ -317,13 +335,13 @@ public class DialogueCont implements ActionListener
         
         if(str.equals("reset")){
             setToOrigin();
-            filterDlgList(dlgListPage,dlgMdlClass, "SELECT * FROM Dialogue");
+            filterDlgList(this.dlgListPage,this.dlgMdlClass,"SELECT * FROM Dialogue WHERE dialogue_language ='" + currentLang+ "'");
             
         }else{
             
             query= setQuery(checkL, checkG, checkT);
             System.out.println("Query: "+ query);
-            filterDlgList(dlgListPage,dlgMdlClass, query);
+            filterDlgList(this.dlgListPage,this.dlgMdlClass,query);
         }
         
           
@@ -336,50 +354,52 @@ public class DialogueCont implements ActionListener
         boolean bgram= isSelected(g);
         boolean btop= isSelected(t);
         
+        //this.currentLang= dlgList.get(0).getDlg_lang();
+        
         //if(l.equals("Select Level") && g.equals("Select Grammar") && t.equals("Select Topic")){
         if(blvl==false && bgram==false && btop==false){
-            return "Select * FROM Dialogue";
+            return "SELECT * FROM Dialogue WHERE dialogue_language ='" + currentLang+ "'";
         }
         
         else if(blvl){ // l selected 
             if (bgram){//!"none".equals(g)){ // g selected
                 if(btop){//!"none".equals(t)){ // t selected -> all three selected
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                        "dialogue_lvl= '" + l+ "'"+
-                        " AND dialogue_grammar= '" + g+ "'" + 
-                        "  AND dialogue_topic= '"+ t +"'"; // return all three
+                        return "SELECT * FROM Dialogue " +"WHERE dialogue_language ='" + currentLang+ "'"
+                        +" AND dialogue_lvl= '" + l+ "'"
+                        +" AND dialogue_grammar= '" + g+ "'" 
+                        +"  AND dialogue_topic= '"+ t +"'"; // return all three
                 }else{ // l and g selected
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                        " dialogue_lvl= '" + l+ "'"+
-                        "  AND dialogue_grammar= '"+ g +"'"; // return l and g
+                        return "SELECT * FROM Dialogue " +"WHERE dialogue_language ='" + currentLang+ "'"
+                        + " AND dialogue_lvl= '" + l+ "'"
+                        + "  AND dialogue_grammar= '"+ g +"'"; // return l and g
                 }
             }else{ // g is not selected
                     if(btop){//!"none".equals(t)){ // l and t selected 
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                        " dialogue_lvl= '" + l+ "'"+
+                        return "SELECT * FROM Dialogue " + "WHERE dialogue_language ='" + currentLang+ "'"+
+                        " AND dialogue_lvl= '" + l+ "'"+
                         "  AND dialogue_topic= '"+ t +"'"; // return l and t
                     }else{ //only l
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                        "dialogue_lvl= '" + l+ "'"; // return just l
+                        return "SELECT * FROM Dialogue " + "WHERE dialogue_language ='" + currentLang+ "'"+
+                        " AND dialogue_lvl= '" + l+ "'"; // return just l
                     }
                 } 
                 
             } else { // l is not sellected //CHECK
                 if (bgram){//!"none".equals(g)){ // g selected
                     if(btop){//!"none".equals(t)){ // g and t selected 
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                                " dialogue_grammar= '" + g+ "'" + 
+                        return "SELECT * FROM Dialogue "+ "WHERE dialogue_language ='" + currentLang+ "'"+
+                                " AND dialogue_grammar= '" + g+ "'" + 
                                 "  AND dialogue_topic= '"+ t +"'"; //return t and g
                     }else{ // t is not selected
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                                " dialogue_grammar= '" + g+ "'"; //return just g
+                        return "SELECT * FROM Dialogue " + "WHERE dialogue_language ='" + currentLang+ "'"+
+                                " AND dialogue_grammar= '" + g+ "'"; //return just g
                     }
                 }
                 
                 if (btop){//!"none".equals(t)){ // t selected
                     if(bgram==false){//g.equals("none")){ // only t selected
-                        return "SELECT * FROM Dialogue " +"WHERE " +
-                                " dialogue_topic= '"+ t +"'"; // return just t
+                        return "SELECT * FROM Dialogue " + "WHERE dialogue_language ='" + currentLang+ "'"+
+                                " AND dialogue_topic= '"+ t +"'"; // return just t
                     }
                 }
                     

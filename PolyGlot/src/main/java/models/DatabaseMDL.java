@@ -483,7 +483,7 @@ public class DatabaseMDL {
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
-        CreateLangTable();
+        //CreateLangTable();
        //CreateRecordTable();
     }
 

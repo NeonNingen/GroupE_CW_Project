@@ -43,11 +43,11 @@ public class DlgListV extends javax.swing.JFrame {
         menu.setPageTopicContent(DlgListContent);
     }
     
-    public void setActList(){
-        ChooseGramCbox.addActionListener(new DialogueCont(this));
-        ChooseLvlCbox.addActionListener(new DialogueCont(this));
-        ChooseTopicCbox.addActionListener(new DialogueCont(this));
-        resetBttn.addActionListener(new DialogueCont(this));
+    public void setActList(DialogueCont dlgCont){
+        ChooseGramCbox.addActionListener(dlgCont);
+        ChooseLvlCbox.addActionListener( dlgCont );
+        ChooseTopicCbox.addActionListener(dlgCont);
+        resetBttn.addActionListener(dlgCont);
     }
     
     public DialogueMDL  getCurrentDlg(){
@@ -345,28 +345,6 @@ public class DlgListV extends javax.swing.JFrame {
         
         model.setColumnIdentifiers(headers);
         
-        /*
-        jTableDlgList.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                // 1.collect info for the table row
-                int row=jTableDlgList.getSelectedRow(); //get row
-                currentDlg = dlgList.get(row);
-                //2. display it 
-                
-                
-                jTableDlgListMouseClicked(evt);
-            }
-        });*/
-
-        
-        
-        //model.addRow(headers );
-        /*for(int i=0; i< rowCount;i++){
-            model.addRow(empty);
-            
-        }*/
-        
         int count=0;
         for(int i=0; i< rowCount;i++){
             model.setValueAt(dlgList.get(i).getDlg_level(), i, 0); //obj, row, column
@@ -386,48 +364,7 @@ public class DlgListV extends javax.swing.JFrame {
         //jTableDlgList.show();
     }
     
-    /*
-    private void jTableDlgListMouseClicked(java.awt.event.MouseEvent evt) {  
-        String output= " Topic"+ currentDlg.getDlg_topic()
-                + "\nLevel: " + currentDlg.getDlg_level()
-                +"\nName: "+ currentDlg.getDlg_name()
-                +"\nGrammar: "+currentDlg.getDlg_grammar()
-                +"\nLanguage: "+ currentDlg.getDlg_lang()
-                +"\nPoints: "+ currentDlg.getDlg_points();
-        
-        int pressedSelesDlg = JOptionPane.showConfirmDialog(this, output+"\nWould you like to practice this dialogue?", " ",JOptionPane.YES_NO_OPTION);
-        if(pressedSelesDlg==0){
-            System.out.println("No"); // stay on page
-        }else{
-            System.out.println("Yes"); // open other page
-        }
-        
-    }   */
     public void fillCmbx(ArrayList <String> grammar,ArrayList <String> lvl,ArrayList <String> topic){
-        
-        /*
-        JComboBox newcb= new JComboBox(new String []{"Choose Grammar"});
-        for(int i=0; i<grammar.size();i++){
-            newcb.addItem(grammar.get(i));
-        }
-        
-        //this.ChooseGramCbox= new JComboBox((ComboBoxModel) newcb);;
-        this.ChooseGramCbox=newcb;
-        
-        
-        JComboBox newcb2= new JComboBox(new String []{"Choose Topic"});
-        for(int i=0; i<topic.size();i++){
-            newcb2.addItem(topic.get(i));
-        }
-        //this.ChooseTopicCbox= new JComboBox((ComboBoxModel) newcb2);
-        this.ChooseTopicCbox= newcb2;
-        
-        JComboBox newcb3= new JComboBox(new String []{"Choose Level"});
-        for(int i=0; i<lvl.size();i++){
-            newcb3.addItem(lvl.get(i));
-        }
-        //this.ChooseLvlCbox= new JComboBox((ComboBoxModel) newcb3);
-        this.ChooseLvlCbox= newcb3;*/
         
         this.ChooseGramCbox.removeAllItems();
         this.ChooseGramCbox.addItem("Choose Grammar");

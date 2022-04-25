@@ -39,8 +39,8 @@ public class LoginRegisterCont implements ActionListener {
     private MenuBarV menubar;
     private SupportV2 supportPage;
     private SupportV supportMenu;
-    private int accessrecord_id;
-    private String user_id;
+//    private int accessrecord_id;
+//    private String user_id;
     private MenuBarCont menuCont;
     AccessRecordMDL accessRecMDL;
 
@@ -260,9 +260,18 @@ public class LoginRegisterCont implements ActionListener {
     
     private void openPage(ArrayList<String> userDetails) 
     {
-        //this.userMDL = new UserMDL(userDetails.get(0), userDetails.get(1), userDetails.get(2), userDetails.get(3), userDetails.get(9));
-        this.userMDL = new UserMDL(userDetails.get(0), userDetails.get(1), userDetails.get(2), userDetails.get(3), userDetails.get(9), userDetails.get(7));
+        String userID = userDetails.get(0);
+        String uName = userDetails.get(1);
+        String uSurname = userDetails.get(2);
+        String uEmail = userDetails.get(3);
+        String langLvl = userDetails.get(5);
+        int uProgPoints = Integer.parseInt(userDetails.get(6));
+        String uType = userDetails.get(7);
+        String groupID = userDetails.get(9);
+        String appLang = userDetails.get(11);
         
+        this.userMDL = new UserMDL(uName, uSurname, uEmail, langLvl, uProgPoints, uType, userID, groupID, appLang);
+
         accessRecMDL.setLoginTime(userMDL.getUserID());
         accessRecMDL.storeAccessRecord(userMDL.getUserID());
         

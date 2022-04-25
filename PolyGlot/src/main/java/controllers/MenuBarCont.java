@@ -14,6 +14,8 @@ import views.ProgV;
 import views.UListStdV;
 import views.LoginV;
 import controllers.LoginRegisterCont;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import models.AccessRecordMDL;
 import models.UserMDL;
 
@@ -29,6 +31,7 @@ public class MenuBarCont implements ActionListener
     private LoginRegisterCont logCont;
     private UserMDL user;
     private AccessRecordMDL accessRC;
+    private String lang;//="SPN"; // user.gerCurrentLang()
     /*private LoginRegCont logRegCont;
     private DialogueMdl dlgMdl;
     private LoginV login;
@@ -69,6 +72,15 @@ public class MenuBarCont implements ActionListener
     public void setPage(MenuBarV menu) 
     {
         this.menuBar = menu;
+        
+        this.menuBar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) 
+            {
+                accessRC.setLogoutTime(accessRC.getAccessRecord_id(), user.getUserID());
+            }
+            
+        });
     }
     
 
@@ -158,8 +170,17 @@ public class MenuBarCont implements ActionListener
         if(e.getSource() == menuBar.getDlgListBttn()){
             DialogueMDL dlgModel= new DialogueMDL();
             DlgListV dlgView= new DlgListV();
-            DialogueCont cont= new DialogueCont(menuBar);
-            cont.setDlgList(dlgView, dlgModel ,"SELECT * FROM Dialogue");
+            
+            String query;
+            lang= user.getApplang();
+            DialogueCont cont= new DialogueCont(menuBar, dlgView, dlgModel, lang);//, lang);// add user current lang string parameter
+            //cont.setCurrentLang(lang);
+            //if(){ 
+                // set up condition if user lang is use user.gerCurrentLang, 
+            //}
+            query="SELECT * FROM Dialogue WHERE dialogue_language ='" + lang+ "'";
+            cont.setDlgList(query); 
+            
             menuBar.setPageTitle("Dialogue List");
             menuBar.setPageTopicContent(dlgView.getDlgListContent());
             

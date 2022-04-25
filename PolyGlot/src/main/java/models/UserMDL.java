@@ -28,6 +28,17 @@ public class UserMDL extends DatabaseMDL
         
     }
     
+    public UserMDL(String name, String surname, String email, String langLvl, int progPoints, String userType, String userID, String groupID, String applang) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.langLvl = langLvl;
+        this.progPoints = progPoints;
+        this.userType = userType;
+        this.userID = userID;
+        this.groupID = groupID;
+        this.applang = applang;
+    }
 
     public UserMDL(String userID, String name, String surname, String email, String groupID, String userType) {
         this.name = name;
@@ -61,6 +72,7 @@ public class UserMDL extends DatabaseMDL
             this.langID = Integer.parseInt(sqlResult.get(0));
             this.applang = sqlResult.get(1);
             this.progPoints = Integer.parseInt(sqlResult.get(2));
+            //updateUserLang(user_id,langChoice);
         } else if (sqlResult.isEmpty()) {
             //INSERT new record of user and its choosen language if a record of it doesnt exists already
             String sqlInput = "INSERT INTO LangProcess(langName, progressPoint, user_id) "
@@ -72,7 +84,15 @@ public class UserMDL extends DatabaseMDL
             this.langID = Integer.parseInt(sqlResult2.get(0));
             this.applang = sqlResult2.get(1);
             this.progPoints = Integer.parseInt(sqlResult2.get(2));
+            
         }
+        updateUserLang(user_id,langChoice);
+    }
+    
+    //Update user table. Set their current language to their choosen language
+    private void updateUserLang(String user_id, String langChoice){
+        String sqlInput = "UPDATE User SET current_Lang='"+langChoice+"' WHERE user_id = '"+user_id+"';"; 
+        updateTable(sqlInput);
     }
     
     //Creates records for all the specific language for a user in the LangProcess table
