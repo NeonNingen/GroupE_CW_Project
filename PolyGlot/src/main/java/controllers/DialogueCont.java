@@ -363,7 +363,7 @@ public class DialogueCont implements ActionListener
             menuV.dispose();
             dlgSetUpPage= new SetUpDlgV();
             dlgSetUpPage.show();
-        }else{
+        }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
             System.out.println("No");
         }
         
