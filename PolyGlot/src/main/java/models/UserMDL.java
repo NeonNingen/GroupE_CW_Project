@@ -27,6 +27,17 @@ public class UserMDL extends DatabaseMDL
         
     }
     
+    public UserMDL(String name, String surname, String email, String langLvl, int progPoints, String userType, String userID, String groupID, String applang) {
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.langLvl = langLvl;
+        this.progPoints = progPoints;
+        this.userType = userType;
+        this.userID = userID;
+        this.groupID = groupID;
+        this.applang = applang;
+    }
 
     public UserMDL(String userID, String name, String surname, String email, String groupID, String userType) {
         this.name = name;

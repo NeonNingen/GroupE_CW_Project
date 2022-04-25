@@ -14,6 +14,8 @@ import views.ProgV;
 import views.UListStdV;
 import views.LoginV;
 import controllers.LoginRegisterCont;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import models.AccessRecordMDL;
 import models.UserMDL;
 
@@ -69,6 +71,15 @@ public class MenuBarCont implements ActionListener
     public void setPage(MenuBarV menu) 
     {
         this.menuBar = menu;
+        
+        this.menuBar.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) 
+            {
+                accessRC.setLogoutTime(accessRC.getAccessRecord_id(), user.getUserID());
+            }
+            
+        });
     }
     
 
