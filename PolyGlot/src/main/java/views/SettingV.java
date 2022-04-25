@@ -19,7 +19,6 @@ public class SettingV extends javax.swing.JFrame {
         addinglang();
         this.userMDL = userMDL;
         setSelectedLang(userMDL);
-        //getSelectLang().setSelectedItem(langChoice);
     }
 
 //    public SettingV(MenuBarV menu) {

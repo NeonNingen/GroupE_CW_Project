@@ -52,7 +52,7 @@ public class UserMDL extends DatabaseMDL
     
     
     //This allows the user to put thrit choice of language in the database
-    public void updateLangdb(String user_id, String langChoice) {
+    public void chooseLangdb(String user_id, String langChoice) {
         String SQLlangID = "SELECT langID, langName, progressPoint FROM LangProcess WHERE langName='" + langChoice + "' AND user_id='" + user_id + "';";
         ArrayList<String> sqlResult = queryData(SQLlangID);
         if (sqlResult.size() == 1) {
@@ -71,6 +71,16 @@ public class UserMDL extends DatabaseMDL
             this.langID = Integer.parseInt(sqlResult2.get(0));
             this.applang = sqlResult2.get(1);
             this.progPoints = Integer.parseInt(sqlResult2.get(2));
+        }
+    }
+    
+    //Creates records for all the specific language for a user in the LangProcess table
+    public void createLangData(String user_id, ArrayList<String> langList) {
+        for (int i = 0; i < langList.size(); i++) {
+            String sqlInput = "INSERT INTO LangProcess(langName, progressPoint, user_id) "
+                    + "VALUES ('"+langList.get(i)+"',0,'"+user_id+"')";
+            updateTable(sqlInput);
+            System.out.println("New record is created for all the language available in this application. ");   
         }
     }
     

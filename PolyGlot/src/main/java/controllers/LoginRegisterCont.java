@@ -133,7 +133,8 @@ public class LoginRegisterCont implements ActionListener {
             //settingPage.setLangChoice(langChoice);
             this.userMDL.setApplang(langChoice);
             settingPage.setSelectedLang(this.userMDL);
-            userMDL.updateLangdb(userMDL.getUserID(), langChoice);
+            userMDL.chooseLangdb(userMDL.getUserID(), langChoice);
+            
         }
     } 
 
@@ -307,11 +308,13 @@ public class LoginRegisterCont implements ActionListener {
             
             MenuBarV menu = new MenuBarV(menuC);
             SettingV setting= new SettingV(userMDL);
-            setAccRec(setting, menu, accessRecMDL);
+            this.settingPage = setting;
+            setAccRec(settingPage, menu, accessRecMDL);
             setting.setContListener(this); //added by Amit (end)
+            userMDL.createLangData(user_id,  settingPage.getLangList());
             
             menu.setPageTitle("Setting");
-            menu.setPageTopicContent(setting.getSettingContent());
+            menu.setPageTopicContent(settingPage.getSettingContent());
             menu.setVisible(true);
         }
     }
