@@ -98,7 +98,7 @@ public class MenuBarCont implements ActionListener
         if(e.getSource() == menuBar.getDlgHistBttn2()){
             DialogueMDL dlgModel= new DialogueMDL();
             DlgHistV dlgHist= new DlgHistV();
-            DialogueCont cont= new DialogueCont();
+            DialogueCont cont= new DialogueCont(menuBar);
             cont.setDlgHist(dlgHist, dlgModel);
                 
             menuBar.setPageTitle("Dialogue History");
@@ -121,6 +121,7 @@ public class MenuBarCont implements ActionListener
                 menuBar.setPageTitle("User List");
                 menuBar.setPageTopicContent(ulistStd.getUListContent());
             }else if (user_type.equals("Teacher")){
+                
                 userCont.setUserList(ulistTch, user);
                 menuBar.remove(menuBar.getDlgHistBttn2());
                 menuBar.setPageTitle("User List");
@@ -157,7 +158,7 @@ public class MenuBarCont implements ActionListener
         if(e.getSource() == menuBar.getDlgListBttn()){
             DialogueMDL dlgModel= new DialogueMDL();
             DlgListV dlgView= new DlgListV();
-            DialogueCont cont= new DialogueCont();
+            DialogueCont cont= new DialogueCont(menuBar);
             cont.setDlgList(dlgView, dlgModel ,"SELECT * FROM Dialogue");
             menuBar.setPageTitle("Dialogue List");
             menuBar.setPageTopicContent(dlgView.getDlgListContent());
