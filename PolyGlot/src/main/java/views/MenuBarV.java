@@ -162,7 +162,6 @@ public class MenuBarV extends javax.swing.JFrame {
         SettBttn.setPreferredSize(new java.awt.Dimension(90, 90));
 
         ProVBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        ProVBttn.setIcon(new javax.swing.ImageIcon("/Users/aisana/Desktop/GroupE_CW_Project/PolyGlot/src/main/java/icons/ProVIcon60x60(white).png")); // NOI18N
         ProVBttn.setBorderPainted(false);
         ProVBttn.setPreferredSize(new java.awt.Dimension(90, 90));
 
