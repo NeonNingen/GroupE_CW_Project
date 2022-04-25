@@ -359,12 +359,12 @@ public class DialogueCont implements ActionListener
         
         int pressedSelesDlg = JOptionPane.showConfirmDialog(dlgListPage, output+"\nWould you like to practice this dialogue?", " ",JOptionPane.YES_NO_OPTION);
         if(pressedSelesDlg== JOptionPane.YES_OPTION){
-            System.out.println("Yes"); 
+            //System.out.println("Yes"); 
             menuV.dispose();
             dlgSetUpPage= new SetUpDlgV();
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
-            System.out.println("No");
+            //System.out.println("No");
         }
         
     }  
