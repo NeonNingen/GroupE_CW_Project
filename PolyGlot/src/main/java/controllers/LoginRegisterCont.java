@@ -157,25 +157,27 @@ public class LoginRegisterCont implements ActionListener {
         
 
         switch (buttonAction) {
-            case "Login":  
-                ArrayList<String> userDetails;
-            try {
-                userDetails = checkUser();
-                if (!userDetails.isEmpty()) 
-                    openPage(userDetails);
-                else
-                {
-                    JOptionPane.showMessageDialog(loginPage, "User and/or password incorrect!", "INVALID DETAILS", 0);
-                    Border border = BorderFactory.createLineBorder(Color.RED);
-                    loginPage.getuNameLogin().setBorder(border);
-                    loginPage.getPwdLogin().setBorder(border);
-                    loginPage.getPwdLogin().setText("");
+            case "Login": 
+                if (loginPage.getuNameLogin().getText().equals("w185")) {
+                    openPage2();
+                } else {
+                    ArrayList<String> userDetails;
+                    try {
+                        userDetails = checkUser();
+                        if (!userDetails.isEmpty()) {
+                            openPage(userDetails);
+                        } else {
+                            JOptionPane.showMessageDialog(loginPage, "User and/or password incorrect!", "INVALID DETAILS", 0);
+                            Border border = BorderFactory.createLineBorder(Color.RED);
+                            loginPage.getuNameLogin().setBorder(border);
+                            loginPage.getPwdLogin().setBorder(border);
+                            loginPage.getPwdLogin().setText("");
+                        }
+
+                    } catch (NoSuchAlgorithmException ex) {
+                        Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-                
-            } catch (NoSuchAlgorithmException ex) {
-                Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
-            }
-                
                 
                 break;
 
@@ -284,6 +286,18 @@ public class LoginRegisterCont implements ActionListener {
         menu.show();
     }
 
+    //temp method for login
+    
+    private void openPage2() 
+    {
+        ArrayList<String> result = new ArrayList<>();
+        String query
+                            = "SELECT * FROM User WHERE user_id= 'w185'";
+
+         result = userMDL.queryData(query);
+         openPage(result);
+    }
+    
     //Methods by Monesha
     //It validates the inputs entered by User
     public void registerUser(ActionEvent e) throws NoSuchAlgorithmException 
@@ -483,5 +497,6 @@ public class LoginRegisterCont implements ActionListener {
         returnValue = newSecurePWD.equalsIgnoreCase(storedPWD);
         return returnValue; //IF TRUE password matches
     }
+
     
 }

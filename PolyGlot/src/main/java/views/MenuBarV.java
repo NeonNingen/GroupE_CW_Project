@@ -5,7 +5,6 @@
 package views;
 
 import controllers.MenuBarCont;
-import java.awt.Color;
 import java.awt.Image;
 import java.io.IOException;
 import java.util.Random;
@@ -65,6 +64,7 @@ public class MenuBarV extends javax.swing.JFrame {
         //set background panel to blue
         MenuBarPanel.setBackground(new java.awt.Color(135, 170, 240));
         PageTitle.setFont(new java.awt.Font("Avenir Next", 1, 18));
+        ProVBttn.setBackground(new java.awt.Color(135, 170, 240));
         
     }
     
