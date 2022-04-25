@@ -71,7 +71,7 @@ public class UserMDL extends DatabaseMDL
             this.langID = Integer.parseInt(sqlResult.get(0));
             this.applang = sqlResult.get(1);
             this.progPoints = Integer.parseInt(sqlResult.get(2));
-            updateUserLang(user_id,langChoice);
+            //updateUserLang(user_id,langChoice);
         } else if (sqlResult.isEmpty()) {
             //INSERT new record of user and its choosen language if a record of it doesnt exists already
             String sqlInput = "INSERT INTO LangProcess(langName, progressPoint, user_id) "
@@ -83,8 +83,9 @@ public class UserMDL extends DatabaseMDL
             this.langID = Integer.parseInt(sqlResult2.get(0));
             this.applang = sqlResult2.get(1);
             this.progPoints = Integer.parseInt(sqlResult2.get(2));
-            updateUserLang(user_id,langChoice);
+            
         }
+        updateUserLang(user_id,langChoice);
     }
     
     //Update user table. Set their current language to their choosen language
