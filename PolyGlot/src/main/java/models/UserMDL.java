@@ -40,7 +40,7 @@ public class UserMDL extends DatabaseMDL
     
     
     //Insert user details when registering into the database
-    public void insertRegDetss(String userID, String name, String surname, String email, String groupID, String pswd){
+    public void insertRegDets(String userID, String name, String surname, String email, String groupID, String pswd){
       //  Connection con = getConnection();
         String userType = "Student";
         String adminAccess = "denied";
