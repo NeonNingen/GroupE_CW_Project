@@ -271,7 +271,7 @@ public class LoginRegisterCont implements ActionListener {
         
         MenuBarV menu = new MenuBarV(menuCont); 
         menu.setPageTitle("Profile");
-        menu.setProgPageTopicContent(new ProgV().getProgViewContent());
+        menu.setProgPageTopicContent(new ProgV(userMDL).getProgViewContent());
         menu.show();
     }
 

@@ -4,6 +4,7 @@ Contains all database methods
 package models;
 
 import java.util.ArrayList;
+import views.ProgV;
 
 
 public class UserMDL extends DatabaseMDL
@@ -83,6 +84,8 @@ public class UserMDL extends DatabaseMDL
             System.out.println("New record is created for all the language available in this application. ");   
         }
     }
+    
+
     
     //getters
     public String getName() 

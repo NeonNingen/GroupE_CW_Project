@@ -8,6 +8,11 @@ package views;
 import controllers.LoginRegisterCont;
 import controllers.MenuBarCont;
 import controllers.UserCont;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -50,8 +55,8 @@ public class ProgV extends javax.swing.JFrame {
         emailP = new javax.swing.JLabel();
         userTypeP = new javax.swing.JLabel();
         currentLvlP = new javax.swing.JLabel();
-        nextLvlP = new javax.swing.JLabel();
         DataGraph = new javax.swing.JPanel();
+        pointsJB = new javax.swing.JLabel();
 
         dlgHistBtn.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         dlgHistBtn.setText("View Dialogue History");
@@ -73,19 +78,25 @@ public class ProgV extends javax.swing.JFrame {
 
         currentLvlP.setText("Current Level: B1");
 
-        nextLvlP.setText("Next Level: B2");
-
         DataGraph.setBackground(new java.awt.Color(255, 153, 153));
+
+        pointsJB.setText("Points");
 
         javax.swing.GroupLayout DataGraphLayout = new javax.swing.GroupLayout(DataGraph);
         DataGraph.setLayout(DataGraphLayout);
         DataGraphLayout.setHorizontalGroup(
             DataGraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 174, Short.MAX_VALUE)
+            .addGroup(DataGraphLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(pointsJB)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         DataGraphLayout.setVerticalGroup(
             DataGraphLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 139, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DataGraphLayout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(pointsJB)
+                .addGap(59, 59, 59))
         );
 
         javax.swing.GroupLayout ProgViewContentLayout = new javax.swing.GroupLayout(ProgViewContent);
@@ -93,9 +104,9 @@ public class ProgV extends javax.swing.JFrame {
         ProgViewContentLayout.setHorizontalGroup(
             ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProgViewContentLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(32, 32, 32)
                 .addComponent(DataGraph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(emailP, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(userTypeP, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,16 +116,14 @@ public class ProgV extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
             .addGroup(ProgViewContentLayout.createSequentialGroup()
                 .addGap(138, 138, 138)
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nextLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(currentLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addComponent(currentLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ProgViewContentLayout.setVerticalGroup(
             ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProgViewContentLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(15, 15, 15)
+                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ProgViewContentLayout.createSequentialGroup()
                         .addComponent(nameP)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -126,11 +135,9 @@ public class ProgV extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(userTypeP))
                     .addComponent(DataGraph, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(55, 55, 55)
                 .addComponent(currentLvlP)
-                .addGap(18, 18, 18)
-                .addComponent(nextLvlP)
-                .addContainerGap(256, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,6 +171,12 @@ public class ProgV extends javax.swing.JFrame {
         emailP.setText(user.getEmail());
         userTypeP.setText(user.getUserType());
         currentLvlP.setText(user.getLangLvl());
+       pointsJB.setText(Integer.toString(user.getProgPoints()));
+        
+//BufferedImage myPicture = ImageIO.read(new File("C:\\\\Users\\\\New User\\\\Documents\\\\GitHub\\\\GroupE_CW_Project\\\\PolyGlot\\\\src\\\\image"));
+//JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+//add(picLabel); 
+ 
     }
 
     public JPanel getProgViewContent() {
@@ -174,9 +187,9 @@ public class ProgV extends javax.swing.JFrame {
         return dlgHistBtn;
     }
 
-    public JPanel getDataGraph() {
+   /* public JPanel getDataGraph() {
         return DataGraph;
-    }
+    }*/
 
     public JLabel getCurrentLvlP() {
         return currentLvlP;
@@ -194,9 +207,6 @@ public class ProgV extends javax.swing.JFrame {
         return nameP;
     }
 
-    public JLabel getNextLvlP() {
-        return nextLvlP;
-    }
 
     public JLabel getUserIdP() {
         return userIdP;
@@ -211,9 +221,9 @@ public class ProgV extends javax.swing.JFrame {
         this.dlgHistBtn = dlgHistBtn;
     }
 
-    public void setDataGraph(JPanel DataGraph) {
+   /* public void setDataGraph(JPanel DataGraph) {
         this.DataGraph = DataGraph;
-    }
+    }*/
 
     public void setCurrentLvlP(JLabel currentLvlP) {
         this.currentLvlP = currentLvlP;
@@ -229,10 +239,6 @@ public class ProgV extends javax.swing.JFrame {
 
     public void setNameP(JLabel nameP) {
         this.nameP = nameP;
-    }
-
-    public void setNextLvlP(JLabel nextLvlP) {
-        this.nextLvlP = nextLvlP;
     }
 
     public void setUserIdP(JLabel userIdP) {
@@ -289,7 +295,7 @@ public class ProgV extends javax.swing.JFrame {
     private javax.swing.JLabel emailP;
     private javax.swing.JLabel groupIdP;
     private javax.swing.JLabel nameP;
-    private javax.swing.JLabel nextLvlP;
+    private javax.swing.JLabel pointsJB;
     private javax.swing.JLabel userIdP;
     private javax.swing.JLabel userTypeP;
     // End of variables declaration//GEN-END:variables
