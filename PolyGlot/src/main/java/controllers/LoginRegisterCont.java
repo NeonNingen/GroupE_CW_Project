@@ -297,7 +297,7 @@ public class LoginRegisterCont implements ActionListener {
             
             String salt = getSalt(getRandomInteger(16,40));
             String secure_pwd = generateSecurePwd(uPwd, salt);
-            userMDL.insertRegDetss(userID, uName, uSurname, uEmail, uGroup, secure_pwd);
+            userMDL.insertRegDets(userID, uName, uSurname, uEmail, uGroup, secure_pwd);
             
             accessRecMDL.setLoginTime(userMDL.getUserID());
             accessRecMDL.storeAccessRecord(userMDL.getUserID());
