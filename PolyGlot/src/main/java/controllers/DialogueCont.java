@@ -141,7 +141,10 @@ public class DialogueCont implements ActionListener
     
     
     public void setDlgHist(DlgHistV dlgHist, DialogueMDL dlgModel) {
-        
+       dlgHistPage = dlgHist;
+       dlgMdlClass = dlgModel;
+       queryDlghPage();
+
     }
     
     public void filterDlgList(DlgListV dlgView, DialogueMDL dlgModel, String query) {

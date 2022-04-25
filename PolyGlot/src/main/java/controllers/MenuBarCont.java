@@ -86,7 +86,7 @@ public class MenuBarCont implements ActionListener
             //LoginV login= new LoginV();
             LoginRegisterCont logCont = new LoginRegisterCont(user);
             
-            ProgV prog= new ProgV();
+            ProgV prog= new ProgV(user);
             //LoginRegisterCont logRegCont= new LoginRegisterCont();
             //logRegCont.setProgClasses(login, prog);
             menuBar.setPageTitle("Profile");

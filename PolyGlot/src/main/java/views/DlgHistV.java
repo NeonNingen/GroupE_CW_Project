@@ -154,5 +154,9 @@ public class DlgHistV extends javax.swing.JFrame {
         this.dlgHistTable = dlgHistTable;
     }
 
+    public void setDlgHistConent(JPanel dlgHistConent) {
+        this.dlgHistConent = dlgHistConent;
+    }
+
   
 }
