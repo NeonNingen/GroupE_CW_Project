@@ -5,14 +5,26 @@
 package views;
 
 import controllers.MenuBarCont;
+import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class MenuBarV extends javax.swing.JFrame {
     String currentPage;
     private MenuBarCont menuC;
+    
+    
+    
     /**
      * Creates new form MenuBar
      */
@@ -20,6 +32,8 @@ public class MenuBarV extends javax.swing.JFrame {
     {
         initComponents();
         setSize(414,667);
+        setDesign();
+        setIcons();
         UListBttn.addActionListener(menuC);
         ProVBttn.addActionListener(menuC);
         SupportBttn.addActionListener(menuC);
@@ -35,6 +49,9 @@ public class MenuBarV extends javax.swing.JFrame {
         
         //added and modified by Amit
         menuC.setPage(this);
+        
+        setDesign();
+        setIcons();
         UListBttn.addActionListener(menuC);
         ProVBttn.addActionListener(menuC);
         SupportBttn.addActionListener(menuC);
@@ -43,6 +60,44 @@ public class MenuBarV extends javax.swing.JFrame {
         DlgHistBttn2.addActionListener(menuC);
     }
 
+    
+    public void setDesign(){
+        //set background panel to blue
+        MenuBarPanel.setBackground(new java.awt.Color(135, 170, 240));
+        PageTitle.setFont(new java.awt.Font("Avenir Next", 1, 18));
+        
+    }
+    
+    public void setIcons(){
+        //ProVBttn.removeAll();
+        //ProVBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ProVIcon60x60(white).png"))); 
+         
+        //ProVBttn.removeAll();
+        //Icon icon1 = new javax.swing.ImageIcon(getClass().getResource("E:\\ProVIcon60x60(white).png"));//new ImageIcon("E:\\ProVIcon60x60(white).png");
+        //ProVBttn= new JButton(icon1);
+        //ProVBttn.setVerticalTextPosition(SwingConstants.CENTER);
+        //ProVBttn.setHorizontalTextPosition(SwingConstants.CENTER);
+        //ProVBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ProVIcon60x60(white).png")));
+        
+           // Icon icon1 = new ImageIcon("ProVIcon60x60(white).png");
+            //Image img = ImageIO.read(getClass().getResource("icons/ProVIcon60x60(white).png"));
+            //ProVBttn.setIcon(icon1);
+        
+        
+        
+        
+        /*UListBttn.removeAll();
+        UListBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ProVIcon60x60(white).png")));
+        
+        DlgListBttn.removeAll();
+        DlgListBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ProVIcon60x60(white).png")));
+        
+        SettBttn.removeAll();
+        SettBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ProVIcon60x60(white).png")));
+        */
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,7 +135,6 @@ public class MenuBarV extends javax.swing.JFrame {
         MenuBarPanel.setBackground(new java.awt.Color(153, 153, 153));
         MenuBarPanel.setPreferredSize(new java.awt.Dimension(414, 667));
 
-        PageTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         PageTitle.setText("Page Title");
 
         PageTopicContent.setBackground(new java.awt.Color(255, 255, 255));
@@ -107,9 +161,9 @@ public class MenuBarV extends javax.swing.JFrame {
         SettBttn.setBorder(null);
         SettBttn.setPreferredSize(new java.awt.Dimension(90, 90));
 
-        ProVBttn.setBackground(new java.awt.Color(204, 204, 204));
-        ProVBttn.setText("Profile View");
-        ProVBttn.setBorder(null);
+        ProVBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        ProVBttn.setIcon(new javax.swing.ImageIcon("/Users/aisana/Desktop/GroupE_CW_Project/PolyGlot/src/main/java/icons/ProVIcon60x60(white).png")); // NOI18N
+        ProVBttn.setBorderPainted(false);
         ProVBttn.setPreferredSize(new java.awt.Dimension(90, 90));
 
         DlgListBttn.setBackground(new java.awt.Color(204, 204, 204));
