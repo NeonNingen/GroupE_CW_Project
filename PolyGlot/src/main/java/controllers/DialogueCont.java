@@ -44,7 +44,6 @@ public class DialogueCont implements ActionListener
     ArrayList <String> lvlList= new ArrayList<String>();
     ArrayList <String> topicList= new ArrayList<String>();
     
-    
     public DialogueCont(MenuBarV menu) 
     {
         menuV= menu;
@@ -420,7 +419,8 @@ public class DialogueCont implements ActionListener
         if(pressedSelesDlg== JOptionPane.YES_OPTION){
             //System.out.println("Yes"); 
             menuV.dispose();
-            dlgSetUpPage= new SetUpDlgV();
+            int id = Integer.parseInt(currentDlg.getDlg_id());
+            dlgSetUpPage= new SetUpDlgV(id, currentLang);
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
             //System.out.println("No");

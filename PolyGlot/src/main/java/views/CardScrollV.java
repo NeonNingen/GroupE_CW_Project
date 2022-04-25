@@ -5,6 +5,7 @@
 package views;
 
 
+import controllers.PerfmDlgCont;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -12,21 +13,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+
 /**
  *
- * @author aisana: w1775375
+ * @author Zain
  * 
- * note: still need to do rating bit
  */
+
 public class CardScrollV extends javax.swing.JFrame {
+    
+    private int id;
 
     //test test test
     /**
      * Creates new form MenuBar
      */
-    public CardScrollV() {
+    public CardScrollV(int id) {
+        this.id = id;
         initComponents();
         setSize(414,667);
+        this.CloseBttn.addActionListener(new PerfmDlgCont(this));
     }
 
     @SuppressWarnings("unchecked")
@@ -501,6 +507,13 @@ public class CardScrollV extends javax.swing.JFrame {
         return roleNameLbl;
     }
     
+    public int getID() {
+        return this.id;
+    }
+
+    public void setID() {
+        this.id = id;
+    }
     
     
     /**
@@ -548,7 +561,7 @@ public class CardScrollV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CardScrollV().setVisible(true);
+                new CardScrollV(123).setVisible(true);
             }
         });
     }
@@ -584,5 +597,6 @@ public class CardScrollV extends javax.swing.JFrame {
     private javax.swing.JLabel rateLbl;
     private javax.swing.JLabel roleNameLbl;
     // End of variables declaration//GEN-END:variables
+
 }
 

@@ -8,7 +8,7 @@ package models;
  * @author Zain
  */
 
-public class Card 
+public class Card extends DatabaseMDL
 {
     //variables
     private int card_id;
@@ -18,6 +18,23 @@ public class Card
     private String card_order;
     private String card_vocab;
     private int dialogue_id;
+    
+    public Card(int card_id, int card_points, String card_role, String card_text,
+                String card_order, String card_vocab, int dialogue_id){
+        
+            this.card_id = card_id;
+            this.card_points = card_points;
+            this.card_text = card_text;
+            this.card_order = card_order;
+            this.card_vocab = card_vocab;
+            this.dialogue_id = dialogue_id;
+            
+        
+    }
+
+    public Card() {
+        
+    }
 
     
     //getters

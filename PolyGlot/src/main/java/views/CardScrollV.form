@@ -396,7 +396,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                           <Component id="roleNameLbl" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="92" max="32767" attributes="0"/>
+                          <EmptySpace pref="93" max="32767" attributes="0"/>
                           <Component id="NextCardBttn" linkSize="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
