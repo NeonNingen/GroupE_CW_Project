@@ -16,6 +16,10 @@ import views.LoginV;
 import controllers.LoginRegisterCont;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import models.AccessRecordMDL;
 import models.UserMDL;
 
@@ -56,17 +60,20 @@ public class MenuBarCont implements ActionListener
     public MenuBarCont() 
     {
       this.menuBar = new MenuBarV();
+      
     }
 
     public MenuBarCont(UserMDL userMDL, AccessRecordMDL accessRC) 
     {
         this.user = userMDL;
         this.accessRC = accessRC;
+        
     }
 
     public MenuBarCont(UserMDL userMDL) 
     {
         this.user = userMDL;
+        
     }
     
     public void setPage(MenuBarV menu) 
@@ -99,8 +106,8 @@ public class MenuBarCont implements ActionListener
             LoginRegisterCont logCont = new LoginRegisterCont(user);
             
             ProgV prog= new ProgV(user);
-            //LoginRegisterCont logRegCont= new LoginRegisterCont();
-            //logRegCont.setProgClasses(login, prog);
+            
+            activateBttn(menuBar.getProVBttn(), menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getUListBttn());
             menuBar.setPageTitle("Profile");
             menuBar.setProgPageTopicContent(prog.getProgViewContent());
             //this way controller will collect info and update those two objects
@@ -133,7 +140,7 @@ public class MenuBarCont implements ActionListener
                 menuBar.setPageTitle("User List");
                 menuBar.setPageTopicContent(ulistStd.getUListContent());
             }else if (user_type.equals("Teacher")){
-                
+                activateBttn(menuBar.getUListBttn(),menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getProVBttn());
                 userCont.setUserList(ulistTch, user);
                 menuBar.remove(menuBar.getDlgHistBttn2());
                 menuBar.setPageTitle("User List");
@@ -160,7 +167,7 @@ public class MenuBarCont implements ActionListener
 //                LoginRegisterCont logRegCont= new LoginRegisterCont();
                 //logCont.setAccRec(setting);
                 
-                
+                activateBttn(menuBar.getSettBttn(),menuBar.getDlgListBttn(), menuBar.getUListBttn(),menuBar.getProVBttn());
                 menuBar.setPageTitle("Settings"); //change title
                 menuBar.setPageTopicContent(setting.getSettingContent()); //clear page content and add content of view class Jpanel 
             //}
@@ -180,7 +187,7 @@ public class MenuBarCont implements ActionListener
             //}
             query="SELECT * FROM Dialogue WHERE dialogue_language ='" + lang+ "'";
             cont.setDlgList(query); 
-            
+            activateBttn(menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getUListBttn(),menuBar.getProVBttn());
             menuBar.setPageTitle("Dialogue List");
             menuBar.setPageTopicContent(dlgView.getDlgListContent());
             
@@ -188,42 +195,26 @@ public class MenuBarCont implements ActionListener
         
         
         
+    }
+    
+    
+    /**
+     * Method used to distinguish which button is clicked and disable it while enabling other buttons
+     * @param bttn1 - button that is clicked
+     * @param bttn2
+     * @param bttn3
+     * @param bttn4 
+     */
+    public void activateBttn(JButton bttn1,JButton bttn2,JButton bttn3,JButton bttn4){ //
+        //if(bttn1.isSelected()){
+            bttn1.setEnabled(false);
+            bttn2.setEnabled(true);
+            bttn3.setEnabled(true);
+            bttn4.setEnabled(true);
+            
+            //menuBar.setDesign();
+        //}
         
-//        if(e.getSource() == menuBar.getProVBttn())
-//        {
-//            new ProgV().show();
-//        }
-//        
-        //This if statement needs to be sorted out because of the different versions of User List page in the project
-//        if(e.getSource() == menuBar.getUListBttn())
-//        {
-//        int num = (int) (Math.random() * 10);
-//        if (num % 2 == 0) 
-//        {
-//           new UListStdV().show();
-//        }
-//        else
-//        {
-//           new UListTchV().show();
-//        }
-
-//        }
-//        
-//        if(e.getSource() == menuBar.dlgListBttn())
-//        {
-//            new DlgListV().show();
-//        }
-//        
-//        if(e.getSource() == menuBar.getSettBttn())
-//        {
-//            new SettingV().show();
-//        }
-        
-//        if(e.getSource() == menuBar.getSupportBttn())
-//        {
-//           new SupportV().show(); 
-//        }
-        
-    }    
+    }
     
 }
