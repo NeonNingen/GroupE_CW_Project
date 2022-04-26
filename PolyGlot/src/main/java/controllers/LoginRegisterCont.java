@@ -157,7 +157,7 @@ public class LoginRegisterCont implements ActionListener {
         
 
         switch (buttonAction) {
-            case "Login": 
+            case "Sign In": 
                 if (loginPage.getuNameLogin().getText().equals("w185")) {
                     openPage2();
                 } else {

@@ -14,7 +14,17 @@ public class LoginV extends javax.swing.JFrame {
         registerBttn.addActionListener(new LoginRegisterCont(this));
         SupportBttn.addActionListener(new LoginRegisterCont(this));
         //loginBttnRedirect();
+        setDesign();
     }
+    public void setDesign(){
+        //set background panel to blue
+        loginPanel.setBackground(new java.awt.Color(135, 170, 240));
+        appTitle.setFont(new java.awt.Font("Avenir Next", 1, 41));
+        loginLbl.setFont(new java.awt.Font("Avenir Next", 1, 18));
+        //loginBttn.setBackground(new java.awt.Color(135, 170, 240));
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,23 +49,29 @@ public class LoginV extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        loginPanel.setBackground(new java.awt.Color(135, 178, 240));
         loginPanel.setPreferredSize(new java.awt.Dimension(414, 667));
 
         SupportBttn.setText("Help");
 
-        appTitle.setText("PolyLang");
+        appTitle.setFont(new java.awt.Font("Segoe UI", 1, 41)); // NOI18N
+        appTitle.setForeground(new java.awt.Color(255, 255, 255));
+        appTitle.setText("LangWise");
 
+        loginLbl.setForeground(new java.awt.Color(255, 255, 255));
         loginLbl.setText("Login");
 
         uNameLogin.setText("Username");
 
         pwdLogin.setText("password");
 
+        uNameLbl.setForeground(new java.awt.Color(255, 255, 255));
         uNameLbl.setText("Username:");
 
+        pwdLbl.setForeground(new java.awt.Color(255, 255, 255));
         pwdLbl.setText("Password:");
 
-        loginBttn.setText("Login");
+        loginBttn.setText("Sign In");
 
         registerBttn.setText("Register");
 
@@ -66,20 +82,25 @@ public class LoginV extends javax.swing.JFrame {
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(loginPanelLayout.createSequentialGroup()
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(uNameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pwdLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(36, 36, 36)
-                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(appTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(uNameLogin)
-                            .addComponent(pwdLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(registerBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                        .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(appTitle)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(uNameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(pwdLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(36, 36, 36)
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(uNameLogin)
+                                    .addComponent(pwdLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                                    .addGroup(loginPanelLayout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(17, 17, 17)))
+                .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SupportBttn)
@@ -91,10 +112,10 @@ public class LoginV extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(SupportBttn)
                 .addGap(43, 43, 43)
-                .addComponent(appTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(appTitle)
+                .addGap(30, 30, 30)
                 .addComponent(loginLbl)
-                .addGap(102, 102, 102)
+                .addGap(68, 68, 68)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uNameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(uNameLbl))
@@ -106,7 +127,7 @@ public class LoginV extends javax.swing.JFrame {
                 .addComponent(loginBttn)
                 .addGap(18, 18, 18)
                 .addComponent(registerBttn)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
