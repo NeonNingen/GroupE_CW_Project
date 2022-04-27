@@ -296,8 +296,6 @@ public class DialogueCont implements ActionListener
         if(e.getSource() == dlgSetUpPage.getCloseBttn()){
             dlgSetUpPage.dispose();
             menuV.show();
-            //MenuBarCont menuCont= new MenuBarCont();
-            //menuCont.setDlgListPage();
         
         }
         if(e.getSource()== dlgListPage.getChooseGramCbox()){

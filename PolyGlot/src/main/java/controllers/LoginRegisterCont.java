@@ -281,6 +281,7 @@ public class LoginRegisterCont implements ActionListener {
         MenuBarCont menuCont = new MenuBarCont(userMDL, accessRecMDL);
         
         MenuBarV menu = new MenuBarV(menuCont); 
+        menuCont.activateBttn(menu.getProVBttn(), menu.getUListBttn(),menu.getDlgListBttn(), menu.getSettBttn());
         menu.setPageTitle("Profile");
         menu.setProgPageTopicContent(new ProgV(userMDL).getProgViewContent());
         menu.show();
@@ -331,6 +332,7 @@ public class LoginRegisterCont implements ActionListener {
             MenuBarCont menuC = new MenuBarCont(userMDL,accessRecMDL); //added by Amit (start)
             
             MenuBarV menu = new MenuBarV(menuC);
+            menuC.activateBttn( menu.getSettBttn(),menu.getProVBttn(), menu.getUListBttn(),menu.getDlgListBttn());
             SettingV setting= new SettingV(userMDL);
             this.settingPage = setting;
             setAccRec(settingPage, menu, accessRecMDL);
