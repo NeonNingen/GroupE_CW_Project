@@ -22,6 +22,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import models.AccessRecordMDL;
 import models.UserMDL;
+import views.SetUpDlgV;
 
 /**
  *
@@ -35,6 +36,7 @@ public class MenuBarCont implements ActionListener
     private LoginRegisterCont logCont;
     private UserMDL user;
     private AccessRecordMDL accessRC;
+    private SetUpDlgV dlgSetUpPage;
     private String lang;//="SPN"; // user.gerCurrentLang()
     /*private LoginRegCont logRegCont;
     private DialogueMdl dlgMdl;
@@ -89,8 +91,11 @@ public class MenuBarCont implements ActionListener
             
         });
     }
-    
-
+    /*
+    public MenuBarCont(SetUpDlgV dlgSetUpPage) 
+    {
+        this.dlgSetUpPage = dlgSetUpPage;
+    }*/
     
     /*public MenuBarCont(ProgV progPage) 
     {
@@ -180,23 +185,22 @@ public class MenuBarCont implements ActionListener
             
             String query;
             lang= user.getApplang();
-            DialogueCont cont= new DialogueCont(menuBar, dlgView, dlgModel, lang);//, lang);// add user current lang string parameter
+            DialogueCont cont= new DialogueCont(this.menuBar, dlgView, dlgModel, lang);//, lang);// add user current lang string parameter
             //cont.setCurrentLang(lang);
             //if(){ 
                 // set up condition if user lang is use user.gerCurrentLang, 
             //}
             query="SELECT * FROM Dialogue WHERE dialogue_language ='" + lang+ "'";
             cont.setDlgList(query); 
-            activateBttn(menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getUListBttn(),menuBar.getProVBttn());
-            menuBar.setPageTitle("Dialogue List");
-            menuBar.setPageTopicContent(dlgView.getDlgListContent());
+            activateBttn(this.menuBar.getDlgListBttn(),this.menuBar.getSettBttn(), this.menuBar.getUListBttn(),this.menuBar.getProVBttn());
+            this.menuBar.setPageTitle("Dialogue List");
+            this.menuBar.setPageTopicContent(dlgView.getDlgListContent());
+            this.menuBar.show();
             
         }
         
         
-        
     }
-    
     
     /**
      * Method used to distinguish which button is clicked and disable it while enabling other buttons

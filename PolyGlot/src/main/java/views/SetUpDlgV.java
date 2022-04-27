@@ -4,6 +4,8 @@
  */
 package views;
 
+import controllers.DialogueCont;
+import controllers.MenuBarCont;
 import controllers.PerfmDlgCont;
 import javax.swing.*;
 
@@ -20,12 +22,13 @@ public class SetUpDlgV extends javax.swing.JFrame {
      * Creates new form MenuBar
      * @param id: int - Dialogue ID
      */
-    public SetUpDlgV(int id, String lang) {
+    public SetUpDlgV(int id, String lang, DialogueCont DlgCont) {
         this.id = id;
         initComponents();
         setSize(414,667);
         StartDlgBttn.addActionListener(new PerfmDlgCont(this));
-        CloseBttn.addActionListener(new PerfmDlgCont(this, lang));
+        //CloseBttn.addActionListener(new PerfmDlgCont(this, lang));
+        CloseBttn.addActionListener(DlgCont);
     }
 
 
@@ -326,7 +329,8 @@ public class SetUpDlgV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SetUpDlgV(123, "Spanish").setVisible(true);
+                DialogueCont dlgCont= new DialogueCont();
+                new SetUpDlgV(123, "Spanish", dlgCont).setVisible(true);
             }
         });
     }

@@ -30,6 +30,7 @@ public class DialogueCont implements ActionListener
     private SetUpDlgV dlgSetUpPage;
     private DialogueMDL dlgMdlClass;
     private DialogueMDL currentDlg;
+    private SetUpDlgV setUp;
     private String currentLang;
     String tableName= "Dialogue";
     int rowCount=0;
@@ -48,6 +49,7 @@ public class DialogueCont implements ActionListener
     {
         menuV= menu;
     }
+    
     public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang) 
     {
         menuV= menu;
@@ -60,6 +62,10 @@ public class DialogueCont implements ActionListener
     {
         this.dlgListPage = dlgListPage;
         
+    }
+
+    public DialogueCont() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void choosingDlg(){
@@ -286,6 +292,14 @@ public class DialogueCont implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
+        
+        if(e.getSource() == dlgSetUpPage.getCloseBttn()){
+            dlgSetUpPage.dispose();
+            menuV.show();
+            //MenuBarCont menuCont= new MenuBarCont();
+            //menuCont.setDlgListPage();
+        
+        }
         if(e.getSource()== dlgListPage.getChooseGramCbox()){
             System.out.println("action for box 1: lang: "+ this.currentLang); 
             //dlgListPage.getChooseGramCbox().getSelectedItem();
@@ -298,11 +312,35 @@ public class DialogueCont implements ActionListener
         if( e.getSource()== dlgListPage.getChooseTopicCbox()){
             System.out.println("action for box 3, lang: "+ currentLang); 
             filterTable("none");
-        }if( e.getSource()== dlgListPage.getresetBttn()){
+        }
+        
+        if( e.getSource()== dlgListPage.getresetBttn()){
             filterTable("reset");
         }
+        
 
     }
+    
+    private void jTableDlgListMouseClicked(java.awt.event.MouseEvent evt) {  
+        String output= "Topic: "+ currentDlg.getDlg_topic()
+                + "\nLevel: " + currentDlg.getDlg_level()
+                +"\nName: "+ currentDlg.getDlg_name()
+                +"\nGrammar: "+currentDlg.getDlg_grammar()
+                +"\nLanguage: "+ currentDlg.getDlg_lang()
+                +"\nPoints: "+ currentDlg.getDlg_points();
+        
+        int pressedSelesDlg = JOptionPane.showConfirmDialog(dlgListPage, output+"\nWould you like to practice this dialogue?", " ",JOptionPane.YES_NO_OPTION);
+        if(pressedSelesDlg== JOptionPane.YES_OPTION){
+            //System.out.println("Yes"); 
+            menuV.hide();
+            int id = Integer.parseInt(currentDlg.getDlg_id());
+            dlgSetUpPage= new SetUpDlgV(id, currentLang, this);
+            dlgSetUpPage.show();
+        }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
+            //System.out.println("No");
+        }
+        
+    }  
     
     
     /**
@@ -407,25 +445,6 @@ public class DialogueCont implements ActionListener
     }   
 
     
-    private void jTableDlgListMouseClicked(java.awt.event.MouseEvent evt) {  
-        String output= "Topic: "+ currentDlg.getDlg_topic()
-                + "\nLevel: " + currentDlg.getDlg_level()
-                +"\nName: "+ currentDlg.getDlg_name()
-                +"\nGrammar: "+currentDlg.getDlg_grammar()
-                +"\nLanguage: "+ currentDlg.getDlg_lang()
-                +"\nPoints: "+ currentDlg.getDlg_points();
-        
-        int pressedSelesDlg = JOptionPane.showConfirmDialog(dlgListPage, output+"\nWould you like to practice this dialogue?", " ",JOptionPane.YES_NO_OPTION);
-        if(pressedSelesDlg== JOptionPane.YES_OPTION){
-            //System.out.println("Yes"); 
-            menuV.dispose();
-            int id = Integer.parseInt(currentDlg.getDlg_id());
-            dlgSetUpPage= new SetUpDlgV(id, currentLang);
-            dlgSetUpPage.show();
-        }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
-            //System.out.println("No");
-        }
-        
-    }  
+    
     
 }

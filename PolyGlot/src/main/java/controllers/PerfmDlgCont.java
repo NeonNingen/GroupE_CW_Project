@@ -112,16 +112,21 @@ public class PerfmDlgCont implements ActionListener
            new CardScrollV(this.id).show();
        }
        
-       if(e.getSource() == SetUpDlgPage.getCloseBttn())
+       /*if(e.getSource() == SetUpDlgPage.getCloseBttn())
        {
-          
-          String query ="SELECT * FROM Dialogue WHERE dialogue_language ='" 
-                       + this.lang + "'";
+          //Original:
+          //String query ="SELECT * FROM Dialogue WHERE dialogue_language ='" 
+                      // + this.lang + "'";
           //DialogueCont cont = new DialogueCont();
           //cont.setDlgList(query);
-          SetUpDlgPage.dispose();
-          new DlgListV().show();
-       }
+          //SetUpDlgPage.dispose();
+          //new DlgListV().show();
+          
+          // Aisana's editing:
+           SetUpDlgPage.dispose();
+           MenuBarCont menuCont= new MenuBarCont();
+            menuCont.setDlgListPage(lang);
+       }*/
        
        
        
