@@ -4,14 +4,13 @@
  */
 package views;
 
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 /**
  *
- * @author aisana
+ * @author Joshua
  */
 public class SupportV extends javax.swing.JFrame {
 
@@ -25,7 +24,85 @@ public class SupportV extends javax.swing.JFrame {
         
         menu.setPageTitle("Support Page");
         menu.setPageTopicContent(supportContent);
+
+        mainTextField();
+        mainTitle();
     }
+    
+        public void mainTitle() {
+        String title1 = "Tips to learning Effectively";
+        jLabel1.setText(title1);
+        
+        String title2 = "How to choose a language level";
+        jLabel2.setText(title2);
+        
+        String title3 = "Tips on building a habit";
+        jLabel3.setText(title3);
+        
+        String title4 = "Contact PolyGlot Devs";
+        jLabel4.setText(title4);
+    }
+        
+    public void mainTextField() {
+        String text1 = "1. Find what motivates you to learn the language of your choice \n"
+                + "Take Japanese for example, some people choose it for anime, others \n"
+                + "because they plan to visit, others just like cultured people. \n"
+                + "Why do you want to study? Once you know that, you are on the right track. \n\n"
+                + "2. Make learning a habit \n"
+                + "Check below for more information \n\n"
+                + "3. Check your notes, make notes if you dont already and review \n"
+                + "Imagine learning multiple languages at once, you won't be able \n"
+                + "to remember most of them if you arent taking notes. Note taking \n"
+                + "learn it. \n\n"
+                + "4. Immerse yourself in the language \n"
+                + "This is my personal recommendation. What better way to learn Japanese \n"
+                + "for example than to binge watch anime/japanese dramas with no subtitles?"
+                + "I guarantee you, if you want to progress fast, watching/listening in the \n"
+                + "language you are studying is the way to go";
+        jTextArea1.setText(text1);
+        jTextArea1.setEditable(false);
+        //setEditable to stop users from writing into the field
+        
+        
+        String text2 = "On your device, click the cog icon and select the language \n"
+                + "of your choice. Currently we only have two languages but if our \n"
+                + "app gets popular enough, we will add more language. Japanese \n"
+                + "being a priority.";
+        jTextArea2.setText(text2);
+        jTextArea2.setEditable(false);        
+
+        
+        String text3 = "1. Choose a time specifically for studying \n"
+                + "The most important thing for making anything a habit is to fit it into your routine. \n"
+                + "Good thing is our application is piss easy that even a baby could find time to use it \n"
+                + "so there should be no excuse on not using our app at least 24 hours a day \n\n"
+                + "2. Make your learning fun \n"
+                + "It's very important to stay motivated in language learning by doing something you love \n"
+                + "while using our application. For example, if you like news, try watching news in \n"
+                + "the language you are learning, studies shown that it works! \n\n"
+                + "3. Watch your progress \n"
+                + "It's another way to stay motivated! Our progress page on the application allows you to \n"
+                + "check your progress so check it out, get movitated and start practicing! \n\n"
+                + "4. Find people to practice with \n"
+                + "Language learning is a social activity, you don't study language for yourself, do you? \n"
+                + "Of course not, you study it to speak with people from other languages and connect \n"
+                + "If you don't have any friends that speak other languages, my condolences. \n"
+                + "The best advice we can give you is go out there and make some friends!";
+        jTextArea3.setText(text3);
+        jTextArea3.setEditable(false);
+
+        
+        String text4 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n" +
+        "Monesha Dhali (w12345679@my.westminster.ac.uk)\n" +
+        "Rafael Sally (w12345670@my.westminster.ac.uk)\n" +
+        "Rahat Amit Haider (w12345681@my.westminster.ac.uk)\n" +
+        "Joshua Nwachukwa (w12345682@my.westminster.ac.uk)\n" +
+        "Aisana Zharmagambetova (w12345683@my.westminster.ac.uk)";
+        jTextArea4.setText(text4);
+        jTextArea4.setEditable(false);
+
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

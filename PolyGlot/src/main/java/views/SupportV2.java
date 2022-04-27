@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 
 /**
  *
- * @author mones
+ * @author Joshua
  */
 public class SupportV2 extends javax.swing.JFrame {
 
@@ -18,7 +18,53 @@ public class SupportV2 extends javax.swing.JFrame {
      */
     public SupportV2() {
         initComponents();
+        
+        mainTextField();
+        mainTitle();
     }
+    
+        public void mainTitle() {
+        String title1 = "Forgot password?";
+        jLabel1.setText(title1);
+        
+        String title2 = "Contact us";
+        jLabel2.setText(title2);
+        
+        String title3 = "What is this application?";
+        jLabel3.setText(title3);
+        
+        String title4 = "Special thanks to";
+        jLabel4.setText(title4);
+    }
+        
+    public void mainTextField() {
+        String text1 = "Contact one of the PolyGlot devs via their (fake) emails below";
+        jTextArea1.setText(text1);
+        jTextArea1.setEditable(false);
+        //setEditable to stop users from writing into the field
+        
+        String text2 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n" +
+        "Monesha Dhali (w12345679@my.westminster.ac.uk)\n" +
+        "Rafael Sally (w12345670@my.westminster.ac.uk)\n" +
+        "Rahat Amit Haider (w12345681@my.westminster.ac.uk)\n" +
+        "Joshua Nwachukwa (w12345682@my.westminster.ac.uk)\n" +
+        "Aisana Zharmagambetova (w12345683@my.westminster.ac.uk)";
+        jTextArea2.setText(text2);
+        jTextArea2.setEditable(false);
+        
+        String text3 = "This application is a simple language learning app made \n"
+                + "by students in the University of Westminster. \n"
+                + "It's purpose is to hopefully teach people how to learn \n"
+                + "(at the moment) French and Spanish.";
+        jTextArea3.setText(text3);
+        jTextArea3.setEditable(false);
+        
+        String text4 = "Rolf, our tutor and the friends we made along the way";
+        jTextArea4.setText(text4);
+        jTextArea4.setEditable(false);
+    
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -144,9 +190,9 @@ public class SupportV2 extends javax.swing.JFrame {
         );
         supportContentLayout.setVerticalGroup(
             supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(supportContentLayout.createSequentialGroup()
-                .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supportContentLayout.createSequentialGroup()
+                .addGap(0, 19, Short.MAX_VALUE)
+                .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
