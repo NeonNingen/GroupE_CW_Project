@@ -145,6 +145,9 @@ public class LoginRegisterCont implements ActionListener {
             this.registerPage.dispose();
             this.supportPage.setVisible(true);
         
+        }else if(e.getSource() == this.loginPage.getSupportBttn()) {
+            this.loginPage.dispose();
+            this.supportPage.setVisible(true);
         }
     }
 
@@ -154,7 +157,6 @@ public class LoginRegisterCont implements ActionListener {
         actionPermHelp(e);
         String buttonAction = e.getActionCommand();
         
-
         switch (buttonAction) {
             case "Sign In": 
                 if (loginPage.getuNameLogin().getText().equals("w185")) {
@@ -194,12 +196,6 @@ public class LoginRegisterCont implements ActionListener {
                     this.registerPage.setVisible(true);
                 }
                 break;
-
-            case "Help":
-                actionPermHelp(e);
-                
-                break;
-
             case "Logout":
                 System.out.println(userMDL.getUserID()+ " : " + accessRecMDL.getAccessRecord_id());
                 accessRecMDL.setLogoutTime(accessRecMDL.getAccessRecord_id(), userMDL.getUserID());
