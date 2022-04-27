@@ -144,9 +144,7 @@ public class LoginRegisterCont implements ActionListener {
         if (e.getSource() == this.registerPage.getSupportBttn()) {
             this.registerPage.dispose();
             this.supportPage.setVisible(true);
-        } else if (e.getSource() == this.loginPage.getSupportBttn()) {
-            this.loginPage.dispose();
-            this.supportPage.setVisible(true);
+        
         }
     }
 
@@ -199,6 +197,7 @@ public class LoginRegisterCont implements ActionListener {
 
             case "Help":
                 actionPermHelp(e);
+                
                 break;
 
             case "Logout":
@@ -368,6 +367,14 @@ public class LoginRegisterCont implements ActionListener {
         {
             String msgEpty = "Please fill in all the variables of the form";
             JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
+            //Border border = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.BLACK);
+            this.registerPage.getNameReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+            this.registerPage.getSurnameReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+            this.registerPage.getEmailReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+            this.registerPage.getUseridReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+            this.registerPage.getPwdReg1().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+            this.registerPage.getPwdReg2().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+            this.registerPage.getTermsCond().setForeground(Color.red);
             System.out.println(msgEpty);
             return false;
         } 
@@ -377,6 +384,7 @@ public class LoginRegisterCont implements ActionListener {
             {
                 String msgTC = "Please agree our terms and condition before using our application";
                 JOptionPane.showMessageDialog(null, msgTC, "Problem", JOptionPane.ERROR_MESSAGE);
+                this.registerPage.getTermsCond().setForeground(Color.red);
                 System.out.println(msgTC);
                 return false;
             } 
@@ -387,6 +395,8 @@ public class LoginRegisterCont implements ActionListener {
                 {
                     String msgE1 = "Email not Valid";
                     JOptionPane.showMessageDialog(null, msgE1, "Problem", JOptionPane.ERROR_MESSAGE);
+                    
+                    this.registerPage.getEmailReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
                     System.out.println(msgE1);
                     return false;
                 } 
@@ -400,6 +410,7 @@ public class LoginRegisterCont implements ActionListener {
                                     Insert at least 8 chars. 
                                     Insert Lower case, uppercase, digit, special character at least once. Do not include any white spaces!""";
                         JOptionPane.showMessageDialog(null, msgVP, "Problem", JOptionPane.ERROR_MESSAGE);
+                        this.registerPage.getPwdReg1().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
                         System.out.println(msgVP);
                         return false;
                     } 
@@ -409,7 +420,9 @@ public class LoginRegisterCont implements ActionListener {
                         if (!(uPwd.equalsIgnoreCase(uPwdConfirm))) 
                         {
                             String msgMP = "Password don't match";
-                            JOptionPane.showMessageDialog(null, msgMP, "Problem", JOptionPane.ERROR_MESSAGE);
+                            JOptionPane.showMessageDialog(null, msgMP, "Problem", JOptionPane.ERROR_MESSAGE);                  
+                            this.registerPage.getPwdReg1().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+                            this.registerPage.getPwdReg2().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
                             System.out.println(msgMP);
                             return false;
                         } 
@@ -419,6 +432,7 @@ public class LoginRegisterCont implements ActionListener {
                             if(isValidUserID==false) {
                                 String msgUid = "User id is already in use.";
                                 JOptionPane.showMessageDialog(null, msgUid, "Problem", JOptionPane.ERROR_MESSAGE);
+                                this.registerPage.getUseridReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
                                 System.out.println(msgUid);
                                 return false;
                             }else{
