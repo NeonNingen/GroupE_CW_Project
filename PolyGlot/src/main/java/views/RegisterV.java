@@ -2,6 +2,7 @@
 package views;
 
 import controllers.LoginRegisterCont;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -41,6 +42,7 @@ public class RegisterV extends javax.swing.JFrame {
 
         registerPanel = new javax.swing.JPanel();
         regTitle = new javax.swing.JLabel();
+        this.supportBttn.setBackground(new Color(0,0,0,0));
         supportBttn = new javax.swing.JButton();
         nameReg = new javax.swing.JTextField();
         SurnameReg = new javax.swing.JTextField();
@@ -54,40 +56,114 @@ public class RegisterV extends javax.swing.JFrame {
         termsCond = new javax.swing.JCheckBox();
         regBttn = new javax.swing.JButton();
         cancelBttn = new javax.swing.JButton();
-        useridLblReg = new javax.swing.JLabel();
         useridReg = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        regTitle.setText("Create new user account");
+        registerPanel.setBackground(new java.awt.Color(135, 178, 240));
 
-        supportBttn.setText("Help");
+        regTitle.setFont(new java.awt.Font("Segoe UI", 1, 29)); // NOI18N
+        regTitle.setForeground(new java.awt.Color(255, 255, 255));
+        regTitle.setText("Create User Account");
 
+        supportBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons-info.png"))); // NOI18N
+        supportBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supportBttnActionPerformed(evt);
+            }
+        });
+
+        nameReg.setBackground(new java.awt.Color(135, 178, 240));
+        nameReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nameReg.setForeground(new java.awt.Color(255, 255, 255));
         nameReg.setText("Name");
+        nameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        nameReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameRegActionPerformed(evt);
+            }
+        });
 
+        SurnameReg.setBackground(new java.awt.Color(135, 178, 240));
+        SurnameReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SurnameReg.setForeground(new java.awt.Color(255, 255, 255));
         SurnameReg.setText("Surname");
+        SurnameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
 
+        emailReg.setBackground(new java.awt.Color(135, 178, 240));
+        emailReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        emailReg.setForeground(new java.awt.Color(255, 255, 255));
         emailReg.setText("Email");
+        emailReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        emailReg.setPreferredSize(new java.awt.Dimension(64, 26));
 
+        groupIdSelect.setForeground(new java.awt.Color(135, 178, 240));
+        groupIdSelect.setMinimumSize(new java.awt.Dimension(64, 26));
+        groupIdSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupIdSelectActionPerformed(evt);
+            }
+        });
+
+        groupIdLblReg.setBackground(new java.awt.Color(135, 178, 240));
+        groupIdLblReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        groupIdLblReg.setForeground(new java.awt.Color(255, 255, 255));
         groupIdLblReg.setText("Group ID :");
+        groupIdLblReg.setMinimumSize(new java.awt.Dimension(64, 26));
 
+        pwdReg1.setBackground(new java.awt.Color(135, 178, 240));
+        pwdReg1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pwdReg1.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg1.setText("jPasswordField1");
+        pwdReg1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        pwdReg1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwdReg1ActionPerformed(evt);
+            }
+        });
 
+        pwdReg2.setBackground(new java.awt.Color(135, 178, 240));
+        pwdReg2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pwdReg2.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg2.setText("jPasswordField2");
+        pwdReg2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
 
-        pwdReg1Lbl.setText("Password: ");
+        pwdReg1Lbl.setBackground(new java.awt.Color(135, 178, 240));
+        pwdReg1Lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pwdReg1Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        pwdReg1Lbl.setText("Password");
+        pwdReg1Lbl.setMinimumSize(new java.awt.Dimension(64, 26));
 
-        pwdReg2Lbl.setText("Reapeat Password:");
+        pwdReg2Lbl.setBackground(new java.awt.Color(135, 178, 240));
+        pwdReg2Lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pwdReg2Lbl.setForeground(new java.awt.Color(255, 255, 255));
+        pwdReg2Lbl.setText("Reapeat Password");
+        pwdReg2Lbl.setMinimumSize(new java.awt.Dimension(64, 26));
+        pwdReg2Lbl.setPreferredSize(new java.awt.Dimension(64, 26));
 
+        termsCond.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        termsCond.setForeground(new java.awt.Color(255, 255, 255));
         termsCond.setText("I agree with the terms and conditions *");
 
+        regBttn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        regBttn.setForeground(new java.awt.Color(93, 150, 234));
         regBttn.setText("Register");
+        regBttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+        regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
+        cancelBttn.setBackground(new java.awt.Color(238, 105, 94));
+        cancelBttn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cancelBttn.setForeground(new java.awt.Color(255, 255, 255));
         cancelBttn.setText("Cancel");
+        cancelBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
-        useridLblReg.setText("User ID :");
-
+        useridReg.setBackground(new java.awt.Color(135, 178, 240));
+        useridReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        useridReg.setForeground(new java.awt.Color(255, 255, 255));
+        useridReg.setText("User ID");
+        useridReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        useridReg.setMinimumSize(new java.awt.Dimension(64, 26));
         useridReg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 useridRegActionPerformed(evt);
@@ -98,79 +174,81 @@ public class RegisterV extends javax.swing.JFrame {
         registerPanel.setLayout(registerPanelLayout);
         registerPanelLayout.setHorizontalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(supportBttn))
             .addGroup(registerPanelLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emailReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SurnameReg)
+                    .addComponent(nameReg)
                     .addGroup(registerPanelLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(regTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(registerPanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(emailReg)
-                            .addComponent(SurnameReg)
-                            .addComponent(nameReg)
+                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(registerPanelLayout.createSequentialGroup()
-                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(groupIdLblReg, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                                .addGap(20, 20, 20)
+                                .addComponent(regTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(registerPanelLayout.createSequentialGroup()
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(groupIdLblReg, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(groupIdSelect, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(pwdReg1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                    .addComponent(pwdReg2)))
-                            .addComponent(termsCond, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                                .addComponent(useridLblReg, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(registerPanelLayout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(regBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cancelBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(groupIdSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(pwdReg1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(registerPanelLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(termsCond, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
+                        .addComponent(supportBttn)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
+                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(regBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cancelBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(122, 122, 122))))
         );
         registerPanelLayout.setVerticalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registerPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(supportBttn)
-                .addGap(29, 29, 29)
-                .addComponent(regTitle)
-                .addGap(54, 54, 54)
+                .addGap(3, 3, 3)
+                .addComponent(regTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(emailReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(groupIdSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(registerPanelLayout.createSequentialGroup()
-                        .addComponent(groupIdLblReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3)))
+                    .addComponent(groupIdLblReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(useridLblReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(termsCond)
-                .addGap(45, 45, 45)
-                .addComponent(regBttn)
                 .addGap(18, 18, 18)
-                .addComponent(cancelBttn)
-                .addGap(167, 167, 167))
+                .addComponent(termsCond)
+                .addGap(33, 33, 33)
+                .addComponent(regBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cancelBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,6 +269,22 @@ public class RegisterV extends javax.swing.JFrame {
     private void useridRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useridRegActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_useridRegActionPerformed
+
+    private void supportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supportBttnActionPerformed
+
+    private void nameRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameRegActionPerformed
+
+    private void pwdReg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdReg1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pwdReg1ActionPerformed
+
+    private void groupIdSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupIdSelectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_groupIdSelectActionPerformed
 
     public JTextField getSurnameReg() {
         return SurnameReg;
@@ -299,7 +393,6 @@ public class RegisterV extends javax.swing.JFrame {
     private javax.swing.JPanel registerPanel;
     private javax.swing.JButton supportBttn;
     private javax.swing.JCheckBox termsCond;
-    private javax.swing.JLabel useridLblReg;
     private javax.swing.JTextField useridReg;
     // End of variables declaration//GEN-END:variables
 }
