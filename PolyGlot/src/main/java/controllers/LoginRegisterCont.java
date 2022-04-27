@@ -153,6 +153,7 @@ public class LoginRegisterCont implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         choosingLang(e);
+        actionPermHelp(e);
         String buttonAction = e.getActionCommand();
         
 
