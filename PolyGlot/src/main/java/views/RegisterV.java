@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -20,6 +21,17 @@ public class RegisterV extends javax.swing.JFrame {
         this.cancelBttn.addActionListener(new LoginRegisterCont(this));
         this.regBttn.addActionListener(new LoginRegisterCont(this));
         this.supportBttn.addActionListener(new LoginRegisterCont(this));
+        //this.hiddenErr1.setVisible(false);
+        setNotVisible(hiddenErr1);
+        this.hiddenErr2.setVisible(false);
+        this.hiddenErr3.setVisible(false);
+        this.hiddenErr4.setVisible(false);
+        this.hiddenErr5.setVisible(false);
+        this.hiddenErr6.setVisible(false);
+    }
+    
+    public void setNotVisible(JLabel lbl){
+        lbl.setVisible(false);
     }
    
     //Adding the group ids manually (usually provided by Uni)
@@ -40,7 +52,6 @@ public class RegisterV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         registerPanel = new javax.swing.JPanel();
         regTitle = new javax.swing.JLabel();
         supportBttn = new javax.swing.JButton();
@@ -57,22 +68,14 @@ public class RegisterV extends javax.swing.JFrame {
         regBttn = new javax.swing.JButton();
         cancelBttn = new javax.swing.JButton();
         useridReg = new javax.swing.JTextField();
-
-        jPanel1.setBackground(new java.awt.Color(135, 178, 240));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 74, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 37, Short.MAX_VALUE)
-        );
+        hiddenErr1 = new javax.swing.JLabel();
+        hiddenErr2 = new javax.swing.JLabel();
+        hiddenErr3 = new javax.swing.JLabel();
+        hiddenErr4 = new javax.swing.JLabel();
+        hiddenErr5 = new javax.swing.JLabel();
+        hiddenErr6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(414, 667));
         setResizable(false);
         setSize(new java.awt.Dimension(414, 667));
 
@@ -186,6 +189,19 @@ public class RegisterV extends javax.swing.JFrame {
             }
         });
 
+        hiddenErr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr1.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        hiddenErr2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+
+        hiddenErr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+
+        hiddenErr4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+
+        hiddenErr5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+
+        hiddenErr6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
         registerPanelLayout.setHorizontalGroup(
@@ -220,15 +236,31 @@ public class RegisterV extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(groupIdSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(pwdReg1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))))
-                            .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(useridReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
-                                .addComponent(emailReg, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                                    .addGroup(registerPanelLayout.createSequentialGroup()
+                                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(pwdReg1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(hiddenErr5)
+                                            .addComponent(hiddenErr6)))))
+                            .addGroup(registerPanelLayout.createSequentialGroup()
+                                .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hiddenErr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(registerPanelLayout.createSequentialGroup()
+                                .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(hiddenErr2))
+                            .addGroup(registerPanelLayout.createSequentialGroup()
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(useridReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                                    .addComponent(emailReg, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(hiddenErr3)
+                                    .addComponent(hiddenErr4))))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         registerPanelLayout.setVerticalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,34 +269,57 @@ public class RegisterV extends javax.swing.JFrame {
                 .addComponent(supportBttn)
                 .addGap(3, 3, 3)
                 .addComponent(regTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25)
-                .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(emailReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(registerPanelLayout.createSequentialGroup()
+                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(registerPanelLayout.createSequentialGroup()
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(registerPanelLayout.createSequentialGroup()
+                                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(hiddenErr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25)
+                                        .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(hiddenErr2))
+                                .addGap(18, 18, 18)
+                                .addComponent(emailReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(hiddenErr3))
+                        .addGap(18, 18, 18)
+                        .addComponent(useridReg, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hiddenErr4))
                 .addGap(26, 26, 26)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(groupIdSelect, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(groupIdLblReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(registerPanelLayout.createSequentialGroup()
+                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(hiddenErr5))
+                        .addGap(18, 18, 18)
+                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(hiddenErr6))
                 .addGap(18, 18, 18)
                 .addComponent(termsCond)
                 .addGap(18, 18, 18)
                 .addComponent(regBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
+
+        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -389,8 +444,32 @@ public class RegisterV extends javax.swing.JFrame {
         this.useridReg = useridReg;
     }
 
-    
+    public JLabel getHiddenErr1() {
+        return hiddenErr1;
+    }
 
+    public JLabel getHiddenErr2() {
+        return hiddenErr2;
+    }
+
+    public JLabel getHiddenErr3() {
+        return hiddenErr3;
+    }
+
+    public JLabel getHiddenErr4() {
+        return hiddenErr4;
+    }
+
+    public JLabel getHiddenErr5() {
+        return hiddenErr5;
+    }
+
+    public JLabel getHiddenErr6() {
+        return hiddenErr6;
+    }
+
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SurnameReg;
@@ -398,7 +477,12 @@ public class RegisterV extends javax.swing.JFrame {
     private javax.swing.JTextField emailReg;
     private javax.swing.JLabel groupIdLblReg;
     private javax.swing.JComboBox<String> groupIdSelect;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel hiddenErr1;
+    private javax.swing.JLabel hiddenErr2;
+    private javax.swing.JLabel hiddenErr3;
+    private javax.swing.JLabel hiddenErr4;
+    private javax.swing.JLabel hiddenErr5;
+    private javax.swing.JLabel hiddenErr6;
     private javax.swing.JTextField nameReg;
     private javax.swing.JPasswordField pwdReg1;
     private javax.swing.JLabel pwdReg1Lbl;
