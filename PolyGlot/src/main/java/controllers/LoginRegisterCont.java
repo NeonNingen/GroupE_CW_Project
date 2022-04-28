@@ -140,14 +140,18 @@ public class LoginRegisterCont implements ActionListener {
 
     //Events get activated when user is pressing on the help button in login/ register page
     public void actionPermHelp(ActionEvent e) {
+        
         this.supportPage = new SupportV2();
-        if (this.registerPage != null) {
-            if (e.getSource() == this.registerPage.getSupportBttn()) {
+        if ( (this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn()) ) 
+        {
                 this.registerPage.dispose();
                 this.supportPage.setVisible(true);
-            }
-        } else if (this.loginPage != null) {
-            if (e.getSource() == this.loginPage.getSupportBttn()) {
+            
+        } 
+        else
+        {
+            if ( (this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn() )) 
+            {
                 this.loginPage.dispose();
                 this.supportPage.setVisible(true);
             }
@@ -199,12 +203,14 @@ public class LoginRegisterCont implements ActionListener {
                     this.registerPage.setVisible(true);
                 }
                 break;
+                
             case "Logout":
                 System.out.println(userMDL.getUserID()+ " : " + accessRecMDL.getAccessRecord_id());
                 accessRecMDL.setLogoutTime(accessRecMDL.getAccessRecord_id(), userMDL.getUserID());
                 menubar.dispose();
                 new LoginV().show();
                 break;
+                
             case "Cancel":
                 this.registerPage.dispose();
                 this.loginPage = new LoginV();

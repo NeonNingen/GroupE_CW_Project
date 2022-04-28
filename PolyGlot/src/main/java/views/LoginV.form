@@ -54,7 +54,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="SupportBttn" min="-2" max="-2" attributes="0"/>
+                          <Component id="supportBttn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -94,7 +94,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SupportBttn" min="-2" max="-2" attributes="0"/>
+                  <Component id="supportBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Component id="appTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="SupportBttn">
+        <Component class="javax.swing.JButton" name="supportBttn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/SupIcon.png"/>
@@ -122,11 +122,8 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SupportBttnActionPerformed"/>
-          </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="SupportBttn.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="supportBttn.setBackground(new java.awt.Color(135, 178, 240));"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="appTitle">
