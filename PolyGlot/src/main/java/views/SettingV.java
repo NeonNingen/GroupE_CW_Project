@@ -77,8 +77,9 @@ public class SettingV extends javax.swing.JFrame {
         logoutBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         logoutBttn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBttn.setText("Logout");
+        logoutBttn.setBorderPainted(false);
         logoutBttn.setPreferredSize(new java.awt.Dimension(193, 56));
-        
+
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
         SettingContentLayout.setHorizontalGroup(

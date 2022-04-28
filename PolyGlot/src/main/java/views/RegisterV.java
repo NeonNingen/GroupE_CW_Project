@@ -167,6 +167,7 @@ public class RegisterV extends javax.swing.JFrame {
         termsCond.setText("I agree with the terms and conditions *");
 
         regBttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        regBttn.setForeground(new java.awt.Color(93, 150, 234));
         regBttn.setText("Register");
         regBttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
@@ -175,6 +176,9 @@ public class RegisterV extends javax.swing.JFrame {
         cancelBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         cancelBttn.setForeground(new java.awt.Color(255, 255, 255));
         cancelBttn.setText("Cancel");
+        cancelBttn.setBorderPainted(false);
+        cancelBttn.setFocusPainted(false);
+        cancelBttn.setIgnoreRepaint(true);
         cancelBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
         useridReg.setBackground(new java.awt.Color(135, 178, 240));
