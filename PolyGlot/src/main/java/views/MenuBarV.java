@@ -192,7 +192,7 @@ public class MenuBarV extends javax.swing.JFrame {
         MenuBarPanel.setBackground(new java.awt.Color(153, 153, 153));
         MenuBarPanel.setPreferredSize(new java.awt.Dimension(414, 667));
 
-        PageTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        PageTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         PageTitle.setForeground(new java.awt.Color(255, 255, 255));
         PageTitle.setText("Page Title");
 
