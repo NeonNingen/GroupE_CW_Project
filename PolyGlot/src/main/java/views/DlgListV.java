@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import models.DialogueMDL;
+import java.awt.Color;
 
 
 /**
@@ -104,8 +105,14 @@ public class DlgListV extends javax.swing.JFrame {
         jTableDlgList.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTableDlgList.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableDlgList.setPreferredSize(new java.awt.Dimension(225, 1000));
+        jTableDlgList.setSurrendersFocusOnKeystroke(true);
         jTableDlgList.getTableHeader().setReorderingAllowed(false);
+        jTableDlgList.setUpdateSelectionOnSort(false);
         jScrollDlgListTbl.setViewportView(jTableDlgList);
+        jTableDlgList.setForeground(new java.awt.Color(29, 91, 161));
+
+        jTableDlgList.getTableHeader().setForeground(new Color(255, 255, 255));
+        jTableDlgList.getTableHeader().setBackground(new Color(135, 178, 240));
 
         resetBttn.setText("Reset Table");
         resetBttn.addActionListener(new java.awt.event.ActionListener() {
@@ -340,16 +347,23 @@ public class DlgListV extends javax.swing.JFrame {
         // in the future will be good to add sorting to the list: level, then topic, then grammar, then name(alpabetically),etc
         String[] headers= {"Lvl","Dialogue Name","Topic"};
         String[][] empty= new String[rowCount][3];
-        DefaultTableModel model= new DefaultTableModel(empty, headers);
-        jTableDlgList.setModel(model);
+        //DefaultTableModel model= new DefaultTableModel(empty, headers);
+        //jTableDlgList.setModel(model);
         
-        model.setColumnIdentifiers(headers);
+        jTableDlgList.setModel(new javax.swing.table.DefaultTableModel(
+            empty,headers) {
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return false;
+            }
+        });
+        
+        //model.setColumnIdentifiers(headers);
         
         int count=0;
         for(int i=0; i< rowCount;i++){
-            model.setValueAt(dlgList.get(i).getDlg_level(), i, 0); //obj, row, column
-            model.setValueAt(dlgList.get(i).getDlg_topic(), i, 1);
-            model.setValueAt(dlgList.get(i).getDlg_name(), i, 2);
+            jTableDlgList.getModel().setValueAt(dlgList.get(i).getDlg_level(), i, 0); //obj, row, column
+            jTableDlgList.getModel().setValueAt(dlgList.get(i).getDlg_topic(), i, 1);
+            jTableDlgList.getModel().setValueAt(dlgList.get(i).getDlg_name(), i, 2);
             count++;
             System.out.println("Created row " +i+": "+ dlgList.get(i).getDlg_level()+" | "+
                     dlgList.get(i).getDlg_topic()+" | "+
@@ -357,7 +371,7 @@ public class DlgListV extends javax.swing.JFrame {
             
         }
         
-        jTableDlgList.setModel(model);
+        //jTableDlgList.setModel(model);
         
        // jScrollDlgListTbl.add(jTableDlgList);
         
