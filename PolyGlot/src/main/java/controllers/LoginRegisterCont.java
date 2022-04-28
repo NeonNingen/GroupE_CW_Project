@@ -142,19 +142,13 @@ public class LoginRegisterCont implements ActionListener {
     } 
 
     //Events get activated when user is pressing on the help button in login/ register page
-    public void actionPermHelp(ActionEvent e) {
-        
+    public void actionPermHelp(ActionEvent e){
         this.supportPage = new SupportV2();
-        if ( (this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn()) ) 
-        {
-                this.registerPage.dispose();
-                this.supportPage.setVisible(true);
-            
-        } 
-        else
-        {
-            if ( (this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn() )) 
-            {
+        if ((this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn())) {
+            this.registerPage.dispose();
+            this.supportPage.setVisible(true);
+        } else {
+            if ((this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn())) {
                 this.loginPage.dispose();
                 this.supportPage.setVisible(true);
             }
@@ -276,10 +270,10 @@ public class LoginRegisterCont implements ActionListener {
         String uSurname = userDetails.get(2);
         String uEmail = userDetails.get(3);
         String langLvl = userDetails.get(5);
-        int uProgPoints = Integer.parseInt(userDetails.get(6));
         String uType = userDetails.get(7);
         String groupID = userDetails.get(9);
         String appLang = userDetails.get(11);
+        int uProgPoints = Integer.parseInt(userDetails.get(6));
         
         this.userMDL = new UserMDL(uName, uSurname, uEmail, langLvl, uProgPoints, uType, userID, groupID, appLang);
 
@@ -297,7 +291,6 @@ public class LoginRegisterCont implements ActionListener {
     }
 
     //temp method for login
-    
     private void openPage2(String username) 
     {
         ArrayList<String> result = new ArrayList<>();
@@ -339,7 +332,6 @@ public class LoginRegisterCont implements ActionListener {
 
             
             MenuBarCont menuC = new MenuBarCont(userMDL,accessRecMDL); //added by Amit (start)
-            
             MenuBarV menu = new MenuBarV(menuC);
             menuC.activateBttn( menu.getSettBttn(),menu.getProVBttn(), menu.getUListBttn(),menu.getDlgListBttn());
             SettingV setting= new SettingV(userMDL);
@@ -367,7 +359,6 @@ public class LoginRegisterCont implements ActionListener {
             System.out.println("User id is unique");
             return true;
         }
-        
     }
 
    
@@ -411,15 +402,6 @@ public class LoginRegisterCont implements ActionListener {
         return true;
     }
     
-//    private void setErrMsgNull() {
-//        this.registerPage.getTermsCond().setForeground(Color.white);
-//        nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(250, 250, 250), false);
-//        nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(250, 250, 250), false);
-//        nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(250, 250, 250), false);
-//        nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(250, 250, 250), false);
-//        nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(250, 250, 250), false);
-//        nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(250, 250, 250), false);
-//    }
     public boolean checkRegData(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
         boolean emptyChceks = emptyCheck(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm);
         if (emptyChceks == false) {
