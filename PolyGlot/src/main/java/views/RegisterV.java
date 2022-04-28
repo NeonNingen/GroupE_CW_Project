@@ -21,13 +21,6 @@ public class RegisterV extends javax.swing.JFrame {
         this.cancelBttn.addActionListener(new LoginRegisterCont(this));
         this.regBttn.addActionListener(new LoginRegisterCont(this));
         this.supportBttn.addActionListener(new LoginRegisterCont(this));
-        //this.hiddenErr1.setVisible(false);
-        setNotVisible(hiddenErr1);
-        this.hiddenErr2.setVisible(false);
-        this.hiddenErr3.setVisible(false);
-        this.hiddenErr4.setVisible(false);
-        this.hiddenErr5.setVisible(false);
-        this.hiddenErr6.setVisible(false);
     }
     
     public void setNotVisible(JLabel lbl){
@@ -167,6 +160,7 @@ public class RegisterV extends javax.swing.JFrame {
         termsCond.setText("I agree with the terms and conditions *");
 
         regBttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        regBttn.setForeground(new java.awt.Color(93, 150, 234));
         regBttn.setText("Register");
         regBttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
@@ -188,17 +182,17 @@ public class RegisterV extends javax.swing.JFrame {
             }
         });
 
-        hiddenErr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
-        hiddenErr2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
-        hiddenErr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
-        hiddenErr4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
-        hiddenErr5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
-        hiddenErr6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
+        hiddenErr6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
@@ -318,6 +312,13 @@ public class RegisterV extends javax.swing.JFrame {
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+
+	this.hiddenErr1.setVisible(false);
+        this.hiddenErr2.setVisible(false);
+        this.hiddenErr3.setVisible(false);
+        this.hiddenErr4.setVisible(false);
+        this.hiddenErr5.setVisible(false);
+        this.hiddenErr6.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
