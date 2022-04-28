@@ -204,15 +204,11 @@ public class SupportV2 extends javax.swing.JFrame {
         supportContent.setLayout(supportContentLayout);
         supportContentLayout.setHorizontalGroup(
             supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(supportContentLayout.createSequentialGroup()
-                .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         supportContentLayout.setVerticalGroup(
             supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supportContentLayout.createSequentialGroup()
-                .addGap(0, 19, Short.MAX_VALUE)
-                .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
