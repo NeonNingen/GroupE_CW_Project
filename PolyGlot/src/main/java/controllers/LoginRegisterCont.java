@@ -166,8 +166,9 @@ public class LoginRegisterCont implements ActionListener {
         
         switch (buttonAction) {
             case "Sign In": 
-                if (loginPage.getuNameLogin().getText().equals("w185")) {
-                    openPage2();
+                String username = loginPage.getuNameLogin().getText();
+                if (username.equals("w185") || username.equals("w5")) {
+                    openPage2(username);
                 } else {
                     ArrayList<String> userDetails;
                     try {
@@ -294,11 +295,11 @@ public class LoginRegisterCont implements ActionListener {
 
     //temp method for login
     
-    private void openPage2() 
+    private void openPage2(String username) 
     {
         ArrayList<String> result = new ArrayList<>();
         String query
-                            = "SELECT * FROM User WHERE user_id= 'w185'";
+                            = "SELECT * FROM User WHERE user_id= '" + username + "'";
 
          result = userMDL.queryData(query);
          openPage(result);

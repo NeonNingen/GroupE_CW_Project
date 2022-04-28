@@ -132,8 +132,8 @@ public class MenuBarCont implements ActionListener
         
         if(e.getSource() == menuBar.getUListBttn()){
             // need to retrieve userMDL from Main to see which page to open
-            String user_type = "Teacher";
-           // String user_type = user.getUserType();
+            //String user_type = "Teacher";
+            String user_type = user.getUserType();
             //UserMDL otherUser= new UserMDL();
             UListTchV ulistTch= new UListTchV();
             UListStdV ulistStd= new UListStdV();
