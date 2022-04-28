@@ -81,7 +81,7 @@ public class RegisterV extends javax.swing.JFrame {
 
         registerPanel.setBackground(new java.awt.Color(135, 178, 240));
 
-        regTitle.setFont(new java.awt.Font("Segoe UI", 1, 29)); // NOI18N
+        regTitle.setFont(new java.awt.Font("Dialog", 1, 29)); // NOI18N
         regTitle.setForeground(new java.awt.Color(255, 255, 255));
         regTitle.setText("Create User Account");
 
@@ -95,7 +95,7 @@ public class RegisterV extends javax.swing.JFrame {
         supportBttn.setBackground(new java.awt.Color(135, 178, 240));
 
         nameReg.setBackground(new java.awt.Color(135, 178, 240));
-        nameReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        nameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         nameReg.setForeground(new java.awt.Color(255, 255, 255));
         nameReg.setText("Name");
         nameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
@@ -106,13 +106,13 @@ public class RegisterV extends javax.swing.JFrame {
         });
 
         SurnameReg.setBackground(new java.awt.Color(135, 178, 240));
-        SurnameReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        SurnameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         SurnameReg.setForeground(new java.awt.Color(255, 255, 255));
         SurnameReg.setText("Surname");
         SurnameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
 
         emailReg.setBackground(new java.awt.Color(135, 178, 240));
-        emailReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        emailReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         emailReg.setForeground(new java.awt.Color(255, 255, 255));
         emailReg.setText("Email");
         emailReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
@@ -126,7 +126,7 @@ public class RegisterV extends javax.swing.JFrame {
         });
 
         groupIdLblReg.setBackground(new java.awt.Color(135, 178, 240));
-        groupIdLblReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        groupIdLblReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         groupIdLblReg.setForeground(new java.awt.Color(255, 255, 255));
         groupIdLblReg.setText("Group ID :");
         groupIdLblReg.setMinimumSize(new java.awt.Dimension(64, 26));
@@ -149,37 +149,37 @@ public class RegisterV extends javax.swing.JFrame {
         pwdReg2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
 
         pwdReg1Lbl.setBackground(new java.awt.Color(135, 178, 240));
-        pwdReg1Lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pwdReg1Lbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         pwdReg1Lbl.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg1Lbl.setText("Password");
         pwdReg1Lbl.setMinimumSize(new java.awt.Dimension(64, 26));
 
         pwdReg2Lbl.setBackground(new java.awt.Color(135, 178, 240));
-        pwdReg2Lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pwdReg2Lbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         pwdReg2Lbl.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg2Lbl.setText("Reapeat Password");
         pwdReg2Lbl.setMinimumSize(new java.awt.Dimension(64, 26));
         pwdReg2Lbl.setPreferredSize(new java.awt.Dimension(64, 26));
 
         termsCond.setBackground(new java.awt.Color(135, 178, 240));
-        termsCond.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        termsCond.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         termsCond.setForeground(new java.awt.Color(255, 255, 255));
         termsCond.setText("I agree with the terms and conditions *");
 
-        regBttn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        regBttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         regBttn.setForeground(new java.awt.Color(93, 150, 234));
         regBttn.setText("Register");
         regBttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
         cancelBttn.setBackground(new java.awt.Color(238, 105, 94));
-        cancelBttn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cancelBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         cancelBttn.setForeground(new java.awt.Color(255, 255, 255));
         cancelBttn.setText("Cancel");
         cancelBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
         useridReg.setBackground(new java.awt.Color(135, 178, 240));
-        useridReg.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        useridReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         useridReg.setForeground(new java.awt.Color(255, 255, 255));
         useridReg.setText("User ID");
         useridReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
@@ -190,7 +190,6 @@ public class RegisterV extends javax.swing.JFrame {
         });
 
         hiddenErr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
-        hiddenErr1.setPreferredSize(new java.awt.Dimension(20, 20));
 
         hiddenErr2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ErrorIcon.png"))); // NOI18N
 
@@ -247,7 +246,7 @@ public class RegisterV extends javax.swing.JFrame {
                             .addGroup(registerPanelLayout.createSequentialGroup()
                                 .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hiddenErr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(hiddenErr1))
                             .addGroup(registerPanelLayout.createSequentialGroup()
                                 .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -278,7 +277,7 @@ public class RegisterV extends javax.swing.JFrame {
                                     .addGroup(registerPanelLayout.createSequentialGroup()
                                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(hiddenErr1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(hiddenErr1))
                                         .addGap(25, 25, 25)
                                         .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(hiddenErr2))
@@ -311,7 +310,7 @@ public class RegisterV extends javax.swing.JFrame {
                 .addComponent(regBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
