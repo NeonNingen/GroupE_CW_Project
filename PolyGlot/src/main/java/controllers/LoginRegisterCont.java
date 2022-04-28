@@ -375,30 +375,37 @@ public class LoginRegisterCont implements ActionListener {
         this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
         String msgEpty = "Please fill in the necessary info of the form";
         JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
-        if (uName.isEmpty()) {
+        if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) 
+        {
             nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
-            return false;
-        }
-        if (uSurname.isEmpty()) {
             nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(238, 105, 94), true);
-            return false;
-        }
-        if (uEmail.isEmpty()) {
             nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
-            return false;
-        }
-        if(userID.isEmpty()){
             nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
-            return false;
-        }
-        if (uPwd.isEmpty()) {
             nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
-            return false;
-        }
-        if (uPwdConfirm.isEmpty()) {
             nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
+            
             return false;
         }
+//        if (uName.isEmpty()) {
+//            nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
+//            return false;
+//        }
+//        if (uEmail.isEmpty()) {
+//            nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
+//            return false;
+//        }
+//        if(userID.isEmpty()){
+//            nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
+//            return false;
+//        }
+//        if (uPwd.isEmpty()) {
+//            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
+//            return false;
+//        }
+//        if (uPwdConfirm.isEmpty()) {
+//            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
+//            return false;
+//        }
         return true;
     }
     
