@@ -138,14 +138,14 @@ public class MenuBarCont implements ActionListener
             UListTchV ulistTch= new UListTchV();
             UListStdV ulistStd= new UListStdV();
             UserCont userCont= new UserCont();
-            
+            activateBttn(menuBar.getUListBttn(),menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getProVBttn());
             if(user_type.equals("Student")){
                 userCont.setUserList(ulistStd, user);
                 menuBar.remove(menuBar.getDlgHistBttn2());
                 menuBar.setPageTitle("User List");
                 menuBar.setPageTopicContent(ulistStd.getUListContent());
             }else if (user_type.equals("Teacher")){
-                activateBttn(menuBar.getUListBttn(),menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getProVBttn());
+                
                 userCont.setUserList(ulistTch, user);
                 menuBar.remove(menuBar.getDlgHistBttn2());
                 menuBar.setPageTitle("User List");
