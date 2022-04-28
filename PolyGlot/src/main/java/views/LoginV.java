@@ -55,16 +55,16 @@ public class LoginV extends javax.swing.JFrame {
         supportBttn.setBorder(null);
         supportBttn.setBackground(new java.awt.Color(135, 178, 240));
 
-        appTitle.setFont(new java.awt.Font("Segoe UI", 1, 41)); // NOI18N
+        appTitle.setFont(new java.awt.Font("Dialog", 1, 41)); // NOI18N
         appTitle.setForeground(new java.awt.Color(255, 255, 255));
         appTitle.setText("LangWise");
 
-        loginLbl.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
+        loginLbl.setFont(new java.awt.Font("Dialog", 0, 32)); // NOI18N
         loginLbl.setForeground(new java.awt.Color(255, 255, 255));
         loginLbl.setText("Login");
 
         uNameLogin.setBackground(new java.awt.Color(135, 178, 240));
-        uNameLogin.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        uNameLogin.setFont(new java.awt.Font("Dialog", 0, 21)); // NOI18N
         uNameLogin.setForeground(new java.awt.Color(255, 255, 255));
         uNameLogin.setText("Username");
         uNameLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
@@ -74,7 +74,7 @@ public class LoginV extends javax.swing.JFrame {
         uNameLogin.setSelectionStart(4);
 
         pwdLogin.setBackground(new java.awt.Color(135, 178, 240));
-        pwdLogin.setFont(new java.awt.Font("Segoe UI", 0, 21)); // NOI18N
+        pwdLogin.setFont(new java.awt.Font("Dialog", 0, 21)); // NOI18N
         pwdLogin.setForeground(new java.awt.Color(255, 255, 255));
         pwdLogin.setText("password");
         pwdLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
@@ -83,13 +83,13 @@ public class LoginV extends javax.swing.JFrame {
         pwdLogin.setSelectionEnd(4);
         pwdLogin.setSelectionStart(4);
 
-        loginBttn.setFont(new java.awt.Font("Segoe UI", 0, 19)); // NOI18N
+        loginBttn.setFont(new java.awt.Font("Dialog", 0, 19)); // NOI18N
         loginBttn.setForeground(new java.awt.Color(93, 150, 234));
         loginBttn.setText("Sign In");
         loginBttn.setPreferredSize(new java.awt.Dimension(163, 51));
 
         registerBttn.setBackground(new java.awt.Color(135, 178, 240));
-        registerBttn.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
+        registerBttn.setFont(new java.awt.Font("Dubai", 0, 17)); // NOI18N
         registerBttn.setForeground(new java.awt.Color(255, 255, 255));
         registerBttn.setText("Register");
         registerBttn.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
@@ -145,7 +145,7 @@ public class LoginV extends javax.swing.JFrame {
                 .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(registerBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

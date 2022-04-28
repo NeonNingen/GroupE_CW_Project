@@ -63,7 +63,7 @@ public class SettingV extends javax.swing.JFrame {
         SettingContent.setBackground(new java.awt.Color(255, 255, 255));
         SettingContent.setPreferredSize(new java.awt.Dimension(414, 515));
 
-        settingLabel.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
+        settingLabel.setFont(new java.awt.Font("Dialog", 1, 23)); // NOI18N
         settingLabel.setForeground(new java.awt.Color(121, 121, 121));
         settingLabel.setText("Choose language of study: ");
 
@@ -74,11 +74,11 @@ public class SettingV extends javax.swing.JFrame {
         selectLang.setPreferredSize(new java.awt.Dimension(72, 28));
 
         logoutBttn.setBackground(new java.awt.Color(238, 105, 94));
-        logoutBttn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        logoutBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         logoutBttn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBttn.setText("Logout");
         logoutBttn.setPreferredSize(new java.awt.Dimension(193, 56));
-       
+        
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
         SettingContentLayout.setHorizontalGroup(
