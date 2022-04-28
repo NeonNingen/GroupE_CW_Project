@@ -5,6 +5,7 @@
  */
 package views;
 
+import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -47,11 +48,14 @@ public class UListStdV extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         UListContent.setBackground(new java.awt.Color(255, 255, 255));
-        UListContent.setPreferredSize(new java.awt.Dimension(414, 667));
+        UListContent.setMinimumSize(new java.awt.Dimension(414, 550));
+        UListContent.setPreferredSize(new java.awt.Dimension(414, 550));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setAutoscrolls(true);
 
+        TblofStd.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        TblofStd.setForeground(new java.awt.Color(135, 178, 240));
         TblofStd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -71,14 +75,28 @@ public class UListStdV extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        TblofStd.setRowMargin(2);
+        TblofStd.setSelectionBackground(new java.awt.Color(135, 178, 240));
+        TblofStd.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        TblofStd.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TblofStd);
+        TblofStd.getTableHeader().setForeground(new Color(255, 255, 255));
+        TblofStd.getTableHeader().setBackground(new Color(135, 178, 240));
 
+        GroupIdLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GroupIdLbl.setForeground(new java.awt.Color(121, 121, 121));
         GroupIdLbl.setText("GroupID:");
 
-        GroupTeach.setText("Teacher:");
+        GroupTeach.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GroupTeach.setForeground(new java.awt.Color(121, 121, 121));
+        GroupTeach.setText("Teacher :");
 
+        GroupTeach1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GroupTeach1.setForeground(new java.awt.Color(121, 121, 121));
         GroupTeach1.setText("Mr Pumpkin");
 
+        GroupIdLbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        GroupIdLbl1.setForeground(new java.awt.Color(121, 121, 121));
         GroupIdLbl1.setText("group102");
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
@@ -90,33 +108,31 @@ public class UListStdV extends javax.swing.JFrame {
                     .addGroup(UListContentLayout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GroupTeach)
-                            .addComponent(GroupIdLbl))
-                        .addGap(31, 31, 31)
+                            .addComponent(GroupIdLbl)
+                            .addComponent(GroupTeach))
+                        .addGap(18, 18, 18)
                         .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GroupTeach1)
-                            .addComponent(GroupIdLbl1)))
+                            .addComponent(GroupIdLbl1)
+                            .addComponent(GroupTeach1)))
                     .addGroup(UListContentLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         UListContentLayout.setVerticalGroup(
             UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UListContentLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UListContentLayout.createSequentialGroup()
-                        .addComponent(GroupIdLbl)
-                        .addGap(18, 18, 18)
-                        .addComponent(GroupTeach))
-                    .addGroup(UListContentLayout.createSequentialGroup()
-                        .addComponent(GroupIdLbl1)
-                        .addGap(18, 18, 18)
-                        .addComponent(GroupTeach1)))
+                .addGap(31, 31, 31)
+                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GroupIdLbl)
+                    .addComponent(GroupIdLbl1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GroupTeach)
+                    .addComponent(GroupTeach1))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -125,7 +141,7 @@ public class UListStdV extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(UListContent, 409, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

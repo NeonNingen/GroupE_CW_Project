@@ -6,6 +6,7 @@
 package views;
 
 import controllers.UserCont;
+import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
@@ -61,8 +62,10 @@ public class UListTchV extends javax.swing.JFrame {
         setResizable(false);
 
         UListContent.setBackground(new java.awt.Color(255, 255, 255));
-        UListContent.setPreferredSize(new java.awt.Dimension(414, 480));
+        UListContent.setMinimumSize(new java.awt.Dimension(414, 550));
+        UListContent.setPreferredSize(new java.awt.Dimension(414, 550));
 
+        TblofStd.setForeground(new java.awt.Color(29, 91, 161));
         TblofStd.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -83,20 +86,42 @@ public class UListTchV extends javax.swing.JFrame {
             }
         });
         TblofStd.setPreferredSize(new java.awt.Dimension(225, 1000));
+        TblofStd.setRowMargin(1);
+        TblofStd.setSelectionBackground(new java.awt.Color(135, 178, 240));
+        TblofStd.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        TblofStd.setSurrendersFocusOnKeystroke(true);
+        TblofStd.getTableHeader().setReorderingAllowed(false);
+        TblofStd.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(TblofStd);
+        TblofStd.getTableHeader().setForeground(new Color(255, 255, 255));
+        TblofStd.getTableHeader().setBackground(new Color(135, 178, 240));
 
+        orderByLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        orderByLbl.setForeground(new java.awt.Color(121, 121, 121));
         orderByLbl.setText("Order by:");
 
+        ULvlLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        ULvlLbl.setForeground(new java.awt.Color(121, 121, 121));
         ULvlLbl.setText("Choose user lvl");
 
+        GroupSelectLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        GroupSelectLbl.setForeground(new java.awt.Color(121, 121, 121));
         GroupSelectLbl.setText("Choose group");
 
+        groupFilterCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        groupFilterCbox.setForeground(new java.awt.Color(121, 121, 121));
         groupFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select group" }));
 
+        ULvlFilterCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        ULvlFilterCbox.setForeground(new java.awt.Color(121, 121, 121));
         ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select level" }));
 
+        SortCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        SortCbox.setForeground(new java.awt.Color(121, 121, 121));
         SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select points", "points (lowest)", "points (highest)" }));
 
+        resetBttn.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        resetBttn.setForeground(new java.awt.Color(121, 121, 121));
         resetBttn.setText("Reset");
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
@@ -106,22 +131,24 @@ public class UListTchV extends javax.swing.JFrame {
             .addGroup(UListContentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(UListContentLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(13, 13, 13))
                     .addGroup(UListContentLayout.createSequentialGroup()
                         .addComponent(orderByLbl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SortCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resetBttn))
+                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(resetBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SortCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24)
                         .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(GroupSelectLbl)
                             .addComponent(ULvlLbl))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(groupFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ULvlFilterCbox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(groupFilterCbox, 0, 107, Short.MAX_VALUE))))
+                .addGap(24, 24, 24))
         );
         UListContentLayout.setVerticalGroup(
             UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +165,7 @@ public class UListTchV extends javax.swing.JFrame {
                     .addComponent(ULvlLbl)
                     .addComponent(resetBttn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
                 .addGap(15, 15, 15))
         );
 
@@ -156,7 +183,7 @@ public class UListTchV extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(UListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

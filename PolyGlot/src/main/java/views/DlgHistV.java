@@ -4,6 +4,7 @@
  */
 package views;
 
+import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 
@@ -46,6 +47,7 @@ public class DlgHistV extends javax.swing.JFrame {
         dlgHistConent.setBackground(new java.awt.Color(255, 255, 255));
         dlgHistConent.setPreferredSize(new java.awt.Dimension(414, 480));
 
+        dlgHistTable.setForeground(new java.awt.Color(51, 51, 51));
         dlgHistTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -57,23 +59,30 @@ public class DlgHistV extends javax.swing.JFrame {
                 "Date", "Past Dialogues"
             }
         ));
+        dlgHistTable.setRowMargin(3);
+        dlgHistTable.setSelectionBackground(new java.awt.Color(162, 198, 253));
+        dlgHistTable.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        dlgHistTable.getTableHeader().setResizingAllowed(false);
+        dlgHistTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(dlgHistTable);
+        dlgHistTable.getTableHeader().setForeground(new Color(255, 255, 255));
+        dlgHistTable.getTableHeader().setBackground(new Color(135, 178, 240));
 
         javax.swing.GroupLayout dlgHistConentLayout = new javax.swing.GroupLayout(dlgHistConent);
         dlgHistConent.setLayout(dlgHistConentLayout);
         dlgHistConentLayout.setHorizontalGroup(
             dlgHistConentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dlgHistConentLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(15, 15, 15)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         dlgHistConentLayout.setVerticalGroup(
             dlgHistConentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgHistConentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(dlgHistConentLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -61,7 +61,8 @@ public class SetUpDlgV extends javax.swing.JFrame {
         setResizable(false);
 
         SetUpPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        SetUpPagePanel.setPreferredSize(new java.awt.Dimension(414, 667));
+        SetUpPagePanel.setMinimumSize(new java.awt.Dimension(414, 550));
+        SetUpPagePanel.setPreferredSize(new java.awt.Dimension(414, 550));
 
         SetUpDlgTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         SetUpDlgTitle.setText("Set Up Dialogue");
@@ -118,7 +119,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                                     .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                                         .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(DlgLevelLbl, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                                .addComponent(DlgLevelLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(DlgNameLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addComponent(DlgGramLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -142,7 +143,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                         .addComponent(RoleBRadBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                                         .addGap(12, 12, 12)))))
-                        .addGap(0, 54, Short.MAX_VALUE))
+                        .addGap(0, 56, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SetUpPagePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -182,7 +183,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                     .addComponent(RoleBRadBttn))
                 .addGap(80, 80, 80)
                 .addComponent(StartDlgBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dlgPartnerC.getAccessibleContext().setAccessibleParent(PartnerLbl);

@@ -104,8 +104,8 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="helpTitle" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Component id="helpTitle" min="-2" pref="155" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="44" max="32767" attributes="0"/>
@@ -115,9 +115,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Component id="helpTitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="94" max="-2" attributes="0"/>
@@ -132,7 +132,7 @@
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jScrollPane4" pref="136" max="32767" attributes="0"/>
+                          <Component id="jScrollPane4" pref="89" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -141,6 +141,12 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="79" green="79" red="79" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jLabel1"/>
                   </Properties>
                 </Component>
@@ -154,6 +160,12 @@
                     <Component class="javax.swing.JTextArea" name="jTextArea1">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="79" green="79" red="79" type="rgb"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                     </Component>
@@ -161,6 +173,12 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="79" green="79" red="79" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jLabel2"/>
                   </Properties>
                 </Component>
@@ -174,6 +192,12 @@
                     <Component class="javax.swing.JTextArea" name="jTextArea2">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="79" green="79" red="79" type="rgb"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                     </Component>
@@ -181,6 +205,12 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="79" green="79" red="79" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jLabel3"/>
                   </Properties>
                 </Component>
@@ -194,6 +224,12 @@
                     <Component class="javax.swing.JTextArea" name="jTextArea3">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="79" green="79" red="79" type="rgb"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                     </Component>
@@ -201,10 +237,21 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="jLabel4">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="79" green="79" red="79" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="jLabel4"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+                  <Properties>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="79" green="79" red="79" type="rgb"/>
+                    </Property>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
@@ -214,6 +261,12 @@
                     <Component class="javax.swing.JTextArea" name="jTextArea4">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe UI" size="13" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="79" green="79" red="79" type="rgb"/>
+                        </Property>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
                     </Component>
@@ -221,6 +274,12 @@
                 </Container>
                 <Component class="javax.swing.JLabel" name="helpTitle">
                   <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="20" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="79" green="79" red="79" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Support Page"/>
                   </Properties>
                 </Component>

@@ -132,7 +132,8 @@ public class SupportV extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        supportContent.setPreferredSize(new java.awt.Dimension(414, 480));
+        supportContent.setMinimumSize(new java.awt.Dimension(414, 550));
+        supportContent.setPreferredSize(new java.awt.Dimension(414, 550));
 
         SupContTxtScrollP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         SupContTxtScrollP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -143,27 +144,43 @@ public class SupportV extends javax.swing.JFrame {
         scrollPanel.setAutoscrolls(true);
         scrollPanel.setPreferredSize(new java.awt.Dimension(414, 1000));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(121, 121, 121));
         jLabel1.setText("jLabel1");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(121, 121, 121));
         jLabel2.setText("jLabel2");
 
         jTextArea2.setColumns(20);
+        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea2.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(121, 121, 121));
         jLabel3.setText("jLabel3");
 
         jTextArea3.setColumns(20);
+        jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea3.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(121, 121, 121));
         jLabel4.setText("jLabel4");
 
         jTextArea4.setColumns(20);
+        jTextArea4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea4.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
 
@@ -203,7 +220,7 @@ public class SupportV extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                 .addGap(103, 103, 103))
         );
 
@@ -221,7 +238,7 @@ public class SupportV extends javax.swing.JFrame {
             supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(supportContentLayout.createSequentialGroup()
                 .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,7 +251,7 @@ public class SupportV extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(supportContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 305, Short.MAX_VALUE))
+                .addGap(0, 235, Short.MAX_VALUE))
         );
 
         pack();

@@ -63,10 +63,22 @@ public class SettingV extends javax.swing.JFrame {
         SettingContent.setBackground(new java.awt.Color(255, 255, 255));
         SettingContent.setPreferredSize(new java.awt.Dimension(414, 515));
 
+        settingLabel.setFont(new java.awt.Font("Segoe UI", 1, 23)); // NOI18N
+        settingLabel.setForeground(new java.awt.Color(121, 121, 121));
         settingLabel.setText("Choose language of study: ");
 
-        logoutBttn.setText("Logout");
+        selectLang.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        selectLang.setForeground(new java.awt.Color(121, 121, 121));
+        selectLang.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(121, 121, 121)));
+        selectLang.setMinimumSize(new java.awt.Dimension(72, 28));
+        selectLang.setPreferredSize(new java.awt.Dimension(72, 28));
 
+        logoutBttn.setBackground(new java.awt.Color(238, 105, 94));
+        logoutBttn.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        logoutBttn.setForeground(new java.awt.Color(255, 255, 255));
+        logoutBttn.setText("Logout");
+        logoutBttn.setPreferredSize(new java.awt.Dimension(193, 56));
+       
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
         SettingContentLayout.setHorizontalGroup(
@@ -74,25 +86,25 @@ public class SettingV extends javax.swing.JFrame {
             .addGroup(SettingContentLayout.createSequentialGroup()
                 .addGroup(SettingContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SettingContentLayout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addGroup(SettingContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(settingLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(selectLang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(41, 41, 41)
+                        .addComponent(settingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SettingContentLayout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(logoutBttn)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addGap(99, 99, 99)
+                        .addGroup(SettingContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoutBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(selectLang, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         SettingContentLayout.setVerticalGroup(
             SettingContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SettingContentLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(settingLabel)
+                .addGap(106, 106, 106)
+                .addComponent(settingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(selectLang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151)
-                .addComponent(logoutBttn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(selectLang, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167)
+                .addComponent(logoutBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

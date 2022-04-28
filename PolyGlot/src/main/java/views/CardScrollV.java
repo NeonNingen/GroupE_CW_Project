@@ -273,7 +273,8 @@ public class CardScrollV extends javax.swing.JFrame {
         setResizable(false);
 
         CardScrollPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        CardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 667));
+        CardScrollPagePanel.setMinimumSize(new java.awt.Dimension(414, 550));
+        CardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 550));
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         CloseBttn.setText("X");
@@ -368,7 +369,7 @@ public class CardScrollV extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CardScrollPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(CardScrollPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         pack();
