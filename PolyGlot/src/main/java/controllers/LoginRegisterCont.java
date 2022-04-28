@@ -17,7 +17,10 @@ import java.util.regex.Pattern;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import models.AccessRecordMDL;
 import models.UserMDL;
@@ -360,81 +363,105 @@ public class LoginRegisterCont implements ActionListener {
         
     }
 
-    public boolean checkRegData(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) 
-    {
-        if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) 
-        {
-            String msgEpty = "Please fill in all the variables of the form";
-            JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
-            //Border border = BorderFactory.createMatteBorder(0, 0, 1, 1, Color.BLACK);
-            this.registerPage.getNameReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-            this.registerPage.getSurnameReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-            this.registerPage.getEmailReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-            this.registerPage.getUseridReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-            this.registerPage.getPwdReg1().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-            this.registerPage.getPwdReg2().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-            this.registerPage.getTermsCond().setForeground(Color.red);
-            System.out.println(msgEpty);
+   
+    private void nameErrMsg( JTextField txt, JLabel lbl, Color color, Boolean state){
+        txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
+        lbl.setVisible(state);
+    }
+    private void nameErrMsg( JPasswordField txt, JLabel lbl, Color color, Boolean state){
+        txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
+        lbl.setVisible(state);
+    }
+
+    private boolean emptyCheck(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm) {
+        this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
+        String msgEpty = "Please fill in the necessary info of the form";
+        JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
+        if (uName.isEmpty()) {
+            nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
             return false;
-        } 
-        else 
-        {
-            if (selectTermCond == false) 
-            {
+        }
+        if (uSurname.isEmpty()) {
+            nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(238, 105, 94), true);
+            return false;
+        }
+        if (uEmail.isEmpty()) {
+            nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
+            return false;
+        }
+        if(userID.isEmpty()){
+            nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
+            return false;
+        }
+        if (uPwd.isEmpty()) {
+            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
+            return false;
+        }
+        if (uPwdConfirm.isEmpty()) {
+            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
+            return false;
+        }
+        return true;
+    }
+    
+//    private void setErrMsgNull() {
+//        this.registerPage.getTermsCond().setForeground(Color.white);
+//        nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(250, 250, 250), false);
+//        nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(250, 250, 250), false);
+//        nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(250, 250, 250), false);
+//        nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(250, 250, 250), false);
+//        nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(250, 250, 250), false);
+//        nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(250, 250, 250), false);
+//    }
+    public boolean checkRegData(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
+        boolean emptyChceks = emptyCheck(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm);
+        if (emptyChceks == false) {
+            return false;
+        } else {
+            if (selectTermCond == false) {
                 String msgTC = "Please agree our terms and condition before using our application";
                 JOptionPane.showMessageDialog(null, msgTC, "Problem", JOptionPane.ERROR_MESSAGE);
                 this.registerPage.getTermsCond().setForeground(Color.red);
                 System.out.println(msgTC);
                 return false;
-            } 
-            else 
-            {
+            } else {
                 boolean isValidEmail = isValidEmail(uEmail);
-                if (isValidEmail == false) 
-                {
+                if (isValidEmail == false) {
                     String msgE1 = "Email not Valid";
                     JOptionPane.showMessageDialog(null, msgE1, "Problem", JOptionPane.ERROR_MESSAGE);
-                    
-                    this.registerPage.getEmailReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+
+                    nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
                     System.out.println(msgE1);
                     return false;
-                } 
-                else 
-                {
+                } else {
                     boolean isValidPwd = isValidPassword(uPwd);
-                    if (isValidPwd == false) 
-                    {
+                    if (isValidPwd == false) {
                         String msgVP = """
                                     Password is not valid. 
                                     Insert at least 8 chars. 
                                     Insert Lower case, uppercase, digit, special character at least once. Do not include any white spaces!""";
                         JOptionPane.showMessageDialog(null, msgVP, "Problem", JOptionPane.ERROR_MESSAGE);
-                        this.registerPage.getPwdReg1().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+                        nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
                         System.out.println(msgVP);
                         return false;
-                    } 
-                    else 
-                    {
+                    } else {
                         System.out.println("Correct password format entered");
-                        if (!(uPwd.equalsIgnoreCase(uPwdConfirm))) 
-                        {
+                        if (!(uPwd.equalsIgnoreCase(uPwdConfirm))) {
                             String msgMP = "Password don't match";
-                            JOptionPane.showMessageDialog(null, msgMP, "Problem", JOptionPane.ERROR_MESSAGE);                  
-                            this.registerPage.getPwdReg1().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
-                            this.registerPage.getPwdReg2().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+                            JOptionPane.showMessageDialog(null, msgMP, "Problem", JOptionPane.ERROR_MESSAGE);
+                            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
+                            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
                             System.out.println(msgMP);
                             return false;
-                        } 
-                        else 
-                        {
+                        } else {
                             boolean isValidUserID = uniqueID(userID);
-                            if(isValidUserID==false) {
+                            if (isValidUserID == false) {
                                 String msgUid = "User id is already in use.";
                                 JOptionPane.showMessageDialog(null, msgUid, "Problem", JOptionPane.ERROR_MESSAGE);
-                                this.registerPage.getUseridReg().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(238, 105, 94)));
+                                nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
                                 System.out.println(msgUid);
                                 return false;
-                            }else{
+                            } else {
                                 System.out.println("All Registered details are entered correctly. Data is being processed...");
                                 return true;
                             }
@@ -444,22 +471,22 @@ public class LoginRegisterCont implements ActionListener {
             }
         }
     }
-    
+
     private static final String PATTERN = "^(?:(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%£?!^&+=]).*)[^\\s]{8,}$";
+
     public boolean isValidPassword(String password) {
         Pattern pattern = Pattern.compile(PATTERN); //Compiling the regex
         Matcher matcher = pattern.matcher(password);
-        System.out.println("Password being valid status: "+matcher.matches());
+        System.out.println("Password being valid status: " + matcher.matches());
         return matcher.matches();
     }
 
-    
     public boolean isValidEmail(String email) {
         //regex refer to user have to insert at least 8 chars. Lower case, uppercase, digit, special character occur at least once. No white spaces allowed.
         String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         Pattern pattern = Pattern.compile(regex); //Compiling the regex
         Matcher matcher = pattern.matcher(email);
-        System.out.println("Email being valid status: "+matcher.matches());
+        System.out.println("Email being valid status: " + matcher.matches());
         return matcher.matches();
     }
 
