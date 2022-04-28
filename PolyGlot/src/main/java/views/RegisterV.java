@@ -167,7 +167,6 @@ public class RegisterV extends javax.swing.JFrame {
         termsCond.setText("I agree with the terms and conditions *");
 
         regBttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        regBttn.setForeground(new java.awt.Color(93, 150, 234));
         regBttn.setText("Register");
         regBttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
@@ -238,7 +237,7 @@ public class RegisterV extends javax.swing.JFrame {
                                     .addGroup(registerPanelLayout.createSequentialGroup()
                                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(pwdReg1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                                            .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(hiddenErr5)
