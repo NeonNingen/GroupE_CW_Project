@@ -127,7 +127,7 @@ public class MenuBarCont implements ActionListener
                 
             menuBar.setPageTitle("Dialogue History");
             menuBar.setPageTopicContent(dlgHist.getDlgHistConent());
-            
+            setBttnsFree();
         }
         
         if(e.getSource() == menuBar.getUListBttn()){
@@ -160,6 +160,7 @@ public class MenuBarCont implements ActionListener
             logRegCont.setSmallSupport(support);
             menuBar.setPageTitle("Support");
             menuBar.setPageTopicContent(support.getSupportContent());
+            setBttnsFree();
 
         }
 
@@ -215,6 +216,17 @@ public class MenuBarCont implements ActionListener
             bttn2.setEnabled(true);
             bttn3.setEnabled(true);
             bttn4.setEnabled(true);
+            
+            //menuBar.setDesign();
+        //}
+        
+    }
+    public void setBttnsFree(){ //
+        //if(bttn1.isSelected()){
+            menuBar.getUListBttn().setEnabled(true);
+            menuBar.getDlgListBttn().setEnabled(true);
+            menuBar.getProVBttn().setEnabled(true);
+            menuBar.getSettBttn().setEnabled(true);
             
             //menuBar.setDesign();
         //}
