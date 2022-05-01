@@ -10,10 +10,10 @@ INSERT INTO Dialogue VALUES (123, 'Order Food', 'Ordering food and drink', 'A1',
 (456, 'Order Food', 'Ordering food and drink', 'A1','Simple Present', 05, 'In Progress', 2, 'ENG'),
 (789, 'Shopping', 'Buying clothes', 'B1', 'Simple Past', 100, 'Completed', 5, 'ENG'),
 (342, 'Shopping', 'Buying clothes', 'B1', 'Simple Past', 100, 'Completed' , 5, 'ENG')
-INSERT INTO Card VALUES (008, 10, 'A', 'Something','first', 'IDK', 123),
-(007, 20, 'B', 'something','second', 'IDK', 456),
-(006, 30, 'A', 'something', 'third', 'IDK', 789),
-(005, 50, 'B', 'something', 'fourth', 'IDK', 342)
+INSERT INTO Card VALUES (008, 10, 'A', 'Something', 1, 'IDK', 123),
+(007, 20, 'B', 'something', 2, 'IDK', 456),
+(006, 30, 'A', 'something', 3, 'IDK', 789),
+(005, 50, 'B', 'something', 4, 'IDK', 342)
 INSERT INTO Dialogue_Record VALUES (123, 'w1202301', 2022-03-21, "07:00 a.m", 123, 456, 40, 70),
 (456, 'w1202301', 2022-01-12, "05:45 p.m", 456, 123, 30, 10),
 (789, 'w1305401', 2022-06-21, "12:34 p.m", 789, 342, 10, 30),
@@ -22,3 +22,5 @@ INSERT INTO LangProcess VALUES(101, "ENG", 20, 'w1202301'),
 (102, "FRE", 30, 'w1202301'),
 (103, "ENG", 10, 'w1305401'),
 (104, "ENG", 15, 'w1000001')
+
+// Change this once all data is finalized

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="dlgRoleC">
+    </Component>
+    <Component class="javax.swing.JButton" name="StartDlgBttn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Start"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
+      <Rectangle value="[0, 0, 0, 0]"/>
+    </Property>
+    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+      <Color id="Default Cursor"/>
+    </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                              <Component id="RatingSubtitle" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RatingTitle" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                      <Component id="RatingResultsText" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="RatingLevel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RatingDlgName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RatingYourRating" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RatingTimeTaken" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RatingPartnerRating" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="DlgC" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LvlC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TimeTakenC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="PartnerRatingC" alignment="0" pref="0" max="32767" attributes="0"/>
+                                          <Component id="YourRatingC" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="OutOfTen1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="OutOfTen2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="OkBttn" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="CloseBttn" min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="CloseBttn" min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="RatingTitle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="RatingSubtitle" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Component id="RatingResultsText" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RatingDlgName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DlgC" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RatingLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LvlC" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RatingTimeTaken" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TimeTakenC" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RatingYourRating" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="YourRatingC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="OutOfTen1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RatingPartnerRating" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="PartnerRatingC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="OutOfTen2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+              <Component id="OkBttn" min="-2" pref="66" max="-2" attributes="0"/>
+              <EmptySpace pref="154" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="RatingTitle">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Congratulation on Finishing! "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingSubtitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="See results below:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingResultsText">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Results:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingDlgName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dialogue Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingLevel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Level:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingYourRating">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Your Rating:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingTimeTaken">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Time Taken:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RatingPartnerRating">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Partner Rating:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="YourRatingC">
+    </Component>
+    <Component class="javax.swing.JTextField" name="PartnerRatingC">
+    </Component>
+    <Component class="javax.swing.JButton" name="OkBttn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OkBttnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="CloseBttn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="8" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="X"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[25, 25]"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="DlgC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Dialogue"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LvlC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Level"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="TimeTakenC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Time Taken"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="OutOfTen1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="/10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="OutOfTen2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="/10"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>

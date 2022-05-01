@@ -38,7 +38,7 @@ card_id INTEGER,
 card_points INTEGER,
 card_role VARCHAR (5) not NULL,
 card_text VARCHAR (200) not NULL,
-card_order VARCHAR (30) not NULL,
+card_order INTEGER not NULL,
 card_vocab  VARCHAR (100) not NULL,
 dialogue_id INTEGER,
 constraint c_card_pk PRIMARY KEY (card_id)
