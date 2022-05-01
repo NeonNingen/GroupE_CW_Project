@@ -6,16 +6,12 @@ package views;
 
 import controllers.DialogueCont;
 import java.util.ArrayList;
-import java.util.Comparator;
-import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import models.DialogueMDL;
 import java.awt.Color;
@@ -23,15 +19,18 @@ import java.awt.Color;
 
 /**
  *
- * @author aisana
+ * @author Aisana (w1775375)
  */
 public class DlgListV extends javax.swing.JFrame {
 
     private TableRowSorter<DefaultTableModel> sorter;
     private DialogueMDL currentDlg;
-    /**
-     * Creates new form DlgListViewtrial
-     */
+    DefaultTableModel model = new DefaultTableModel(0,3) {
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return false;
+            }
+        };
     
     public DlgListV() {
         initComponents();
@@ -44,7 +43,14 @@ public class DlgListV extends javax.swing.JFrame {
         menu.setPageTopicContent(DlgListContent);
     }
     
+    
+    /**
+     * Method will set up action listeners for menuBar button and comboboxes to be dialogue controller
+     * used to catch actions from the frame components
+     * @param dlgCont - reference to specific dialogue controller that was originally created in main part of the program
+     */
     public void setActList(DialogueCont dlgCont){
+        
         ChooseGramCbox.addActionListener(dlgCont);
         ChooseLvlCbox.addActionListener( dlgCont );
         ChooseTopicCbox.addActionListener(dlgCont);
@@ -217,76 +223,18 @@ public class DlgListV extends javax.swing.JFrame {
         });
     }
 
-    public void setChooseGramCbox(ArrayList<String> list) {
-        //this.ChooseGramCbox = ChooseGramCbox;
-        this.ChooseGramCbox.removeAllItems();
-        /*ChooseLvlCbox.revalidate();
-        ChooseLvlCbox.repaint();*/
-        this.ChooseGramCbox.addItem("Choose Grammar");
-        
-        for(int i=0; i<list.size();i++){
-            this.ChooseGramCbox.addItem(list.get(i));
-        }
-        
-        System.out.println("List"+1+": "+list);
-        
-        for(int j=0; j<list.size();j++){
-            System.out.print(ChooseGramCbox.getItemAt(j)+",");
-        }
-        //ChooseGramCbox.revalidate();
-        //ChooseGramCbox.repaint();
-        
-        
+    
+    public void setChooseGramCbox(JComboBox ChooseGramCbox) {
+        this.ChooseGramCbox=ChooseGramCbox;
     }
     
-    public void setBox(JComboBox <String> box, ArrayList<String> list){
-        box.removeAllItems();
-        /*ChooseLvlCbox.revalidate();
-        ChooseLvlCbox.repaint();*/
-        box.addItem("Choose Level");
-        //System.out.println("List"+2+": "+list);
-        for(int i=0; i<list.size();i++){
-            box.addItem(list.get(i));
-        }
-        System.out.println("List"+2+": ");
-        for(int j=0; j<list.size();j++){
-            System.out.print(box.getItemAt(j)+",");
-        }
+
+    public void setChooseLvlCbox(JComboBox ChooseLvlCbox) {
+        this.ChooseLvlCbox=ChooseLvlCbox;
     }
 
-    public void setChooseLvlCbox(ArrayList<String> list) {
-        this.ChooseLvlCbox.removeAllItems();
-        /*ChooseLvlCbox.revalidate();
-        ChooseLvlCbox.repaint();*/
-        this.ChooseLvlCbox.addItem("Choose Level");
-        //System.out.println("List"+2+": "+list);
-        for(int i=0; i<list.size();i++){
-            this.ChooseLvlCbox.addItem(list.get(i));
-        }
-        System.out.println("List"+2+": ");
-        for(int j=0; j<list.size();j++){
-            System.out.print(ChooseLvlCbox.getItemAt(j)+",");
-        }
-        //ChooseLvlCbox.revalidate();
-        //ChooseLvlCbox.repaint();
-    }
-
-    public void setChooseTopicCbox(ArrayList<String> list) {
-        //this.ChooseTopicCbox = ChooseTopicCbox;
-        
-        this.ChooseTopicCbox.removeAllItems();
-        this.ChooseTopicCbox.addItem("Choose Topic");
-        
-        for(int i=0; i<list.size();i++){
-            this.ChooseTopicCbox.addItem(list.get(i));
-        }
-        
-        System.out.println("List"+3+": "+list);
-        for(int j=0; j<list.size();j++){
-            System.out.print((String)ChooseTopicCbox.getItemAt(j)+",");
-        }
-        //ChooseTopicCbox.revalidate();
-        //ChooseTopicCbox.repaint();
+    public void setChooseTopicCbox(JComboBox ChooseTopicCbox) {
+        this.ChooseTopicCbox=ChooseTopicCbox;
     }
 
     public void setDlgListContent(JPanel DlgListContent) {
@@ -297,9 +245,9 @@ public class DlgListV extends javax.swing.JFrame {
         this.jScrollDlgListTbl = jScrollDlgListTbl;
     }
 
-    public void setjTableDlgList(JTable table){//JTable jTableDlgList) {
+    public void setjTableDlgList(JTable jTableDlgList) {
         
-        jTableDlgList= table;
+        this.jTableDlgList= jTableDlgList;
     }
 
     public JComboBox<String> getChooseGramCbox() {
@@ -338,26 +286,19 @@ public class DlgListV extends javax.swing.JFrame {
         return sorter;
     }
 
-    public boolean isCellEditable(int row, int column) {
-        return false;
-    }
     
-    
+    /**
+     * method used to generate jtable for dialogue list page
+     * @param rowCount - number of dialogues to be displayed as rows in the table 
+     * @param dlgList - arrayList of dialogues used to arrange information based on columns headers
+     */
     public void generateJTable(Integer rowCount, ArrayList<DialogueMDL> dlgList){
-        // in the future will be good to add sorting to the list: level, then topic, then grammar, then name(alpabetically),etc
         String[] headers= {"Lvl","Dialogue Name","Topic"};
         String[][] empty= new String[rowCount][3];
-        //DefaultTableModel model= new DefaultTableModel(empty, headers);
-        //jTableDlgList.setModel(model);
-        
-        jTableDlgList.setModel(new javax.swing.table.DefaultTableModel(
-            empty,headers) {
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return false;
-            }
-        });
-        
-        //model.setColumnIdentifiers(headers);
+        model.setColumnIdentifiers(headers);
+        model.setRowCount(rowCount);
+        jTableDlgList.setModel(model);
+                
         
         int count=0;
         for(int i=0; i< rowCount;i++){
@@ -370,14 +311,14 @@ public class DlgListV extends javax.swing.JFrame {
                     dlgList.get(i).getDlg_name());
             
         }
-        
-        //jTableDlgList.setModel(model);
-        
-       // jScrollDlgListTbl.add(jTableDlgList);
-        
-        //jTableDlgList.show();
     }
     
+    /**
+     * Method used to set up values of the three comboboxes at the dialogue list page
+     * @param grammar - array list with strings - options for grammar types (queried from database)
+     * @param lvl - array list with strings - options for language level (queried from database)
+     * @param topic - array list with strings - options for topic names (queried from database)
+     */
     public void fillCmbx(ArrayList <String> grammar,ArrayList <String> lvl,ArrayList <String> topic){
         
         this.ChooseGramCbox.removeAllItems();
@@ -403,8 +344,6 @@ public class DlgListV extends javax.swing.JFrame {
         for(int i=0; i<topic.size();i++){
             this.ChooseTopicCbox.addItem(topic.get(i));
         }
-        
-        
         
         
     }

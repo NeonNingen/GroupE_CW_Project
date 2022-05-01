@@ -12,13 +12,8 @@ import views.SupportV;
 import views.UListTchV;
 import views.ProgV;
 import views.UListStdV;
-import views.LoginV;
-import controllers.LoginRegisterCont;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.ArrayList;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import models.AccessRecordMDL;
 import models.UserMDL;
@@ -26,8 +21,7 @@ import views.SetUpDlgV;
 
 /**
  *
- * @author Amit 
- * further edited by Aisana 
+ * @author Aisana (w1775375) - resposible for the code making for this class
  */
 public class MenuBarCont implements ActionListener
 {
@@ -37,28 +31,11 @@ public class MenuBarCont implements ActionListener
     private UserMDL user;
     private AccessRecordMDL accessRC;
     private SetUpDlgV dlgSetUpPage;
-    private String lang;//="SPN"; // user.gerCurrentLang()
-    /*private LoginRegCont logRegCont;
-    private DialogueMdl dlgMdl;
-    private LoginV login;
-    private ProgV prog;
-    private DialogueMDL dlgModel;
-    private DlgHistV dlgHist;
-    private DialogueCont cont;
-    private UserMDL otherUser;
-    private UListTchV userList;
-    private UserCont userCont;
-    private SupportV support;
-    private SettingV setting;
-    private ProgV progPage;
-    private DlgListV dlgView;*/
+    private String lang;
     
     
-//    public MenuBarCont(MenuBarV menuBar) 
-//    {
-//        this.menuBar = menuBar;
-//    }
-
+// ? should we do descriptions for constructors?
+    
     public MenuBarCont() 
     {
       this.menuBar = new MenuBarV();
@@ -77,7 +54,11 @@ public class MenuBarCont implements ActionListener
         this.user = userMDL;
         
     }
-    
+    /**
+     * Method used to trace logout time when closing application
+     * added by Amit 
+     * @param menu 
+     */
     public void setPage(MenuBarV menu) 
     {
         this.menuBar = menu;
@@ -91,35 +72,24 @@ public class MenuBarCont implements ActionListener
             
         });
     }
-    /*
-    public MenuBarCont(SetUpDlgV dlgSetUpPage) 
-    {
-        this.dlgSetUpPage = dlgSetUpPage;
-    }*/
-    
-    /*public MenuBarCont(ProgV progPage) 
-    {
-        this.progPage = progPage;
-    }*/
 
+    // ? should we do descriptio for actionPerformed?
     @Override
-    public void actionPerformed(ActionEvent e) 
+    public void actionPerformed(ActionEvent e)  // catch buttons clicked from MenuBarV
     {
         
-        if(e.getSource() == menuBar.getProVBttn()){
-            //LoginV login= new LoginV();
-            LoginRegisterCont logCont = new LoginRegisterCont(user);
+        if(e.getSource().equals(menuBar.getProVBttn())){
+            LoginRegisterCont logCont = new LoginRegisterCont(user); //may be unused if authout of that class decided to implement it differently
             
             ProgV prog= new ProgV(user);
             
             activateBttn(menuBar.getProVBttn(), menuBar.getDlgListBttn(),menuBar.getSettBttn(), menuBar.getUListBttn());
             menuBar.setPageTitle("Profile");
             menuBar.setProgPageTopicContent(prog.getProgViewContent());
-            //this way controller will collect info and update those two objects
 
         }
         
-        if(e.getSource() == menuBar.getDlgHistBttn2()){
+        if(e.getSource().equals(menuBar.getDlgHistBttn2())){
             DialogueMDL dlgModel= new DialogueMDL();
             DlgHistV dlgHist= new DlgHistV();
             DialogueCont cont= new DialogueCont(menuBar);
@@ -127,14 +97,12 @@ public class MenuBarCont implements ActionListener
                 
             menuBar.setPageTitle("Dialogue History");
             menuBar.setPageTopicContent(dlgHist.getDlgHistConent());
-            setBttnsFree();
+             setBttnsFree(menuBar.getDlgHistBttn2());
         }
         
-        if(e.getSource() == menuBar.getUListBttn()){
+        if(e.getSource().equals(menuBar.getUListBttn())){
             // need to retrieve userMDL from Main to see which page to open
-            //String user_type = "Teacher";
             String user_type = user.getUserType();
-            //UserMDL otherUser= new UserMDL();
             UListTchV ulistTch= new UListTchV();
             UListStdV ulistStd= new UListStdV();
             UserCont userCont= new UserCont();
@@ -145,7 +113,6 @@ public class MenuBarCont implements ActionListener
                 menuBar.setPageTitle("User List");
                 menuBar.setPageTopicContent(ulistStd.getUListContent());
             }else if (user_type.equals("Teacher")){
-                
                 userCont.setUserList(ulistTch, user);
                 menuBar.remove(menuBar.getDlgHistBttn2());
                 menuBar.setPageTitle("User List");
@@ -154,43 +121,35 @@ public class MenuBarCont implements ActionListener
 
         }
 
-        if (e.getSource() == menuBar.getSupportBttn()) {
+        if (e.getSource().equals(menuBar.getSupportBttn())) {
             SupportV support= new SupportV();
             LoginRegisterCont logRegCont= new LoginRegisterCont();
             logRegCont.setSmallSupport(support);
             menuBar.setPageTitle("Support");
             menuBar.setPageTopicContent(support.getSupportContent());
-            setBttnsFree();
+            setBttnsFree(menuBar.getSupportBttn());
 
         }
 
-        // Aisana edited to fix mennubar
-        if (e.getSource() == menuBar.getSettBttn()) {
-                SettingV setting= new SettingV(user);
-                LoginRegisterCont logCont = new LoginRegisterCont(user);
-                logCont.setAccRec(setting, menuBar, accessRC);
-                setting.setContListener(logCont); //added by Amit
-//                LoginRegisterCont logRegCont= new LoginRegisterCont();
-                //logCont.setAccRec(setting);
-                
-                activateBttn(menuBar.getSettBttn(),menuBar.getDlgListBttn(), menuBar.getUListBttn(),menuBar.getProVBttn());
-                menuBar.setPageTitle("Settings"); //change title
-                menuBar.setPageTopicContent(setting.getSettingContent()); //clear page content and add content of view class Jpanel 
-            //}
-            
+        
+        if (e.getSource().equals(menuBar.getSettBttn())) {
+            SettingV setting= new SettingV(user);
+            LoginRegisterCont logCont = new LoginRegisterCont(user);
+            logCont.setAccRec(setting, menuBar, accessRC);
+            setting.setContListener(logCont); //added by Amit
+
+            activateBttn(menuBar.getSettBttn(),menuBar.getDlgListBttn(), menuBar.getUListBttn(),menuBar.getProVBttn());
+            menuBar.setPageTitle("Settings"); 
+            menuBar.setPageTopicContent(setting.getSettingContent()); 
         }
         
-        if(e.getSource() == menuBar.getDlgListBttn()){
+        if(e.getSource().equals(menuBar.getDlgListBttn())){
             DialogueMDL dlgModel= new DialogueMDL();
             DlgListV dlgView= new DlgListV();
             
             String query;
             lang= user.getApplang();
-            DialogueCont cont= new DialogueCont(this.menuBar, dlgView, dlgModel, lang);//, lang);// add user current lang string parameter
-            //cont.setCurrentLang(lang);
-            //if(){ 
-                // set up condition if user lang is use user.gerCurrentLang, 
-            //}
+            DialogueCont cont= new DialogueCont(this.menuBar, dlgView, dlgModel, lang);
             query="SELECT * FROM Dialogue WHERE dialogue_language ='" + lang+ "'";
             cont.setDlgList(query); 
             activateBttn(this.menuBar.getDlgListBttn(),this.menuBar.getSettBttn(), this.menuBar.getUListBttn(),this.menuBar.getProVBttn());
@@ -205,31 +164,31 @@ public class MenuBarCont implements ActionListener
     
     /**
      * Method used to distinguish which button is clicked and disable it while enabling other buttons
-     * @param bttn1 - button that is clicked
-     * @param bttn2
-     * @param bttn3
-     * @param bttn4 
+     * @param bttn1 - button that is clicked and should become unclickable
+     * @param bttn2 - other button that should be clickable
+     * @param bttn3 - other button that should be clickable
+     * @param bttn4 - other button that should be clickable
      */
-    public void activateBttn(JButton bttn1,JButton bttn2,JButton bttn3,JButton bttn4){ //
-        //if(bttn1.isSelected()){
+    public void activateBttn(JButton bttn1,JButton bttn2,JButton bttn3,JButton bttn4){ 
+            menuBar.updateIcon(bttn1);
             bttn1.setEnabled(false);
             bttn2.setEnabled(true);
             bttn3.setEnabled(true);
             bttn4.setEnabled(true);
             
-            //menuBar.setDesign();
-        //}
         
     }
-    public void setBttnsFree(){ //
-        //if(bttn1.isSelected()){
+    
+    /**
+     * method used to enable all menu bar buttons at once (when clicking support or dlgHistlist button
+     */
+    public void setBttnsFree(JButton bttn){ 
+            menuBar.updateIcon(bttn);
             menuBar.getUListBttn().setEnabled(true);
             menuBar.getDlgListBttn().setEnabled(true);
             menuBar.getProVBttn().setEnabled(true);
             menuBar.getSettBttn().setEnabled(true);
             
-            //menuBar.setDesign();
-        //}
         
     }
     

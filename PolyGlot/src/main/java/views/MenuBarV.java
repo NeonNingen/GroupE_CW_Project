@@ -5,20 +5,19 @@
 package views;
 
 import controllers.MenuBarCont;
-import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Image;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+
+/**
+ * 
+ * @author Aisana (w1775375) 
+ */
 
 public class MenuBarV extends javax.swing.JFrame {
     String currentPage;
@@ -28,16 +27,13 @@ public class MenuBarV extends javax.swing.JFrame {
     ArrayList <Icon> selIc= new ArrayList<Icon>();
      //0-profile, 1-userlist, 2-dlgList, 3- settings
     
+   
     
-    /**
-     * Creates new form MenuBar
-     */
     public MenuBarV() 
     {
         initComponents();
         setSize(414,667);
         setDesign();
-        //setIcons();
         UListBttn.addActionListener(menuC);
         ProVBttn.addActionListener(menuC);
         SupportBttn.addActionListener(menuC);
@@ -51,11 +47,9 @@ public class MenuBarV extends javax.swing.JFrame {
         initComponents();
         setSize(414,667);
         
-        //added and modified by Amit
         menuC.setPage(this);
         
         setDesign();
-        //setIcons();
         UListBttn.addActionListener(menuC);
         ProVBttn.addActionListener(menuC);
         SupportBttn.addActionListener(menuC);
@@ -65,84 +59,153 @@ public class MenuBarV extends javax.swing.JFrame {
     }
 
     
+    /** by Aisana (w1775375)
+     * Methods will initiate main panel colour (colour for app background page), set font to test and  icons for menubar buttons
+     */
     public void setDesign(){
         MenuBarPanel.setBackground(new java.awt.Color(135, 170, 240));
         PageTitle.setFont(new java.awt.Font("Avenir Next", 1, 18));
         icons=getIconsList();
         selIc= getIconsListB();
-        setIcons(ProVBttn.getText());
-        setIcons(UListBttn.getText());
-        setIcons(DlgListBttn.getText());
-        setIcons(SettBttn.getText());
-        setIcons(SupportBttn.getText());
+        setIcons(ProVBttn);
+        setIcons(UListBttn);
+        setIcons(DlgListBttn);
+        setIcons(SettBttn);
+        setIcons(SupportBttn);
     }
     
-    private static Icon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight) {
-        Image img = icon.getImage();  
-        Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight,  java.awt.Image.SCALE_SMOOTH);  
-        return new ImageIcon(resizedImage);
-    }
-    
-    public void updateIcon(JButton bttn){
-        
-    }
-    
-    public void setIcons(String bttnName){
-        String path;
-        
-        if(bttnName.contains("Profile")){
+    /** by Aisana (w1775375)
+     * Method will be used for selected menu bar button to increase its size and set bigger size icon
+     * also includes case for support and dlgHist button click to reset all 4 mennnu bar buttons to enabled
+     * @param bttn 
+     */
+    public void updateIcon(JButton bttn){ // 0- profile, 1- Ulist, 2-DlgLIst, 3-Settings
+        Dimension newPrefSize= new Dimension (100,100);
+        if(bttn.equals(ProVBttn)){
+            ProVBttn.removeAll();
+            
+            ProVBttn.setPreferredSize(newPrefSize);
+            ProVBttn.setLocation(18,555);
             ProVBttn.setBackground(new java.awt.Color(135, 170, 240));
-            ProVBttn.setText(" ");
-            ProVBttn.setIcon(icons.get(0));
-        }
-        if(bttnName.contains("User")){
-            //path= "/UListIcon.png";
+            ProVBttn.setIcon(selIc.get(0));
             
-            //if(UListBttn.isEnabled()==false){ //disables has to be bigger in size and change colour
-            //    path= "/UListIconB.png";
-                
-            //}
-            //Icon icon2 = createImageIcon(path,bttnName +"Icon");
+            
+            setIcons(UListBttn);
+            setIcons(DlgListBttn);
+            setIcons(SettBttn);
+        }
+        if(bttn.equals(UListBttn)){
+            UListBttn.removeAll();
+            UListBttn.setPreferredSize(newPrefSize);
+            UListBttn.setLocation(118,555);
             UListBttn.setBackground(new java.awt.Color(135, 170, 240));
-            UListBttn.setText(" ");
-            UListBttn.setIcon(icons.get(1));
+            
+            
+            UListBttn.setIcon(selIc.get(1));
+            
+            setIcons(ProVBttn);
+            setIcons(DlgListBttn);
+            setIcons(SettBttn);
             
         }
-        if(bttnName.contains("Dialogue")){
-            
-            //path= "/DlgIcon.png";
-            //if(UListBttn.isEnabled()==false){ //disables has to be bigger in size and change colour
-             //   path= "/DlgIconB.png";
-              //  System.out.println("Button dlg is disabled");
-                
-            //}
-            //Icon icon1 = createImageIcon(path,bttnName +" Icon");
+        if(bttn.equals(DlgListBttn)){
+            DlgListBttn.removeAll(); 
+            DlgListBttn.setPreferredSize(newPrefSize);
+            DlgListBttn.setLocation(218,555);
             DlgListBttn.setBackground(new java.awt.Color(135, 170, 240));
-            DlgListBttn.setText(" ");
-            DlgListBttn.setIcon(icons.get(2));
+            
+           
+            DlgListBttn.setIcon(selIc.get(2));
+            setIcons(ProVBttn);
+            setIcons(UListBttn);
+            setIcons(SettBttn);
         }
-        if(bttnName.contains("Setting")){
-            //path= "/SttngIcon.png";
-            //if(UListBttn.isEnabled()==false){ //disables has to be bigger in size and change colour
-            //    path= "/SttngIconB.png";
-                
-            //}
-            //Icon icon2 = createImageIcon(path,bttnName+" Icon");
+        if(bttn.equals(SettBttn)){
+            SettBttn.removeAll();
             SettBttn.setBackground(new java.awt.Color(135, 170, 240));
-            SettBttn.setText(" ");
-            SettBttn.setIcon(icons.get(3));
+            SettBttn.setPreferredSize(newPrefSize);
+            SettBttn.setLocation(318,555);
+            
+            SettBttn.setIcon(selIc.get(3));
+            setIcons(ProVBttn);
+            setIcons(UListBttn);
+            setIcons(DlgListBttn);
         }
         
-        if(bttnName.contains("Help")){
-            path= "/SupIcon.png";
-            SupportBttn.setBackground(new java.awt.Color(135, 170, 240));
-            Icon icon2 = createImageIcon(path, bttnName + " Icon");
+        if(bttn.equals(SupportBttn) || bttn.equals(DlgHistBttn2)){
+            setIcons(ProVBttn);
+            setIcons(UListBttn);
+            setIcons(DlgListBttn);
+            setIcons(SettBttn);
+        }
+    }
+    
+    
+    /** by Aisana (w1775375)
+     * Method will set Icon to a button, depending which button it is, it will choose the right icon (of original size 60x60)
+     * @param bttn - JButton that you want to set Icon for. Note, there are only options for 5 buttons that are needed for this application
+     */
+    public void setIcons(JButton bttn){
+        Dimension preferredSize = new Dimension(70,70);
+        if(bttn.equals(ProVBttn)){
+            ProVBttn.removeAll();
+            ProVBttn.setText("");
+            ProVBttn.setPreferredSize(preferredSize);
+            ProVBttn.setLocation(18,555);
+            ProVBttn.setBackground(new java.awt.Color(135, 170, 240));
+            
+            ProVBttn.setIcon(icons.get(0));
+            
+        }
+        if(bttn.equals(UListBttn)){
+            UListBttn.removeAll(); 
+            UListBttn.setText("");
+            
+            UListBttn.setPreferredSize(preferredSize);
+            UListBttn.setLocation(118,555);  
+            UListBttn.setBackground(new java.awt.Color(135, 170, 240));
+            UListBttn.setIcon(icons.get(1));
+          
+            
+        }
+        if(bttn.equals(DlgListBttn)){
+            DlgListBttn.removeAll();
+            DlgListBttn.setText("");
+            
+            DlgListBttn.setPreferredSize(preferredSize);
+            DlgListBttn.setLocation(218,555);
+            DlgListBttn.setBackground(new java.awt.Color(135, 170, 240));
+            DlgListBttn.setIcon(icons.get(2));
+            
+        }
+        if(bttn.equals(SettBttn)){
+            SettBttn.removeAll(); 
+            SettBttn.setText("");
+            SettBttn.setPreferredSize(preferredSize);
+            SettBttn.setLocation(318,555);
+            SettBttn.setBackground(new java.awt.Color(135, 170, 240));
+            
+            SettBttn.setIcon(icons.get(3));
+            
+        }
+        
+        if(bttn.equals(SupportBttn)){
+            Dimension supSize= new Dimension (20,20);
+            SupportBttn.removeAll();
             SupportBttn.setText("");
+            SupportBttn.setPreferredSize(supSize);
+            SupportBttn.setBackground(new java.awt.Color(135, 170, 240));
             SupportBttn.setIcon(icons.get(4));
         }
         
     }
     
+    /**by Aisana (w1775375)
+     * Method used to find and return image from resource file
+     * @param path - string to pass image name
+     * @param description - string used to describe the icon in case needed to be used, will be attached to the image
+     * @return returns imageIcon you can use to setIcon for a button or label
+     */
     public ImageIcon createImageIcon(String path,
                                            String description) {
         java.net.URL imgURL = MenuBarV.class.getResource(path);
@@ -154,6 +217,70 @@ public class MenuBarV extends javax.swing.JFrame {
         }
     }
     
+     
+    /** by Aisana (w1775375)
+     * Method used to store default icon images, size(60x60) into arrayList 
+     * so that the arrayList can be used later to set Icons to buttons
+     * @return an array list of Icons
+     */
+    public ArrayList<Icon> getIconsList(){ // 0- profile 1- Ulist, 2-DlgLIst, 3-Settings, 4 -support
+            
+        ArrayList<Icon> list= new ArrayList<Icon> ();
+        String path= "/ProVIcon.png";
+        Icon icon1 = createImageIcon(path,"Profile Button Icon");
+        list.add(icon1);
+
+        path= "/UListIcon.png";
+        icon1 = createImageIcon(path,"User list Button Icon");
+        list.add(icon1);
+
+        path= "/DlgIcon.png";
+        icon1 = createImageIcon(path,"Dialogue List Button Icon");
+        list.add(icon1);
+
+
+        path= "/SttngIcon.png";
+        icon1 = createImageIcon(path,"Settings Button Icon");
+        list.add(icon1);
+
+
+        path= "/SupIcon.png";
+        icon1 = createImageIcon(path, "Support Button Icon");
+        list.add(icon1);
+
+        return list;
+    }
+    
+    
+    /** by Aisana (w1775375)
+     * Method used to store enlarged icon images, size(90x90) into arrayList 
+     * so that the arrayList can be used later to set Icons to buttons when needed
+     * @return an array list of Icons
+     */
+    public ArrayList<Icon> getIconsListB(){ // 0- profile, 1- Ulist, 2-DlgLIst, 3-Settings
+             
+        ArrayList<Icon> list= new ArrayList<Icon> ();
+        String path= "/ProVIconB.png";
+        Icon icon1 = createImageIcon(path,"Large Profile Button Icon ");
+        list.add(icon1);
+
+        path= "/UListIconB.png";
+        icon1 = createImageIcon(path,"Large User List Button Icon");
+        list.add(icon1);
+
+        path= "/DlgIconB.png";
+        icon1 = createImageIcon(path,"Large Dialogue List Button Icon");
+        list.add(icon1);
+
+
+        path= "/SttngIconB.png";
+        icon1 = createImageIcon(path,"Large Setting Button Icon");
+        
+        list.add(icon1);
+
+        return list;
+    }
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,6 +294,7 @@ public class MenuBarV extends javax.swing.JFrame {
                                         2. add the that panel all the buttons that are needed
     [from Aisana]
     */
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -216,7 +344,7 @@ public class MenuBarV extends javax.swing.JFrame {
         UListBttn.setBorder(null);
         UListBttn.setBorderPainted(false);
         UListBttn.setFocusPainted(false);
-        UListBttn.setPreferredSize(new java.awt.Dimension(90, 90));
+        UListBttn.setPreferredSize(new java.awt.Dimension(60, 60));
         UListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         SettBttn.setBackground(new java.awt.Color(51, 204, 255));
@@ -224,7 +352,7 @@ public class MenuBarV extends javax.swing.JFrame {
         SettBttn.setBorder(null);
         SettBttn.setBorderPainted(false);
         SettBttn.setFocusPainted(false);
-        SettBttn.setPreferredSize(new java.awt.Dimension(90, 90));
+        SettBttn.setPreferredSize(new java.awt.Dimension(60, 60));
         SettBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         SettBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,20 +361,23 @@ public class MenuBarV extends javax.swing.JFrame {
         });
 
         ProVBttn.setBackground(new java.awt.Color(51, 204, 255));
-        ProVBttn.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         ProVBttn.setText("Profile");
         ProVBttn.setBorderPainted(false);
         ProVBttn.setFocusPainted(false);
-        ProVBttn.setPreferredSize(new java.awt.Dimension(90, 90));
+        ProVBttn.setPreferredSize(new java.awt.Dimension(60, 60));
         ProVBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ProVBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProVBttnActionPerformed(evt);
+            }
+        });
 
         DlgListBttn.setBackground(new java.awt.Color(51, 204, 255));
         DlgListBttn.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         DlgListBttn.setText("Dialogue List");
-        DlgListBttn.setBorder(null);
         DlgListBttn.setBorderPainted(false);
         DlgListBttn.setFocusPainted(false);
-        DlgListBttn.setPreferredSize(new java.awt.Dimension(90, 90));
+        DlgListBttn.setPreferredSize(new java.awt.Dimension(60, 60));
         DlgListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DlgListBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,24 +401,25 @@ public class MenuBarV extends javax.swing.JFrame {
         MenuBarPanel.setLayout(MenuBarPanelLayout);
         MenuBarPanelLayout.setHorizontalGroup(
             MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PageTopicContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(MenuBarPanelLayout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18))
-                .addGroup(MenuBarPanelLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PageTitle)
-                    .addGap(110, 110, 110)
-                    .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(21, 21, 21)))
+            .addGroup(MenuBarPanelLayout.createSequentialGroup()
+                .addComponent(PageTopicContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(MenuBarPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PageTitle)
+                .addGap(110, 110, 110)
+                .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
+            .addGroup(MenuBarPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         MenuBarPanelLayout.setVerticalGroup(
             MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,14 +430,13 @@ public class MenuBarV extends javax.swing.JFrame {
                     .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PageTopicContent, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ProVBttn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DlgListBttn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -316,7 +447,7 @@ public class MenuBarV extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MenuBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
+            .addComponent(MenuBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
         );
 
         pack();
@@ -335,15 +466,22 @@ public class MenuBarV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SettBttnActionPerformed
 
+    private void ProVBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProVBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ProVBttnActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+    /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -359,19 +497,20 @@ public class MenuBarV extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuBarV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuBarV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }*/
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuBarV().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DlgHistBttn2;
@@ -387,33 +526,40 @@ public class MenuBarV extends javax.swing.JFrame {
 
     public void setPageTitle(String text) {
         this.PageTitle.setText(text);
-                //= PageTitle;
     }
 
   
+    /** by Aisana (w1775375)
+     * Method used to set up content from other Jframe class(from its Jpanel) to this (menubar content page) thus
+     * menubar window will display components of another page by switching content in jpanel 
+     * @param PageTopicContent - panel from another page from which you want to display the content
+     */
     public void setPageTopicContent(JPanel PageTopicContent) {
-        this.PageTopicContent.removeAll(); //removes
+        this.PageTopicContent.removeAll();
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
         this.PageTopicContent.add(PageTopicContent);
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
-                //= PageTopicContent; 
     }
     
+    /** by Aisana (w1775375)
+     * Method specifically to set up Profile page (to add dlgHistButton to menubarV and make it available to menubar controller)
+     * used to set up content from other Jframe class(from its Jpanel) to this (menubar content page) thus
+     * menubar window will display components of another page by switching content in jpanel 
+     * @param PageTopicContent - panel from another page from which you want to display the content
+     */
     public void setProgPageTopicContent(JPanel PageTopicContent) {
-        this.PageTopicContent.removeAll(); //removes
+        this.PageTopicContent.removeAll(); 
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
         this.PageTopicContent.add(PageTopicContent);
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
         DlgHistBttn2.setBounds(137, 400, 150, 40);
-        //DlgHistBttn2.setLocation(100, 400);
         PageTopicContent.add(DlgHistBttn2);
         PageTopicContent.revalidate();
         PageTopicContent.repaint();
-                //= PageTopicContent; 
     }
 
     
@@ -480,62 +626,11 @@ public class MenuBarV extends javax.swing.JFrame {
         return MenuBarPanel;
     }
     
-    public ArrayList<Icon> getIconsList(){
-            
-        ArrayList<Icon> list= new ArrayList<Icon> ();
-        String path= "/ProVIcon.png";
-        Icon icon1 = createImageIcon(path,"Icon");
-        list.add(icon1);
-
-        path= "/UListIcon.png";
-        icon1 = createImageIcon(path,"Icon");
-        list.add(icon1);
-
-        path= "/DlgIcon.png";
-        icon1 = createImageIcon(path," Icon");
-        list.add(icon1);
-
-
-        path= "/SttngIcon.png";
-        icon1 = createImageIcon(path," Icon");
-        list.add(icon1);
-
-
-        path= "/SupIcon.png";
-        icon1 = createImageIcon(path, " Icon");
-        list.add(icon1);
-
-        return list;
-    }
-    
-    public ArrayList<Icon> getIconsListB(){
-            
-        ArrayList<Icon> list= new ArrayList<Icon> ();
-        String path= "/ProVIconB.png";
-        Icon icon1 = createImageIcon(path,"Icon");
-        list.add(icon1);
-
-        path= "/UListIconB.png";
-        icon1 = createImageIcon(path,"Icon");
-        list.add(icon1);
-
-        path= "/DlgIconB.png";
-        icon1 = createImageIcon(path," Icon");
-        list.add(icon1);
-
-
-        path= "/SttngIconB.png";
-        icon1 = createImageIcon(path," Icon");
-        list.add(icon1);
-
-        return list;
-    }
+   
 
 }
 
-/* Note about menu bar buttons: instead of buttons weuse labels(from swing). The icons can be added there in one quick step.
-for now we leave labels without icons but with text fro distinguishment(plus all labeles' nnames were adjusted for clarity)
-Icons would need some design fix before implementing them, which we will do at the end.
+/* Note about menu bar buttons: instead of buttons we use labels(from swing). The icons will be added to them via code in menuBar controller
 
 Note: may be issue about frame size that need our attention in the future.
 
