@@ -63,16 +63,16 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace pref="159" max="32767" attributes="0"/>
+              <Component id="PageTopicContent" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="PageTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
                   <Component id="SupportBttn" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
               </Group>
-              <Component id="PageTopicContent" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="ProVBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="UListBttn" min="-2" max="-2" attributes="0"/>
@@ -80,7 +80,7 @@
                   <Component id="DlgListBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="SettBttn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
