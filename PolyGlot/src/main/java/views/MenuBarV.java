@@ -32,7 +32,7 @@ public class MenuBarV extends javax.swing.JFrame {
     public MenuBarV() 
     {
         initComponents();
-        setSize(414,667);
+        setSize(430,700);
         setDesign();
         UListBttn.addActionListener(menuC);
         ProVBttn.addActionListener(menuC);
@@ -45,7 +45,7 @@ public class MenuBarV extends javax.swing.JFrame {
     public MenuBarV(MenuBarCont menuC) 
     {
         initComponents();
-        setSize(414,667);
+        setSize(430,700);
         
         menuC.setPage(this);
         
@@ -146,7 +146,7 @@ public class MenuBarV extends javax.swing.JFrame {
      * @param bttn - JButton that you want to set Icon for. Note, there are only options for 5 buttons that are needed for this application
      */
     public void setIcons(JButton bttn){
-        Dimension preferredSize = new Dimension(70,70);
+        Dimension preferredSize = new Dimension(100,100);
         if(bttn.equals(ProVBttn)){
             ProVBttn.removeAll();
             ProVBttn.setText("");
@@ -314,29 +314,29 @@ public class MenuBarV extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(414, 667));
+        setPreferredSize(new java.awt.Dimension(500, 700));
         setResizable(false);
 
         MenuBarPanel.setBackground(new java.awt.Color(153, 153, 153));
-        MenuBarPanel.setPreferredSize(new java.awt.Dimension(414, 667));
+        MenuBarPanel.setPreferredSize(new java.awt.Dimension(450, 680));
 
         PageTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         PageTitle.setForeground(new java.awt.Color(255, 255, 255));
         PageTitle.setText("Page Title");
 
         PageTopicContent.setBackground(new java.awt.Color(255, 255, 255));
-        PageTopicContent.setMinimumSize(new java.awt.Dimension(414, 515));
-        PageTopicContent.setPreferredSize(new java.awt.Dimension(414, 515));
+        PageTopicContent.setMinimumSize(new java.awt.Dimension(450, 515));
+        PageTopicContent.setPreferredSize(new java.awt.Dimension(450, 515));
 
         javax.swing.GroupLayout PageTopicContentLayout = new javax.swing.GroupLayout(PageTopicContent);
         PageTopicContent.setLayout(PageTopicContentLayout);
         PageTopicContentLayout.setHorizontalGroup(
             PageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PageTopicContentLayout.setVerticalGroup(
             PageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 515, Short.MAX_VALUE)
         );
 
         UListBttn.setBackground(new java.awt.Color(51, 204, 255));
@@ -344,15 +344,20 @@ public class MenuBarV extends javax.swing.JFrame {
         UListBttn.setBorder(null);
         UListBttn.setBorderPainted(false);
         UListBttn.setFocusPainted(false);
-        UListBttn.setPreferredSize(new java.awt.Dimension(60, 60));
+        UListBttn.setPreferredSize(new java.awt.Dimension(100, 100));
         UListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        UListBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UListBttnActionPerformed(evt);
+            }
+        });
 
         SettBttn.setBackground(new java.awt.Color(51, 204, 255));
         SettBttn.setText("Settings");
         SettBttn.setBorder(null);
         SettBttn.setBorderPainted(false);
         SettBttn.setFocusPainted(false);
-        SettBttn.setPreferredSize(new java.awt.Dimension(60, 60));
+        SettBttn.setPreferredSize(new java.awt.Dimension(100, 100));
         SettBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         SettBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,7 +369,7 @@ public class MenuBarV extends javax.swing.JFrame {
         ProVBttn.setText("Profile");
         ProVBttn.setBorderPainted(false);
         ProVBttn.setFocusPainted(false);
-        ProVBttn.setPreferredSize(new java.awt.Dimension(60, 60));
+        ProVBttn.setPreferredSize(new java.awt.Dimension(100, 100));
         ProVBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         ProVBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -377,7 +382,7 @@ public class MenuBarV extends javax.swing.JFrame {
         DlgListBttn.setText("Dialogue List");
         DlgListBttn.setBorderPainted(false);
         DlgListBttn.setFocusPainted(false);
-        DlgListBttn.setPreferredSize(new java.awt.Dimension(60, 60));
+        DlgListBttn.setPreferredSize(new java.awt.Dimension(100, 100));
         DlgListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         DlgListBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -402,24 +407,22 @@ public class MenuBarV extends javax.swing.JFrame {
         MenuBarPanelLayout.setHorizontalGroup(
             MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuBarPanelLayout.createSequentialGroup()
-                .addComponent(PageTopicContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(MenuBarPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(159, Short.MAX_VALUE)
                 .addComponent(PageTitle)
                 .addGap(110, 110, 110)
                 .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
+            .addComponent(PageTopicContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(MenuBarPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(16, 16, 16)
                 .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuBarPanelLayout.setVerticalGroup(
             MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,14 +432,14 @@ public class MenuBarV extends javax.swing.JFrame {
                     .addComponent(PageTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PageTopicContent, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PageTopicContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -447,7 +450,7 @@ public class MenuBarV extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(MenuBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
+            .addComponent(MenuBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -469,6 +472,10 @@ public class MenuBarV extends javax.swing.JFrame {
     private void ProVBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProVBttnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ProVBttnActionPerformed
+
+    private void UListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UListBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UListBttnActionPerformed
 
     
     /**
