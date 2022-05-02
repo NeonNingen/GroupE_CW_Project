@@ -32,7 +32,12 @@ public class CardScrollV extends javax.swing.JFrame {
         this.id = id;
         initComponents();
         setSize(414,667);
-        this.CloseBttn.addActionListener(new PerfmDlgCont(this));
+        //this.CloseBttn.addActionListener(new PerfmDlgCont(this));
+        PerfmDlgCont cont = new PerfmDlgCont(this, new SetUpDlgV());
+        this.NextCardBttn.addActionListener(cont);
+        //PerfmDlgCont cont = new PerfmDlgCont(this);
+        //cont.getClick()
+        this.PrevCardBttn.addActionListener(cont);
     }
 
     @SuppressWarnings("unchecked")
@@ -273,8 +278,7 @@ public class CardScrollV extends javax.swing.JFrame {
         setResizable(false);
 
         CardScrollPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        CardScrollPagePanel.setMinimumSize(new java.awt.Dimension(414, 550));
-        CardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 550));
+        CardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 667));
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         CloseBttn.setText("X");
@@ -369,7 +373,7 @@ public class CardScrollV extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CardScrollPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+            .addComponent(CardScrollPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
