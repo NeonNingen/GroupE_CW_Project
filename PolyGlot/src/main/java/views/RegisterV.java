@@ -21,6 +21,9 @@ public class RegisterV extends javax.swing.JFrame {
         this.cancelBttn.addActionListener(new LoginRegisterCont(this));
         this.regBttn.addActionListener(new LoginRegisterCont(this));
         this.supportBttn.addActionListener(new LoginRegisterCont(this));
+        
+        colorRedBttn(cancelBttn, "Cancel");
+        colorWhiteBttn(regBttn, "Register");
     }
     
     public void setNotVisible(JLabel lbl){
@@ -163,6 +166,9 @@ public class RegisterV extends javax.swing.JFrame {
         regBttn.setForeground(new java.awt.Color(93, 150, 234));
         regBttn.setText("Register");
         regBttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+        regBttn.setContentAreaFilled(false);
+        regBttn.setDefaultCapable(false);
+        regBttn.setFocusPainted(false);
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
         cancelBttn.setBackground(new java.awt.Color(238, 105, 94));
@@ -170,6 +176,7 @@ public class RegisterV extends javax.swing.JFrame {
         cancelBttn.setForeground(new java.awt.Color(255, 255, 255));
         cancelBttn.setText("Cancel");
         cancelBttn.setBorderPainted(false);
+        cancelBttn.setContentAreaFilled(false);
         cancelBttn.setFocusPainted(false);
         cancelBttn.setIgnoreRepaint(true);
         cancelBttn.setMinimumSize(new java.awt.Dimension(168, 46));
@@ -315,13 +322,6 @@ public class RegisterV extends javax.swing.JFrame {
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
-
-	this.hiddenErr1.setVisible(false);
-        this.hiddenErr2.setVisible(false);
-        this.hiddenErr3.setVisible(false);
-        this.hiddenErr4.setVisible(false);
-        this.hiddenErr5.setVisible(false);
-        this.hiddenErr6.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -470,7 +470,45 @@ public class RegisterV extends javax.swing.JFrame {
         return hiddenErr6;
     }
 
+    /**Suggested by Aisana(w1775375)
+     * will change button look to be red with white font (important/close or cancel buttons) 
+     * @param bttn - select button the design of which you want to change
+     * @param bttnName - add text to be in that button
+     */
+    public void colorRedBttn(JButton bttn, String bttnName){
+        
+        bttn.setBackground(new java.awt.Color(238, 105, 94));
+        bttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        bttn.setForeground(new java.awt.Color(255, 255, 255));
+        bttn.setText(bttnName);
+        bttn.setContentAreaFilled(true);
+        //bttn.setBorderPainted(false);
+        //bttn.setFocusPainted(false);
+        //bttn.setIgnoreRepaint(true);
+        //bttn.repaint();
+        //bttn.revalidate();
+        //bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+
+    }
     
+    /**Suggested by Aisana(w1775375)
+     * will change button look to be white with blue font
+     * @param bttn - select button the design of which you want to change
+     * @param bttnName - add text to be in that button
+     */
+    public void colorWhiteBttn(JButton bttn, String bttnName){
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setBackground(new java.awt.Color(238,238,238));
+        bttn.setForeground(new java.awt.Color(93, 150, 234));
+
+        bttn.setText(bttnName);
+
+        bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+
+        bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        bttn.setBorderPainted(true);
+        bttn.setContentAreaFilled(true);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
