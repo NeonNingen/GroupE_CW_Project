@@ -77,7 +77,7 @@ public class MenuBarV extends javax.swing.JFrame {
     /** by Aisana (w1775375)
      * Method will be used for selected menu bar button to increase its size and set bigger size icon
      * also includes case for support and dlgHist button click to reset all 4 mennnu bar buttons to enabled
-     * @param bttn 
+     * @param bttn - choose button to which you will want to add an icon(note that with conditions it would only add icon to if button is the same as at menuBarV)
      */
     public void updateIcon(JButton bttn){ // 0- profile, 1- Ulist, 2-DlgLIst, 3-Settings
         Dimension newPrefSize= new Dimension (100,100);
@@ -142,7 +142,7 @@ public class MenuBarV extends javax.swing.JFrame {
     
     
     /** by Aisana (w1775375)
-     * Method will set Icon to a button, depending which button it is, it will choose the right icon (of original size 60x60)
+     * Method will set Icon to a button, depending which button it is, it will choose the right icon with original size 60x60 for unselected button
      * @param bttn - JButton that you want to set Icon for. Note, there are only options for 5 buttons that are needed for this application
      */
     public void setIcons(JButton bttn){
@@ -478,47 +478,6 @@ public class MenuBarV extends javax.swing.JFrame {
     }//GEN-LAST:event_UListBttnActionPerformed
 
     
-    /**
-     * @param args the command line arguments
-     */
-    /*
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-    /*
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuBarV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuBarV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuBarV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuBarV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }*/
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        /*
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuBarV().setVisible(true);
-            }
-        });
-    }*/
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DlgHistBttn2;
     private javax.swing.JButton DlgListBttn;
@@ -637,12 +596,8 @@ public class MenuBarV extends javax.swing.JFrame {
 
 }
 
-/* Note about menu bar buttons: instead of buttons we use labels(from swing). The icons will be added to them via code in menuBar controller
-
-Note: may be issue about frame size that need our attention in the future.
-
+/* Note about menu bar buttons: One icons will have two sizes: 60x60 and 90x90 to set for clicked and unclicked
 [from Aisana]
-
 */
 
 

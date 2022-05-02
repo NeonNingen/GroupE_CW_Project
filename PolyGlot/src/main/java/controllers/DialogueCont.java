@@ -65,10 +65,19 @@ public class DialogueCont implements ActionListener
                     }
                };
 
+    public DialogueCont() {
+
+    }
     
     public DialogueCont(MenuBarV menu) 
     {
         menuV= menu;
+    }
+    
+    public DialogueCont(DlgListV dlgListPage) 
+    {
+        this.dlgListPage = dlgListPage;
+        
     }
     
     public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang) 
@@ -78,52 +87,20 @@ public class DialogueCont implements ActionListener
         dlgMdlClass= dlgModel;
         this.currentLang= lang;
     }
-
-    public DialogueCont(DlgListV dlgListPage) 
+    
+    public DialogueCont(DlgHistV dlgHistPage) 
     {
-        this.dlgListPage = dlgListPage;
-        
+        this.dlgHistPage = dlgHistPage;
     }
 
-    public DialogueCont() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public DialogueCont(SetUpDlgV dlgSetUpPage) 
+    {
+        this.dlgSetUpPage = dlgSetUpPage;
     }
     
-    /** by Aisana (w1775375)
-     * Method is used to add or remove mouse listener when needed using booleans
-     * true - means to add mouse listener, false - means to remove it
-     */
-    public void activateClick(boolean bl){
-        if( dlgListPage.getjTableDlgList().getRowCount()>0){
-            if(bl= true)
-                this.dlgListPage.getjTableDlgList().addMouseListener(mouseLis);//new java.awt.event.MouseAdapter() {
-            else{
-                //this.dlgListPage.getjTableDlgList().removeMouseListener(mouseLis);
-                this.dlgListPage.getjTableDlgList().removeAll();
-            }
-
-                /*@Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    // 1.collect info for the table row
-                    System.out.println("Number of table rows: "+  dlgListPage.getjTableDlgList().getRowCount());
-                    Integer row= dlgListPage.getjTableDlgList().getSelectedRow(); //get row
-                    System.out.println("Selected rows: "+ row);
-                    if(row==null || row==-1){
-                        System.out.println("You've tried to press empty space at the table, please, try again.");
-                        
-                    }else{
-                        currentDlg = dlgList.get(row);
-                        jTableDlgListMouseClicked(evt);}
-
-
-                    
-                }
-            });*/
-        }
+    public void setCurrentLang(String lang){
+        this.currentLang= lang;
     }
-    
-    
-    
     
     /** by Aisana (w1775375)
      * Method triggered when dlg list row is clicked = dlg is chosen
@@ -155,18 +132,19 @@ public class DialogueCont implements ActionListener
     }
     
     
-    public DialogueCont(DlgHistV dlgHistPage) 
-    {
-        this.dlgHistPage = dlgHistPage;
-    }
-
-    public DialogueCont(SetUpDlgV dlgSetUpPage) 
-    {
-        this.dlgSetUpPage = dlgSetUpPage;
-    }
     
-    public void setCurrentLang(String lang){
-        this.currentLang= lang;
+    /** by Aisana (w1775375)
+     * Method is used to add or remove mouse listener when needed using booleans
+     * true - means to add mouse listener, false - means to remove it
+     */
+    public void activateClick(boolean bl){
+        if( dlgListPage.getjTableDlgList().getRowCount()>0){
+            if(bl= true)
+                this.dlgListPage.getjTableDlgList().addMouseListener(mouseLis);//new java.awt.event.MouseAdapter() {
+            else{
+                this.dlgListPage.getjTableDlgList().removeAll();
+            }
+        }
     }
 
     /** by Aisana (w1775375)
@@ -212,82 +190,12 @@ public class DialogueCont implements ActionListener
         dlgListPage.revalidate();
         dlgListPage.setActList(this); // set action listeners once
         
-        activateClick(true);
+        activateClick(true);//turn on mouse listener for making table clickable
     
         
-    }
-    
-    /** by Rafael
-     * 
-     * @param dlgHist
-     * @param dlgModel 
-     */
-    public void setDlgHist(DlgHistV dlgHist, DialogueMDL dlgModel) {
-       dlgHistPage = dlgHist;
-       dlgMdlClass = dlgModel;
-       queryDlghPage();
-
     }
     
     /** by Aisana (w1775375)
-     * Method will store a draft list of dialogues based on query given and display table with filtered dialogue list
-     * @param dlgView - user to reference the same page view that was previously created
-     * @param dlgModel - user to reference the same dialogue model class that was originally created
-     * @param query - a string with specified query, needed to sort database table and return requiered dialogues
-     */
-    public void filterDlgList(DlgListV dlgView, DialogueMDL dlgModel, String query) {
-        //System.out.println("filtering table: lang: "+ currentLang); 
-        filteredList.clear();
-        draftList.clear();
-        draftList = DialogueMDL.queryData(query);
-        
-        int clmnC= 9;
-        int rowC= draftList.size()/clmnC;
-        
-        System.out.println("Check query for filter: "+ draftList.toString());
-        System.out.println("Rows: "+ rowC);
-        System.out.println("Columns: "+ clmnC);
-        String[][] orderList= new String[rowC][clmnC];
-            int count=0;
-            for(int i=0; i<rowC;i++){
-                
-                for(int j=0; j<clmnC;j++){
-                    
-                    orderList[i][j]= draftList.get(count);
-                    count++;
-                    
-                }
-                filteredList.add(new DialogueMDL(orderList[i][0].toString(),orderList[i][1].toString(),orderList[i][2].toString(),
-                                            orderList[i][3].toString(),orderList[i][4].toString(),orderList[i][5].toString(),
-                                            orderList[i][6].toString(),orderList[i][7].toString(),orderList[i][8].toString()));
-                
-                
-            }
-        
-        
-        printDlgList(); // check filtering is correct
-        dlgListPage.generateJTable(rowC, filteredList);
-        dlgListPage.repaint();
-        dlgListPage.revalidate();
-    
-        
-    }
-    
-    
-    
-    /** 
-     * Suggested by Aisana (as addition to menubar)
-     * Use this method to set up dialogue history list and display it into table
-     * note that menuBar controller will refer to this method to initialise dialogue hist list view
-     * Aisana created (as author of menubar), for any issues address her
-     * @param histList
-     * @param Model 
-     */
-    /*public void setDlgHist(DlgHistV histList, DialogueMDL Model){
-        
-    }*/
-    
-    /**
      * Method to write down list of dialogues used for checking at the back end 
      */
     public void printDlgList(){
@@ -297,8 +205,8 @@ public class DialogueCont implements ActionListener
                 System.out.println();
         }
     }
-     
-    /** by Aisana (w1775375)
+    
+     /** by Aisana (w1775375)
      * Method will connect to database and retrieve existing values and store them into comboboxes 
      * that will be used to trigger table filtering
      */
@@ -317,53 +225,21 @@ public class DialogueCont implements ActionListener
         
     }
     
-    /** by Aisana (w1775375)
-     * Method will reset all comboboxes to default row at the page(useful for resting all combboboxes at once)
-     */
-    public void setToOrigin(){
-        this.dlgListPage.getChooseGramCbox().setSelectedIndex(0);
-        this.dlgListPage.getChooseLvlCbox().setSelectedIndex(0);
-        this.dlgListPage.getChooseTopicCbox().setSelectedIndex(0);
-    }
-    
     
     /** by Rafael
      * 
+     * @param dlgHist
+     * @param dlgModel 
      */
-    public void queryDlghPage(){
-        
-        dlgMdlClass.getConnection();
-         ArrayList<String> list = new ArrayList();
-        String query = "SELECT date_completed , dialogue_id FROM Dialogue_Record";
-        list = dlgMdlClass.queryData(query);
-        
-        String[] columnNames = {"Date", "Past Dialogues"};
-        int row = list.size()/columnNames.length;
-        String[][] data = new String[row][columnNames.length];
-        
-        int count = 0;
-        for (int i = 0; i < data.length; i++) 
-        {
-            for (int j = 0; j < columnNames.length; j++) 
-            {
-                data[i][j] = list.get(count);
-                count++;
-            }
-            
-        }
-         DefaultTableModel tableMod = new DefaultTableModel(data, columnNames)
-        {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-                    
-        };
-       
-     dlgHistPage.getDlgHistTable().setModel(tableMod);
+    public void setDlgHist(DlgHistV dlgHist, DialogueMDL dlgModel) {
+       dlgHistPage = dlgHist;
+       dlgMdlClass = dlgModel;
+       queryDlghPage();
+
     }
     
-
+    
+    
     /** by Aisana (w1775375) 
      * tracks actions with comboboxes and reset button 
      * @param e - when comboboxes value is set or reset button is pressed
@@ -386,8 +262,39 @@ public class DialogueCont implements ActionListener
             menuV.show();
         
         }
-        
-
+    }
+    
+    /** by Aisana (w1775375)
+     * Method will check comboboxes selected options for setQuery() method 
+     * and trigger filterDlgList() to filter data and display filtered table
+     * @param str - used to check if user wants to filter or reset comboboxes, write string to be "reset" to reset comboboxes
+     */
+    public void filterTable(String str){
+        System.out.println("Print lang:"+ currentLang);
+        String checkG= (String) dlgListPage.getChooseGramCbox().getSelectedItem();
+        String checkL= (String) dlgListPage.getChooseLvlCbox().getSelectedItem();
+        String checkT= (String) dlgListPage.getChooseTopicCbox().getSelectedItem();
+        if(str.equals("reset")){
+            System.out.println("SETTING TO ORIGIN:");
+            setToOrigin();
+            filterDlgList(this.dlgListPage,this.dlgMdlClass,"SELECT * FROM Dialogue WHERE dialogue_language ='" + currentLang+ "'");
+            
+        }else{
+            System.out.println("PROCEED TO FILTER");
+            String query= setQuery(checkL, checkG, checkT);
+            System.out.println("Query: "+ query);
+            filterDlgList(this.dlgListPage,this.dlgMdlClass,query);
+        }
+            
+    }
+    
+    /** by Aisana (w1775375)
+     * Method will reset all comboboxes to default row at the page(useful for resting all combboboxes at once)
+     */
+    public void setToOrigin(){
+        this.dlgListPage.getChooseGramCbox().setSelectedIndex(0);
+        this.dlgListPage.getChooseLvlCbox().setSelectedIndex(0);
+        this.dlgListPage.getChooseTopicCbox().setSelectedIndex(0);
     }
     
     
@@ -405,38 +312,6 @@ public class DialogueCont implements ActionListener
         }
     }
     
-   
-    /** by Aisana (w1775375)
-     * Method will check comboboxes selected options for setQuery() method 
-     * and trigger filterDlgList() to filter data and display filtered table
-     * @param str - used to check if user wants to filter or reset comboboxes, write string to be "reset" to reset comboboxes
-     */
-    public void filterTable(String str){
-        System.out.println("Print lang:"+ currentLang);
-        String checkG= (String) dlgListPage.getChooseGramCbox().getSelectedItem();
-        String checkL= (String) dlgListPage.getChooseLvlCbox().getSelectedItem();
-        String checkT= (String) dlgListPage.getChooseTopicCbox().getSelectedItem();
-        if(str.equals("reset")){
-            System.out.println("SETTING TO ORIGIN:");
-            //checkG= (String) dlgListPage.getChooseGramCbox().getItemAt(0);
-            //checkL= (String) dlgListPage.getChooseLvlCbox().getItemAt(0);
-            //checkT= (String) dlgListPage.getChooseTopicCbox().getItemAt(0);
-            setToOrigin();
-            filterDlgList(this.dlgListPage,this.dlgMdlClass,"SELECT * FROM Dialogue WHERE dialogue_language ='" + currentLang+ "'");
-            
-        }else{
-            System.out.println("PROCEED TO FILTER");
-            String query= setQuery(checkL, checkG, checkT);
-            System.out.println("Query: "+ query);
-            filterDlgList(this.dlgListPage,this.dlgMdlClass,query);
-        }
-            
-
-        
-        
-            
-    }
-      
     
     /** by Aisana (w1775375)
      * Method used to set up query for a filter based on 3 comboboxes selected values
@@ -499,6 +374,105 @@ public class DialogueCont implements ActionListener
                     
             } 
         return null;
-    }   
+    }  
+     
+    
+    
+    
+    
+    /** by Aisana (w1775375)
+     * Method will store a draft list of dialogues based on query given and display table with filtered dialogue list
+     * @param dlgView - user to reference the same page view that was previously created
+     * @param dlgModel - user to reference the same dialogue model class that was originally created
+     * @param query - a string with specified query, needed to sort database table and return requiered dialogues
+     */
+    public void filterDlgList(DlgListV dlgView, DialogueMDL dlgModel, String query) {
+        filteredList.clear();
+        draftList.clear();
+        draftList = DialogueMDL.queryData(query);
+        
+        int clmnC= 9;
+        int rowC= draftList.size()/clmnC;
+        
+        System.out.println("Check query for filter: "+ draftList.toString());
+        System.out.println("Rows: "+ rowC);
+        System.out.println("Columns: "+ clmnC);
+        String[][] orderList= new String[rowC][clmnC];
+            int count=0;
+            for(int i=0; i<rowC;i++){
+                
+                for(int j=0; j<clmnC;j++){
+                    
+                    orderList[i][j]= draftList.get(count);
+                    count++;
+                    
+                }
+                filteredList.add(new DialogueMDL(orderList[i][0].toString(),orderList[i][1].toString(),orderList[i][2].toString(),
+                                            orderList[i][3].toString(),orderList[i][4].toString(),orderList[i][5].toString(),
+                                            orderList[i][6].toString(),orderList[i][7].toString(),orderList[i][8].toString()));
+                
+                
+            }
+        
+        printDlgList(); // check filtering is correct
+        dlgListPage.generateJTable(rowC, filteredList);
+        dlgListPage.repaint();
+        dlgListPage.revalidate();
+    
+        
+    }
+    
+    
+    
+    /** 
+     * Suggested by Aisana for Rafael(as addition to menubar)
+     * Use this method to set up dialogue history list and display it into table
+     * note that menuBar controller will refer to this method to initialise dialogue hist list view
+     * Aisana created (as author of menubar), for any issues address her
+     * @param histList
+     * @param Model 
+     */
+    /*public void setDlgHist(DlgHistV histList, DialogueMDL Model){
+        
+    }*/
+    
+   
+    /** by Rafael
+     * 
+     */
+    public void queryDlghPage(){
+        
+        dlgMdlClass.getConnection();
+         ArrayList<String> list = new ArrayList();
+        String query = "SELECT date_completed , dialogue_id FROM Dialogue_Record";
+        list = dlgMdlClass.queryData(query);
+        
+        String[] columnNames = {"Date", "Past Dialogues"};
+        int row = list.size()/columnNames.length;
+        String[][] data = new String[row][columnNames.length];
+        
+        int count = 0;
+        for (int i = 0; i < data.length; i++) 
+        {
+            for (int j = 0; j < columnNames.length; j++) 
+            {
+                data[i][j] = list.get(count);
+                count++;
+            }
+            
+        }
+         DefaultTableModel tableMod = new DefaultTableModel(data, columnNames)
+        {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+                    
+        };
+       
+     dlgHistPage.getDlgHistTable().setModel(tableMod);
+    }
+    
+   
  
 }

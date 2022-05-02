@@ -73,7 +73,10 @@ public class MenuBarCont implements ActionListener
         });
     }
 
-    // ? should we do descriptio for actionPerformed?
+   /**
+    * Will trace actions from MenubArV buttons and generate new objects to switch content of the content mage in MenuBarV
+    * @param e 
+    */
     @Override
     public void actionPerformed(ActionEvent e)  // catch buttons clicked from MenuBarV
     {
