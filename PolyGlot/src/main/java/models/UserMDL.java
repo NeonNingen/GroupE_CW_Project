@@ -69,8 +69,8 @@ public class UserMDL extends DatabaseMDL {
      * @Desc: This function allows the user to retrieve info from the database. The user also
      * selects their current choice of language in the database.
      * 
-     * @param user_id
-     * @param langChoice 
+     * @param user_id : String - users unique id
+     * @param langChoice : String - users current choice of language to study
      */
     public void chooseLangdb(String user_id, String langChoice) {
         String SQLlangID = "SELECT langID, langName, progressPoint FROM LangProcess WHERE langName='" + langChoice + "' AND user_id='" + user_id + "';";
@@ -97,8 +97,8 @@ public class UserMDL extends DatabaseMDL {
      * @author: Monesha 
      * @Desc: Update user table. Set their current language to their chosen language
      * 
-     * @param user_id
-     * @param langChoice 
+     * @param user_id: String - users unique id
+     * @param langChoice : String - users current choice of language to study
      */ 
     private void updateUserLang(String user_id, String langChoice) {
         String sqlInput = "UPDATE User SET current_Lang='" + langChoice + "' WHERE user_id = '" + user_id + "';";
@@ -109,8 +109,8 @@ public class UserMDL extends DatabaseMDL {
      * @author: Monesha 
      * @Desc: Creates records for all the languages in the LangProcess application for the user in the database
      * 
-     * @param user_id
-     * @param langList 
+     * @param user_id : String - users unique id
+     * @param langList : ArrayList<String> - Inserts all the languages available in the application
      */
     public void createLangData(String user_id, ArrayList<String> langList) {
         for (int i = 0; i < langList.size(); i++) {
@@ -194,5 +194,4 @@ public class UserMDL extends DatabaseMDL {
     public void setApplang(String applang) {
         this.applang = applang;
     }
-
 }
