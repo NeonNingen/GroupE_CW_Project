@@ -311,6 +311,7 @@ public class CardScrollV extends javax.swing.JFrame {
         roleNameLbl.setPreferredSize(new java.awt.Dimension(20, 16));
 
         PrevCardBttn.setText("previous");
+        PrevCardBttn.setBorder(null);
         PrevCardBttn.setBorderPainted(false);
         PrevCardBttn.setContentAreaFilled(false);
         PrevCardBttn.setPreferredSize(new java.awt.Dimension(110, 90));
