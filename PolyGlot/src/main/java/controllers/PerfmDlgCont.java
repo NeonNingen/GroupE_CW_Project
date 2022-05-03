@@ -14,6 +14,7 @@ import views.SetUpDlgV;
 import views.RatingV;
 import models.DialogueMDL;
 import models.Card;
+import views.MenuBarV;
 import views.ProgV;
 import views.RatingV;
 
@@ -30,6 +31,7 @@ public class PerfmDlgCont implements ActionListener
     private RatingV RatingPage;
     private String lang;
     private String roleName;
+    private MenuBarV menu;
     private int id;
     private long start;
     private long end;
@@ -135,6 +137,7 @@ public class PerfmDlgCont implements ActionListener
        {
            System.out.println("goodbye");
            System.out.println(SetUpDlgPage.getDlgPartnerC().getText());
+           
            SetUpDlgPage.dispose();
            new CardScrollV(this.id, this.SetUpDlgPage, this.dlgCont).show();
        }
@@ -175,6 +178,7 @@ public class PerfmDlgCont implements ActionListener
            
         if(e.getSource() == this.RatingPage.getOkButton()) {
             RatingPage.dispose();
+            
             new ProgV().show();
             
         }
