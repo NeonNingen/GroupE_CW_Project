@@ -238,6 +238,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="nameReg.addFocusListener(new LoginRegisterCont(this));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="SurnameReg">
           <Properties>
@@ -259,6 +262,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="SurnameReg.addFocusListener(new LoginRegisterCont(this));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="emailReg">
           <Properties>
@@ -280,6 +286,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="emailReg.addFocusListener(new LoginRegisterCont(this));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="groupIdSelect">
           <Properties>
@@ -335,6 +344,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="pwdReg1.addFocusListener(new LoginRegisterCont(this));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pwdReg2">
           <Properties>
@@ -356,6 +368,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="pwdReg2.addFocusListener(new LoginRegisterCont(this));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="pwdReg1Lbl">
           <Properties>
@@ -478,6 +493,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="useridReg.addFocusListener(new LoginRegisterCont(this));"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr1">
           <Properties>

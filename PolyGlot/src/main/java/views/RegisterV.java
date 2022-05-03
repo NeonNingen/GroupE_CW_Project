@@ -83,18 +83,21 @@ public class RegisterV extends javax.swing.JFrame {
         nameReg.setForeground(new java.awt.Color(255, 255, 255));
         nameReg.setText("Name");
         nameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        nameReg.addFocusListener(new LoginRegisterCont(this));
 
         SurnameReg.setBackground(new java.awt.Color(135, 178, 240));
         SurnameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         SurnameReg.setForeground(new java.awt.Color(255, 255, 255));
         SurnameReg.setText("Surname");
         SurnameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        SurnameReg.addFocusListener(new LoginRegisterCont(this));
 
         emailReg.setBackground(new java.awt.Color(135, 178, 240));
         emailReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         emailReg.setForeground(new java.awt.Color(255, 255, 255));
         emailReg.setText("Email");
         emailReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        emailReg.addFocusListener(new LoginRegisterCont(this));
 
         groupIdSelect.setForeground(new java.awt.Color(135, 178, 240));
         groupIdSelect.setMinimumSize(new java.awt.Dimension(64, 26));
@@ -111,12 +114,14 @@ public class RegisterV extends javax.swing.JFrame {
         pwdReg1.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg1.setText("jPasswordField1");
         pwdReg1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        pwdReg1.addFocusListener(new LoginRegisterCont(this));
 
         pwdReg2.setBackground(new java.awt.Color(135, 178, 240));
         pwdReg2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         pwdReg2.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg2.setText("jPasswordField2");
         pwdReg2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        pwdReg2.addFocusListener(new LoginRegisterCont(this));
 
         pwdReg1Lbl.setBackground(new java.awt.Color(135, 178, 240));
         pwdReg1Lbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -161,6 +166,7 @@ public class RegisterV extends javax.swing.JFrame {
         useridReg.setForeground(new java.awt.Color(255, 255, 255));
         useridReg.setText("User ID");
         useridReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        useridReg.addFocusListener(new LoginRegisterCont(this));
 
         hiddenErr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 

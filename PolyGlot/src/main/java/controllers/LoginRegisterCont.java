@@ -43,11 +43,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     private MenuBarV menubar;
     private SupportV2 supportPage;
     private SupportV supportMenu;
-//    private int accessrecord_id;
-//    private String user_id;
     private MenuBarCont menuCont;
-    AccessRecordMDL accessRecMDL;
+    private AccessRecordMDL accessRecMDL;
 
+    //Constrcutors
     public LoginRegisterCont(LoginV loginPage) {
         this.loginPage = loginPage;
         this.registerPage = new RegisterV();
@@ -55,12 +54,6 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.accessRecMDL = new AccessRecordMDL();
     }
 
-//    public LoginRegisterCont(SettingV set, MenuBarV menubar) {
-//        this.settingPage = set;
-//        this.userMDL = new UserMDL();
-//        this.menubar = menubar;
-//        this.accessRecMDL = new AccessRecordMDL();
-//    }
     public LoginRegisterCont(SettingV set) {
         this.settingPage = set;
         this.accessRecMDL = new AccessRecordMDL();
@@ -76,7 +69,6 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.settingPage = set;
         this.menubar = menu;
         this.accessRecMDL = accessRC;
-
     }
 
     public LoginRegisterCont(RegisterV reg) {
@@ -360,7 +352,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
         lbl.setVisible(state);
     }
-
+    
     private boolean emptyCheck(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm) {
         this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
         String msgEpty = "Please fill in the necessary info of the form";
@@ -525,20 +517,44 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         return returnValue; //IF TRUE password matches
     }
 
+    
+    private void rmvFocus(JTextField txt){
+        txt.setText("");
+        txt.removeFocusListener(this);
+    }
+    private void rmvFocus(JPasswordField txt){
+        txt.setText("");
+        txt.removeFocusListener(this);
+    }
+    
     @Override
     public void focusGained(FocusEvent e) {
-        if (e.getSource() == loginPage.getuNameLogin()) {
-            loginPage.getuNameLogin().setText("");
-            loginPage.getuNameLogin().removeFocusListener(this);
+        if ((this.loginPage != null)&&(e.getSource() == loginPage.getuNameLogin())) {
+            rmvFocus(loginPage.getuNameLogin());
         }
-
-        if (e.getSource() == loginPage.getPwdLogin()) {
-            loginPage.getPwdLogin().setText("");
-            loginPage.getPwdLogin().removeFocusListener(this);
+        if ((this.loginPage != null)&& (e.getSource() == loginPage.getPwdLogin())) {
+            rmvFocus(loginPage.getPwdLogin());
+        } 
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getNameReg())) {
+            rmvFocus(registerPage.getNameReg());
         }
-
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getSurnameReg())) {
+            rmvFocus(registerPage.getSurnameReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getEmailReg())) {
+            rmvFocus(registerPage.getEmailReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getUseridReg())) {
+            rmvFocus(registerPage.getUseridReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg1())) {
+            rmvFocus(registerPage.getPwdReg1());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg2())) {
+            rmvFocus(registerPage.getPwdReg2());
+        }
     }
-
+    
     @Override
     public void focusLost(FocusEvent e) {
     }
