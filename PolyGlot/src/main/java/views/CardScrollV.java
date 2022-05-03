@@ -113,7 +113,6 @@ public class CardScrollV extends javax.swing.JFrame {
         confBttn.setText("OK");
 
         closedBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIconBlack.png"))); // NOI18N
-        closedBttn.setActionCommand("");
         closedBttn.setBorderPainted(false);
         closedBttn.setContentAreaFilled(false);
         closedBttn.setFocusPainted(false);
@@ -295,7 +294,6 @@ public class CardScrollV extends javax.swing.JFrame {
         cardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 550));
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIconWhite.png"))); // NOI18N
         CloseBttn.setBorderPainted(false);
         CloseBttn.setContentAreaFilled(false);
         CloseBttn.setFocusPainted(false);
@@ -314,6 +312,7 @@ public class CardScrollV extends javax.swing.JFrame {
 
         PrevCardBttn.setText("previous");
         PrevCardBttn.setBorderPainted(false);
+        PrevCardBttn.setContentAreaFilled(false);
         PrevCardBttn.setPreferredSize(new java.awt.Dimension(110, 90));
 
         NextCardBttn.setText("next");
