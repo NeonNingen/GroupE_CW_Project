@@ -5,12 +5,11 @@
 package views;
 
 
+import controllers.DialogueCont;
 import controllers.PerfmDlgCont;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 
@@ -28,16 +27,16 @@ public class CardScrollV extends javax.swing.JFrame {
     /**
      * Creates new form MenuBar
      */
-    public CardScrollV(int id) {
+    public CardScrollV(int id, SetUpDlgV setUpDlgCont, DialogueCont dlgCont) {
         this.id = id;
         initComponents();
         setSize(414,667);
-        //this.CloseBttn.addActionListener(new PerfmDlgCont(this));
-        PerfmDlgCont cont = new PerfmDlgCont(this, new SetUpDlgV());
-        this.NextCardBttn.addActionListener(cont);
+        PerfmDlgCont cont = new PerfmDlgCont(this, setUpDlgCont);
+        NextCardBttn.addActionListener(cont);
         //PerfmDlgCont cont = new PerfmDlgCont(this);
         //cont.getClick()
-        this.PrevCardBttn.addActionListener(cont);
+        PrevCardBttn.addActionListener(cont);
+        CloseBttn.addActionListener(dlgCont);
     }
 
     @SuppressWarnings("unchecked")
@@ -278,11 +277,17 @@ public class CardScrollV extends javax.swing.JFrame {
         setResizable(false);
 
         CardScrollPagePanel.setBackground(new java.awt.Color(204, 204, 204));
-        CardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 667));
+        CardScrollPagePanel.setMinimumSize(new java.awt.Dimension(414, 550));
+        CardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 550));
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         CloseBttn.setText("X");
         CloseBttn.setPreferredSize(new java.awt.Dimension(25, 25));
+        CloseBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseBttnActionPerformed(evt);
+            }
+        });
 
         DlgNameAsTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         DlgNameAsTitle.setText("Dialogue Name");
@@ -329,7 +334,7 @@ public class CardScrollV extends javax.swing.JFrame {
                     .addGroup(CardScrollPagePanelLayout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(roleNameLbl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                         .addComponent(NextCardBttn)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CardScrollPagePanelLayout.createSequentialGroup()
@@ -373,12 +378,16 @@ public class CardScrollV extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(CardScrollPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(CardScrollPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CloseBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CloseBttnActionPerformed
     
     public void setCardTxtDisplayTxtArea(JTextArea CardTxtDisplayTxtArea) {
         this.CardTxtDisplayTxtArea = CardTxtDisplayTxtArea;
@@ -566,7 +575,8 @@ public class CardScrollV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CardScrollV(123).setVisible(true);
+                DialogueCont dlgCont= new DialogueCont();
+                new CardScrollV(123, new SetUpDlgV(), dlgCont).setVisible(true);
             }
         });
     }

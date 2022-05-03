@@ -453,6 +453,9 @@
               <Dimension value="[25, 25]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CloseBttnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="DlgNameAsTitle">
           <Properties>

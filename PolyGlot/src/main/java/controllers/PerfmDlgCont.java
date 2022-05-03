@@ -37,18 +37,11 @@ public class PerfmDlgCont implements ActionListener
     public int click = 1;
     DialogueMDL dialogue;
     Card card;
-
-    public PerfmDlgCont(SetUpDlgV SetUpDlgPage, String lang) 
-    {
-        this.lang = lang;
-        this.SetUpDlgPage = SetUpDlgPage;
-        this.dialogue = new DialogueMDL();
-        this.id = this.SetUpDlgPage.getID();
-        setUpDlg();
-    }
+    DialogueCont dlgCont;
     
-    public PerfmDlgCont(SetUpDlgV SetUpDlgPage) {
+    public PerfmDlgCont(SetUpDlgV SetUpDlgPage, DialogueCont dlgCont) {
         this.SetUpDlgPage = SetUpDlgPage;
+        this.dlgCont = dlgCont;
         this.dialogue = new DialogueMDL();
         this.id = this.SetUpDlgPage.getID();
         setUpDlg();
@@ -143,10 +136,10 @@ public class PerfmDlgCont implements ActionListener
            System.out.println("goodbye");
            System.out.println(SetUpDlgPage.getDlgPartnerC().getText());
            SetUpDlgPage.dispose();
-           new CardScrollV(this.id).show();
+           new CardScrollV(this.id, this.SetUpDlgPage, this.dlgCont).show();
        }
             } catch (Exception e2) {
-            System.out.println(e2);
+            //System.out.println(e2);
         }
         
         try {
@@ -175,7 +168,7 @@ public class PerfmDlgCont implements ActionListener
           
         }
         } catch (Exception e2) {
-            System.out.println(e2);
+            //System.out.println(e2);
         }
            
            try {
@@ -186,7 +179,7 @@ public class PerfmDlgCont implements ActionListener
             
         }
            } catch (Exception e2) {
-            System.out.println(e2);
+            //System.out.println(e2);
         }
         }
        

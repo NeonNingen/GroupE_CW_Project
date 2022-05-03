@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.DialogueMDL;
+import views.CardScrollV;
 import views.DlgHistV;
 import views.DlgListV;
 import views.MenuBarV;
@@ -32,6 +33,7 @@ public class DialogueCont implements ActionListener
     private DlgListV dlgListPage;
     private DlgHistV dlgHistPage;
     private SetUpDlgV dlgSetUpPage;
+    private CardScrollV CardScrollPage;
     private DialogueMDL dlgMdlClass;
     private DialogueMDL currentDlg;
     private SetUpDlgV setUp;
@@ -98,6 +100,11 @@ public class DialogueCont implements ActionListener
         this.dlgSetUpPage = dlgSetUpPage;
     }
     
+    public DialogueCont(CardScrollV CardScrollPage) 
+    {
+        this.CardScrollPage = CardScrollPage;
+    }
+    
     public void setCurrentLang(String lang){
         this.currentLang= lang;
     }
@@ -122,7 +129,7 @@ public class DialogueCont implements ActionListener
             activateClick(false);
             menuV.hide();
             int id = Integer.parseInt(currentDlg.getDlg_id());
-            dlgSetUpPage= new SetUpDlgV(id, currentLang, this);
+            dlgSetUpPage= new SetUpDlgV(id, this);
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
             activateClick(true);
@@ -259,6 +266,11 @@ public class DialogueCont implements ActionListener
             
         }else if((!(dlgSetUpPage==null)) && e.getSource().equals(dlgSetUpPage.getCloseBttn())){
             dlgSetUpPage.dispose();
+            menuV.show();
+            
+        }else if((!(CardScrollPage==null)) && e.getSource().equals(CardScrollPage.getCloseBttn())){
+            System.out.println("hiii");
+            CardScrollPage.dispose();
             menuV.show();
         
         }
