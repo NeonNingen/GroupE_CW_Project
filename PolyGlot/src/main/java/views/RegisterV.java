@@ -171,6 +171,11 @@ public class RegisterV extends javax.swing.JFrame {
         regBttn.setDefaultCapable(false);
         regBttn.setFocusPainted(false);
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        regBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regBttnActionPerformed(evt);
+            }
+        });
 
         cancelBttn.setBackground(new java.awt.Color(238, 105, 94));
         cancelBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -363,6 +368,10 @@ public class RegisterV extends javax.swing.JFrame {
     private void groupIdSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupIdSelectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_groupIdSelectActionPerformed
+
+    private void regBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_regBttnActionPerformed
 
     public JTextField getSurnameReg() {
         return SurnameReg;

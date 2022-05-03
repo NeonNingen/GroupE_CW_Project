@@ -19,6 +19,7 @@ public class SettingV extends javax.swing.JFrame {
         addinglang();
         this.userMDL = userMDL;
         setSelectedLang(userMDL);
+        colorRedBttn(this.logoutBttn, "Logout");
     }
 
 //    public SettingV(MenuBarV menu) {
@@ -77,7 +78,6 @@ public class SettingV extends javax.swing.JFrame {
         logoutBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         logoutBttn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBttn.setText("Logout");
-        logoutBttn.setBorderPainted(false);
         logoutBttn.setPreferredSize(new java.awt.Dimension(193, 56));
 
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
@@ -182,6 +182,23 @@ public class SettingV extends javax.swing.JFrame {
 
     public void setSelectLang(JComboBox<String> selectLang) {
         this.selectLang = selectLang;
+    }
+    
+    public void colorRedBttn(JButton bttn, String bttnName){
+        
+        bttn.setBackground(new java.awt.Color(238, 105, 94));
+        bttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        bttn.setForeground(new java.awt.Color(255, 255, 255));
+        bttn.setText(bttnName);
+        bttn.setContentAreaFilled(true);
+        
+        //bttn.setBorderPainted(false);
+        //bttn.setFocusPainted(false);
+        //bttn.setIgnoreRepaint(true);
+        //bttn.repaint();
+        //bttn.revalidate();
+        //bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+
     }
     
     
