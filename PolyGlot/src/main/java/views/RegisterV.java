@@ -24,6 +24,7 @@ public class RegisterV extends javax.swing.JFrame {
         
         colorRedBttn(cancelBttn, "Cancel");
         colorWhiteBttn(regBttn, "Register");
+        
     }
     
     public void setNotVisible(JLabel lbl){
@@ -178,7 +179,6 @@ public class RegisterV extends javax.swing.JFrame {
         cancelBttn.setBorderPainted(false);
         cancelBttn.setContentAreaFilled(false);
         cancelBttn.setFocusPainted(false);
-        cancelBttn.setIgnoreRepaint(true);
         cancelBttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
         useridReg.setBackground(new java.awt.Color(135, 178, 240));
@@ -317,11 +317,17 @@ public class RegisterV extends javax.swing.JFrame {
         );
 
         hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
-        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
-        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
-        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
-        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
-        hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr1.setVisible(false);
+        hiddenErr2.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr2.setVisible(false);
+        hiddenErr3.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr3.setVisible(false);
+        hiddenErr4.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr4.setVisible(false);
+        hiddenErr5.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr5.setVisible(false);
+        hiddenErr6.setBackground(new java.awt.Color(135, 178, 240));
+        hiddenErr6.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -458,7 +458,6 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="focusPainted" type="boolean" value="false"/>
-            <Property name="ignoreRepaint" type="boolean" value="true"/>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[168, 46]"/>
             </Property>
@@ -495,7 +494,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr1.setVisible(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr2">
@@ -505,7 +504,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr2.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr2.setVisible(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr3">
@@ -515,7 +514,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr3.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr3.setVisible(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr4">
@@ -525,7 +524,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr4.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr4.setVisible(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr5">
@@ -535,7 +534,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr5.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr5.setVisible(false);"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr6">
@@ -545,7 +544,7 @@
             </Property>
           </Properties>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr1.setBackground(new java.awt.Color(135, 178, 240));"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr6.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr6.setVisible(false);"/>
           </AuxValues>
         </Component>
       </SubComponents>

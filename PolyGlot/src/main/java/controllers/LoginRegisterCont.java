@@ -425,7 +425,6 @@ public class LoginRegisterCont implements ActionListener {
                 if (isValidEmail == false) {
                     String msgE1 = "Email not Valid";
                     JOptionPane.showMessageDialog(null, msgE1, "Problem", JOptionPane.ERROR_MESSAGE);
-
                     nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
                     System.out.println(msgE1);
                     return false;
