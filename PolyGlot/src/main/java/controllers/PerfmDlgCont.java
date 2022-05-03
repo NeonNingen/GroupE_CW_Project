@@ -4,16 +4,21 @@
  */
 package controllers;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.lang.Exception;
+import javax.swing.BorderFactory;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 import views.CardScrollV;
 import views.SetUpDlgV;
 import views.RatingV;
 import models.DialogueMDL;
 import models.Card;
+import models.UserMDL;
 import views.MenuBarV;
 import views.ProgV;
 import views.RatingV;
@@ -40,7 +45,15 @@ public class PerfmDlgCont implements ActionListener
     DialogueMDL dialogue;
     Card card;
     DialogueCont dlgCont;
+    UserMDL userMDL;
     
+    /**
+     * Permfm constructor 
+     * Used to construct an instance of the class to be invoked
+     * Designated to SetUpDlgV for the start button
+     * @param SetUpDlgPage - Instance of SetUpDlgV
+     * @param dlgCont - Instance of DialogueCont
+     */
     public PerfmDlgCont(SetUpDlgV SetUpDlgPage, DialogueCont dlgCont) {
         this.SetUpDlgPage = SetUpDlgPage;
         this.dlgCont = dlgCont;
@@ -49,6 +62,13 @@ public class PerfmDlgCont implements ActionListener
         setUpDlg();
     }
     
+    /**
+     * Permfm constructor
+     * Used to construct an instance of the class to be invoked
+     * Designated to CardScrollV for the next and previous buttons
+     * @param CardScrollPage - Instance of CardScrollV
+     * @param SetUpDlgPage - Instance of SetUpDlgPageV
+     */
     public PerfmDlgCont(CardScrollV CardScrollPage, SetUpDlgV SetUpDlgPage) {
         this.start = System.currentTimeMillis();
         this.CardScrollPage = CardScrollPage;
@@ -61,6 +81,13 @@ public class PerfmDlgCont implements ActionListener
         this.time = (end - start) / 1000F;
     }
     
+    /**
+     * Permfm constructor 
+     * Used to construct an instance of the class to be invoked
+     * Designated to RatingV for the ok button
+     * @param RatingPage - Instance of RatingV
+     * @param time: float - Float value for time.
+     */
     public PerfmDlgCont(RatingV RatingPage, float time) {
         this.RatingPage = RatingPage;
         this.dialogue = new DialogueMDL();
@@ -93,6 +120,13 @@ public class PerfmDlgCont implements ActionListener
         return dialogueInfo;
     }
     
+    /*
+     * This method is used to retrieve card details such as
+     * - Card Text
+     * - Card Role
+     * Then @return a String Array of values which allow the cards to be scrolled
+     * 
+    */
     public ArrayList<String> retrieveCardInfo() {
         
         ArrayList<String> cardInfo = new ArrayList<>();
@@ -107,19 +141,71 @@ public class PerfmDlgCont implements ActionListener
         return cardInfo;
     }
     
+    /**
+     * checkUser Function
+     * Used to validate if the user has entered a partner name
+     * and a role is selected.
+     * If not either or one of those things have been done. Return false
+     * otherwise return true.
+     * @return Boolean for validation
+     */
+    private Boolean checkUser() {
+        Boolean realUser;
+        
+            String userName = this.SetUpDlgPage.getDlgPartnerC().getText();
+            Boolean RoleA = this.SetUpDlgPage.getRoleARadBttn().isSelected();
+            Boolean RoleB = this.SetUpDlgPage.getRoleBRadBttn().isSelected();
+            
+            ArrayList<String> dlgName = new ArrayList<>();
+            
+            if(!userName.equals("")) {
+                dlgName = userMDL.queryData(
+                                  "SELECT "
+                                + "user_id "
+                                + "FROM User WHERE "
+                                + "user_name = '" 
+                                + userName + "'");
+            } else {
+                realUser = false;
+            }
+            if(!dlgName.isEmpty()) {
+                if (RoleA==true || RoleB==true) realUser = true; else realUser = false;
+            } else {
+                realUser = false;
+            }
+
+        return realUser;
+    }
+    
+    /**
+     * setUpDlg Method
+     * When the setUpDlg page is used. 
+     * Display the Dialogue Name, Level, Topic and Grammar on the page.
+     */
     private void setUpDlg() {
         this.SetUpDlgPage.getDlgNameC().setText(retrieveDialogueInfo().get(0));
         this.SetUpDlgPage.getDlgLevelC().setText(retrieveDialogueInfo().get(1));
         this.SetUpDlgPage.getDlgTopicC().setText(retrieveDialogueInfo().get(2));
         this.SetUpDlgPage.getDlgGrmmarC().setText(retrieveDialogueInfo().get(3));
-            }
+    }
     
+    /**
+     * cardScroll Method
+     * When the cardScroll page is used. 
+     * Display the Card Text area and Role name on the page. 
+     * Display the card collection in the console 
+     */
     private void cardScroll(int textValue, int roleValue) {
         this.CardScrollPage.getCardTxtDisplayTxtArea().setText(retrieveCardInfo().get(textValue));
         this.CardScrollPage.getRoleNameLbl().setText(retrieveCardInfo().get(roleValue));
         System.out.println(retrieveCardInfo());
     }
     
+    /**
+     * Rating Method
+     * When the Rating page is used. 
+     * Display the Dialogue name, Level and Time taken on the page.
+     */
     private void Rating() {
         this.RatingPage.getDlgC().setText(retrieveDialogueInfo().get(0));
         this.RatingPage.getLvlC().setText(retrieveDialogueInfo().get(1));
@@ -127,27 +213,34 @@ public class PerfmDlgCont implements ActionListener
     }
                 
 
-    // Add action listener to next
-    
+    /**
+     * actionPerformed Method
+     * Used to listen to any buttons pressed in a page.
+     * Then follow up with an action
+     * This method is overwritten with specific actions used per page
+     * @param e - The action event parameter
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
         try {
             if(e.getSource() == this.SetUpDlgPage.getStartDlgBttn())
        {
-           System.out.println("goodbye");
-           System.out.println(SetUpDlgPage.getDlgPartnerC().getText());
-           
-           SetUpDlgPage.dispose();
-           new CardScrollV(this.id, this.SetUpDlgPage, this.dlgCont).show();
+           boolean realUser = checkUser();
+           if (realUser == true) {
+               System.out.println(SetUpDlgPage.getDlgPartnerC().getText());
+               SetUpDlgPage.dispose();
+               new CardScrollV(this.id, this.SetUpDlgPage, this.dlgCont).show();
+           } else {
+               JOptionPane.showMessageDialog(this.SetUpDlgPage, "User is invalid", "INVALID NAME", 0);
+               Border border = BorderFactory.createLineBorder(Color.RED);
+               this.SetUpDlgPage.getDlgPartnerC().setText("");
+           } 
        }
             } catch (Exception e2) {
-            //System.out.println(e2);
         }
         
         try {
-            
-       
        if(e.getSource() == this.CardScrollPage.getNextCardBttn()) {
            try {
                click += 1;
@@ -171,44 +264,16 @@ public class PerfmDlgCont implements ActionListener
           
         }
         } catch (Exception e2) {
-            //System.out.println(e2);
         }
-           
            try {
            
         if(e.getSource() == this.RatingPage.getOkButton()) {
             RatingPage.dispose();
             
             new ProgV().show();
-            
         }
            } catch (Exception e2) {
-            //System.out.println(e2);
         }
         }
-       
-       /*if(e.getSource() == SetUpDlgPage.getCloseBttn())
-       {
-          //Original:
-          //String query ="SELECT * FROM Dialogue WHERE dialogue_language ='" 
-                      // + this.lang + "'";
-          //DialogueCont cont = new DialogueCont();
-          //cont.setDlgList(query);
-          //SetUpDlgPage.dispose();
-          //new DlgListV().show();
-          
-          // Aisana's editing:
-           SetUpDlgPage.dispose();
-           MenuBarCont menuCont= new MenuBarCont();
-            menuCont.setDlgListPage(lang);
-       }*/
-       
-       
-       
-    
-    
-    public int getClick() {
-        return click;
-    }
 
 }

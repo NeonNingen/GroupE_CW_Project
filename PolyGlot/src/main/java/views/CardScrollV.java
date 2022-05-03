@@ -26,9 +26,15 @@ public class CardScrollV extends javax.swing.JFrame {
     
     private int id;
 
-    //test test test
     /**
-     * Creates new form MenuBar
+     * CardScrollV constructor 
+     * Used to construct an instance of the class to be invoked
+     * Designated to PermDlgCont to be instanced as a page in the application
+     * Called by SetUpDlg Action listener in PermDlgCont,
+     * once the start button has been pressed.
+     * @param id: int - The dialogue_id from the dialogue table
+     * @param setUpDlgCont - Instance of SetUpDlgV
+     * @param dlgCont - Instance of dialougeCont
      */
     public CardScrollV(int id, SetUpDlgV setUpDlgCont, DialogueCont dlgCont) {
         this.id = id;
@@ -36,8 +42,6 @@ public class CardScrollV extends javax.swing.JFrame {
         setSize(414,667);
         PerfmDlgCont cont = new PerfmDlgCont(this, setUpDlgCont);
         NextCardBttn.addActionListener(cont);
-        //PerfmDlgCont cont = new PerfmDlgCont(this);
-        //cont.getClick()
         PrevCardBttn.addActionListener(cont);
         CloseBttn.addActionListener(dlgCont);
         setDesign();
@@ -466,9 +470,9 @@ public class CardScrollV extends javax.swing.JFrame {
     
 
     /**
-     *
-     * @param CloseBttn
+     * Setter and Getters for each JSwing Object and Integer object
      */
+    
     public void setCloseBttn(JButton CloseBttn) {
         this.CloseBttn = CloseBttn;
     }

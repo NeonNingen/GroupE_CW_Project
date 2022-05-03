@@ -12,22 +12,26 @@ import javax.swing.*;
 
 /**
  *
- * @author: Zain
+ * @author: Zain & Aisana
  */
 public class SetUpDlgV extends javax.swing.JFrame {
 
     private int id;
     
     /**
-     * Creates new form MenuBar
-     * @param id: int - Dialogue ID
+     * SetUpDlgV constructor 
+     * Used to construct an instance of the class to be invoked
+     * Designated to PermDlgCont and DialogueCont
+     * Instanced by both as a page
+     * @param id: int - The dialogue_id from the dialogue table
+     * @param dlgCont - Instance of dialougeCont
      */
-    
     public SetUpDlgV(int id, DialogueCont dlgCont) {
         this.id = id;
         initComponents();
         setSize(414,667);
         StartDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont));
+        CloseBttn.addActionListener(dlgCont);
         //CloseBttn.addActionListener(new PerfmDlgCont(this, lang));
         CloseBttn.addActionListener(dlgCont);// Not working
         setDesign();
@@ -206,7 +210,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                     .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(SetUpDlgTitle)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         SetUpPagePanelLayout.setVerticalGroup(
             SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +246,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                     .addComponent(RoleBRadBttn))
                 .addGap(105, 105, 105)
                 .addComponent(StartDlgBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         dlgPartnerC.getAccessibleContext().setAccessibleParent(PartnerLbl);
@@ -267,6 +271,10 @@ public class SetUpDlgV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Setter and Getters for each JSwing Object and Integer object
+     */
+    
     public JButton getStartDlgBttn() {
         return StartDlgBttn;
     }

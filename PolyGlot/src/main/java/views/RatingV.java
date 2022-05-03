@@ -21,6 +21,15 @@ public class RatingV extends javax.swing.JFrame {
     private int id;
     private float time;
     
+    /**
+     * RatingV constructor 
+     * Used to construct an instance of the class to be invoked
+     * Designated to PermDlgCont to be instanced as a page in the application
+     * Called by CardScrollV Action listener in PermDlgCont,
+     * Once the next button has been pressed and no more cards are left
+     * @param id: int - The dialogue_id from the dialogue table
+     * @param time: float - Time in float values.
+     */
     public RatingV(int id, float time) {
         this.id = id;
         initComponents();
@@ -232,6 +241,9 @@ public class RatingV extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_OkBttnActionPerformed
 
+    /**
+     * Setter and Getters for each JSwing Object and Integer object
+     */
     
     public void setDlgC(JLabel DlgC) {
         this.DlgC = DlgC;
