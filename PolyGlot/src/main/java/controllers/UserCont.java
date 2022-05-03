@@ -32,7 +32,6 @@ public class UserCont implements ActionListener {
     /**
      * Suggested by Aisana (as addition to menubar) method would need to collect
      * user list and store them into table for student list
-     *
      * @param ulistStd
      * @param userMDL
      */
