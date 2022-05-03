@@ -268,10 +268,9 @@ public class DialogueCont implements ActionListener
             dlgSetUpPage.dispose();
             menuV.show();
             
-        }else if((!(CardScrollPage==null)) && e.getSource().equals(CardScrollPage.getCloseBttn())){
-            CardScrollPage.dispose();
+        }else if(e.getSource().equals(CardScrollPage.getCloseBttn())){ // still need furthe work
+            CardScrollPage.dispose(); // null value as I didn't manage to set up CardScollPage
             menuV.show();
-        
         }
     }
     

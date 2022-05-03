@@ -504,10 +504,29 @@ public class MenuBarV extends javax.swing.JFrame {
         this.PageTopicContent.add(PageTopicContent);
         this.PageTopicContent.revalidate();
         this.PageTopicContent.repaint();
-        DlgHistBttn2.setBounds(137, 400, 150, 40);
+        DlgHistBttn2.setBounds(100, 400, 250, 40);
+        colorWhiteBttn(DlgHistBttn2, "View Dialogue History");
         PageTopicContent.add(DlgHistBttn2);
         PageTopicContent.revalidate();
         PageTopicContent.repaint();
+    }
+    
+    /** by Aisana(w1775375)
+     * will change button look to be white with blue font
+     * @param bttn - select button the design of which you want to change
+     * @param bttnName - add text to be in that button
+     */
+    public void colorWhiteBttn(JButton bttn, String bttnName){
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setBackground(new java.awt.Color(238,238,238));
+        bttn.setForeground(new java.awt.Color(93, 150, 234));
+
+        bttn.setText(bttnName);
+
+        bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+
+        bttn.setBorderPainted(true);
+        bttn.setContentAreaFilled(true);
     }
 
     

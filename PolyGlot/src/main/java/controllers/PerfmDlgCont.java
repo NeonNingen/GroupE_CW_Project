@@ -270,7 +270,7 @@ public class PerfmDlgCont implements ActionListener
         if(e.getSource() == this.RatingPage.getOkButton()) {
             RatingPage.dispose();
             
-            new ProgV().show();
+            new ProgV().show();  // here you need menuBarV, not progV...
         }
            } catch (Exception e2) {
         }

@@ -158,10 +158,10 @@ public class SetUpDlgV extends javax.swing.JFrame {
         dlgNameC.setText("Dialogue Name");
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIconBlack.png"))); // NOI18N
-        CloseBttn.setBorder(null);
+        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIconBlack.png"))); // NOI18N
         CloseBttn.setBorderPainted(false);
         CloseBttn.setContentAreaFilled(false);
+        CloseBttn.setFocusPainted(false);
         CloseBttn.setPreferredSize(new java.awt.Dimension(25, 25));
 
         javax.swing.GroupLayout SetUpPagePanelLayout = new javax.swing.GroupLayout(SetUpPagePanel);
@@ -210,7 +210,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                     .addGroup(SetUpPagePanelLayout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(SetUpDlgTitle)))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         SetUpPagePanelLayout.setVerticalGroup(
             SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +246,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
                     .addComponent(RoleBRadBttn))
                 .addGap(105, 105, 105)
                 .addComponent(StartDlgBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         dlgPartnerC.getAccessibleContext().setAccessibleParent(PartnerLbl);
