@@ -1,10 +1,6 @@
-/*
-Contains all database methods
- */
 package models;
 
 import java.util.ArrayList;
-import views.ProgV;
 
 
 public class UserMDL extends DatabaseMDL
