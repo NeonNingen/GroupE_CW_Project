@@ -13,6 +13,10 @@ public class LoginV extends javax.swing.JFrame {
         loginBttn.addActionListener(new LoginRegisterCont(this));
         registerBttn.addActionListener(new LoginRegisterCont(this));
         supportBttn.addActionListener(new LoginRegisterCont(this));
+        
+        uNameLogin.addFocusListener(new LoginRegisterCont(this));
+        pwdLogin.addFocusListener(new LoginRegisterCont(this));
+        
         //loginBttnRedirect();
         setDesign();
         colorWhiteBttn(this.loginBttn,"Sign In");
@@ -228,4 +232,8 @@ public class LoginV extends javax.swing.JFrame {
     private javax.swing.JButton supportBttn;
     private javax.swing.JTextField uNameLogin;
     // End of variables declaration//GEN-END:variables
+
+    public void setControllers(LoginRegisterCont contr) {
+        
+    }
 }

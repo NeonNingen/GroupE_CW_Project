@@ -4,6 +4,8 @@ package controllers;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -32,7 +34,7 @@ import views.SettingV;
 import views.SupportV;
 import views.SupportV2;
 
-public class LoginRegisterCont implements ActionListener {
+public class LoginRegisterCont implements ActionListener, FocusListener {
 
     private LoginV loginPage;
     private ProgV profilePage;
@@ -69,6 +71,8 @@ public class LoginRegisterCont implements ActionListener {
     public LoginRegisterCont(UserMDL user) 
     {
         this.userMDL = user;
+        this.accessRecMDL = new AccessRecordMDL();
+        //this.loginPage = new LoginV();
     }
     
     public void setAccRec(SettingV set, MenuBarV menu, AccessRecordMDL accessRC) {
@@ -116,7 +120,7 @@ public class LoginRegisterCont implements ActionListener {
      */
     public void startApp()
     {
-        LoginV loginPage = new LoginV();
+        loginPage = new LoginV();
         loginPage.show();
     }
     
@@ -534,6 +538,28 @@ public class LoginRegisterCont implements ActionListener {
         String newSecurePWD = generateSecurePwd(providedPwd, sameSalt);
         returnValue = newSecurePWD.equalsIgnoreCase(storedPWD);
         return returnValue; //IF TRUE password matches
+    }
+
+    @Override
+    public void focusGained(FocusEvent e) 
+    {
+        if(e.getSource() == loginPage.getuNameLogin())
+        {
+            loginPage.getuNameLogin().setText("");
+            loginPage.getuNameLogin().removeFocusListener(this);
+        }
+        
+        if(e.getSource() == loginPage.getPwdLogin())
+        {
+            loginPage.getPwdLogin().setText("");
+            loginPage.getPwdLogin().removeFocusListener(this);
+        }
+            
+    }
+
+    @Override
+    public void focusLost(FocusEvent e) 
+    {
     }
 
     
