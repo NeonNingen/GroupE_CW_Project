@@ -1,4 +1,3 @@
-
 package views;
 
 import controllers.LoginRegisterCont;
@@ -13,19 +12,19 @@ import javax.swing.JTextField;
 public class RegisterV extends javax.swing.JFrame {
 
     ArrayList<String> groupList = new ArrayList<String>();
-   
+
     public RegisterV() {
         initComponents();
         this.cancelBttn.addActionListener(new LoginRegisterCont(this));
         this.regBttn.addActionListener(new LoginRegisterCont(this));
         this.supportBttn.addActionListener(new LoginRegisterCont(this));
     }
-   
+
     /**
      * @author: Monesha
      * @Description: Adds the group ids manually (usually provided by Uni)
      */
-    public void addGroups(){
+    public void addGroups() {
         this.groupList = new ArrayList<String>();
         groupList.add("5COSSpanish1");
         groupList.add("5COSSpanish2");
@@ -37,7 +36,7 @@ public class RegisterV extends javax.swing.JFrame {
             groupIdSelect.addItem(groupList.get(i));
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -384,27 +383,31 @@ public class RegisterV extends javax.swing.JFrame {
         return hiddenErr6;
     }
 
-    /**Suggested by Aisana(w1775375)
-     * will change button look to be red with white font (important/close or cancel buttons) 
+    /**
+     * Suggested by Aisana(w1775375) will change button look to be red with
+     * white font (important/close or cancel buttons)
+     *
      * @param bttn - select button the design of which you want to change
      * @param bttnName - add text to be in that button
      */
-    public void colorRedBttn(JButton bttn, String bttnName){
+    public void colorRedBttn(JButton bttn, String bttnName) {
         bttn.setBackground(new java.awt.Color(238, 105, 94));
         bttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         bttn.setForeground(new java.awt.Color(255, 255, 255));
         bttn.setText(bttnName);
         bttn.setContentAreaFilled(true);
     }
-    
-    /**Suggested by Aisana(w1775375)
-     * will change button look to be white with blue font
+
+    /**
+     * Suggested by Aisana(w1775375) will change button look to be white with
+     * blue font
+     *
      * @param bttn - select button the design of which you want to change
      * @param bttnName - add text to be in that button
      */
-    public void colorWhiteBttn(JButton bttn, String bttnName){
+    public void colorWhiteBttn(JButton bttn, String bttnName) {
         bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        bttn.setBackground(new java.awt.Color(238,238,238));
+        bttn.setBackground(new java.awt.Color(238, 238, 238));
         bttn.setForeground(new java.awt.Color(93, 150, 234));
         bttn.setText(bttnName);
         bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));

@@ -23,12 +23,12 @@ public class SettingV extends javax.swing.JFrame {
     }
 
     /**
-     * @author: Monesha (w1719240)
-     * This function passes all the action events (of this page) to be processed to the LoginRegisterCont
-     * @param logCont 
+     * @author: Monesha (w1719240) This function passes all the action events
+     * (of this page) to be processed to the LoginRegisterCont
+     * @param logCont
      */
     public void setContListener(LoginRegisterCont logCont) {
-        this.getLogoutBttn().addActionListener(logCont); 
+        this.getLogoutBttn().addActionListener(logCont);
         this.getSelectLang().addActionListener(logCont);
     }
 
@@ -120,11 +120,11 @@ public class SettingV extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     /**
-     * @author: Monesha (w1719240)
-     * This function allows the user to set the selected language in JComboBox to a specific language
-     * @param userMDL 
+     * @author: Monesha (w1719240) This function allows the user to set the
+     * selected language in JComboBox to a specific language
+     * @param userMDL
      */
     public void setSelectedLang(UserMDL userMDL) {
         getSelectLang().setSelectedItem(userMDL.getApplang());
@@ -132,8 +132,8 @@ public class SettingV extends javax.swing.JFrame {
 
     //Populating The langList
     /**
-     * @author: Monesha (w1719240)
-     * This function populates the language list(langList)
+     * @author: Monesha (w1719240) This function populates the language
+     * list(langList)
      */
     private void addinglang() {
         //ArrayList<String> langList = new UserMDL().getLangList();
