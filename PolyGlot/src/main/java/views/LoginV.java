@@ -15,6 +15,7 @@ public class LoginV extends javax.swing.JFrame {
         supportBttn.addActionListener(new LoginRegisterCont(this));
         //loginBttnRedirect();
         setDesign();
+        colorWhiteBttn(this.loginBttn,"Sign In");
     }
     public void setDesign(){
         //set background panel to blue
@@ -86,6 +87,8 @@ public class LoginV extends javax.swing.JFrame {
         loginBttn.setFont(new java.awt.Font("Dialog", 0, 19)); // NOI18N
         loginBttn.setForeground(new java.awt.Color(93, 150, 234));
         loginBttn.setText("Sign In");
+        loginBttn.setBorderPainted(false);
+        loginBttn.setContentAreaFilled(false);
         loginBttn.setPreferredSize(new java.awt.Dimension(163, 51));
 
         registerBttn.setBackground(new java.awt.Color(135, 178, 240));
@@ -203,7 +206,19 @@ public class LoginV extends javax.swing.JFrame {
         this.uNameLogin = uNameLogin;
     }
     
-    
+    public void colorWhiteBttn(JButton bttn, String bttnName){
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setBackground(new java.awt.Color(238,238,238));
+        bttn.setForeground(new java.awt.Color(93, 150, 234));
+
+        bttn.setText(bttnName);
+
+        bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+
+        bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        bttn.setBorderPainted(true);
+        bttn.setContentAreaFilled(true);
+    }
     
     
     /**

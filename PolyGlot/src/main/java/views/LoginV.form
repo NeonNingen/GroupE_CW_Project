@@ -215,6 +215,8 @@
               <Color blue="ea" green="96" red="5d" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Sign In"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[163, 51]"/>
             </Property>
