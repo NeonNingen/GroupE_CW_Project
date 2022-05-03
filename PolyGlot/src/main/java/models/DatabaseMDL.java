@@ -1,5 +1,7 @@
 package models;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -8,13 +10,16 @@ import javax.swing.JOptionPane;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  * This class is used to:
  * - Download SQLite Driver.
@@ -256,16 +261,16 @@ public class DatabaseMDL {
      * @param vocab: String - Vocab for each card.
      * @param dial_id: int - Dialogue ID.
      */
-    public static void insertTable(int card_id, int points, String role,
-                                   String text, String order, String vocab,
-                                   int dial_id) {
+    public static void insertTable(String card_id, int points, String role,
+                                   String text, int order, String vocab,
+                                   String dial_id) {
         
         updateTable("INSERT INTO Card (card_id, card_points, "
                          + "card_role, card_text, card_order, "
                          + "card_vocab, dialogue_id) VALUES "
-                         + "(" + card_id + "," + points + ",'" + role 
-                         + "','" + text + "','" + order 
-                         + "','" + vocab + "'," + dial_id + ")");
+                         + "('" + card_id + "'," + points + ",'" + role 
+                         + "','" + text + "'," + order 
+                         + ",'" + vocab + "','" + dial_id + "')");
     }
     
     /**
@@ -280,7 +285,7 @@ public class DatabaseMDL {
      * @param completed: int - The amount of dialogue's completed.
      * @param lang: String - Language of the dialogue.
      */
-    public static void insertTable(int dial_id, String name, String topic,
+    public static void insertTable(String dial_id, String name, String topic,
                                    String lvl, String grammar, int points,
                                    String state, int completed, 
                                    String lang) {
@@ -289,7 +294,7 @@ public class DatabaseMDL {
                          + "dialogue_topic, dialogue_lvl, dialogue_grammar, "
                          + "dialogue_points, dialogue_state, "
                          + "dialogue_completed, dialogue_language) VALUES "
-                         + "(" + dial_id + ",'" + name + "','" + topic 
+                         + "('" + dial_id + "','" + name + "','" + topic 
                          + "','" + lvl + "','" + grammar 
                          + "'," + points + ",'" + state + "'," 
                          + completed + ",'" + lang + "')");
@@ -580,6 +585,172 @@ public class DatabaseMDL {
         }
         }
     
+    public static void readDlgDatabase()
+    {    
+        try 
+        {
+            FileInputStream fstream = new FileInputStream(".\\src\\main\\resources\\databaseFile\\Workbook with Conversations for Computer Science - Database.csv");
+          
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            
+            
+            String strLine;
+            ArrayList list = new ArrayList();
+            //ArrayList idChecker = new ArrayList();
+            
+            int count = 0;
+            while ((strLine = br.readLine()) != null ) 
+            {  
+                list.add(strLine);
+                count++;
+                
+            }
+            
+            list.remove(0); //removes the row with column names
+            Iterator itr;
+            
+            String dlgID;
+            int id=0;
+            
+            for (itr = list.iterator(); itr.hasNext();) 
+            {
+                dlgID = "SPN";
+                id++;
+                String str = itr.next().toString();
+                //System.out.println(str);
+                
+                String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                String dlgLvl = splitSt[0];
+                String dlgContext = splitSt[1];
+                String dlgSubCont = splitSt[2];
+                String dlgGramm = splitSt[3].replace("\"", "");
+                
+                
+                String dlgCode = String.format("%04d", id);
+                dlgID = dlgID.concat(dlgCode);
+                
+                insertTable(dlgID, dlgContext, dlgSubCont, dlgLvl, dlgGramm, 5, "incomplete", 0, "Spanish");
+
+            }
+            fstream.close();
+            
+        }
+        catch (IOException ex) 
+        {
+            System.out.println("Error reading file");
+            Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public static void readCardDatabase()
+    {    
+        try 
+        {
+            FileInputStream fstream = new FileInputStream(".\\src\\main\\resources\\databaseFile\\Workbook with Conversations for Computer Science - Conversations.csv");
+          
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+            String strLine;
+            ArrayList list = new ArrayList();
+            
+            int count = 0;
+            while ((strLine = br.readLine()) != null ) 
+            {  
+                list.add(strLine);
+                //count++;
+            }
+            
+            list.remove(0); //removes the row with column names
+            Iterator itr;
+            
+            int card_order = 0;
+            String cardID = "";
+            String dlgID = "";
+            int id_dlg = 0;
+            int id_card = 0;
+            int card_points = 0;
+            
+            for (itr = list.iterator(); itr.hasNext();) 
+            {
+                String str = itr.next().toString();
+                String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+   
+                if (!str.equals(",,,,,,,,,,,,")) 
+                {
+                    if (!splitSt[0].equals("")) 
+                    {
+                        String level = splitSt[0];
+                        switch (level) 
+                        {
+                            case "A1":
+                                card_points = 10;
+                                break;
+
+                            case "A2":
+                                card_points = 14;
+                                break;
+
+                            case "B1":
+                                card_points = 20;
+                                break;
+
+                            case "B2":
+                                card_points = 25;
+                                break;
+
+                            case "C1":
+                                card_points = 28;
+                                break;
+
+                            case "C2":
+                                card_points = 42;
+                                break;
+
+                        }
+
+                        id_dlg++;
+                        dlgID = "SPN";
+                        String dlgCode = String.format("%04d", id_dlg);
+                        dlgID = dlgID.concat(dlgCode);
+                        card_order = 0;
+                        
+                    } 
+                    else 
+                    {
+                        id_card++;
+                        card_order++;
+                        
+                        cardID = dlgID + "_CRD" + String.format("%04d", id_card);
+                        
+                        String role = splitSt[3];
+                        String card_text = splitSt[4].replace("\"", "");
+                        String card_vocab = splitSt[12];
+
+                        if (card_vocab.equals("/")) 
+                            card_vocab = "";
+
+                        insertTable(cardID, card_points, role, card_text, card_order, card_vocab, dlgID);
+
+                    }
+
+                }
+            }
+            in.close();
+            br.close();
+            fstream.close();
+            
+        }
+        catch (IOException ex) 
+        {
+            System.out.println("Error reading file");
+            Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     /**
      * main
      * Executes this file's code to the console.
@@ -588,10 +759,12 @@ public class DatabaseMDL {
     public static void main(String[] args) throws FileNotFoundException {
         Connect connect = new Connect();
         File f = new File(".\\polyLang.db");
-        if (f.length() == 0) {
-            createTable();
-            insertDefault();
-        }
+        readDlgDatabase();
+        readCardDatabase();
+//        if (f.length() == 0) {
+//            createTable();
+//            insertDefault();
+//        }
     }
 
 }
