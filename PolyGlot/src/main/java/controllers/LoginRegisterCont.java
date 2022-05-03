@@ -1,4 +1,3 @@
-
 package controllers;
 
 import java.awt.Color;
@@ -62,69 +61,67 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 //        this.menubar = menubar;
 //        this.accessRecMDL = new AccessRecordMDL();
 //    }
-    
     public LoginRegisterCont(SettingV set) {
         this.settingPage = set;
         this.accessRecMDL = new AccessRecordMDL();
     }
 
-    public LoginRegisterCont(UserMDL user) 
-    {
+    public LoginRegisterCont(UserMDL user) {
         this.userMDL = user;
         this.accessRecMDL = new AccessRecordMDL();
         //this.loginPage = new LoginV();
     }
-    
+
     public void setAccRec(SettingV set, MenuBarV menu, AccessRecordMDL accessRC) {
         this.settingPage = set;
         this.menubar = menu;
         this.accessRecMDL = accessRC;
-        
+
     }
-    
+
     public LoginRegisterCont(RegisterV reg) {
         this.registerPage = reg;
         this.userMDL = new UserMDL();
         this.accessRecMDL = new AccessRecordMDL();
     }
 
-    public LoginRegisterCont() 
-    {
-        
+    public LoginRegisterCont() {
+
     }
-    
+
     /**
-     * suggested by Aiasana
-     * method to set/reference up view and model for profile page
+     * suggested by Aiasana method to set/reference up view and model for
+     * profile page
+     *
      * @param login
-     * @param prog 
+     * @param prog
      */
-    public void setProgClasses(LoginV login, ProgV prog)
-    {
-        this.loginPage=login;
-        this.profilePage=prog;
+    public void setProgClasses(LoginV login, ProgV prog) {
+        this.loginPage = login;
+        this.profilePage = prog;
     }
+
     /**
-     * Suggested by Aisana [feedback]
-     * method that will retrieve specific user based on login view input
-     * 
+     * Suggested by Aisana [feedback] method that will retrieve specific user
+     * based on login view input
+     *
      */
 //    public UserMDL getUserInfo(){ 
 //        return userMDL;
 //    }
-    
+
     /**
-     * Suggested by Aisana (for main and menubar functionalities)
-     * Method will begin app with a specific userMDL
-     * @param user  - reference for user model object
+     * Suggested by Aisana (for main and menubar functionalities) Method will
+     * begin app with a specific userMDL
+     *
+     * @param user - reference for user model object
      */
-    public void startApp()
-    {
+    public void startApp() {
         loginPage = new LoginV();
         loginPage.show();
     }
-    
-    public void setSmallSupport(SupportV support){
+
+    public void setSmallSupport(SupportV support) {
         this.supportMenu = support;
     }
 
@@ -132,7 +129,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     //These are small methods that triggers an action made by user
     //Events get activated when user is choosing a language in Setting page
     public void choosingLang(ActionEvent e) {
-        if (!(this.settingPage == null) && e.getSource()== this.settingPage.getSelectLang()) {
+        if (!(this.settingPage == null) && e.getSource() == this.settingPage.getSelectLang()) {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
             System.out.println("User choose language: " + langChoice);
             //this.settingPage.changeLangOrder(langChoice);
@@ -141,12 +138,12 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
             this.userMDL.setApplang(langChoice);
             settingPage.setSelectedLang(this.userMDL);
             userMDL.chooseLangdb(userMDL.getUserID(), langChoice);
-            
+
         }
-    } 
+    }
 
     //Events get activated when user is pressing on the help button in login/ register page
-    public void actionPermHelp(ActionEvent e){
+    public void actionPermHelp(ActionEvent e) {
         this.supportPage = new SupportV2();
         if ((this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn())) {
             this.registerPage.dispose();
@@ -164,9 +161,9 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         choosingLang(e);
         actionPermHelp(e);
         String buttonAction = e.getActionCommand();
-        
+
         switch (buttonAction) {
-            case "Sign In": 
+            case "Sign In":
                 String username = loginPage.getuNameLogin().getText();
                 if (username.equals("w185") || username.equals("w5")) {
                     openPage2(username);
@@ -188,7 +185,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                         Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-                
+
                 break;
 
             case "Register":
@@ -205,14 +202,14 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                     this.registerPage.setVisible(true);
                 }
                 break;
-                
+
             case "Logout":
-                System.out.println(userMDL.getUserID()+ " : " + accessRecMDL.getAccessRecord_id());
+                System.out.println(userMDL.getUserID() + " : " + accessRecMDL.getAccessRecord_id());
                 accessRecMDL.setLogoutTime(accessRecMDL.getAccessRecord_id(), userMDL.getUserID());
                 menubar.dispose();
                 new LoginV().show();
                 break;
-                
+
             case "Cancel":
                 this.registerPage.dispose();
                 this.loginPage = new LoginV();
@@ -221,32 +218,27 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         }
     }
 
-    
-    
-    private ArrayList<String> checkUser() throws NoSuchAlgorithmException 
-    {
+    private ArrayList<String> checkUser() throws NoSuchAlgorithmException {
         Boolean userExist = false;
         String username = loginPage.getuNameLogin().getText();
         String pswd = loginPage.getPwdLogin().getText();
-        
+
         ArrayList<String> result = new ArrayList<>();
-        if(!pswd.equals("") && !pswd.equals("password"))
-        {
+        if (!pswd.equals("") && !pswd.equals("password")) {
             userMDL.getConnection();
             String queryPswd
                     = "SELECT user_pswd FROM User WHERE user_id = '" + username + "'";
 
             ArrayList<String> resultPswd = userMDL.queryData(queryPswd);
 
-            if(!resultPswd.isEmpty())
-            {
+            if (!resultPswd.isEmpty()) {
 //                String query
 //                        = "SELECT * FROM User WHERE user_email= '" + username + "'"
 //                        + " AND user_pswd = '" + resultPswd.get(0) + "'";
 //
 //                result = userMDL.queryData(query);
                 String storedPswd = resultPswd.get(0);
-                
+
                 if (isValidPwd(pswd, storedPswd) == true) {
                     System.out.println("yahooo");
                     //retrieve sql query
@@ -256,19 +248,17 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
                     result = userMDL.queryData(query);
                 }
-                
+
             }
-            
-        }
-        else
+
+        } else {
             result = new ArrayList<>();
-        
-        
+        }
+
         return result;
     }
-    
-    private void openPage(ArrayList<String> userDetails) 
-    {
+
+    private void openPage(ArrayList<String> userDetails) {
         String userID = userDetails.get(0);
         String uName = userDetails.get(1);
         String uSurname = userDetails.get(2);
@@ -278,99 +268,95 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         String groupID = userDetails.get(9);
         String appLang = userDetails.get(11);
         int uProgPoints = Integer.parseInt(userDetails.get(6));
-        
+
         this.userMDL = new UserMDL(uName, uSurname, uEmail, langLvl, uProgPoints, uType, userID, groupID, appLang);
 
         accessRecMDL.setLoginTime(userMDL.getUserID());
         accessRecMDL.storeAccessRecord(userMDL.getUserID());
-        
+
         loginPage.dispose();
         MenuBarCont menuCont = new MenuBarCont(userMDL, accessRecMDL);
-        
-        MenuBarV menu = new MenuBarV(menuCont); 
-        menuCont.activateBttn(menu.getProVBttn(), menu.getUListBttn(),menu.getDlgListBttn(), menu.getSettBttn());
+
+        MenuBarV menu = new MenuBarV(menuCont);
+        menuCont.activateBttn(menu.getProVBttn(), menu.getUListBttn(), menu.getDlgListBttn(), menu.getSettBttn());
         menu.setPageTitle("Profile");
         menu.setProgPageTopicContent(new ProgV(userMDL).getProgViewContent());
         menu.show();
     }
 
     //temp method for login
-    private void openPage2(String username) 
-    {
+    private void openPage2(String username) {
         ArrayList<String> result = new ArrayList<>();
         String query
-                            = "SELECT * FROM User WHERE user_id= '" + username + "'";
+                = "SELECT * FROM User WHERE user_id= '" + username + "'";
 
-         result = userMDL.queryData(query);
-         openPage(result);
+        result = userMDL.queryData(query);
+        openPage(result);
     }
-    
+
     //Methods by Monesha
     //It validates the inputs entered by User
-    public void registerUser(ActionEvent e) throws NoSuchAlgorithmException 
-    {
+    public void registerUser(ActionEvent e) throws NoSuchAlgorithmException {
         String uName = registerPage.getNameReg().getText().trim().toLowerCase();
         String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
         String uEmail = registerPage.getEmailReg().getText().trim();
         String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
         String userID = registerPage.getUseridReg().getText().trim().toLowerCase();
-        
+
         String uPwd = registerPage.getPwdReg1().getText();
         String uPwdConfirm = registerPage.getPwdReg2().getText();
-        
+
         boolean selectTermCond = registerPage.getTermsCond().isSelected();
-        
-        if (checkRegData(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) 
-        {
+
+        if (checkRegData(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) {
             String currentUserID = userID;
             this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup, "Student");
-            
-            String salt = getSalt(getRandomInteger(16,40));
+
+            String salt = getSalt(getRandomInteger(16, 40));
             String secure_pwd = generateSecurePwd(uPwd, salt);
             userMDL.insertRegDets(userID, uName, uSurname, uEmail, uGroup, secure_pwd);
-            
+
             accessRecMDL.setLoginTime(userMDL.getUserID());
             accessRecMDL.storeAccessRecord(userMDL.getUserID());
-            
+
             this.registerPage.dispose();
 
-            
-            MenuBarCont menuC = new MenuBarCont(userMDL,accessRecMDL); //added by Amit (start)
+            MenuBarCont menuC = new MenuBarCont(userMDL, accessRecMDL); //added by Amit (start)
             MenuBarV menu = new MenuBarV(menuC);
-            menuC.activateBttn( menu.getSettBttn(),menu.getProVBttn(), menu.getUListBttn(),menu.getDlgListBttn());
-            SettingV setting= new SettingV(userMDL);
+            menuC.activateBttn(menu.getSettBttn(), menu.getProVBttn(), menu.getUListBttn(), menu.getDlgListBttn());
+            SettingV setting = new SettingV(userMDL);
             this.settingPage = setting;
             setAccRec(settingPage, menu, accessRecMDL);
             setting.setContListener(this); //added by Amit (end)
-            userMDL.createLangData(currentUserID,  settingPage.getLangList());
-            
+            userMDL.createLangData(currentUserID, settingPage.getLangList());
+
             menu.setPageTitle("Setting");
             menu.setPageTopicContent(settingPage.getSettingContent());
             menu.setVisible(true);
         }
     }
-    
+
     //Checks if the userid is unique
-    private boolean uniqueID(String userID){
+    private boolean uniqueID(String userID) {
         ArrayList<String> result;
-        String query = "SELECT user_id FROM User WHERE user_id = '" + userID+"'";
+        String query = "SELECT user_id FROM User WHERE user_id = '" + userID + "'";
         result = accessRecMDL.queryData(query);
- 
-        if(!result.isEmpty()){
+
+        if (!result.isEmpty()) {
             System.out.println("user_id already used. Choose another user id");
             return false;
-        }else{
+        } else {
             System.out.println("User id is unique");
             return true;
         }
     }
 
-   
-    private void nameErrMsg( JTextField txt, JLabel lbl, Color color, Boolean state){
+    private void nameErrMsg(JTextField txt, JLabel lbl, Color color, Boolean state) {
         txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
         lbl.setVisible(state);
     }
-    private void nameErrMsg( JPasswordField txt, JLabel lbl, Color color, Boolean state){
+
+    private void nameErrMsg(JPasswordField txt, JLabel lbl, Color color, Boolean state) {
         txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
         lbl.setVisible(state);
     }
@@ -379,15 +365,14 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
         String msgEpty = "Please fill in the necessary info of the form";
         JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
-        if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) 
-        {
+        if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) {
             nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
-            
+
             return false;
         }
 //        if (uName.isEmpty()) {
@@ -412,7 +397,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 //        }
         return true;
     }
-    
+
     public boolean checkRegData(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
         boolean emptyChceks = emptyCheck(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm);
         if (emptyChceks == false) {
@@ -525,10 +510,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         return salt + ":" + returnValue;
     }
 
-    public static int getRandomInteger(int minNum, int maxNum){ 
-        return ((int) (Math.random()*(maxNum - minNum))) + minNum;
+    public static int getRandomInteger(int minNum, int maxNum) {
+        return ((int) (Math.random() * (maxNum - minNum))) + minNum;
     }
-    
+
     public boolean isValidPwd(String providedPwd, String storedPWD) {
         boolean returnValue = false;
         String[] params = storedPWD.split(":");
@@ -541,26 +526,21 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     }
 
     @Override
-    public void focusGained(FocusEvent e) 
-    {
-        if(e.getSource() == loginPage.getuNameLogin())
-        {
+    public void focusGained(FocusEvent e) {
+        if (e.getSource() == loginPage.getuNameLogin()) {
             loginPage.getuNameLogin().setText("");
             loginPage.getuNameLogin().removeFocusListener(this);
         }
-        
-        if(e.getSource() == loginPage.getPwdLogin())
-        {
+
+        if (e.getSource() == loginPage.getPwdLogin()) {
             loginPage.getPwdLogin().setText("");
             loginPage.getPwdLogin().removeFocusListener(this);
         }
-            
+
     }
 
     @Override
-    public void focusLost(FocusEvent e) 
-    {
+    public void focusLost(FocusEvent e) {
     }
 
-    
 }
