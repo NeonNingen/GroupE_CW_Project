@@ -6,13 +6,16 @@
 package views;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import models.UserMDL;
 
 /**
  *
- * @author mones
+ * @author mones Joshua
  */
 public class UListStdV extends javax.swing.JFrame {
 
@@ -26,6 +29,7 @@ public class UListStdV extends javax.swing.JFrame {
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("User List");
         menu.setPageTopicContent(UListContent);
+        fillTable();
     }
 
     /**
@@ -191,6 +195,40 @@ public class UListStdV extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    //reused and modified code from UListTchV
+    
+    public void fillTable()
+    {
+        UserMDL.getConnection();
+        ArrayList<String> resultQuery = UserMDL.queryData("SELECT user_name, user_sname FROM User WHERE user_type = 'Student'");
+       
+        String[] stdName = {"Student First Name", "Student Surname"};
+        int row = resultQuery.size()/stdName.length;
+        String[][] data = new String[row][stdName.length];
+        
+        int count = 0;
+        for (int i = 0; i < data.length; i++) 
+        {
+            for (int j = 0; j < stdName.length; j++) 
+            {
+                data[i][j] = resultQuery.get(count);
+                count++;
+            }
+            
+        }
+        
+        DefaultTableModel td = new DefaultTableModel(data, stdName)
+        {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+                    
+        };
+        getTblofStd().setModel(td);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

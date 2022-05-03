@@ -4,6 +4,8 @@
  */
 package views;
 
+import controllers.LoginRegisterCont;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
@@ -21,6 +23,7 @@ public class SupportV2 extends javax.swing.JFrame {
         
         mainTextField();
         mainTitle();
+//        this.backButton.addActionListener(new LoginRegisterCont(this));
     }
     
         public void mainTitle() {
@@ -43,18 +46,18 @@ public class SupportV2 extends javax.swing.JFrame {
         jTextArea1.setEditable(false);
         //setEditable to stop users from writing into the field
         
-        String text2 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n" +
-        "Monesha Dhali (w12345679@my.westminster.ac.uk)\n" +
-        "Rafael Sally (w12345670@my.westminster.ac.uk)\n" +
-        "Rahat Amit Haider (w12345681@my.westminster.ac.uk)\n" +
-        "Joshua Nwachukwa (w12345682@my.westminster.ac.uk)\n" +
+        String text2 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n\n" +
+        "Monesha Dhali (w12345679@my.westminster.ac.uk)\n\n" +
+        "Rafael Sally (w12345670@my.westminster.ac.uk)\n\n" +
+        "Rahat Amit Haider (w12345681@my.westminster.ac.uk)\n\n" +
+        "Joshua Nwachukwu (w12345682@my.westminster.ac.uk)\n\n" +
         "Aisana Zharmagambetova (w12345683@my.westminster.ac.uk)";
         jTextArea2.setText(text2);
         jTextArea2.setEditable(false);
         
-        String text3 = "This application is a simple language learning app made \n"
-                + "by students in the University of Westminster. \n"
-                + "It's purpose is to hopefully teach people how to learn \n"
+        String text3 = "This application is a simple language learning app made "
+                + "by students in the University of Westminster.\n\n"
+                + "It's purpose is to hopefully teach people how to learn "
                 + "(at the moment) French and Spanish.";
         jTextArea3.setText(text3);
         jTextArea3.setEditable(false);
@@ -91,6 +94,7 @@ public class SupportV2 extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         helpTitle = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,85 +104,103 @@ public class SupportV2 extends javax.swing.JFrame {
         SupContTxtScrollP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         SupContTxtScrollP.setPreferredSize(new java.awt.Dimension(414, 470));
 
-        SupportContent.setBackground(new java.awt.Color(255, 255, 255));
+        SupportContent.setBackground(new java.awt.Color(135, 178, 240));
         SupportContent.setAutoscrolls(true);
         SupportContent.setPreferredSize(new java.awt.Dimension(414, 1000));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(121, 121, 121));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("jLabel1");
 
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(121, 121, 121));
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(121, 121, 121));
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("jLabel2");
 
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(121, 121, 121));
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
+        jTextArea2.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(121, 121, 121));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("jLabel3");
 
         jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea3.setForeground(new java.awt.Color(121, 121, 121));
+        jTextArea3.setLineWrap(true);
         jTextArea3.setRows(5);
+        jTextArea3.setWrapStyleWord(true);
         jScrollPane3.setViewportView(jTextArea3);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(121, 121, 121));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("jLabel4");
 
         jScrollPane4.setForeground(new java.awt.Color(121, 121, 121));
 
         jTextArea4.setColumns(20);
-        jTextArea4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea4.setForeground(new java.awt.Color(121, 121, 121));
+        jTextArea4.setLineWrap(true);
         jTextArea4.setRows(5);
+        jTextArea4.setWrapStyleWord(true);
         jScrollPane4.setViewportView(jTextArea4);
 
-        helpTitle.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        helpTitle.setForeground(new java.awt.Color(121, 121, 121));
+        helpTitle.setFont(new java.awt.Font("Dialog", 1, 29)); // NOI18N
+        helpTitle.setForeground(new java.awt.Color(255, 255, 255));
         helpTitle.setText("Support Page");
+
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 153, 255));
+        jButton1.setText("Back");
 
         javax.swing.GroupLayout SupportContentLayout = new javax.swing.GroupLayout(SupportContent);
         SupportContent.setLayout(SupportContentLayout);
         SupportContentLayout.setHorizontalGroup(
             SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SupportContentLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SupportContentLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane4)
-                                .addComponent(jLabel4)
-                                .addComponent(jScrollPane3)
-                                .addComponent(jScrollPane2)
-                                .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(SupportContentLayout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addComponent(helpTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                    .addComponent(jLabel1)
+                    .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane4)
+                        .addComponent(jLabel4)
+                        .addComponent(jScrollPane3)
+                        .addComponent(jScrollPane2)
+                        .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(SupportContentLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(helpTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(19, 19, 19))
         );
         SupportContentLayout.setVerticalGroup(
             SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SupportContentLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(helpTitle)
+                .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SupportContentLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(helpTitle))
+                    .addGroup(SupportContentLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addGap(39, 39, 39)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -194,7 +216,7 @@ public class SupportV2 extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
                 .addGap(103, 103, 103))
         );
 
@@ -330,6 +352,7 @@ public class SupportV2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane SupContTxtScrollP;
     private javax.swing.JPanel SupportContent;
     private javax.swing.JLabel helpTitle;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

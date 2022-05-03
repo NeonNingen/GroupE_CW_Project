@@ -44,29 +44,29 @@ public class SupportV extends javax.swing.JFrame {
     }
         
     public void mainTextField() {
-        String text1 = "1. Find what motivates you to learn the language of your choice \n"
-                + "Take Japanese for example, some people choose it for anime, others \n"
-                + "because they plan to visit, others just like cultured people. \n"
+        String text1 = "1. Find what motivates you to learn the language of your choice\n\n"
+                + "Take Japanese for example, some people choose it for anime, others "
+                + "because they plan to visit, others just like cultured people."
                 + "Why do you want to study? Once you know that, you are on the right track. \n\n"
                 + "2. Make learning a habit \n"
                 + "Check below for more information \n\n"
                 + "3. Check your notes, make notes if you dont already and review \n"
-                + "Imagine learning multiple languages at once, you won't be able \n"
-                + "to remember most of them if you arent taking notes. Note taking \n"
+                + "Imagine learning multiple languages at once, you won't be able "
+                + "to remember most of them if you arent taking notes. Note taking "
                 + "learn it. \n\n"
                 + "4. Immerse yourself in the language \n"
-                + "This is my personal recommendation. What better way to learn Japanese \n"
+                + "This is my personal recommendation. What better way to learn Japanese "
                 + "for example than to binge watch anime/japanese dramas with no subtitles?"
-                + "I guarantee you, if you want to progress fast, watching/listening in the \n"
+                + "I guarantee you, if you want to progress fast, watching/listening in the "
                 + "language you are studying is the way to go";
         jTextArea1.setText(text1);
         jTextArea1.setEditable(false);
         //setEditable to stop users from writing into the field
         
         
-        String text2 = "On your device, click the cog icon and select the language \n"
-                + "of your choice. Currently we only have two languages but if our \n"
-                + "app gets popular enough, we will add more language. Japanese \n"
+        String text2 = "On your device, click the cog icon and select the language "
+                + "of your choice. Currently we only have two languages but if our "
+                + "app gets popular enough, we will add more language. Japanese "
                 + "being a priority.";
         jTextArea2.setText(text2);
         jTextArea2.setEditable(false);        
@@ -74,22 +74,24 @@ public class SupportV extends javax.swing.JFrame {
         
         String text3 = "1. Choose a time specifically for studying \n"
                 + "The most important thing for making anything a habit is to fit it into your routine. \n"
-                + "Good thing is our application is piss easy that even a baby could find time to use it \n"
+                + "Good thing is our application is piss easy that even a baby could find time to use it "
                 + "so there should be no excuse on not using our app at least 24 hours a day \n\n"
                 + "2. Make your learning fun \n"
-                + "It's very important to stay motivated in language learning by doing something you love \n"
-                + "while using our application. For example, if you like news, try watching news in \n"
+                + "It's very important to stay motivated in language learning by doing something you love "
+                + "while using our application. For example, if you like news, try watching news in "
                 + "the language you are learning, studies shown that it works! \n\n"
                 + "3. Watch your progress \n"
-                + "It's another way to stay motivated! Our progress page on the application allows you to \n"
+                + "It's another way to stay motivated! Our progress page on the application allows you to "
                 + "check your progress so check it out, get movitated and start practicing! \n\n"
                 + "4. Find people to practice with \n"
-                + "Language learning is a social activity, you don't study language for yourself, do you? \n"
-                + "Of course not, you study it to speak with people from other languages and connect \n"
-                + "If you don't have any friends that speak other languages, my condolences. \n"
+                + "Language learning is a social activity, you don't study language for yourself, do you? "
+                + "Of course not, you study it to speak with people from other languages and connect "
+                + "If you don't have any friends that speak other languages, my condolences. "
                 + "The best advice we can give you is go out there and make some friends!";
         jTextArea3.setText(text3);
         jTextArea3.setEditable(false);
+        jTextArea3.setLineWrap(true);
+        jTextArea3.setWrapStyleWord(true);
 
         
         String text4 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n" +
@@ -100,6 +102,8 @@ public class SupportV extends javax.swing.JFrame {
         "Aisana Zharmagambetova (w12345683@my.westminster.ac.uk)";
         jTextArea4.setText(text4);
         jTextArea4.setEditable(false);
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setWrapStyleWord(true);
 
     }
     
@@ -151,7 +155,9 @@ public class SupportV extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(121, 121, 121));
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -161,7 +167,9 @@ public class SupportV extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(121, 121, 121));
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
+        jTextArea2.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
