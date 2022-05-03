@@ -269,7 +269,6 @@ public class DialogueCont implements ActionListener
             menuV.show();
             
         }else if((!(CardScrollPage==null)) && e.getSource().equals(CardScrollPage.getCloseBttn())){
-            System.out.println("hiii");
             CardScrollPage.dispose();
             menuV.show();
         

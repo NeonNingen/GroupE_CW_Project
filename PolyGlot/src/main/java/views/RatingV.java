@@ -7,6 +7,7 @@ package views;
 import controllers.DialogueCont;
 import controllers.MenuBarCont;
 import controllers.PerfmDlgCont;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
 
@@ -25,9 +26,41 @@ public class RatingV extends javax.swing.JFrame {
         initComponents();
         setSize(414,667);
         this.OkBttn.addActionListener(new PerfmDlgCont(this, time));
+        setDesign();
     }
+    
 
+    /** by Aisana (w1775375)
+     * Methods will initiate main panel colour (colour for app background page), set font to test and  icons for menubar buttons
+     */
+    public void setDesign(){
+        
+        OkBttn.setFont(new java.awt.Font("Avenir Next", 1, 20));
+        colorBlueBttn(OkBttn, "OK");
+    }
+    
+    
+    /**Suggested by Aisana(w1775375)
+     * will change button look to be blue with white font (important/close or cancel buttons) 
+     * @param bttn - select button the design of which you want to change
+     * @param bttnName - add text to be in that button
+     */
+    public void colorBlueBttn(JButton bttn, String bttnName){
+        
+        bttn.setBackground(new java.awt.Color(135, 170, 240));
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setForeground(new java.awt.Color(255, 255, 255));
+        bttn.setText(bttnName);
+        bttn.setContentAreaFilled(true);
+        bttn.setBorderPainted(false);
+        //bttn.setFocusPainted(false);
+        //bttn.setIgnoreRepaint(true);
+        //bttn.repaint();
+        //bttn.revalidate();
+        //bttn.setMinimumSize(new java.awt.Dimension(168, 46));
 
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -59,9 +92,10 @@ public class RatingV extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        RatingTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        RatingTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         RatingTitle.setText("Congratulation on Finishing! ");
 
+        RatingSubtitle.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
         RatingSubtitle.setText("See results below:");
 
         RatingResultsText.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -78,6 +112,9 @@ public class RatingV extends javax.swing.JFrame {
         RatingPartnerRating.setText("Partner Rating:");
 
         OkBttn.setText("OK");
+        OkBttn.setBorderPainted(false);
+        OkBttn.setContentAreaFilled(false);
+        OkBttn.setFocusPainted(false);
         OkBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OkBttnActionPerformed(evt);
@@ -85,7 +122,10 @@ public class RatingV extends javax.swing.JFrame {
         });
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        CloseBttn.setText("X");
+        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIconBlack.png"))); // NOI18N
+        CloseBttn.setBorderPainted(false);
+        CloseBttn.setContentAreaFilled(false);
+        CloseBttn.setFocusPainted(false);
         CloseBttn.setPreferredSize(new java.awt.Dimension(25, 25));
 
         DlgC.setText("Dialogue");
@@ -274,7 +314,7 @@ public class RatingV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RatingV(123, 30).setVisible(true);
+                //new RatingV(123, 30).setVisible(true);
             }
         });
     }
