@@ -197,9 +197,6 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProVBttnActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="DlgListBttn">
           <Properties>
@@ -234,9 +231,6 @@
             </Property>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SupportBttnActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

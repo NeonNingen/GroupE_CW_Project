@@ -2,7 +2,6 @@
 package views;
 
 import controllers.LoginRegisterCont;
-import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -17,21 +16,15 @@ public class RegisterV extends javax.swing.JFrame {
    
     public RegisterV() {
         initComponents();
-        addGroups();
         this.cancelBttn.addActionListener(new LoginRegisterCont(this));
         this.regBttn.addActionListener(new LoginRegisterCont(this));
         this.supportBttn.addActionListener(new LoginRegisterCont(this));
-        
-        colorRedBttn(cancelBttn, "Cancel");
-        colorWhiteBttn(regBttn, "Register");
-        
-    }
-    
-    public void setNotVisible(JLabel lbl){
-        lbl.setVisible(false);
     }
    
-    //Adding the group ids manually (usually provided by Uni)
+    /**
+     * @author: Monesha
+     * @Description: Adds the group ids manually (usually provided by Uni)
+     */
     public void addGroups(){
         this.groupList = new ArrayList<String>();
         groupList.add("5COSSpanish1");
@@ -84,11 +77,6 @@ public class RegisterV extends javax.swing.JFrame {
 
         supportBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SupIcon.png"))); // NOI18N
         supportBttn.setBorder(null);
-        supportBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supportBttnActionPerformed(evt);
-            }
-        });
         supportBttn.setBackground(new java.awt.Color(135, 178, 240));
 
         nameReg.setBackground(new java.awt.Color(135, 178, 240));
@@ -96,11 +84,6 @@ public class RegisterV extends javax.swing.JFrame {
         nameReg.setForeground(new java.awt.Color(255, 255, 255));
         nameReg.setText("Name");
         nameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        nameReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameRegActionPerformed(evt);
-            }
-        });
 
         SurnameReg.setBackground(new java.awt.Color(135, 178, 240));
         SurnameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -116,11 +99,7 @@ public class RegisterV extends javax.swing.JFrame {
 
         groupIdSelect.setForeground(new java.awt.Color(135, 178, 240));
         groupIdSelect.setMinimumSize(new java.awt.Dimension(64, 26));
-        groupIdSelect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                groupIdSelectActionPerformed(evt);
-            }
-        });
+        addGroups();
 
         groupIdLblReg.setBackground(new java.awt.Color(135, 178, 240));
         groupIdLblReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -133,11 +112,6 @@ public class RegisterV extends javax.swing.JFrame {
         pwdReg1.setForeground(new java.awt.Color(255, 255, 255));
         pwdReg1.setText("jPasswordField1");
         pwdReg1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        pwdReg1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pwdReg1ActionPerformed(evt);
-            }
-        });
 
         pwdReg2.setBackground(new java.awt.Color(135, 178, 240));
         pwdReg2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -171,11 +145,7 @@ public class RegisterV extends javax.swing.JFrame {
         regBttn.setDefaultCapable(false);
         regBttn.setFocusPainted(false);
         regBttn.setMinimumSize(new java.awt.Dimension(168, 46));
-        regBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                regBttnActionPerformed(evt);
-            }
-        });
+        colorWhiteBttn(regBttn, "Register");
 
         cancelBttn.setBackground(new java.awt.Color(238, 105, 94));
         cancelBttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -185,17 +155,13 @@ public class RegisterV extends javax.swing.JFrame {
         cancelBttn.setContentAreaFilled(false);
         cancelBttn.setFocusPainted(false);
         cancelBttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        colorRedBttn(cancelBttn, "Cancel");
 
         useridReg.setBackground(new java.awt.Color(135, 178, 240));
         useridReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         useridReg.setForeground(new java.awt.Color(255, 255, 255));
         useridReg.setText("User ID");
         useridReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        useridReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                useridRegActionPerformed(evt);
-            }
-        });
 
         hiddenErr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
@@ -349,116 +315,49 @@ public class RegisterV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void useridRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useridRegActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_useridRegActionPerformed
-
-    private void supportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_supportBttnActionPerformed
-
-    private void nameRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameRegActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameRegActionPerformed
-
-    private void pwdReg1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdReg1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pwdReg1ActionPerformed
-
-    private void groupIdSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupIdSelectActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_groupIdSelectActionPerformed
-
-    private void regBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_regBttnActionPerformed
-
+    //The necessary getter and setters are displayed below
     public JTextField getSurnameReg() {
         return SurnameReg;
-    }
-
-    public void setSurnameReg(JTextField SurnameReg) {
-        this.SurnameReg = SurnameReg;
     }
 
     public JButton getCancelBttn() {
         return cancelBttn;
     }
 
-    public void setCancelBttn(JButton cancelBttn) {
-        this.cancelBttn = cancelBttn;
-    }
-
     public JTextField getEmailReg() {
         return emailReg;
-    }
-
-    public void setEmailReg(JTextField emailReg) {
-        this.emailReg = emailReg;
     }
 
     public JComboBox<String> getGroupIdSelect() {
         return groupIdSelect;
     }
 
-    public void setGroupIdSelect(JComboBox<String> groupIdSelect) {
-        this.groupIdSelect = groupIdSelect;
-    }
-
     public JTextField getNameReg() {
         return nameReg;
-    }
-
-    public void setNameReg(JTextField nameReg) {
-        this.nameReg = nameReg;
     }
 
     public JPasswordField getPwdReg1() {
         return pwdReg1;
     }
 
-    public void setPwdReg1(JPasswordField pwdReg1) {
-        this.pwdReg1 = pwdReg1;
-    }
-
     public JPasswordField getPwdReg2() {
         return pwdReg2;
-    }
-
-    public void setPwdReg2(JPasswordField pwdReg2) {
-        this.pwdReg2 = pwdReg2;
     }
 
     public JButton getRegBttn() {
         return regBttn;
     }
 
-    public void setRegBttn(JButton regBttn) {
-        this.regBttn = regBttn;
-    }
-
     public JButton getSupportBttn() {
         return supportBttn;
-    }
-
-    public void setSupportBttn(JButton supportBttn) {
-        this.supportBttn = supportBttn;
     }
 
     public JCheckBox getTermsCond() {
         return termsCond;
     }
 
-    public void setTermsCond(JCheckBox termsCond) {
-        this.termsCond = termsCond;
-    }
-
     public JTextField getUseridReg() {
         return useridReg;
-    }
-
-    public void setUseridReg(JTextField useridReg) {
-        this.useridReg = useridReg;
     }
 
     public JLabel getHiddenErr1() {
@@ -491,19 +390,11 @@ public class RegisterV extends javax.swing.JFrame {
      * @param bttnName - add text to be in that button
      */
     public void colorRedBttn(JButton bttn, String bttnName){
-        
         bttn.setBackground(new java.awt.Color(238, 105, 94));
         bttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         bttn.setForeground(new java.awt.Color(255, 255, 255));
         bttn.setText(bttnName);
         bttn.setContentAreaFilled(true);
-        //bttn.setBorderPainted(false);
-        //bttn.setFocusPainted(false);
-        //bttn.setIgnoreRepaint(true);
-        //bttn.repaint();
-        //bttn.revalidate();
-        //bttn.setMinimumSize(new java.awt.Dimension(168, 46));
-
     }
     
     /**Suggested by Aisana(w1775375)
@@ -515,16 +406,12 @@ public class RegisterV extends javax.swing.JFrame {
         bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bttn.setBackground(new java.awt.Color(238,238,238));
         bttn.setForeground(new java.awt.Color(93, 150, 234));
-
         bttn.setText(bttnName);
-
         bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
-
         bttn.setMinimumSize(new java.awt.Dimension(168, 46));
         bttn.setBorderPainted(true);
         bttn.setContentAreaFilled(true);
     }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SurnameReg;

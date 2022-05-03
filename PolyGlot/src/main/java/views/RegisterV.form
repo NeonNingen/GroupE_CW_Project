@@ -214,9 +214,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="supportBttnActionPerformed"/>
-          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="supportBttn.setBackground(new java.awt.Color(135, 178, 240));"/>
           </AuxValues>
@@ -241,9 +238,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nameRegActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="SurnameReg">
           <Properties>
@@ -299,10 +293,8 @@
               <Dimension value="[64, 26]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="groupIdSelectActionPerformed"/>
-          </Events>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="addGroups();"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
@@ -343,9 +335,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pwdReg1ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pwdReg2">
           <Properties>
@@ -442,9 +431,9 @@
               <Dimension value="[168, 46]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="regBttnActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorWhiteBttn(regBttn, &quot;Register&quot;);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="cancelBttn">
           <Properties>
@@ -465,6 +454,9 @@
               <Dimension value="[168, 46]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorRedBttn(cancelBttn, &quot;Cancel&quot;);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="useridReg">
           <Properties>
@@ -486,9 +478,6 @@
               </Border>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="useridRegActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="hiddenErr1">
           <Properties>

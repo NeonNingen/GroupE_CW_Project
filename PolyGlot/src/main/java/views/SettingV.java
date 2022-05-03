@@ -1,4 +1,3 @@
-
 package views;
 
 import controllers.LoginRegisterCont;
@@ -10,38 +9,26 @@ import models.UserMDL;
 
 public class SettingV extends javax.swing.JFrame {
 
-    ArrayList<String> langList= new ArrayList<String>();
+    ArrayList<String> langList = new ArrayList<String>();
     String langName;
     String langid;
     UserMDL userMDL;
+
+    //Constructors
     public SettingV(UserMDL userMDL) {
         initComponents();
-        addinglang();
         this.userMDL = userMDL;
+        addinglang();
         setSelectedLang(userMDL);
-        colorRedBttn(this.logoutBttn, "Logout");
     }
 
-//    public SettingV(MenuBarV menu) {
-//        initComponents();
-//        addinglang();
-//        //getSelectLang().setSelectedItem(langChoice);
-//        this.getLogoutBttn().addActionListener(new LoginRegisterCont(this,menu)); //By Monesha
-//        this.getSelectLang().addActionListener(new LoginRegisterCont(this,menu));
-//    }
-
-//    public SettingV(MenuBarV menuBar, LoginRegisterCont logCont) {
-//        initComponents();
-//        addinglang();
-//        //getSelectLang().setSelectedItem(langChoice);
-//        //logCont.setAccRec(this, menuBar);
-//        this.getLogoutBttn().addActionListener(logCont); //By Monesha
-//        this.getSelectLang().addActionListener(logCont);
-//    }
-    
-    public void setContListener(LoginRegisterCont logCont) 
-    {
-        this.getLogoutBttn().addActionListener(logCont); //By Monesha
+    /**
+     * @author: Monesha (w1719240)
+     * This function passes all the action events (of this page) to be processed to the LoginRegisterCont
+     * @param logCont 
+     */
+    public void setContListener(LoginRegisterCont logCont) {
+        this.getLogoutBttn().addActionListener(logCont); 
         this.getSelectLang().addActionListener(logCont);
     }
 
@@ -79,6 +66,7 @@ public class SettingV extends javax.swing.JFrame {
         logoutBttn.setForeground(new java.awt.Color(255, 255, 255));
         logoutBttn.setText("Logout");
         logoutBttn.setPreferredSize(new java.awt.Dimension(193, 56));
+        colorRedBttn(this.logoutBttn, "Logout");
 
         javax.swing.GroupLayout SettingContentLayout = new javax.swing.GroupLayout(SettingContent);
         SettingContent.setLayout(SettingContentLayout);
@@ -132,13 +120,22 @@ public class SettingV extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    public void setSelectedLang(UserMDL userMDL){
+    
+    /**
+     * @author: Monesha (w1719240)
+     * This function allows the user to set the selected language in JComboBox to a specific language
+     * @param userMDL 
+     */
+    public void setSelectedLang(UserMDL userMDL) {
         getSelectLang().setSelectedItem(userMDL.getApplang());
     }
-    
+
     //Populating The langList
-    private void addinglang(){ 
+    /**
+     * @author: Monesha (w1719240)
+     * This function populates the language list(langList)
+     */
+    private void addinglang() {
         //ArrayList<String> langList = new UserMDL().getLangList();
         langList.add("French");
         langList.add("Spanish");
@@ -148,22 +145,11 @@ public class SettingV extends javax.swing.JFrame {
         }
     }
 
-    public void changeLangOrder(String langChoice) {
-        int position;
-        if (getLangList().contains(langChoice)) {
-            position = getLangList().indexOf(langChoice);
-
-            String originalStr = getLangList().get(0);
-            getLangList().set(position, originalStr);
-            getLangList().set(0, langChoice);
-        }
-    }
-
-    
+    //The needed getter and setters functions are displayed below
     public ArrayList<String> getLangList() {
         return langList;
     }
-         
+
     public JPanel getSettingContent() {
         return SettingContent;
     }
@@ -172,10 +158,6 @@ public class SettingV extends javax.swing.JFrame {
         return logoutBttn;
     }
 
-    public void setLogoutBttn(JButton logoutBttn) {
-        this.logoutBttn = logoutBttn;
-    }
-    
     public JComboBox<String> getSelectLang() {
         return selectLang;
     }
@@ -183,25 +165,20 @@ public class SettingV extends javax.swing.JFrame {
     public void setSelectLang(JComboBox<String> selectLang) {
         this.selectLang = selectLang;
     }
-    
-    public void colorRedBttn(JButton bttn, String bttnName){
-        
+
+    /*
+     * Suggested by Aisana(w1775375) will change button look to be white with
+     * blue font
+     * @param bttn - select button the design of which you want to change
+     * @param bttnName - add text to be in that button
+     */
+    public void colorRedBttn(JButton bttn, String bttnName) {
         bttn.setBackground(new java.awt.Color(238, 105, 94));
         bttn.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         bttn.setForeground(new java.awt.Color(255, 255, 255));
         bttn.setText(bttnName);
         bttn.setContentAreaFilled(true);
-        
-        //bttn.setBorderPainted(false);
-        //bttn.setFocusPainted(false);
-        //bttn.setIgnoreRepaint(true);
-        //bttn.repaint();
-        //bttn.revalidate();
-        //bttn.setMinimumSize(new java.awt.Dimension(168, 46));
-
     }
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel SettingContent;
@@ -209,5 +186,4 @@ public class SettingV extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> selectLang;
     private javax.swing.JLabel settingLabel;
     // End of variables declaration//GEN-END:variables
-
 }

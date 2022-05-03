@@ -149,6 +149,9 @@
               <Dimension value="[193, 56]"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorRedBttn(this.logoutBttn, &quot;Logout&quot;);"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

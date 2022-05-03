@@ -371,11 +371,6 @@ public class MenuBarV extends javax.swing.JFrame {
         ProVBttn.setFocusPainted(false);
         ProVBttn.setPreferredSize(new java.awt.Dimension(100, 100));
         ProVBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        ProVBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProVBttnActionPerformed(evt);
-            }
-        });
 
         DlgListBttn.setBackground(new java.awt.Color(51, 204, 255));
         DlgListBttn.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
@@ -396,11 +391,6 @@ public class MenuBarV extends javax.swing.JFrame {
         SupportBttn.setFocusPainted(false);
         SupportBttn.setPreferredSize(new java.awt.Dimension(25, 25));
         SupportBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        SupportBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupportBttnActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout MenuBarPanelLayout = new javax.swing.GroupLayout(MenuBarPanel);
         MenuBarPanel.setLayout(MenuBarPanelLayout);
@@ -461,17 +451,9 @@ public class MenuBarV extends javax.swing.JFrame {
 
     }//GEN-LAST:event_DlgListBttnActionPerformed
 
-    private void SupportBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupportBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SupportBttnActionPerformed
-
     private void SettBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettBttnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SettBttnActionPerformed
-
-    private void ProVBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProVBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ProVBttnActionPerformed
 
     private void UListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UListBttnActionPerformed
         // TODO add your handling code here:
