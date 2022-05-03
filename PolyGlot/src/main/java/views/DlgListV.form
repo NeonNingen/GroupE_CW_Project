@@ -85,7 +85,7 @@
                       <Component id="ChooseTopicCbox" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ChooseGramCbox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="411" max="32767" attributes="0"/>
+                  <EmptySpace pref="418" max="32767" attributes="0"/>
                   <Component id="resetBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
