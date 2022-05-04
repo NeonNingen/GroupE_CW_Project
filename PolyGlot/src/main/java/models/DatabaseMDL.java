@@ -242,7 +242,7 @@ public class DatabaseMDL {
      * @param logouttime: String - Time when the user logs out.
      * @param user_id: String - User's ID logged when accessing the system.
      */
-    public static void insertTable( String date, String logintime,
+    public static void insertTable(String date, String logintime,
                                    String logouttime, String user_id) {
         
         updateTable("INSERT INTO Access_Record ( date, "
@@ -397,7 +397,7 @@ public class DatabaseMDL {
                                    String keyValue) {
         
         updateTable("UPDATE " + tableName + " set " + rowName + " = '" + 
-                     value + "' WHERE " + keyColumn + " = " + keyValue);
+                     value + "' WHERE " + keyColumn + " = '" + keyValue +"'");
         
     }
     
@@ -431,7 +431,7 @@ public class DatabaseMDL {
                                    int value, String keyColumn, String keyValue) {
         
         updateTable("UPDATE " + tableName + " set " + rowName + "= " + 
-                     value + " WHERE " + keyColumn + "= " + keyValue);
+                     value + " WHERE " + keyColumn + "= '" + keyValue + "'");
         
     }
     

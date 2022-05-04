@@ -8,6 +8,7 @@ package views;
 import controllers.DialogueCont;
 import controllers.PerfmDlgCont;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -428,13 +429,16 @@ public class CardScrollV extends javax.swing.JFrame {
      * Methods will initiate main panel colour (colour for app background page), set font to test and  icons for menubar buttons
      */
     public void setDesign(){
-        
+        Font small= new java.awt.Font("Avenir Next", 1, 14);
+        Font title= new java.awt.Font("Avenir Next", 1, 20);
         cardScrollPagePanel.setBackground(new java.awt.Color(135, 170, 240));
-        cardTxtDisplayTxtArea.setBackground(new java.awt.Color(135, 170, 240));
-        DlgNameAsTitle.setFont(new java.awt.Font("Avenir Next", 1, 20));
+        //cardTxtDisplayTxtArea.setBackground(new java.awt.Color(135, 170, 240));
+        cardTxtDisplayTxtArea.setBackground(Color.white);
+        cardTxtDisplayTxtArea.setFont(small);
+        DlgNameAsTitle.setFont(title);
         DlgNameAsTitle.setForeground(Color.white);
-        cardTxtDisplayTxtArea.setFont(new java.awt.Font("Avenir Next", 1, 14));
-        roleNameLbl.setFont(new java.awt.Font("Avenir Next", 1, 14));
+        cardTxtDisplayTxtArea.setFont(small);
+        roleNameLbl.setFont(small);
         roleNameLbl.setForeground(Color.white);
         Icon icon= createImageIcon("/ArrowIconL.png","arrow left icon");
         PrevCardBttn.removeAll();

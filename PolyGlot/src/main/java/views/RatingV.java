@@ -355,7 +355,7 @@ public class RatingV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RatingV("", 30, "265", "345").setVisible(true);
+                new RatingV("SPN0001", 30, "w222333", "wcry999").setVisible(true);
             }
         });
     }
