@@ -282,11 +282,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
             else
             {
                 JOptionPane.showMessageDialog(loginPage, "Username and/or password not valid!", "INVALID DETAILS", 0);
-
-                Border border = BorderFactory.createLineBorder(Color.RED);
-                loginPage.getuNameLogin().setBorder(border);
-                loginPage.getPwdLogin().setBorder(border);
-                loginPage.getPwdLogin().setText("");
+                nameErrMsg(loginPage.getuNameLogin(), loginPage.getuErrorLbl(), errColor, Boolean.TRUE);
+                nameErrMsg(loginPage.getPwdLogin(), loginPage.getPswdErrorLbl(), errColor, Boolean.TRUE);
             }
         }
         catch (NoSuchAlgorithmException ex) 
@@ -331,7 +328,18 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         } 
         else 
         {
-            JOptionPane.showMessageDialog(loginPage, "Please enter a username and a password!", "INVALID DETAILS", 0);
+            if(username.equals(""))
+            {
+                nameErrMsg(loginPage.getuNameLogin(), loginPage.getuErrorLbl(), errColor, Boolean.TRUE);
+                JOptionPane.showMessageDialog(loginPage, "Please enter a valid username !", "INVALID DETAILS", 0);
+            }
+            else
+                if(pswd.equals(""))
+                {
+                   nameErrMsg(loginPage.getPwdLogin(), loginPage.getPswdErrorLbl(), errColor, Boolean.TRUE);
+                   JOptionPane.showMessageDialog(loginPage, "Please enter a valid password !", "INVALID DETAILS", 0); 
+                }
+            
             result = new ArrayList<>(); //empty list because the user did not enter the login credentials
         }
 

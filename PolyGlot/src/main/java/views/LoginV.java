@@ -3,6 +3,7 @@ package views;
 
 import controllers.LoginRegisterCont;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -48,6 +49,8 @@ public class LoginV extends javax.swing.JFrame {
         pwdLogin = new javax.swing.JPasswordField();
         loginBttn = new javax.swing.JButton();
         registerBttn = new javax.swing.JButton();
+        uErrorLbl = new javax.swing.JLabel();
+        pswdErrorLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -103,6 +106,10 @@ public class LoginV extends javax.swing.JFrame {
         registerBttn.setOpaque(true);
         registerBttn.setPreferredSize(new java.awt.Dimension(71, 20));
 
+        uErrorLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
+
+        pswdErrorLbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
+
         javax.swing.GroupLayout loginPanelLayout = new javax.swing.GroupLayout(loginPanel);
         loginPanel.setLayout(loginPanelLayout);
         loginPanelLayout.setHorizontalGroup(
@@ -121,14 +128,18 @@ public class LoginV extends javax.swing.JFrame {
                                 .addGap(154, 154, 154)
                                 .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(loginPanelLayout.createSequentialGroup()
                                 .addGap(55, 55, 55)
                                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(uNameLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                                    .addComponent(pwdLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(loginPanelLayout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 62, Short.MAX_VALUE)))
+                                    .addComponent(pwdLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(uErrorLbl)
+                                    .addComponent(pswdErrorLbl))))
+                        .addGap(0, 36, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(164, 164, 164)
@@ -145,15 +156,23 @@ public class LoginV extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(107, 107, 107)
-                .addComponent(uNameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(pwdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(uNameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(uErrorLbl))
+                        .addGap(18, 18, 18)
+                        .addComponent(pwdLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pswdErrorLbl))
                 .addGap(67, 67, 67)
                 .addComponent(loginBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(registerBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(183, Short.MAX_VALUE))
         );
+
+        uErrorLbl.setVisible(false);
+        pswdErrorLbl.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -209,6 +228,22 @@ public class LoginV extends javax.swing.JFrame {
     public void setuNameLogin(JTextField uNameLogin) {
         this.uNameLogin = uNameLogin;
     }
+
+    public JLabel getuErrorLbl() {
+        return uErrorLbl;
+    }
+
+    public void setuErrorLbl(JLabel uErrorLbl) {
+        this.uErrorLbl = uErrorLbl;
+    }
+
+    public JLabel getPswdErrorLbl() {
+        return pswdErrorLbl;
+    }
+
+    public void setPswdErrorLbl(JLabel pswdErrorLbl) {
+        this.pswdErrorLbl = pswdErrorLbl;
+    }
     
     public void colorWhiteBttn(JButton bttn, String bttnName){
         bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -227,13 +262,12 @@ public class LoginV extends javax.swing.JFrame {
     private javax.swing.JButton loginBttn;
     private javax.swing.JLabel loginLbl;
     private javax.swing.JPanel loginPanel;
+    private javax.swing.JLabel pswdErrorLbl;
     private javax.swing.JPasswordField pwdLogin;
     private javax.swing.JButton registerBttn;
     private javax.swing.JButton supportBttn;
+    private javax.swing.JLabel uErrorLbl;
     private javax.swing.JTextField uNameLogin;
     // End of variables declaration//GEN-END:variables
 
-    public void setControllers(LoginRegisterCont contr) {
-        
-    }
 }
