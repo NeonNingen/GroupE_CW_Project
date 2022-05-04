@@ -89,8 +89,8 @@
                                       <Component id="groupIdSelect" min="-2" pref="147" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="pwdReg1" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="pwdReg2" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="pwdReg1" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
+                                              <Component id="pwdReg2" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -171,7 +171,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="pwdReg1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="pwdReg1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                   <Component id="pwdReg1Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="hiddenErr5" min="-2" max="-2" attributes="0"/>
@@ -179,7 +179,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="pwdReg2Lbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="pwdReg2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="pwdReg2" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="hiddenErr6" min="-2" max="-2" attributes="0"/>
