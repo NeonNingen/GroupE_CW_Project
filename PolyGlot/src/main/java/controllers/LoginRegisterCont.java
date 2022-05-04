@@ -36,6 +36,7 @@ import views.TermsCondV;
 
 /**
  * @author Amit Rahat 
+ * @author Joshua
  * @author Monesha Dhali - added main methods 
  */
 
