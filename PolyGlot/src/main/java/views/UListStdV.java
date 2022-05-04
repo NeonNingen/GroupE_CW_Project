@@ -15,12 +15,11 @@ import models.UserMDL;
 
 /**
  *
- * @author mones Joshua
+ * @author Joshua
  */
 public class UListStdV extends javax.swing.JFrame {
 
-    //Creates new form UListStdV
-     
+    //Creates new form UListStdV   
     
     private UserMDL user;
     
@@ -28,7 +27,7 @@ public class UListStdV extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         groupDisplay.setText(user.getGroupID());
-//        teacherDisplay.setText(user.get)
+        textTeacher();
         
         setSize(414,667);
         MenuBarV menu = new MenuBarV();
@@ -38,8 +37,7 @@ public class UListStdV extends javax.swing.JFrame {
         fillTable();
     }
 
-    private UListStdV() {
-        
+    private UListStdV() {        
     }
 
   
@@ -122,10 +120,10 @@ public class UListStdV extends javax.swing.JFrame {
                         .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(groupIdLbl)
                             .addComponent(groupTeach))
-                        .addGap(36, 36, 36)
+                        .addGap(18, 18, 18)
                         .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(groupDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
+                            .addComponent(groupDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
+                            .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(userListContentLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -135,16 +133,14 @@ public class UListStdV extends javax.swing.JFrame {
             userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userListContentLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(groupIdLbl)
-                    .addComponent(groupDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(groupDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(groupTeach)
-                    .addGroup(userListContentLayout.createSequentialGroup()
-                        .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                        .addGap(2, 2, 2)))
-                .addGap(30, 30, 30)
+                    .addComponent(groupTeach, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(66, Short.MAX_VALUE))
         );
@@ -170,17 +166,11 @@ public class UListStdV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //getters and setters
     public JLabel getGroupDisplay() {
         return groupDisplay;
     }
 
-//    public JLabel getGroupIdLbl1() {
-//        return GroupIdLbl1;
-//    }
-//
-//    public JLabel getGroupTeach1() {
-//        return GroupTeach1;
-//    }
     public JLabel getTeacherDisplay() {
         return teacherDisplay;
     }
@@ -196,14 +186,6 @@ public class UListStdV extends javax.swing.JFrame {
     public JTable getTblofStd() {
         return TblofStd;
     }
-
-//    public void setGroupIdLbl1(JLabel GroupIdLbl1) {
-//        this.GroupIdLbl1 = GroupIdLbl1;
-//    }
-//
-//    public void setGroupTeach1(JLabel GroupTeach1) {
-//        this.GroupTeach1 = GroupTeach1;
-//    }
 
     public void setTblofStd(JTable TblofStd) {
         this.TblofStd = TblofStd;
@@ -221,8 +203,7 @@ public class UListStdV extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    //reused and modified code from UListTchV
-    
+    //reused and modified code from UListTchV    
     public void fillTable()
     {
         UserMDL.getConnection();
@@ -255,6 +236,20 @@ public class UListStdV extends javax.swing.JFrame {
         getTblofStd().setModel(td);
     }
     
+    //sets teacher name 
+    public void textTeacher() {
+       UserMDL.getConnection();
+       ArrayList<String> query = UserMDL.queryData("SELECT user_name, user_sname FROM User WHERE user_type = 'Teacher' AND user_group_id = '" + user.getGroupID() + "'");
+       String s = query.toString().replaceAll("(^\\[|\\]$)", "");
+       if (s.isEmpty()) {
+           teacherDisplay.setText("No teacher assigned");
+       } else 
+       teacherDisplay.setText(s);
+    }
+
+
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblofStd;

@@ -15,8 +15,7 @@ import javax.swing.JTextArea;
 public class SupportV extends javax.swing.JFrame {
 
     
-     //Creates new form SupportView
-   
+     //Creates new form SupportView   
     public SupportV() {
         initComponents();
         MenuBarV menu= new MenuBarV();
@@ -268,6 +267,7 @@ public class SupportV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //getters
     public JLabel getjLabel1() {
         return jLabel1;
     }
@@ -300,6 +300,7 @@ public class SupportV extends javax.swing.JFrame {
         return jTextArea4;
     }
 
+    //setters
     public void setjLabel1(JLabel jLabel1) {
         this.jLabel1 = jLabel1;
     }

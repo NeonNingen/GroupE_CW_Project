@@ -623,64 +623,72 @@ public class DatabaseMDL {
         }
         }
     
-    public static void readDlgDatabase()
-    {    
-        try 
-        {
+    public static void readDlgDatabase() {
+        try {
             FileInputStream fstream = new FileInputStream(".\\src\\main\\resources\\databaseFile\\Workbook with Conversations for Computer Science - Database.csv");
-          
+
             DataInputStream in = new DataInputStream(fstream);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
-            
-            
+
             String strLine;
             ArrayList list = new ArrayList();
             //ArrayList idChecker = new ArrayList();
-            
+
             int count = 0;
-            while ((strLine = br.readLine()) != null ) 
-            {  
+            while ((strLine = br.readLine()) != null) {
                 list.add(strLine);
                 count++;
-                
-            }
-            
-            list.remove(0); //removes the row with column names
-            Iterator itr;
-            
-            String dlgID;
-            int id=0;
-            
-            for (itr = list.iterator(); itr.hasNext();) 
-            {
-                dlgID = "SPN";
-                id++;
-                String str = itr.next().toString();
-                //System.out.println(str);
-                
-                String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-                String dlgLvl = splitSt[0];
-                String dlgContext = splitSt[1];
-                String dlgSubCont = splitSt[2];
-                String dlgGramm = splitSt[3].replace("\"", "");
-                
-                
-                String dlgCode = String.format("%04d", id);
-                dlgID = dlgID.concat(dlgCode);
-                
-                insertTable(dlgID, dlgContext, dlgSubCont, dlgLvl, dlgGramm, 5, "incomplete", 0, "Spanish");
 
             }
-            fstream.close();
-            
-        }
-        catch (IOException ex) 
-        {
-            System.out.println("Error reading file");
+
+            list.remove(0); //removes the row with column names
+            Iterator itr;
+
+            String dlgID;
+            int id = 0;
+
+            for (itr = list.iterator(); itr.hasNext();) {
+
+                id++;
+
+                if (id <= (list.size() / 2)) {
+                    dlgID = "SPN";
+                    String str = itr.next().toString();
+
+                    String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                    String dlgLvl = splitSt[0];
+                    String dlgSubCont = splitSt[1];
+                    String dlgContext = splitSt[2];
+                    String dlgGramm = splitSt[3].replace("\"", "");
+
+                    String dlgCode = String.format("%04d", id);
+                    dlgID = dlgID.concat(dlgCode);
+
+                    insertTable(dlgID, dlgContext, dlgSubCont, dlgLvl, dlgGramm, 5, "incomplete", 0, "Spanish");
+                } else {
+                    dlgID = "FR";
+                    String str = itr.next().toString();
+
+                    String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                    String dlgLvl = splitSt[0];
+                    String dlgSubCont = splitSt[1];
+                    String dlgContext = splitSt[2];
+                    String dlgGramm = splitSt[3].replace("\"", "");
+
+                    String dlgCode = String.format("%04d", id - 31);
+                    dlgID = dlgID.concat(dlgCode);
+
+                    insertTable(dlgID, dlgContext, dlgSubCont, dlgLvl, dlgGramm, 5, "incomplete", 0, "French");
+                }
+                fstream.close();
+
+            }
+
+        } catch (IOException ex) {
             Logger.getLogger(DatabaseMDL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
+    
     
     public static void readCardDatabase()
     {    
@@ -718,7 +726,7 @@ public class DatabaseMDL {
    
                 if (!str.equals(",,,,,,,,,,,,")) 
                 {
-                    if (!splitSt[0].equals("")) 
+                    if (!splitSt[1].equals("")) 
                     {
                         String level = splitSt[0];
                         switch (level) 
@@ -750,12 +758,19 @@ public class DatabaseMDL {
                         }
 
                         id_dlg++;
-                        dlgID = "SPN";
-                        String dlgCode = String.format("%04d", id_dlg);
-                        dlgID = dlgID.concat(dlgCode);
-                        card_order = 0;
+                        if (id_dlg <= 31) {
+                            dlgID = "SPN";
+                            String dlgCode = String.format("%04d", id_dlg);
+                            dlgID = dlgID.concat(dlgCode);
+                        } else {
+                            dlgID = "FR";
+                            String dlgCode = String.format("%04d", id_dlg - 31);
+                            dlgID = dlgID.concat(dlgCode);
+                        }
                         
-                    } 
+                        card_order = 0;
+                        id_card = 0;
+                    }
                     else 
                     {
                         id_card++;
