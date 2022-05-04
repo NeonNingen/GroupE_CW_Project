@@ -19,9 +19,8 @@ import models.UserMDL;
  */
 public class UListStdV extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UListStdV
-     */
+    //Creates new form UListStdV
+     
     
     private UserMDL user;
     
@@ -29,6 +28,7 @@ public class UListStdV extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         groupDisplay.setText(user.getGroupID());
+//        teacherDisplay.setText(user.get)
         
         setSize(414,667);
         MenuBarV menu = new MenuBarV();
@@ -38,9 +38,11 @@ public class UListStdV extends javax.swing.JFrame {
         fillTable();
     }
 
-    public UListStdV() {
+    private UListStdV() {
+        
     }
 
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

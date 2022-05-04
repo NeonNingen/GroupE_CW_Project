@@ -14,9 +14,9 @@ import javax.swing.JTextArea;
  */
 public class SupportV extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SupportView
-     */
+    
+     //Creates new form SupportView
+   
     public SupportV() {
         initComponents();
         MenuBarV menu= new MenuBarV();
@@ -29,6 +29,7 @@ public class SupportV extends javax.swing.JFrame {
         mainTitle();
     }
     
+    //Titles for the JLabel
         public void mainTitle() {
         String title1 = "Tips to learning Effectively";
         jLabel1.setText(title1);
@@ -42,7 +43,8 @@ public class SupportV extends javax.swing.JFrame {
         String title4 = "Contact PolyGlot Devs";
         jLabel4.setText(title4);
     }
-        
+    
+    //Text for populating the field
     public void mainTextField() {
         String text1 = "1. Find what motivates you to learn the language of your choice\n\n"
                 + "Take Japanese for example, some people choose it for anime, others "

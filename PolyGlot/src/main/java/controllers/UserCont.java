@@ -20,10 +20,10 @@ public class UserCont implements ActionListener {
    //contructors
     public UserCont() 
     {
-        uListStudentPage = new UListStdV();
-        uListTeacherPage = new UListTchV();
         user = new UserMDL();
-        profilePage = new ProgV();
+        uListStudentPage = new UListStdV(user);
+        uListTeacherPage = new UListTchV();
+        profilePage = new ProgV();        
 
     }
 

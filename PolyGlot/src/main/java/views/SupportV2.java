@@ -15,11 +15,12 @@ import javax.swing.JTextArea;
  */
 public class SupportV2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SupportV2
-     */
+    
+     //Creates new form SupportV2
+     
     public SupportV2() {
         initComponents();
+        //Back to register and back to login
         this.backBttnR.addActionListener(new LoginRegisterCont(this));
         this.backBttnL.addActionListener(new LoginRegisterCont(this));
         mainTextField();
@@ -27,7 +28,7 @@ public class SupportV2 extends javax.swing.JFrame {
 //        this.backButton.addActionListener(new LoginRegisterCont(this));
     }
     
-    //last thing to do - make back button redirect to the main page
+    //Title for the JLabel
     
         public void mainTitle() {
         String title1 = "Forgot password?";
@@ -42,7 +43,8 @@ public class SupportV2 extends javax.swing.JFrame {
         String title4 = "Special thanks to";
         jLabel4.setText(title4);
     }
-        
+    
+    //Text for populating the textfield
     public void mainTextField() {
         String text1 = "Contact one of the PolyGlot devs via their (fake) emails below";
         jTextArea1.setText(text1);
@@ -97,8 +99,8 @@ public class SupportV2 extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
         helpTitle = new javax.swing.JLabel();
-        backBttnR = new javax.swing.JButton();
         backBttnL = new javax.swing.JButton();
+        backBttnR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,21 +168,11 @@ public class SupportV2 extends javax.swing.JFrame {
         helpTitle.setForeground(new java.awt.Color(255, 255, 255));
         helpTitle.setText("Support Page");
 
-        backBttnR.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        backBttnR.setForeground(new java.awt.Color(51, 153, 255));
-        backBttnR.setText("Back to Register");
-
-        backBttnL.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        backBttnL.setForeground(new java.awt.Color(51, 153, 255));
         backBttnL.setText("Back to Login");
-        backBttnL.setMaximumSize(new java.awt.Dimension(162, 30));
-        backBttnL.setMinimumSize(new java.awt.Dimension(162, 30));
-        backBttnL.setPreferredSize(new java.awt.Dimension(104, 22));
-        backBttnL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backBttnLActionPerformed(evt);
-            }
-        });
+        colorLoginBttn(backBttnL, "Back to Login");
+
+        backBttnR.setText("Back to Register");
+        colorRegisterBttn(backBttnR, "Back to Register");
 
         javax.swing.GroupLayout SupportContentLayout = new javax.swing.GroupLayout(SupportContent);
         SupportContent.setLayout(SupportContentLayout);
@@ -194,13 +186,12 @@ public class SupportV2 extends javax.swing.JFrame {
                     .addGroup(SupportContentLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SupportContentLayout.createSequentialGroup()
+                                .addComponent(backBttnL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(backBttnR))
                             .addComponent(jLabel1)
                             .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(SupportContentLayout.createSequentialGroup()
-                                    .addGap(31, 31, 31)
-                                    .addComponent(backBttnL, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(backBttnR))
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,12 +222,12 @@ public class SupportV2 extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                .addGap(37, 37, 37)
-                .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backBttnR)
-                    .addComponent(backBttnL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addGroup(SupportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backBttnL)
+                    .addComponent(backBttnR))
+                .addGap(25, 25, 25))
         );
 
         SupContTxtScrollP.setViewportView(SupportContent);
@@ -266,10 +257,6 @@ public class SupportV2 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backBttnLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBttnLActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_backBttnLActionPerformed
 
     public JLabel getjLabel1() {
         return jLabel1;
@@ -349,6 +336,30 @@ public class SupportV2 extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    //reused and modified code from RegisterV
+    public void colorLoginBttn(JButton bttn, String bttnName) {
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setBackground(new java.awt.Color(238, 238, 238));
+        bttn.setForeground(new java.awt.Color(93, 150, 234));
+        bttn.setText(bttnName);
+        bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+        bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        bttn.setBorderPainted(true);
+        bttn.setContentAreaFilled(true);
+    }
+    
+    public void colorRegisterBttn(JButton bttn, String bttnName) {
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setBackground(new java.awt.Color(238, 238, 238));
+        bttn.setForeground(new java.awt.Color(93, 150, 234));
+        bttn.setText(bttnName);
+        bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+        bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        bttn.setBorderPainted(true);
+        bttn.setContentAreaFilled(true);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

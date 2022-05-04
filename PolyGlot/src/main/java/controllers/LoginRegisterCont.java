@@ -66,6 +66,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.userMDL = new UserMDL();
         this.accessRecMDL = new AccessRecordMDL();
         this.supportPage = new SupportV2();
+        
     }
 
     public LoginRegisterCont(SettingV set) {
@@ -81,6 +82,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
     public LoginRegisterCont(RegisterV reg) {
         this.registerPage = reg;
+        this.supportPage = new SupportV2();
         this.userMDL = new UserMDL();
         this.accessRecMDL = new AccessRecordMDL();
     }
@@ -147,7 +149,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
      * @param e : ActionEvent
      */
     public void actionPermHelp(ActionEvent e) {
-        this.supportPage = new SupportV2();
+        
         if ((this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn())) {
             this.registerPage.dispose();
             this.supportPage.setVisible(true);
