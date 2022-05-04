@@ -173,6 +173,8 @@ public class DatabaseMDL {
     
     /**
      * This method inserts default values from a text file into the table
+     * Unused. 
+     * Depreciated to readDlgDatabase, readCardDatabase and readuserDatabase
      * @throws FileNotFoundException 
      */
     public static void insertDefault() throws FileNotFoundException {
@@ -328,6 +330,40 @@ public class DatabaseMDL {
     }
     
     /**
+     * User
+     * @param user_id: String - User's ID logged when accessing the system.
+     * @param name: String - User's first name
+     * @param sname: String - User's surname.
+     * @param email: String - User's Email.
+     * @param pswd: String - User's Password.
+     * @param lang_lvl: String - Dialogue's difficulty.
+     * @param progress_points: int - The amount of points userB has.
+     * @param user_type: String - What category is the user, Teacher or Student.
+     * @param admin_access: String - Access to admin level features.
+     * @param user_group_id: String - What group ID is the user under.
+     */
+    public static void insertTable(String user_id, String name, String sname,
+                                   String email, String pswd, 
+                                   String lang_lvl, int progress_points, 
+                                   String user_type, String admin_access,
+                                   String user_group_id, String user_pswdVis,
+                                   String current_Lang) {
+        
+        updateTable("INSERT INTO User (user_id, user_name, user_sname,"
+                         + "user_email, user_pswd, user_lang_lvl, "
+                         + "user_progresspoints, "
+                         + "user_type, admin_access, user_group_id, "
+                         + "user_pswdVis, current_Lang) VALUES "
+                         + "('" + user_id + "','" + name + "','" + sname
+                         + "','" + email + "','" + pswd 
+                         + "','" + lang_lvl + "'," + progress_points + ",'" 
+                         +  user_type + "','" + admin_access + "','" 
+                         + user_group_id + "','" + user_pswdVis + "','" 
+                         + current_Lang + "')");
+        
+    }
+        
+   /**
      * User
      * @param user_id: String - User's ID logged when accessing the system.
      * @param name: String - User's first name
@@ -804,21 +840,34 @@ public class DatabaseMDL {
         
     }
     
-    /**
-     * main
-     * Executes this file's code to the console.
-     * If database file is empty, populate it with tables and default values
-     */
-    public static void main(String[] args) throws FileNotFoundException {
-        Connect connect = new Connect();
-        File f = new File(".\\polyLang.db");
-        readDlgDatabase();
-        readCardDatabase();
-//        if (f.length() == 0) {
-//            createTable();
-//            insertDefault();
-//        }
+    public static void readUserDatabase() throws FileNotFoundException
+    {    
+        Scanner sc = new Scanner(new File("C:\\Users\\zainc\\OneDrive - University of Westminster\\2022_2023\\Software Development Group\\GroupE_CW_Project\\PolyGlot\\src\\main\\resources\\databaseFile\\Workbook with Conversations for Computer Science - User.csv"));
+        ArrayList<String> userList = new ArrayList<String>();
+        ArrayList<ArrayList<String>> value = new ArrayList<ArrayList<String>>();
+        sc.useDelimiter(",");
+        sc.nextLine();
+        for (int i = 0; i<12; i++) {
+            userList.add(sc.next());
+        }
+        value.add(userList);
+        userList = new ArrayList<String>();
+        for (int i = 12; i<24; i++) {
+            userList.add(sc.next());
+        }
+        sc.close();
+        value.add(userList);
+       
+        for (int i=0; i<2; i++) {
+            insertTable(value.get(i).get(0), value.get(i).get(1), 
+                        value.get(i).get(2), value.get(i).get(3),
+                        value.get(i).get(4), value.get(i).get(5),
+                        Integer.parseInt(value.get(i).get(6)), value.get(i).get(7),
+                        value.get(i).get(8), value.get(i).get(9), value.get(i).get(10),
+                        value.get(i).get(11));
+        }
     }
+   
 
 }
 

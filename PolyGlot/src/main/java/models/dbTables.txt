@@ -10,6 +10,7 @@ user_type  VARCHAR (20),
 admin_access  VARCHAR (50) not NULL,
 user_group_id  VARCHAR (50) not NULL,
 user_pswdVis VARCHAR (30),
+current_Lang VARCHAR (30),
 CONSTRAINT u_user_pk PRIMARY KEY (user_id))
 
 CREATE TABLE if not exists Access_Record (
@@ -22,7 +23,7 @@ constraint ar_accessrecord_pk PRIMARY KEY (accessrecord_id)
 constraint ar_user_fk FOREIGN KEY (user_id) references User(user_id) ON DELETE CASCADE)
 
 CREATE TABLE if not exists Dialogue (
-dialogue_id INTEGER,
+dialogue_id VARCHAR (20),
 dialogue_name VARCHAR (50) not NULL,
 dialogue_topic VARCHAR (50) not NULL,
 dialogue_lvl VARCHAR (10) not NULL,
@@ -34,13 +35,13 @@ dialogue_language VARCHAR (50) not NULL,
 constraint d_dialogue_pk PRIMARY KEY (dialogue_id))
 
 CREATE TABLE if not exists Card (
-card_id INTEGER,
+card_id VARCHAR (15),
 card_points INTEGER,
 card_role VARCHAR (5) not NULL,
 card_text VARCHAR (200) not NULL,
 card_order INTEGER not NULL,
 card_vocab  VARCHAR (100) not NULL,
-dialogue_id INTEGER,
+dialogue_id VARCHAR (20),
 constraint c_card_pk PRIMARY KEY (card_id)
 constraint c_dialogue_fk FOREIGN KEY (dialogue_id) references Dialogue(dialogue_id) ON DELETE CASCADE)
 
