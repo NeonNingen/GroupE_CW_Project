@@ -27,7 +27,6 @@ public class SupportV2 extends javax.swing.JFrame {
         mainTitle();
         colorWhiteBttn(backBttnL, "Back to Login");
         colorWhiteBttn(backBttnR, "Back to Register");
-//        this.backButton.addActionListener(new LoginRegisterCont(this));
     }
     
     //Title for the JLabel
@@ -86,7 +85,7 @@ public class SupportV2 extends javax.swing.JFrame {
     private void initComponents() {
 
         supportContent = new javax.swing.JPanel();
-        SupContTxtScrollP = new javax.swing.JScrollPane();
+        supContTxtScrollP = new javax.swing.JScrollPane();
         SupportContent = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -108,9 +107,9 @@ public class SupportV2 extends javax.swing.JFrame {
 
         supportContent.setPreferredSize(new java.awt.Dimension(414, 480));
 
-        SupContTxtScrollP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        SupContTxtScrollP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        SupContTxtScrollP.setPreferredSize(new java.awt.Dimension(414, 470));
+        supContTxtScrollP.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        supContTxtScrollP.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        supContTxtScrollP.setPreferredSize(new java.awt.Dimension(414, 470));
 
         SupportContent.setBackground(new java.awt.Color(135, 178, 240));
         SupportContent.setAutoscrolls(true);
@@ -241,17 +240,17 @@ public class SupportV2 extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        SupContTxtScrollP.setViewportView(SupportContent);
+        supContTxtScrollP.setViewportView(SupportContent);
 
         javax.swing.GroupLayout supportContentLayout = new javax.swing.GroupLayout(supportContent);
         supportContent.setLayout(supportContentLayout);
         supportContentLayout.setHorizontalGroup(
             supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(supContTxtScrollP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         supportContentLayout.setVerticalGroup(
             supportContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SupContTxtScrollP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
+            .addComponent(supContTxtScrollP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -392,40 +391,8 @@ public class SupportV2 extends javax.swing.JFrame {
         bttn.setContentAreaFilled(true);
     }
     
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SupportV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SupportV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SupportV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SupportV2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SupportV2().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane SupContTxtScrollP;
     private javax.swing.JPanel SupportContent;
     private javax.swing.JButton backBttnL;
     private javax.swing.JButton backBttnR;
@@ -442,6 +409,7 @@ public class SupportV2 extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JScrollPane supContTxtScrollP;
     private javax.swing.JPanel supportContent;
     // End of variables declaration//GEN-END:variables
 }

@@ -183,6 +183,8 @@ public class RegisterV extends javax.swing.JFrame {
         hiddenErr6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
         tcBttnR.setText("TC*");
+        tcBttnR.setBorderPainted(false);
+        tcBttnR.setContentAreaFilled(false);
         colorWhiteBttn(tcBttnR,"TC*");
 
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);

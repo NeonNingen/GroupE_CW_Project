@@ -35,7 +35,7 @@ public class RatingV extends javax.swing.JFrame {
         this.id = id;
         initComponents();
         setSize(414,667);
-        this.OkBttn.addActionListener(new PerfmDlgCont(this, time, user, partnerID));
+        this.okBttn.addActionListener(new PerfmDlgCont(this, time, user, partnerID));
         setDesign();
     }
     
@@ -45,8 +45,8 @@ public class RatingV extends javax.swing.JFrame {
      */
     public void setDesign(){
         
-        OkBttn.setFont(new java.awt.Font("Avenir Next", 1, 20));
-        colorBlueBttn(OkBttn, "OK");
+        okBttn.setFont(new java.awt.Font("Avenir Next", 1, 20));
+        colorBlueBttn(okBttn, "OK");
     }
     
     
@@ -77,18 +77,18 @@ public class RatingV extends javax.swing.JFrame {
 
         dlgRoleC = new javax.swing.ButtonGroup();
         StartDlgBttn = new javax.swing.JButton();
-        RatingTitle = new javax.swing.JLabel();
-        RatingSubtitle = new javax.swing.JLabel();
-        RatingResultsText = new javax.swing.JLabel();
-        RatingDlgName = new javax.swing.JLabel();
-        RatingLevel = new javax.swing.JLabel();
-        RatingYourRating = new javax.swing.JLabel();
-        RatingTimeTaken = new javax.swing.JLabel();
-        RatingPartnerRating = new javax.swing.JLabel();
-        OkBttn = new javax.swing.JButton();
-        DlgC = new javax.swing.JLabel();
-        LvlC = new javax.swing.JLabel();
-        TimeTakenC = new javax.swing.JLabel();
+        ratingTitle = new javax.swing.JLabel();
+        ratingSubtitle = new javax.swing.JLabel();
+        ratingResultsText = new javax.swing.JLabel();
+        ratingDlgName = new javax.swing.JLabel();
+        ratingLevel = new javax.swing.JLabel();
+        ratingYourRating = new javax.swing.JLabel();
+        ratingTimeTaken = new javax.swing.JLabel();
+        ratingPartnerRating = new javax.swing.JLabel();
+        okBttn = new javax.swing.JButton();
+        dlgC = new javax.swing.JLabel();
+        lvlC = new javax.swing.JLabel();
+        timeTakenC = new javax.swing.JLabel();
         yourRatingBoxC = new javax.swing.JComboBox<>();
         partnerRatingBoxC = new javax.swing.JComboBox<>();
 
@@ -99,40 +99,40 @@ public class RatingV extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
-        RatingTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        RatingTitle.setText("Congratulation on Finishing! ");
+        ratingTitle.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        ratingTitle.setText("Congratulation on Finishing! ");
 
-        RatingSubtitle.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
-        RatingSubtitle.setText("See results below:");
+        ratingSubtitle.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        ratingSubtitle.setText("See results below:");
 
-        RatingResultsText.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        RatingResultsText.setText("Results:");
+        ratingResultsText.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        ratingResultsText.setText("Results:");
 
-        RatingDlgName.setText("Dialogue Name:");
+        ratingDlgName.setText("Dialogue Name:");
 
-        RatingLevel.setText("Level:");
+        ratingLevel.setText("Level:");
 
-        RatingYourRating.setText("Your Rating:");
+        ratingYourRating.setText("Your Rating:");
 
-        RatingTimeTaken.setText("Time Taken:");
+        ratingTimeTaken.setText("Time Taken:");
 
-        RatingPartnerRating.setText("Partner Rating:");
+        ratingPartnerRating.setText("Partner Rating:");
 
-        OkBttn.setText("OK");
-        OkBttn.setBorderPainted(false);
-        OkBttn.setContentAreaFilled(false);
-        OkBttn.setFocusPainted(false);
-        OkBttn.addActionListener(new java.awt.event.ActionListener() {
+        okBttn.setText("OK");
+        okBttn.setBorderPainted(false);
+        okBttn.setContentAreaFilled(false);
+        okBttn.setFocusPainted(false);
+        okBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OkBttnActionPerformed(evt);
+                okBttnActionPerformed(evt);
             }
         });
 
-        DlgC.setText("Dialogue");
+        dlgC.setText("Dialogue");
 
-        LvlC.setText("Level");
+        lvlC.setText("Level");
 
-        TimeTakenC.setText("Time Taken");
+        timeTakenC.setText("Time Taken");
 
         yourRatingBoxC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
         yourRatingBoxC.addActionListener(new java.awt.event.ActionListener() {
@@ -156,65 +156,65 @@ public class RatingV extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(161, 161, 161)
-                        .addComponent(RatingSubtitle))
+                        .addComponent(ratingSubtitle))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RatingTitle)
+                            .addComponent(ratingTitle)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(82, 82, 82)
-                                .addComponent(RatingResultsText))))
+                                .addComponent(ratingResultsText))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(104, 104, 104)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(RatingLevel)
-                            .addComponent(RatingDlgName)
-                            .addComponent(RatingYourRating)
-                            .addComponent(RatingTimeTaken)
-                            .addComponent(RatingPartnerRating))
+                            .addComponent(ratingLevel)
+                            .addComponent(ratingDlgName)
+                            .addComponent(ratingYourRating)
+                            .addComponent(ratingTimeTaken)
+                            .addComponent(ratingPartnerRating))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DlgC)
-                            .addComponent(LvlC)
-                            .addComponent(TimeTakenC)
+                            .addComponent(dlgC)
+                            .addComponent(lvlC)
+                            .addComponent(timeTakenC)
                             .addComponent(yourRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(partnerRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
-                        .addComponent(OkBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(okBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(RatingTitle)
+                .addComponent(ratingTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RatingSubtitle)
+                .addComponent(ratingSubtitle)
                 .addGap(59, 59, 59)
-                .addComponent(RatingResultsText)
+                .addComponent(ratingResultsText)
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RatingDlgName)
-                    .addComponent(DlgC))
+                    .addComponent(ratingDlgName)
+                    .addComponent(dlgC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RatingLevel)
-                    .addComponent(LvlC))
+                    .addComponent(ratingLevel)
+                    .addComponent(lvlC))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RatingTimeTaken)
-                    .addComponent(TimeTakenC))
+                    .addComponent(ratingTimeTaken)
+                    .addComponent(timeTakenC))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RatingYourRating)
+                    .addComponent(ratingYourRating)
                     .addComponent(yourRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(RatingPartnerRating)
+                        .addComponent(ratingPartnerRating)
                         .addGap(74, 74, 74)
-                        .addComponent(OkBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(okBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(partnerRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
@@ -223,9 +223,9 @@ public class RatingV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void OkBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkBttnActionPerformed
+    private void okBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okBttnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OkBttnActionPerformed
+    }//GEN-LAST:event_okBttnActionPerformed
 
     private void yourRatingBoxCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yourRatingBoxCActionPerformed
         // TODO add your handling code here:
@@ -240,15 +240,15 @@ public class RatingV extends javax.swing.JFrame {
      */
     
     public void setDlgC(JLabel DlgC) {
-        this.DlgC = DlgC;
+        this.dlgC = DlgC;
     }
     
     public void setLvlC(JLabel LvlC) {
-        this.LvlC = LvlC;
+        this.lvlC = LvlC;
     }
     
     public void setTimeTakenC(JLabel TimeTakenC) {
-        this.TimeTakenC = TimeTakenC;
+        this.timeTakenC = TimeTakenC;
     }
     
     public void setID(String id) {
@@ -256,15 +256,15 @@ public class RatingV extends javax.swing.JFrame {
     }
     
     public JLabel getDlgC() {
-        return DlgC;
+        return dlgC;
     }
     
     public JLabel getLvlC() {
-        return LvlC;
+        return lvlC;
     }
     
     public JLabel getTimeTakenC() {
-        return TimeTakenC;
+        return timeTakenC;
     }
     
     public String getID() {
@@ -272,11 +272,11 @@ public class RatingV extends javax.swing.JFrame {
     }
     
     public JButton getOkButton() {
-        return OkBttn;
+        return okBttn;
     }
     
     public void setOkButton(JButton setOkButton) {
-        OkBttn = setOkButton;
+        okBttn = setOkButton;
     }
     
     public JComboBox<String> getYourRatingBoxC() {
@@ -296,21 +296,21 @@ public class RatingV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel DlgC;
-    private javax.swing.JLabel LvlC;
-    private javax.swing.JButton OkBttn;
-    private javax.swing.JLabel RatingDlgName;
-    private javax.swing.JLabel RatingLevel;
-    private javax.swing.JLabel RatingPartnerRating;
-    private javax.swing.JLabel RatingResultsText;
-    private javax.swing.JLabel RatingSubtitle;
-    private javax.swing.JLabel RatingTimeTaken;
-    private javax.swing.JLabel RatingTitle;
-    private javax.swing.JLabel RatingYourRating;
     private javax.swing.JButton StartDlgBttn;
-    private javax.swing.JLabel TimeTakenC;
+    private javax.swing.JLabel dlgC;
     private javax.swing.ButtonGroup dlgRoleC;
+    private javax.swing.JLabel lvlC;
+    private javax.swing.JButton okBttn;
     private javax.swing.JComboBox<String> partnerRatingBoxC;
+    private javax.swing.JLabel ratingDlgName;
+    private javax.swing.JLabel ratingLevel;
+    private javax.swing.JLabel ratingPartnerRating;
+    private javax.swing.JLabel ratingResultsText;
+    private javax.swing.JLabel ratingSubtitle;
+    private javax.swing.JLabel ratingTimeTaken;
+    private javax.swing.JLabel ratingTitle;
+    private javax.swing.JLabel ratingYourRating;
+    private javax.swing.JLabel timeTakenC;
     private javax.swing.JComboBox<String> yourRatingBoxC;
     // End of variables declaration//GEN-END:variables
 }

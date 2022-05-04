@@ -52,7 +52,7 @@ public class ProgV extends javax.swing.JFrame {
 
         dlgHistBtn = new javax.swing.JButton();
         iconLbl = new javax.swing.JLabel();
-        ProgViewContent = new javax.swing.JPanel();
+        progViewContent = new javax.swing.JPanel();
         nameP = new javax.swing.JLabel();
         userIdP = new javax.swing.JLabel();
         groupIdP = new javax.swing.JLabel();
@@ -81,8 +81,8 @@ public class ProgV extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ProgViewContent.setBackground(new java.awt.Color(255, 255, 255));
-        ProgViewContent.setPreferredSize(new java.awt.Dimension(414, 515));
+        progViewContent.setBackground(new java.awt.Color(255, 255, 255));
+        progViewContent.setPreferredSize(new java.awt.Dimension(414, 515));
 
         nameP.setText("name");
 
@@ -145,80 +145,80 @@ public class ProgV extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(135, 178, 240));
         jLabel7.setText("(points)");
 
-        javax.swing.GroupLayout ProgViewContentLayout = new javax.swing.GroupLayout(ProgViewContent);
-        ProgViewContent.setLayout(ProgViewContentLayout);
-        ProgViewContentLayout.setHorizontalGroup(
-            ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProgViewContentLayout.createSequentialGroup()
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
+        javax.swing.GroupLayout progViewContentLayout = new javax.swing.GroupLayout(progViewContent);
+        progViewContent.setLayout(progViewContentLayout);
+        progViewContentLayout.setHorizontalGroup(
+            progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(progViewContentLayout.createSequentialGroup()
+                .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(progViewContentLayout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel6))
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
+                    .addGroup(progViewContentLayout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
+                    .addGroup(progViewContentLayout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addComponent(jLabel7)))
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
+                .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(progViewContentLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(currentLvlP, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
+                    .addGroup(progViewContentLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(ProgViewContentLayout.createSequentialGroup()
+                        .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(progViewContentLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(emailP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(ProgViewContentLayout.createSequentialGroup()
+                            .addGroup(progViewContentLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(userIdP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(ProgViewContentLayout.createSequentialGroup()
+                            .addGroup(progViewContentLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(nameP, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ProgViewContentLayout.createSequentialGroup()
+                            .addGroup(progViewContentLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(userTypeP, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ProgViewContentLayout.createSequentialGroup()
+                            .addGroup(progViewContentLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(groupIdP, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
-        ProgViewContentLayout.setVerticalGroup(
-            ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ProgViewContentLayout.createSequentialGroup()
+        progViewContentLayout.setVerticalGroup(
+            progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(progViewContentLayout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProgViewContentLayout.createSequentialGroup()
-                        .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(progViewContentLayout.createSequentialGroup()
+                        .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(nameP))
                         .addGap(18, 18, 18)
-                        .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(userIdP))
                         .addGap(18, 18, 18)
-                        .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(groupIdP))
                         .addGap(23, 23, 23)
-                        .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(emailP)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5)
                         .addComponent(userTypeP))
                     .addComponent(jLabel7))
                 .addGap(97, 97, 97)
-                .addGroup(ProgViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(progViewContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(currentLvlP)
                     .addComponent(jLabel6))
                 .addContainerGap(183, Short.MAX_VALUE))
@@ -230,14 +230,14 @@ public class ProgV extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ProgViewContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(progViewContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ProgViewContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(progViewContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(152, 152, 152))
         );
 
@@ -264,7 +264,7 @@ public class ProgV extends javax.swing.JFrame {
     }
 
     public JPanel getProgViewContent() {
-        return ProgViewContent;
+        return progViewContent;
     }
 
     public JButton getDlgHistBtn() {
@@ -353,7 +353,6 @@ public class ProgV extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ProgViewContent;
     private javax.swing.JLabel currentLvlP;
     private javax.swing.JButton dlgHistBtn;
     private javax.swing.JLabel emailP;
@@ -369,6 +368,7 @@ public class ProgV extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nameP;
     private javax.swing.JLabel pointsJB;
+    private javax.swing.JPanel progViewContent;
     private javax.swing.JLabel userIdP;
     private javax.swing.JLabel userTypeP;
     // End of variables declaration//GEN-END:variables
