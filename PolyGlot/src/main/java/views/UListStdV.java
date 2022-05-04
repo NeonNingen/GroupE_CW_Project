@@ -15,12 +15,11 @@ import models.UserMDL;
 
 /**
  *
- * @author mones Joshua
+ * @author Joshua
  */
 public class UListStdV extends javax.swing.JFrame {
 
-    //Creates new form UListStdV
-     
+    //Creates new form UListStdV   
     
     private UserMDL user;
     
@@ -28,7 +27,7 @@ public class UListStdV extends javax.swing.JFrame {
         this.user = user;
         initComponents();
         groupDisplay.setText(user.getGroupID());
-//        teacherDisplay.setText(user.get)
+        textTeacher();
         
         setSize(414,667);
         MenuBarV menu = new MenuBarV();
@@ -38,8 +37,7 @@ public class UListStdV extends javax.swing.JFrame {
         fillTable();
     }
 
-    private UListStdV() {
-        
+    private UListStdV() {        
     }
 
   
@@ -170,17 +168,11 @@ public class UListStdV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //getters and setters
     public JLabel getGroupDisplay() {
         return groupDisplay;
     }
 
-//    public JLabel getGroupIdLbl1() {
-//        return GroupIdLbl1;
-//    }
-//
-//    public JLabel getGroupTeach1() {
-//        return GroupTeach1;
-//    }
     public JLabel getTeacherDisplay() {
         return teacherDisplay;
     }
@@ -196,14 +188,6 @@ public class UListStdV extends javax.swing.JFrame {
     public JTable getTblofStd() {
         return TblofStd;
     }
-
-//    public void setGroupIdLbl1(JLabel GroupIdLbl1) {
-//        this.GroupIdLbl1 = GroupIdLbl1;
-//    }
-//
-//    public void setGroupTeach1(JLabel GroupTeach1) {
-//        this.GroupTeach1 = GroupTeach1;
-//    }
 
     public void setTblofStd(JTable TblofStd) {
         this.TblofStd = TblofStd;
@@ -221,8 +205,7 @@ public class UListStdV extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    //reused and modified code from UListTchV
-    
+    //reused and modified code from UListTchV    
     public void fillTable()
     {
         UserMDL.getConnection();
@@ -255,6 +238,17 @@ public class UListStdV extends javax.swing.JFrame {
         getTblofStd().setModel(td);
     }
     
+    //sets teacher name 
+    public void textTeacher() {
+       UserMDL.getConnection();
+       ArrayList<String> query = UserMDL.queryData("SELECT user_name, user_sname FROM User WHERE user_type = 'Teacher' AND user_group_id = '" + user.getGroupID() + "'");
+       String s = query.toString().replaceAll("(^\\[|\\]$)", "");
+       teacherDisplay.setText(s);
+    }
+
+
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblofStd;

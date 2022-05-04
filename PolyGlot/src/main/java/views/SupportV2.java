@@ -16,8 +16,7 @@ import javax.swing.JTextArea;
 public class SupportV2 extends javax.swing.JFrame {
 
     
-     //Creates new form SupportV2
-     
+     //Creates new form SupportV2     
     public SupportV2() {
         initComponents();
         //Back to register and back to login
@@ -29,8 +28,7 @@ public class SupportV2 extends javax.swing.JFrame {
         colorWhiteBttn(backBttnR, "Back to Register");
     }
     
-    //Title for the JLabel
-    
+    //Titles for the JLabel    
         public void mainTitle() {
         String title1 = "Forgot password?";
         jLabel1.setText(title1);
@@ -50,7 +48,6 @@ public class SupportV2 extends javax.swing.JFrame {
         String text1 = "Contact one of the PolyGlot devs via their (fake) emails below";
         jTextArea1.setText(text1);
         jTextArea1.setEditable(false);
-        //setEditable to stop users from writing into the field
         
         String text2 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n\n" +
         "Monesha Dhali (w12345679@my.westminster.ac.uk)\n\n" +
@@ -272,6 +269,7 @@ public class SupportV2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_backBttnRActionPerformed
 
+    //getters
     public JLabel getjLabel1() {
         return jLabel1;
     }
@@ -313,7 +311,7 @@ public class SupportV2 extends javax.swing.JFrame {
     }
 
        
-    
+    //setters
     public void setjLabel1(JLabel jLabel1) {
         this.jLabel1 = jLabel1;
     }
@@ -370,7 +368,7 @@ public class SupportV2 extends javax.swing.JFrame {
     
     //reused and modified code from RegisterV
     public void colorLoginBttn(JButton bttn, String bttnName) {
-        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18));
         bttn.setBackground(new java.awt.Color(238, 238, 238));
         bttn.setForeground(new java.awt.Color(93, 150, 234));
         bttn.setText(bttnName);
@@ -381,7 +379,7 @@ public class SupportV2 extends javax.swing.JFrame {
     }
     
     public void colorRegisterBttn(JButton bttn, String bttnName) {
-        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18));
         bttn.setBackground(new java.awt.Color(238, 238, 238));
         bttn.setForeground(new java.awt.Color(93, 150, 234));
         bttn.setText(bttnName);
