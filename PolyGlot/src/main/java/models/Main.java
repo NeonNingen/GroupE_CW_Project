@@ -8,14 +8,5 @@ public class Main {
         UserMDL user = new UserMDL();
         LoginRegisterCont logRegCont = new LoginRegisterCont(user);
         logRegCont.startApp();
-        //currentUser= logRegCont.getUserInfo();
-
-        //LoginV loginPage = new LoginV();
-        //loginPage.show();
-        //calling the methodss
-        //user.insert();
-        //user.retrieveUserList();
-        //user.delete();
-        //user.update();
     }
 }

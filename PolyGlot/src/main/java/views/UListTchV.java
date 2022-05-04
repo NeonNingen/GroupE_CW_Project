@@ -239,7 +239,8 @@ public class UListTchV extends javax.swing.JFrame {
     
 
     /**
-     * by amit
+     * fills the table with all the students
+     * @author Amit
      */
     public void fillTable()
     {
@@ -273,7 +274,8 @@ public class UListTchV extends javax.swing.JFrame {
     }
     
     /**
-     * by amit
+     * fills the combo box with user's group id, language level
+     * @author Amit
      */
     public void fillCombo()
     {

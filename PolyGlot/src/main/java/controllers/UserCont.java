@@ -17,7 +17,13 @@ public class UserCont implements ActionListener {
     private ProgV profilePage;
     ArrayList<UserMDL> userList = new ArrayList<UserMDL>();
 
-    public UserCont() {
+   //contructors
+    public UserCont() 
+    {
+        uListStudentPage = new UListStdV();
+        uListTeacherPage = new UListTchV();
+        user = new UserMDL();
+        profilePage = new ProgV();
 
     }
 
@@ -53,57 +59,28 @@ public class UserCont implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == uListTeacherPage.getGroupFilterCbox()) {
+    public void actionPerformed(ActionEvent e) 
+    {
+        if (e.getSource() == uListTeacherPage.getGroupFilterCbox())
             updateTeacherTable();
-        }
 
-        if (e.getSource() == uListTeacherPage.getULvlFilterCbox()) {
+        if (e.getSource() == uListTeacherPage.getULvlFilterCbox())
             updateTeacherTable();
-        }
 
-        if (e.getSource() == uListTeacherPage.getSortCbox()) {
+        if (e.getSource() == uListTeacherPage.getSortCbox())
             updateTeacherTable();
-        }
 
-        if (e.getSource() == uListTeacherPage.getResetBttn()) {
+        if (e.getSource() == uListTeacherPage.getResetBttn())
             resetTable();
-        }
-
-        /*if(e.getSource() == profilePage.getDlgHistBtn()){
-            profilePage.dispose();
-            MenuBarV menu= new MenuBarV();
-            menu.setPageTitle("Dialogeu History");
-            menu.setPageTopicContent(new DlgHistV().getDlgHistConent());
-            menu.show();
-            menu.setPageTitle("Dialogue History");
-            
-        }*/
- /*
-        after checking both UserList Pages, I noticed that the code written below won't be needed 
-        as the 'linking' part is done by the MenuBarController
         
-        [Amit]
-         */
- /*if(e.getSource() == uListStudentPage.getUserListBttn())
-       
-        {
-            uListStudentPage.dispose();
-            new UListStdV().show();
-        }
-        
-        if(e.getSource() == uListTeacherPage.getUserListBttn())
-        {
-            uListTeacherPage.dispose();
-            new UListTchV().show();
-        }*/
-        //}
     }
 
     /**
-     * this method calls other method to update the data in the current table
+     * this method calls other methods to update the data in the current table
+     * @author Amit
      */
-    private void updateTeacherTable() {
+    private void updateTeacherTable() 
+    {
         String selectedItemGroup;
         String selectedItemLvl;
         String selectedItemSort;
@@ -122,28 +99,30 @@ public class UserCont implements ActionListener {
 
     /**
      * shows the table's data based on the criteria selected by the user
-     *
+     * @author Amit
      * @param query the sql query that will be run to sort the table
      */
-    private void sortTableByFilter(String query) {
-        user.getConnection();
+    private void sortTableByFilter(String query) 
+    {
         ArrayList<String> result = user.queryData(query);
 
-        //System.out.println(result.toString());
         String[] columnNames = {"Lvl", "Student ID", "Student Name", "Group ID", "Points"};
         int row = result.size() / columnNames.length;
         String[][] data = new String[row][columnNames.length];
 
         int count = 0;
-        for (int i = 0; i < data.length; i++) {
-            for (int j = 0; j < columnNames.length; j++) {
+        for (int i = 0; i < data.length; i++) 
+        {
+            for (int j = 0; j < columnNames.length; j++) 
+            {
                 data[i][j] = result.get(count);
                 count++;
             }
 
         }
 
-        DefaultTableModel tableMod = new DefaultTableModel(data, columnNames) {
+        DefaultTableModel tableMod = new DefaultTableModel(data, columnNames) 
+        {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -154,62 +133,73 @@ public class UserCont implements ActionListener {
         uListTeacherPage.getTblofStd().setModel(tableMod);
     }
 
-    /**
+     /**
      * checks if the group filter or the level filter have default values
-     *
+     * @author Amit
      * @param selectedItem the combobox value to check
      * @return true if the current value is default
      */
-    private Boolean comboSelect(String selectedItem) {
-        if (selectedItem.contains("Select")) {
+    private Boolean comboSelect(String selectedItem) 
+    {
+        if (selectedItem.contains("Select"))
             return true;
-        } else {
+        else
             return false;
-        }
     }
 
     /**
      * returns a query depending if both, none or one of the combo boxes, used
      * in the comboSelect method, have a default value
-     *
+     * @author Amit
      * @param selectedItemGroup current group item selected
      * @param selectedItemLvl current level item selected
      * @return a query
      */
-    private String selectQuery(String selectedItemGroup, String selectedItemLvl) {
+    private String selectQuery(String selectedItemGroup, String selectedItemLvl) 
+    {
         Boolean itemG = comboSelect(selectedItemGroup);
         Boolean itemLvl = comboSelect(selectedItemLvl);
 
-        if ((itemG == true) && (itemLvl == true)) {
+        if ((itemG == true) && (itemLvl == true)) 
+        {
             return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
                     + " WHERE user_type = 'Student'";
-        } else {
-            if (itemG == true) {
+        } else 
+        {
+            if (itemG == true) 
+            {
                 return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
                         + " WHERE user_type = 'Student' "
                         + " AND user_lang_lvl = '" + selectedItemLvl + "'";
-            } else if (itemLvl == true) {
-                return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+            } 
+            else 
+                if (itemLvl == true) 
+                {
+                    return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
                         + " WHERE user_type = 'Student'"
                         + " AND user_group_id = '" + selectedItemGroup + "'";
-            } else {
-                return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
+                } 
+                else 
+                {
+                    return "SELECT user_lang_lvl, user_id, user_name, user_group_id, user_progresspoints FROM User"
                         + " WHERE user_type = 'Student'"
                         + " AND user_group_id = '" + selectedItemGroup + "'"
                         + " AND user_lang_lvl = '" + selectedItemLvl + "'";
-            }
+                }
         }
     }
 
     /**
      * adds a line to the query that will be used to sort the tables
-     *
+     * @author Amit
      * @param selectedItemSort current order item selected
      * @return a query
      */
-    private String completeQuery(String selectedItemSort) {
+    private String completeQuery(String selectedItemSort) 
+    {
         String query = "";
-        switch (selectedItemSort) {
+        switch (selectedItemSort) 
+        {
             case "Select points":
                 query = "";
                 break;
@@ -225,7 +215,12 @@ public class UserCont implements ActionListener {
         return query;
     }
 
-    private void resetTable() {
+     /**
+     * shows the list of students without any filter applied
+     * @author Amit
+     */
+    private void resetTable() 
+    {
         uListTeacherPage.getULvlFilterCbox().setSelectedIndex(0);
         uListTeacherPage.getSortCbox().setSelectedIndex(0);
         uListTeacherPage.getGroupFilterCbox().setSelectedIndex(0);

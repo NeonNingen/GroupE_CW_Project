@@ -33,8 +33,14 @@ public class AccessRecordMDL extends DatabaseMDL {
         String sqlString = "UPDATE Access_Record SET logouttime = '" + dtf.format(now) + "' WHERE accessrecord_id=" + accessrecord_id + " AND user_id = '" + user_id + "'";
         updateTable(sqlString);
     }
-
-    public void setLoginTime(String user_id) {
+    
+    /**
+     * records login date and time of user in the database
+     * @author Amit
+     * @param user_id the user's user id needed to store inside the database
+     */
+    public void setLoginTime(String user_id) 
+    {
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         String date = LocalDate.now().format(dateFormat);
@@ -43,7 +49,12 @@ public class AccessRecordMDL extends DatabaseMDL {
         insertTable(date, logintime, "", user_id);
     }
 
-    public void storeAccessRecord(String user_id) {
+    /**
+     * stores the access record id that has been generated when storing the values into the AccessRecordMDL
+     * @param user_id 
+     */
+    public void storeAccessRecord(String user_id) 
+    {
         ArrayList<String> result;
         String query = "SELECT MAX(date), MAX(logintime), accessrecord_id FROM Access_Record WHERE user_id = '" + user_id + "'";
         result = queryData(query);
