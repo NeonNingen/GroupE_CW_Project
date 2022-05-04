@@ -202,24 +202,34 @@ public class PerfmDlgCont implements ActionListener
      */
     private void ratingsToDatabase(int userScore, int partnerScore) {
         
-        ArrayList<String> prevScoreList = new ArrayList<>();
-        prevScoreList = user.queryData(
+        ArrayList<String> revUs = new ArrayList<>();
+        int prevUserScore = Integer.parseInt(user.queryData(
                                   "SELECT "
                                 + "user_progresspoints "
                                 + "FROM User WHERE "
                                 + "user_id = '" 
                                 + this.userID + "' "
                                 + "or user_id = '"
-                                + this.partnerID + "'");
+                                + this.partnerID + "'").get(0));
         
-        System.out.println(prevScoreList);
+        int prevPartnerScore = Integer.parseInt(user.queryData(
+                                  "SELECT "
+                                + "user_progresspoints "
+                                + "FROM User WHERE "
+                                + "user_id = '" 
+                                + this.partnerID + "'").get(0));
+        
+        System.out.println(userScore);
+        System.out.println(partnerScore);
+        System.out.println(userScore + prevUserScore);
+        System.out.println(partnerScore + prevPartnerScore);
                                 
-//        user.changeValue("User", "user_progresspoints",
-//                            userScore + Integer.parseInt(prevScoreList.get(0)),
-//                            "user_id", this.userID);
-//        user.changeValue("User", "user_progresspoints",
-//                            partnerScore + Integer.parseInt(prevScoreList.get(1)),
-//                            "user_id", this.partnerID);
+        user.changeValue("User", "user_progresspoints",
+                            userScore + prevUserScore,
+                            "user_id", this.userID);
+        user.changeValue("User", "user_progresspoints",
+                            partnerScore + prevPartnerScore,
+                            "user_id", this.partnerID);
     }
     
     /**
@@ -350,7 +360,6 @@ public class PerfmDlgCont implements ActionListener
             menu.show();
         }
            } catch (Exception e2) {
-               System.out.println(e2);
         }
         }
 
