@@ -51,7 +51,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="SupContTxtScrollP" min="-2" pref="420" max="-2" attributes="0"/>
+                  <Component id="supContTxtScrollP" min="-2" pref="420" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -59,14 +59,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="SupContTxtScrollP" min="-2" max="-2" attributes="0"/>
+                  <Component id="supContTxtScrollP" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="80" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="SupContTxtScrollP">
+        <Container class="javax.swing.JScrollPane" name="supContTxtScrollP">
           <Properties>
             <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
             <Property name="verticalScrollBarPolicy" type="int" value="22"/>

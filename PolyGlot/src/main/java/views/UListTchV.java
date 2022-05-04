@@ -33,8 +33,8 @@ public class UListTchV extends javax.swing.JFrame {
         fillCombo();
         
         this.groupFilterCbox.addActionListener(new UserCont(this));
-        this.SortCbox.addActionListener(new UserCont(this));
-        this.ULvlFilterCbox.addActionListener(new UserCont(this));
+        this.sortCbox.addActionListener(new UserCont(this));
+        this.userLvlFilterCbox.addActionListener(new UserCont(this));
         this.resetBttn.addActionListener(new UserCont(this));
     }
 
@@ -47,23 +47,23 @@ public class UListTchV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        UListContent = new javax.swing.JPanel();
+        userListContent = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblofStd = new javax.swing.JTable();
         orderByLbl = new javax.swing.JLabel();
-        ULvlLbl = new javax.swing.JLabel();
-        GroupSelectLbl = new javax.swing.JLabel();
+        userLvlLbl = new javax.swing.JLabel();
+        groupSelectLbl = new javax.swing.JLabel();
         groupFilterCbox = new javax.swing.JComboBox<>();
-        ULvlFilterCbox = new javax.swing.JComboBox<>();
-        SortCbox = new javax.swing.JComboBox<>();
+        userLvlFilterCbox = new javax.swing.JComboBox<>();
+        sortCbox = new javax.swing.JComboBox<>();
         resetBttn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        UListContent.setBackground(new java.awt.Color(255, 255, 255));
-        UListContent.setMinimumSize(new java.awt.Dimension(414, 550));
-        UListContent.setPreferredSize(new java.awt.Dimension(414, 550));
+        userListContent.setBackground(new java.awt.Color(255, 255, 255));
+        userListContent.setMinimumSize(new java.awt.Dimension(414, 550));
+        userListContent.setPreferredSize(new java.awt.Dimension(414, 550));
 
         TblofStd.setForeground(new java.awt.Color(29, 91, 161));
         TblofStd.setModel(new javax.swing.table.DefaultTableModel(
@@ -86,9 +86,7 @@ public class UListTchV extends javax.swing.JFrame {
             }
         });
         TblofStd.setPreferredSize(new java.awt.Dimension(225, 1000));
-        TblofStd.setRowMargin(1);
         TblofStd.setSelectionBackground(new java.awt.Color(135, 178, 240));
-        TblofStd.setSelectionForeground(new java.awt.Color(255, 255, 255));
         TblofStd.setSurrendersFocusOnKeystroke(true);
         TblofStd.getTableHeader().setReorderingAllowed(false);
         TblofStd.setUpdateSelectionOnSort(false);
@@ -100,76 +98,76 @@ public class UListTchV extends javax.swing.JFrame {
         orderByLbl.setForeground(new java.awt.Color(121, 121, 121));
         orderByLbl.setText("Order by:");
 
-        ULvlLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        ULvlLbl.setForeground(new java.awt.Color(121, 121, 121));
-        ULvlLbl.setText("Choose user lvl");
+        userLvlLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        userLvlLbl.setForeground(new java.awt.Color(121, 121, 121));
+        userLvlLbl.setText("Choose user lvl");
 
-        GroupSelectLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        GroupSelectLbl.setForeground(new java.awt.Color(121, 121, 121));
-        GroupSelectLbl.setText("Choose group");
+        groupSelectLbl.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        groupSelectLbl.setForeground(new java.awt.Color(121, 121, 121));
+        groupSelectLbl.setText("Choose group");
 
         groupFilterCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         groupFilterCbox.setForeground(new java.awt.Color(121, 121, 121));
         groupFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select group" }));
 
-        ULvlFilterCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        ULvlFilterCbox.setForeground(new java.awt.Color(121, 121, 121));
-        ULvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select level" }));
+        userLvlFilterCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        userLvlFilterCbox.setForeground(new java.awt.Color(121, 121, 121));
+        userLvlFilterCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select level" }));
 
-        SortCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        SortCbox.setForeground(new java.awt.Color(121, 121, 121));
-        SortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select points", "points (lowest)", "points (highest)" }));
+        sortCbox.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        sortCbox.setForeground(new java.awt.Color(121, 121, 121));
+        sortCbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select points", "points (lowest)", "points (highest)" }));
 
         resetBttn.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         resetBttn.setForeground(new java.awt.Color(121, 121, 121));
         resetBttn.setText("Reset");
 
-        javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
-        UListContent.setLayout(UListContentLayout);
-        UListContentLayout.setHorizontalGroup(
-            UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UListContentLayout.createSequentialGroup()
+        javax.swing.GroupLayout userListContentLayout = new javax.swing.GroupLayout(userListContent);
+        userListContent.setLayout(userListContentLayout);
+        userListContentLayout.setHorizontalGroup(
+            userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userListContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UListContentLayout.createSequentialGroup()
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userListContentLayout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(37, 37, 37))
-                    .addGroup(UListContentLayout.createSequentialGroup()
+                    .addGroup(userListContentLayout.createSequentialGroup()
                         .addComponent(orderByLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resetBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SortCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(UListContentLayout.createSequentialGroup()
+                            .addComponent(sortCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(userListContentLayout.createSequentialGroup()
                                 .addGap(13, 13, 13)
-                                .addComponent(GroupSelectLbl))
-                            .addGroup(UListContentLayout.createSequentialGroup()
+                                .addComponent(groupSelectLbl))
+                            .addGroup(userListContentLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ULvlLbl)))
+                                .addComponent(userLvlLbl)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(groupFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userLvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(48, 48, 48))))
         );
-        UListContentLayout.setVerticalGroup(
-            UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UListContentLayout.createSequentialGroup()
+        userListContentLayout.setVerticalGroup(
+            userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userListContentLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GroupSelectLbl)
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(groupSelectLbl)
                     .addComponent(orderByLbl)
                     .addComponent(groupFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SortCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sortCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ULvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ULvlLbl)
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userLvlFilterCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userLvlLbl)
                     .addComponent(resetBttn))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,14 +176,14 @@ public class UListTchV extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(UListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(UListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -194,7 +192,7 @@ public class UListTchV extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public JComboBox<String> getSortCbox() {
-        return SortCbox;
+        return sortCbox;
     }
 
     public JTable getTblofStd() {
@@ -202,7 +200,7 @@ public class UListTchV extends javax.swing.JFrame {
     }
 
     public JComboBox<String> getULvlFilterCbox() {
-        return ULvlFilterCbox;
+        return userLvlFilterCbox;
     }
 
     public JComboBox<String> getGroupFilterCbox() {
@@ -210,7 +208,7 @@ public class UListTchV extends javax.swing.JFrame {
     }
 
     public void setSortCbox(JComboBox<String> SortCbox) {
-        this.SortCbox = SortCbox;
+        this.sortCbox = SortCbox;
     }
 
     public void setTblofStd(JTable TblofStd) {
@@ -218,7 +216,7 @@ public class UListTchV extends javax.swing.JFrame {
     }
 
     public void setULvlFilterCbox(JComboBox<String> ULvlFilterCbox) {
-        this.ULvlFilterCbox = ULvlFilterCbox;
+        this.userLvlFilterCbox = ULvlFilterCbox;
     }
 
     public void setGroupFilterCbox(JComboBox<String> groupFilterCbox) {
@@ -226,7 +224,7 @@ public class UListTchV extends javax.swing.JFrame {
     }
 
     public JPanel getUListContent() {
-        return UListContent;
+        return userListContent;
     }
 
     public JButton getResetBttn() {
@@ -305,16 +303,16 @@ public class UListTchV extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel GroupSelectLbl;
-    private javax.swing.JComboBox<String> SortCbox;
     private javax.swing.JTable TblofStd;
-    private javax.swing.JPanel UListContent;
-    private javax.swing.JComboBox<String> ULvlFilterCbox;
-    private javax.swing.JLabel ULvlLbl;
     private javax.swing.JComboBox<String> groupFilterCbox;
+    private javax.swing.JLabel groupSelectLbl;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel orderByLbl;
     private javax.swing.JButton resetBttn;
+    private javax.swing.JComboBox<String> sortCbox;
+    private javax.swing.JPanel userListContent;
+    private javax.swing.JComboBox<String> userLvlFilterCbox;
+    private javax.swing.JLabel userLvlLbl;
     // End of variables declaration//GEN-END:variables
 
 }

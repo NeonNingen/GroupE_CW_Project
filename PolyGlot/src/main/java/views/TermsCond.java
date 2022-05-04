@@ -71,47 +71,50 @@ public class TermsCond extends javax.swing.JFrame {
         jTextArea1.setAutoscrolls(false);
         jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTextArea1.setFocusable(false);
+        jTextArea1.setPreferredSize(new java.awt.Dimension(180, 780));
         jTextArea1.setRequestFocusEnabled(false);
         jTextArea1.setVerifyInputWhenFocusTarget(false);
         termCond.setViewportView(jTextArea1);
 
         rmvTCBttn.setBackground(new java.awt.Color(135, 178, 240));
+        rmvTCBttn.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         rmvTCBttn.setForeground(new java.awt.Color(255, 255, 255));
         rmvTCBttn.setText("X");
         rmvTCBttn.setBorderPainted(false);
         rmvTCBttn.setContentAreaFilled(false);
         rmvTCBttn.setFocusPainted(false);
         rmvTCBttn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        rmvTCBttn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rmvTCBttnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tcPanelLayout = new javax.swing.GroupLayout(tcPanel);
         tcPanel.setLayout(tcPanelLayout);
         tcPanelLayout.setHorizontalGroup(
             tcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tcPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tcPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tcPanelLayout.createSequentialGroup()
-                        .addGap(0, 122, Short.MAX_VALUE)
+                .addGroup(tcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(termCond)
+                    .addGroup(tcPanelLayout.createSequentialGroup()
+                        .addGap(0, 110, Short.MAX_VALUE)
                         .addComponent(tcLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rmvTCBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(termCond))
+                        .addGap(18, 18, 18)
+                        .addComponent(rmvTCBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         tcPanelLayout.setVerticalGroup(
             tcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tcPanelLayout.createSequentialGroup()
-                .addGroup(tcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tcPanelLayout.createSequentialGroup()
-                        .addGap(0, 18, Short.MAX_VALUE)
-                        .addComponent(tcLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tcPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(rmvTCBttn)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(tcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rmvTCBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tcLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(termCond, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,6 +131,10 @@ public class TermsCond extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rmvTCBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rmvTCBttnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rmvTCBttnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
