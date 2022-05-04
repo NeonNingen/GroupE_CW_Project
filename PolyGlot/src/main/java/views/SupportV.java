@@ -46,18 +46,18 @@ public class SupportV extends javax.swing.JFrame {
     public void mainTextField() {
         String text1 = "1. Find what motivates you to learn the language of your choice\n\n"
                 + "Take Japanese for example, some people choose it for anime, others "
-                + "because they plan to visit, others just like cultured people."
+                + "because they plan to visit, others just like cultured people.\n\n"
                 + "Why do you want to study? Once you know that, you are on the right track. \n\n"
-                + "2. Make learning a habit \n"
+                + "2. Make learning a habit \n\n"
                 + "Check below for more information \n\n"
-                + "3. Check your notes, make notes if you dont already and review \n"
+                + "3. Check your notes, make notes if you dont already and review \n\n"
                 + "Imagine learning multiple languages at once, you won't be able "
                 + "to remember most of them if you arent taking notes. Note taking "
                 + "learn it. \n\n"
-                + "4. Immerse yourself in the language \n"
+                + "4. Immerse yourself in the language \n\n"
                 + "This is my personal recommendation. What better way to learn Japanese "
-                + "for example than to binge watch anime/japanese dramas with no subtitles?"
-                + "I guarantee you, if you want to progress fast, watching/listening in the "
+                + "for example than to binge watch anime or japanese dramas with no subtitles?\n\n "
+                + "I guarantee you, if you want to progress fast, watching or listening in the "
                 + "language you are studying is the way to go";
         jTextArea1.setText(text1);
         jTextArea1.setEditable(false);
@@ -65,27 +65,27 @@ public class SupportV extends javax.swing.JFrame {
         
         
         String text2 = "On your device, click the cog icon and select the language "
-                + "of your choice. Currently we only have two languages but if our "
+                + "of your choice. \n\nCurrently we only have two languages but if our "
                 + "app gets popular enough, we will add more language. Japanese "
                 + "being a priority.";
         jTextArea2.setText(text2);
         jTextArea2.setEditable(false);        
 
         
-        String text3 = "1. Choose a time specifically for studying \n"
-                + "The most important thing for making anything a habit is to fit it into your routine. \n"
+        String text3 = "1. Choose a time specifically for studying \n\n"
+                + "The most important thing for making anything a habit is to fit it into your routine. "
                 + "Good thing is our application is piss easy that even a baby could find time to use it "
                 + "so there should be no excuse on not using our app at least 24 hours a day \n\n"
-                + "2. Make your learning fun \n"
+                + "2. Make your learning fun \n\n"
                 + "It's very important to stay motivated in language learning by doing something you love "
                 + "while using our application. For example, if you like news, try watching news in "
                 + "the language you are learning, studies shown that it works! \n\n"
-                + "3. Watch your progress \n"
+                + "3. Watch your progress \n\n"
                 + "It's another way to stay motivated! Our progress page on the application allows you to "
                 + "check your progress so check it out, get movitated and start practicing! \n\n"
-                + "4. Find people to practice with \n"
+                + "4. Find people to practice with \n\n"
                 + "Language learning is a social activity, you don't study language for yourself, do you? "
-                + "Of course not, you study it to speak with people from other languages and connect "
+                + "Of course not, you study it to speak with people from other languages and connect. \n\n"
                 + "If you don't have any friends that speak other languages, my condolences. "
                 + "The best advice we can give you is go out there and make some friends!";
         jTextArea3.setText(text3);
@@ -94,11 +94,11 @@ public class SupportV extends javax.swing.JFrame {
         jTextArea3.setWrapStyleWord(true);
 
         
-        String text4 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n" +
-        "Monesha Dhali (w12345679@my.westminster.ac.uk)\n" +
-        "Rafael Sally (w12345670@my.westminster.ac.uk)\n" +
-        "Rahat Amit Haider (w12345681@my.westminster.ac.uk)\n" +
-        "Joshua Nwachukwa (w12345682@my.westminster.ac.uk)\n" +
+        String text4 = "Zain Cheema (w12345678@my.westminster.ac.uk)\n\n" +
+        "Monesha Dhali (w12345679@my.westminster.ac.uk)\n\n" +
+        "Rafael Sally (w12345670@my.westminster.ac.uk)\n\n" +
+        "Rahat Amit Haider (w12345681@my.westminster.ac.uk)\n\n" +
+        "Joshua Nwachukwu (w12345682@my.westminster.ac.uk)\n\n" +
         "Aisana Zharmagambetova (w12345683@my.westminster.ac.uk)";
         jTextArea4.setText(text4);
         jTextArea4.setEditable(false);
@@ -148,46 +148,46 @@ public class SupportV extends javax.swing.JFrame {
         scrollPanel.setAutoscrolls(true);
         scrollPanel.setPreferredSize(new java.awt.Dimension(414, 1000));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(121, 121, 121));
         jLabel1.setText("jLabel1");
 
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
         jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(121, 121, 121));
         jLabel2.setText("jLabel2");
 
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea2.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setWrapStyleWord(true);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(121, 121, 121));
         jLabel3.setText("jLabel3");
 
         jTextArea3.setColumns(20);
-        jTextArea3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea3.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(121, 121, 121));
         jLabel4.setText("jLabel4");
 
         jTextArea4.setColumns(20);
-        jTextArea4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextArea4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jTextArea4.setForeground(new java.awt.Color(121, 121, 121));
         jTextArea4.setRows(5);
         jScrollPane4.setViewportView(jTextArea4);
@@ -228,8 +228,8 @@ public class SupportV extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                .addGap(103, 103, 103))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         SupContTxtScrollP.setViewportView(scrollPanel);
@@ -334,6 +334,43 @@ public class SupportV extends javax.swing.JFrame {
         return supportContent;
     }
 
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SupportV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SupportV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SupportV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SupportV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SupportV().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane SupContTxtScrollP;

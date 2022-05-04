@@ -53,6 +53,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.registerPage = new RegisterV();
         this.userMDL = new UserMDL();
         this.accessRecMDL = new AccessRecordMDL();
+        this.supportPage = new SupportV2();
     }
 
     public LoginRegisterCont(SettingV set) {
@@ -63,6 +64,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     public LoginRegisterCont(UserMDL user) {
         this.userMDL = user;
         this.accessRecMDL = new AccessRecordMDL();
+        this.supportPage = new SupportV2();
     }
 
     public LoginRegisterCont(RegisterV reg) {
@@ -71,8 +73,13 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.accessRecMDL = new AccessRecordMDL();
     }
 
-    public LoginRegisterCont() {
+    public LoginRegisterCont(SupportV2 aThis) {
+        this.supportPage = aThis; 
 
+    }
+
+    LoginRegisterCont() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -185,6 +192,19 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                 this.loginPage = new LoginV();
                 this.loginPage.setVisible(true);
                 break;
+                
+            case "Back to Register":
+                this.supportPage.dispose();
+                this.registerPage = new RegisterV();
+                this.registerPage.setVisible(true);
+                break;
+                
+            case "Back to Login":
+                this.supportPage.dispose();
+                this.loginPage = new LoginV();
+                this.loginPage.setVisible(true);
+                break;
+    
         }
     }
 

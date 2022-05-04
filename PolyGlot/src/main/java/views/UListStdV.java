@@ -22,14 +22,24 @@ public class UListStdV extends javax.swing.JFrame {
     /**
      * Creates new form UListStdV
      */
-    public UListStdV() {
+    
+    private UserMDL user;
+    
+    public UListStdV(UserMDL user) {
+        this.user = user;
         initComponents();
+        groupDisplay.setText(user.getGroupID());
+        
         setSize(414,667);
         MenuBarV menu = new MenuBarV();
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("User List");
         menu.setPageTopicContent(UListContent);
         fillTable();
+    }
+
+    private UListStdV() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -46,8 +56,8 @@ public class UListStdV extends javax.swing.JFrame {
         TblofStd = new javax.swing.JTable();
         GroupIdLbl = new javax.swing.JLabel();
         GroupTeach = new javax.swing.JLabel();
-        GroupTeach1 = new javax.swing.JLabel();
-        GroupIdLbl1 = new javax.swing.JLabel();
+        groupDisplay = new javax.swing.JLabel();
+        teacherDisplay = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,21 +97,19 @@ public class UListStdV extends javax.swing.JFrame {
         TblofStd.getTableHeader().setForeground(new Color(255, 255, 255));
         TblofStd.getTableHeader().setBackground(new Color(135, 178, 240));
 
-        GroupIdLbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        GroupIdLbl.setForeground(new java.awt.Color(121, 121, 121));
-        GroupIdLbl.setText("GroupID:");
+        GroupIdLbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        GroupIdLbl.setForeground(new java.awt.Color(135, 178, 240));
+        GroupIdLbl.setText("Group ID:");
 
-        GroupTeach.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        GroupTeach.setForeground(new java.awt.Color(121, 121, 121));
-        GroupTeach.setText("Teacher :");
+        GroupTeach.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        GroupTeach.setForeground(new java.awt.Color(135, 178, 240));
+        GroupTeach.setText("Teacher:");
 
-        GroupTeach1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        GroupTeach1.setForeground(new java.awt.Color(121, 121, 121));
-        GroupTeach1.setText("Mr Pumpkin");
+        groupDisplay.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        groupDisplay.setForeground(new java.awt.Color(135, 178, 240));
 
-        GroupIdLbl1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        GroupIdLbl1.setForeground(new java.awt.Color(121, 121, 121));
-        GroupIdLbl1.setText("group102");
+        teacherDisplay.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        teacherDisplay.setForeground(new java.awt.Color(135, 178, 240));
 
         javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
         UListContent.setLayout(UListContentLayout);
@@ -114,10 +122,10 @@ public class UListStdV extends javax.swing.JFrame {
                         .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(GroupIdLbl)
                             .addComponent(GroupTeach))
-                        .addGap(18, 18, 18)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GroupIdLbl1)
-                            .addComponent(GroupTeach1)))
+                        .addGap(36, 36, 36)
+                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(groupDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
                     .addGroup(UListContentLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -129,14 +137,16 @@ public class UListStdV extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GroupIdLbl)
-                    .addComponent(GroupIdLbl1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(groupDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GroupTeach)
-                    .addComponent(GroupTeach1))
+                    .addGroup(UListContentLayout.createSequentialGroup()
+                        .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -160,25 +170,40 @@ public class UListStdV extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    public JLabel getGroupIdLbl1() {
-        return GroupIdLbl1;
+    public JLabel getGroupDisplay() {
+        return groupDisplay;
     }
 
-    public JLabel getGroupTeach1() {
-        return GroupTeach1;
+//    public JLabel getGroupIdLbl1() {
+//        return GroupIdLbl1;
+//    }
+//
+//    public JLabel getGroupTeach1() {
+//        return GroupTeach1;
+//    }
+    public JLabel getTeacherDisplay() {
+        return teacherDisplay;
+    }
+
+    public void setGroupDisplay(JLabel groupDisplay) {
+        this.groupDisplay = groupDisplay;
+    }
+
+    public void setTeacherDisplay(JLabel teacherDisplay) {
+        this.teacherDisplay = teacherDisplay;
     }
 
     public JTable getTblofStd() {
         return TblofStd;
     }
 
-    public void setGroupIdLbl1(JLabel GroupIdLbl1) {
-        this.GroupIdLbl1 = GroupIdLbl1;
-    }
-
-    public void setGroupTeach1(JLabel GroupTeach1) {
-        this.GroupTeach1 = GroupTeach1;
-    }
+//    public void setGroupIdLbl1(JLabel GroupIdLbl1) {
+//        this.GroupIdLbl1 = GroupIdLbl1;
+//    }
+//
+//    public void setGroupTeach1(JLabel GroupTeach1) {
+//        this.GroupTeach1 = GroupTeach1;
+//    }
 
     public void setTblofStd(JTable TblofStd) {
         this.TblofStd = TblofStd;
@@ -201,7 +226,8 @@ public class UListStdV extends javax.swing.JFrame {
     public void fillTable()
     {
         UserMDL.getConnection();
-        ArrayList<String> resultQuery = UserMDL.queryData("SELECT user_name, user_sname FROM User WHERE user_type = 'Student'");
+        ArrayList<String> resultQuery = UserMDL.queryData("SELECT user_name, user_sname FROM User WHERE user_type = 'Student' AND user_group_id = '" + user.getGroupID() + "'");
+        
        
         String[] stdName = {"Student First Name", "Student Surname"};
         int row = resultQuery.size()/stdName.length;
@@ -229,15 +255,47 @@ public class UListStdV extends javax.swing.JFrame {
         getTblofStd().setModel(td);
     }
     
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UListStdV().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel GroupIdLbl;
-    private javax.swing.JLabel GroupIdLbl1;
     private javax.swing.JLabel GroupTeach;
-    private javax.swing.JLabel GroupTeach1;
     private javax.swing.JTable TblofStd;
     private javax.swing.JPanel UListContent;
+    private javax.swing.JLabel groupDisplay;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel teacherDisplay;
     // End of variables declaration//GEN-END:variables
 
    
