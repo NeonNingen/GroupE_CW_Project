@@ -1,3 +1,7 @@
+/**
+ * @author: Zain Cheema, Rafael Sally, Rahat Haider Amit and Monesha Dhali
+ */
+
 package models;
 
 import java.io.BufferedReader;

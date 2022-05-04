@@ -1,3 +1,6 @@
+/**
+ * @author: Monesha Dhali and Rahat Haider Amit
+ */
 package models;
 
 import java.util.ArrayList;
@@ -18,8 +21,7 @@ public class UserMDL extends DatabaseMDL {
     private int langID;
 
     //Constructors 
-    public UserMDL() 
-    {
+    public UserMDL() {
         this.name = "";
         this.surname = "";
         this.email = "";
@@ -30,7 +32,7 @@ public class UserMDL extends DatabaseMDL {
         this.groupID = "";
         this.applang = "";
     }
-    
+
     //@Rahat Haider Amit
     public UserMDL(String name, String surname, String email, String langLvl, int progPoints, String userType, String userID, String groupID, String applang) {
         this.name = name;
@@ -43,7 +45,7 @@ public class UserMDL extends DatabaseMDL {
         this.groupID = groupID;
         this.applang = applang;
     }
-    
+
     //Monesha
     public UserMDL(String userID, String name, String surname, String email, String groupID, String userType) {
         this.name = name;
@@ -55,15 +57,15 @@ public class UserMDL extends DatabaseMDL {
     }
 
     /**
-     * @author: Monesha 
+     * @author: Monesha
      * @Desc: Insert users details when registering into the database
-     * 
+     *
      * @param userID: String - user own unique id
      * @param name: String - user name
-     * @param surname: String - user surname 
+     * @param surname: String - user surname
      * @param email: String - user email
-     * @param groupID: String - the group id that the user is assigned to 
-     * @param pswd : String - user passwords 
+     * @param groupID: String - the group id that the user is assigned to
+     * @param pswd : String - user passwords
      */
     public void insertRegDets(String userID, String name, String surname, String email, String groupID, String pswd) {
         String userType = "Student";
@@ -74,10 +76,10 @@ public class UserMDL extends DatabaseMDL {
     }
 
     /**
-     * @author: Monesha 
-     * @Desc: This function allows the user to retrieve info from the database. The user also
-     * selects their current choice of language in the database.
-     * 
+     * @author: Monesha
+     * @Desc: This function allows the user to retrieve info from the database.
+     * The user also selects their current choice of language in the database.
+     *
      * @param user_id : String - users unique id
      * @param langChoice : String - users current choice of language to study
      */
@@ -103,23 +105,26 @@ public class UserMDL extends DatabaseMDL {
     }
 
     /**
-     * @author: Monesha 
-     * @Desc: Update user table. Set their current language to their chosen language
-     * 
+     * @author: Monesha
+     * @Desc: Update user table. Set their current language to their chosen
+     * language
+     *
      * @param user_id: String - users unique id
      * @param langChoice : String - users current choice of language to study
-     */ 
+     */
     private void updateUserLang(String user_id, String langChoice) {
         String sqlInput = "UPDATE User SET current_Lang='" + langChoice + "' WHERE user_id = '" + user_id + "';";
         updateTable(sqlInput);
     }
 
     /**
-     * @author: Monesha 
-     * @Desc: Creates records for all the languages in the LangProcess application for the user in the database
-     * 
+     * @author: Monesha
+     * @Desc: Creates records for all the languages in the LangProcess
+     * application for the user in the database
+     *
      * @param user_id : String - users unique id
-     * @param langList : ArrayList<String> - Inserts all the languages available in the application
+     * @param langList : ArrayList<String> - Inserts all the languages available
+     * in the application
      */
     public void createLangData(String user_id, ArrayList<String> langList) {
         for (int i = 0; i < langList.size(); i++) {
