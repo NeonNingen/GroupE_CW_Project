@@ -46,20 +46,19 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     private TermsCond tc;
     private AccessRecordMDL accessRecMDL;
     private Color errColor = new Color(238, 105, 94);
-    
+
     //default constructor
-    public LoginRegisterCont() 
-    {
+    public LoginRegisterCont() {
         this.userMDL = new UserMDL();
         this.accessRecMDL = new AccessRecordMDL();
-        
+
         this.loginPage = new LoginV();
         this.settingPage = new SettingV(userMDL);
         this.menubar = new MenuBarV();
         this.supportMenu = new SupportV();
         this.supportPage = new SupportV2();
     }
-    
+
     //Constrcutors
     public LoginRegisterCont(LoginV loginPage) {
         this.loginPage = loginPage;
@@ -87,25 +86,27 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     }
 
     public LoginRegisterCont(SupportV2 aThis) {
-        this.supportPage = aThis; 
+        this.supportPage = aThis;
     }
-    
+
     public LoginRegisterCont(TermsCond tc) {
         this.tc = tc;
     }
 
     /**
-     * Suggested by Aisana (for main and menubar functionalities) Method will begin app with a specific userMDL
+     * Suggested by Aisana (for main and menubar functionalities) Method will
+     * begin app with a specific userMDL
      */
     public void startApp() {
         loginPage = new LoginV();
         loginPage.show();
     }
-    
+
     /**
      * initialises the setting page, menubar view and the access record model
+     *
      * @param set setting page
-     * @param menu menu bar view 
+     * @param menu menu bar view
      * @param accessRC access record
      */
     public void setAccRec(SettingV set, MenuBarV menu, AccessRecordMDL accessRC) {
@@ -113,18 +114,20 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.menubar = menu;
         this.accessRecMDL = accessRC;
     }
-    
+
     /**
      * initialises the support page
+     *
      * @param support support page
      */
     public void setSmallSupport(SupportV support) {
         this.supportMenu = support;
     }
-   
+
     /**
      * @author: Monesha
-     * @Desc: Events get activated when user is choosing a language in Setting page
+     * @Desc: Events get activated when user is choosing a language in Setting
+     * page
      * @param e : ActionEvent
      */
     public void choosingLang(ActionEvent e) {
@@ -139,7 +142,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
     /**
      * @author: Monesha and Rahat Haider Amit
-     * @Desc: Events get activated when user is pressing on the help button in login/ register page
+     * @Desc: Events get activated when user is pressing on the help button in
+     * login/ register page
      * @param e : ActionEvent
      */
     public void actionPermHelp(ActionEvent e) {
@@ -147,18 +151,19 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         if ((this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn())) {
             this.registerPage.dispose();
             this.supportPage.setVisible(true);
-        } else if((this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn())) {
-                this.loginPage.dispose();
-                this.supportPage.setVisible(true);
+        } else if ((this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn())) {
+            this.loginPage.dispose();
+            this.supportPage.setVisible(true);
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        choosingLang(e);
-        actionPermHelp(e);
-        String buttonAction = e.getActionCommand();
-
+    /**
+     * @author: Monesha and Rahat Haider Amit
+     * @Desc: Events get activated when user press the terms and condition
+     * button/ revert back to register page
+     * @param e : ActionEvent
+     */
+    public void actionPermTC(ActionEvent e) {
         if ((this.registerPage != null) && (e.getSource() == this.registerPage.getTcBttnR())) {
             this.registerPage.dispose();
             this.tc = new TermsCond();
@@ -169,11 +174,19 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
             this.registerPage = new RegisterV();
             this.registerPage.setVisible(true);
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        choosingLang(e);
+        actionPermHelp(e);
+        actionPermTC(e);
+        String buttonAction = e.getActionCommand();
+
         //depending on which button was pressed it will call a method
-        switch (buttonAction) 
-        {
+        switch (buttonAction) {
             case "Sign In":
-                logUser();               
+                logUser();
                 break;
 
             case "Register":
@@ -184,7 +197,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                         Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                } else if ((this.loginPage!=null) && e.getSource() == this.loginPage.getRegisterBttn()) {
+                } else if ((this.loginPage != null) && e.getSource() == this.loginPage.getRegisterBttn()) {
                     loginPage.dispose();
                     this.registerPage = new RegisterV();
                     this.registerPage.setVisible(true);
@@ -203,135 +216,129 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                 this.loginPage = new LoginV();
                 this.loginPage.setVisible(true);
                 break;
-                
+
             case "Back to Register":
                 this.supportPage.dispose();
                 this.registerPage = new RegisterV();
                 this.registerPage.setVisible(true);
                 break;
-                
+
             case "Back to Login":
                 this.supportPage.dispose();
                 this.loginPage = new LoginV();
                 this.loginPage.setVisible(true);
                 break;
-    
         }
     }
 
-    
     /**
      * @author: Monesha
      * @Desc: setting field to null when user focuses on the JTextField
-     * @param txt 
+     * @param txt
      */
-    private void rmvFocus(JTextField txt){
+    private void rmvFocus(JTextField txt) {
         txt.setText("");
         txt.removeFocusListener(this);
     }
-    
+
     /**
      * @author: Monesha
      * @Desc: setting field to null when user focuses on the JPasswordField
-     * @param txt 
+     * @param txt
      */
-    private void rmvFocus(JPasswordField txt){
+    private void rmvFocus(JPasswordField txt) {
         txt.setText("");
         txt.removeFocusListener(this);
     }
-    
+
     /**
      * @author: Amit Rahat Haider and Monesha
-     * @param e : FocusEvent - set the text to null when the user focuses on a field for the 1st time
+     * @param e : FocusEvent - set the text to null when the user focuses on a
+     * field for the 1st time
      */
     @Override
     public void focusGained(FocusEvent e) {
-        if ((this.loginPage != null)&&(e.getSource() == loginPage.getuNameLogin())) {
+        if ((this.loginPage != null) && (e.getSource() == loginPage.getuNameLogin())) {
             rmvFocus(loginPage.getuNameLogin());
         }
-        if ((this.loginPage != null)&& (e.getSource() == loginPage.getPwdLogin())) {
+        if ((this.loginPage != null) && (e.getSource() == loginPage.getPwdLogin())) {
             rmvFocus(loginPage.getPwdLogin());
-        } 
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getNameReg())) {
+        }
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getNameReg())) {
             rmvFocus(registerPage.getNameReg());
         }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getSurnameReg())) {
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getSurnameReg())) {
             rmvFocus(registerPage.getSurnameReg());
         }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getEmailReg())) {
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getEmailReg())) {
             rmvFocus(registerPage.getEmailReg());
         }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getUseridReg())) {
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getUseridReg())) {
             rmvFocus(registerPage.getUseridReg());
         }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg1())) {
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getPwdReg1())) {
             rmvFocus(registerPage.getPwdReg1());
         }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg2())) {
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getPwdReg2())) {
             rmvFocus(registerPage.getPwdReg2());
         }
     }
-    
-     /**
+
+    /**
      * method implemented by the FocusListener
-     * @param e 
+     *
+     * @param e
      */
     @Override
-    public void focusLost(FocusEvent e) {}
-    
-     /**
+    public void focusLost(FocusEvent e) {
+    }
+
+    /**
      * method used to log in a user
+     *
      * @author Amit
      */
-    private void logUser()
-    {
+    private void logUser(){
         ArrayList<String> userDetails;
-        
-        try 
-        {
+
+        try {
             //calls the method checkUser() to see if the user trying to log in exist
-            userDetails = checkUser();      
-            
-            if (!userDetails.isEmpty())
+            userDetails = checkUser();
+
+            if (!userDetails.isEmpty()) {
                 openPage(userDetails);    //if the user exists the page will be directed to another page
-            else
-            {
+            } else {
                 JOptionPane.showMessageDialog(loginPage, "Username and/or password not valid!", "INVALID DETAILS", 0);
                 nameErrMsg(loginPage.getuNameLogin(), loginPage.getuErrorLbl(), errColor, Boolean.TRUE);
                 nameErrMsg(loginPage.getPwdLogin(), loginPage.getPswdErrorLbl(), errColor, Boolean.TRUE);
             }
-        }
-        catch (NoSuchAlgorithmException ex) 
-        {
+        } catch (NoSuchAlgorithmException ex) {
             System.out.println("Login authentication failed");
             Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-  
+
     /**
      * @author Amit
-     * @return an ArrayList containing the user if exists, else it will return an empty list if the user doesn't exist
-     * @throws NoSuchAlgorithmException 
+     * @return an ArrayList containing the user if exists, else it will return
+     * an empty list if the user doesn't exist
+     * @throws NoSuchAlgorithmException
      */
-    private ArrayList<String> checkUser() throws NoSuchAlgorithmException 
-    {
+    private ArrayList<String> checkUser() throws NoSuchAlgorithmException {
         String username = loginPage.getuNameLogin().getText();
         String pswd = loginPage.getPwdLogin().getText();
 
         ArrayList<String> result = new ArrayList<>();
-        if (!username.equals("") && !pswd.equals("")) 
-        {
+        if (!username.equals("") && !pswd.equals("")) {
             String queryPswd
                     = "SELECT user_pswd FROM User WHERE user_id = '" + username + "'";
 
             ArrayList<String> resultPswd = userMDL.queryData(queryPswd);
 
-            if (!resultPswd.isEmpty())
-            {
+            if (!resultPswd.isEmpty()) {
                 String storedPswd = resultPswd.get(0);
 
-                if (isValidPwd(pswd, storedPswd) == true) 
-                {
+                if (isValidPwd(pswd, storedPswd) == true) {
                     //retrieve sql query
                     String query
                             = "SELECT * FROM User WHERE user_id= '" + username + "'"
@@ -340,21 +347,15 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                     result = userMDL.queryData(query);
                 }
             }
-        } 
-        else 
-        {
-            if(username.equals(""))
-            {
+        } else {
+            if (username.equals("")) {
                 nameErrMsg(loginPage.getuNameLogin(), loginPage.getuErrorLbl(), errColor, Boolean.TRUE);
                 JOptionPane.showMessageDialog(loginPage, "Please enter a valid username !", "INVALID DETAILS", 0);
+            } else if (pswd.equals("")) {
+                nameErrMsg(loginPage.getPwdLogin(), loginPage.getPswdErrorLbl(), errColor, Boolean.TRUE);
+                JOptionPane.showMessageDialog(loginPage, "Please enter a valid password !", "INVALID DETAILS", 0);
             }
-            else
-                if(pswd.equals(""))
-                {
-                   nameErrMsg(loginPage.getPwdLogin(), loginPage.getPswdErrorLbl(), errColor, Boolean.TRUE);
-                   JOptionPane.showMessageDialog(loginPage, "Please enter a valid password !", "INVALID DETAILS", 0); 
-                }
-            
+
             result = new ArrayList<>(); //empty list because the user did not enter the login credentials
         }
 
@@ -363,10 +364,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
     /**
      * opens the profile page
+     *
      * @param userDetails an ArrayList with the user details
      */
-    private void openPage(ArrayList<String> userDetails) 
-    {
+    private void openPage(ArrayList<String> userDetails) {
         //storing the user details in variables that will be used to create an instance of UserMDL
         String userID = userDetails.get(0);
         String uName = userDetails.get(1);
@@ -393,12 +394,14 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         menu.setProgPageTopicContent(new ProgV(userMDL).getProgViewContent());
         menu.show();
     }
-    
+
     /**
      * @author: Monesha
-     * @Desc: This function validates the inputs entered by the user, then registers the user officially
-     * @param e: ActionEvent - This gets activated if the user presses the register button
-     * @throws NoSuchAlgorithmException 
+     * @Desc: This function validates the inputs entered by the user, then
+     * registers the user officially
+     * @param e: ActionEvent - This gets activated if the user presses the
+     * register button
+     * @throws NoSuchAlgorithmException
      */
     private void registerUser(ActionEvent e) throws NoSuchAlgorithmException {
         String uName = registerPage.getNameReg().getText().trim().toLowerCase();
@@ -428,7 +431,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
             SettingV setting = new SettingV(userMDL);
             this.settingPage = setting;
             this.menubar = menu;
-        
+
             setting.setContListener(this); //added by Amit (end)
             userMDL.createLangData(currentUserID, settingPage.getLangList());
             menu.setPageTitle("Setting");
@@ -454,7 +457,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     /**
      * @author: Monesha
      * @Desc: Displays the error symbol and the turns the border to red (HCI)
-     * @param txt:JTextField - Specifying the JTextField that needs to implement action on
+     * @param txt:JTextField - Specifying the JTextField that needs to implement
+     * action on
      * @param lbl:JLabel - The icon error being displayed
      * @param color: Colour - the warning colour
      * @param state: Boolean - If the icon state should be displayed / or not
@@ -468,7 +472,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     /**
      * @author: Monesha
      * @Desc: Displays the error symbol and the turns the border to red (HCI)
-     * @param txt:JPasswordField - Specifying the JPasswordField that needs to implement action on
+     * @param txt:JPasswordField - Specifying the JPasswordField that needs to
+     * implement action on
      * @param lbl:JLabel - The icon error being displayed
      * @param color: Colour - the warning colour
      * @param state: Boolean - If the icon state should be displayed / or not
@@ -477,7 +482,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
         lbl.setVisible(state);
     }
-    
+
     //Checks if any input field entered by the user in the register page is empty
     private boolean isRegEmpty(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm) {
         this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
@@ -565,8 +570,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         System.out.println("Email being valid status: " + matcher.matches());
         return matcher.matches();
     }
-    
-    
+
     //Methods by Monesha
     //Methods for GENERATING SECURE PASSWORDS 
     private final int ITERATIONS = 100;
