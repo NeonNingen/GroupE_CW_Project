@@ -1,6 +1,3 @@
-/**
- * @author: Monesha Dhali and Rahat Haider Amit
- */
 package controllers;
 
 import java.awt.Color;
@@ -36,6 +33,11 @@ import views.SettingV;
 import views.SupportV;
 import views.SupportV2;
 import views.TermsCondV;
+
+/**
+ * @author Amit
+ * @author Monesha - added main methods 
+ */
 
 public class LoginRegisterCont implements ActionListener, FocusListener {
 

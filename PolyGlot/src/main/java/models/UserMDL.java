@@ -1,9 +1,12 @@
-/**
- * @author: Monesha Dhali and Rahat Haider Amit
- */
+
 package models;
 
 import java.util.ArrayList;
+
+/**
+ * @author Amit
+ * @author Monesha 
+ */
 
 public class UserMDL extends DatabaseMDL {
 

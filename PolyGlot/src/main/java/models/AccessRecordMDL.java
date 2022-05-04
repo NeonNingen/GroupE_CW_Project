@@ -1,6 +1,4 @@
-/**
- * @author: Monesha Dhaliand Rahat Haider Amit
- */
+
 package models;
 
 import java.time.LocalDate;
@@ -8,6 +6,11 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+
+/**
+ * @author Amit
+ * @author Monesha
+ */
 
 public class AccessRecordMDL extends DatabaseMDL {
 
