@@ -266,8 +266,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         if ((this.loginPage != null) && (e.getSource() == loginPage.getPwdLogin())) {
             rmvFocus(loginPage.getPwdLogin());
         }
-        if ((this.registerPage != null) && (e.getSource() == registerPage.getNameReg())) {
-            rmvFocus(registerPage.getNameReg());
+        if ((this.registerPage != null) && (e.getSource() == registerPage.getUserNameReg())) {
+            rmvFocus(registerPage.getUserNameReg());
         }
         if ((this.registerPage != null) && (e.getSource() == registerPage.getSurnameReg())) {
             rmvFocus(registerPage.getSurnameReg());
@@ -406,7 +406,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
      * @throws NoSuchAlgorithmException
      */
     private void registerUser(ActionEvent e) throws NoSuchAlgorithmException {
-        String uName = registerPage.getNameReg().getText().trim().toLowerCase();
+        String uName = registerPage.getUserNameReg().getText().trim().toLowerCase();
         String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
         String uEmail = registerPage.getEmailReg().getText().trim();
         String uGroup = (String) registerPage.getGroupIdSelect().getSelectedItem();
@@ -490,12 +490,12 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
         String msgEpty = "Please fill in the necessary info of the form";
         if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) {
-            nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
-            nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(238, 105, 94), true);
-            nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
-            nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
-            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
-            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
+            nameErrMsg(this.registerPage.getUserNameReg(), this.registerPage.getHiddenErr1(), errColor, true);
+            nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), errColor, true);
+            nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), errColor, true);
+            nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(),errColor, true);
+            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), errColor, true);
+            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(),errColor, true);
             JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
             return false;
         }
