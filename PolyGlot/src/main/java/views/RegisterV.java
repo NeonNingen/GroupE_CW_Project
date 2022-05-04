@@ -206,7 +206,7 @@ public class RegisterV extends javax.swing.JFrame {
                         .addGap(57, 57, 57)
                         .addComponent(termsCond, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                        .addComponent(tcBttnR, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tcBttnR, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +245,7 @@ public class RegisterV extends javax.swing.JFrame {
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(hiddenErr3)
                                     .addComponent(hiddenErr4))))))
-                .addGap(21, 21, 21))
+                .addGap(32, 32, 32))
         );
         registerPanelLayout.setVerticalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
