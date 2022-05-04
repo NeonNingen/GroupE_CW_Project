@@ -18,6 +18,7 @@ public class RegisterV extends javax.swing.JFrame {
         this.cancelBttn.addActionListener(new LoginRegisterCont(this));
         this.regBttn.addActionListener(new LoginRegisterCont(this));
         this.supportBttn.addActionListener(new LoginRegisterCont(this));
+        this.tcBttnR.addActionListener(new LoginRegisterCont(this));
     }
 
     /**
@@ -63,6 +64,7 @@ public class RegisterV extends javax.swing.JFrame {
         hiddenErr4 = new javax.swing.JLabel();
         hiddenErr5 = new javax.swing.JLabel();
         hiddenErr6 = new javax.swing.JLabel();
+        tcBttnR = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -180,6 +182,9 @@ public class RegisterV extends javax.swing.JFrame {
 
         hiddenErr6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
+        tcBttnR.setText("TC*");
+        colorWhiteBttn(tcBttnR,"TC*");
+
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
         registerPanelLayout.setHorizontalGroup(
@@ -199,7 +204,9 @@ public class RegisterV extends javax.swing.JFrame {
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(termsCond, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(termsCond, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addComponent(tcBttnR, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +245,7 @@ public class RegisterV extends javax.swing.JFrame {
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(hiddenErr3)
                                     .addComponent(hiddenErr4))))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
         registerPanelLayout.setVerticalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +291,9 @@ public class RegisterV extends javax.swing.JFrame {
                             .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(hiddenErr6))
                 .addGap(18, 18, 18)
-                .addComponent(termsCond)
+                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(termsCond)
+                    .addComponent(tcBttnR))
                 .addGap(18, 18, 18)
                 .addComponent(regBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -389,6 +398,12 @@ public class RegisterV extends javax.swing.JFrame {
         return hiddenErr6;
     }
 
+    public JButton getTcBttnR() {
+        return tcBttnR;
+    }
+    
+    
+
     /**
      * Suggested by Aisana(w1775375) will change button look to be red with
      * white font (important/close or cancel buttons)
@@ -443,6 +458,7 @@ public class RegisterV extends javax.swing.JFrame {
     private javax.swing.JLabel regTitle;
     private javax.swing.JPanel registerPanel;
     private javax.swing.JButton supportBttn;
+    private javax.swing.JButton tcBttnR;
     private javax.swing.JCheckBox termsCond;
     private javax.swing.JTextField useridReg;
     // End of variables declaration//GEN-END:variables

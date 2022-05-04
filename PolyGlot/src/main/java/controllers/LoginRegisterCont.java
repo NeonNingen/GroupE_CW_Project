@@ -32,6 +32,7 @@ import views.ProgV;
 import views.SettingV;
 import views.SupportV;
 import views.SupportV2;
+import views.TermsCond;
 
 public class LoginRegisterCont implements ActionListener, FocusListener {
 
@@ -42,6 +43,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     private MenuBarV menubar;
     private SupportV2 supportPage;
     private SupportV supportMenu;
+    private TermsCond tc;
     private AccessRecordMDL accessRecMDL;
     private Color errColor = new Color(238, 105, 94);
     
@@ -86,7 +88,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
     public LoginRegisterCont(SupportV2 aThis) {
         this.supportPage = aThis; 
-
+    }
+    
+    public LoginRegisterCont(TermsCond tc) {
+        this.tc = tc;
     }
 
     /**
@@ -154,6 +159,16 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         actionPermHelp(e);
         String buttonAction = e.getActionCommand();
 
+        if ((this.registerPage != null) && (e.getSource() == this.registerPage.getTcBttnR())) {
+            this.registerPage.dispose();
+            this.tc = new TermsCond();
+            this.tc.setVisible(true);
+        }
+        if ((this.tc != null) && (e.getSource() == this.tc.getRmvTCBttn())) {
+            this.tc.dispose();
+            this.registerPage = new RegisterV();
+            this.registerPage.setVisible(true);
+        }
         //depending on which button was pressed it will call a method
         switch (buttonAction) 
         {

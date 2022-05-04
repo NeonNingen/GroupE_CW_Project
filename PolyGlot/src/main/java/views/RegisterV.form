@@ -68,6 +68,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           <Component id="termsCond" min="-2" pref="285" max="-2" attributes="0"/>
+                          <EmptySpace pref="9" max="32767" attributes="0"/>
+                          <Component id="tcBttnR" min="-2" pref="57" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -122,7 +124,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="25" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,7 +185,10 @@
                       <Component id="hiddenErr6" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="termsCond" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="termsCond" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tcBttnR" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="regBttn" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -555,6 +560,14 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="hiddenErr6.setBackground(new java.awt.Color(135, 178, 240));&#xa;hiddenErr6.setVisible(false);"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="tcBttnR">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TC*"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorWhiteBttn(tcBttnR,&quot;TC*&quot;);"/>
           </AuxValues>
         </Component>
       </SubComponents>
