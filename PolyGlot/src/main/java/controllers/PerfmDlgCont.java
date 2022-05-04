@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.lang.Exception;
 import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import views.CardScrollV;
@@ -40,12 +41,14 @@ public class PerfmDlgCont implements ActionListener
     private long end;
     private float time;
     private String userID;
+    private String partnerID;
     public int click = 1;
     DialogueMDL dialogue;
     Card card;
     DialogueCont dlgCont;
     UserMDL userMDL;
     LoginV loginPage;
+    
     
     /**
      * Permfm constructor 
@@ -85,15 +88,17 @@ public class PerfmDlgCont implements ActionListener
     /**
      * Permfm constructor 
      * Used to construct an instance of the class to be invoked
-     * Designated to RatingV for the ok button
+     * Designated to RatingV for the Ok button
      * @param RatingPage - Instance of RatingV
      * @param time: float - Float value for time.
      */
-    public PerfmDlgCont(RatingV RatingPage, float time) {
+    public PerfmDlgCont(RatingV RatingPage, float time, String userID, String partnerID) {
         this.RatingPage = RatingPage;
         this.dialogue = new DialogueMDL();
         this.id = this.RatingPage.getID();
         this.time = time;
+        this.userID = userID;
+        this.partnerID = partnerID;
         Rating();
         
     }
@@ -179,6 +184,33 @@ public class PerfmDlgCont implements ActionListener
     }
     
     /**
+     * ratingToDatabase Function
+     * Submit the rating given by the user in RatingV to the database
+     * In the user table under the user_progressscore column
+     * @param userScore: int - user's rating (Your rating)
+     * @param partnerScore: int - partner's rating
+     */
+    private void ratingsToDatabase(int userScore, int partnerScore) {
+        
+        ArrayList<String> prevScoreList = new ArrayList<>();
+        prevScoreList = userMDL.queryData(
+                                  "SELECT "
+                                + "user_progresspoints "
+                                + "FROM User WHERE "
+                                + "user_id = '" 
+                                + this.userID + "' "
+                                + "or user_id = '"
+                                + this.partnerID + "'");
+                                
+        userMDL.changeValue("User", "user_progresspoints",
+                            userScore + Integer.parseInt(prevScoreList.get(0)),
+                            "user_id", this.userID);
+        userMDL.changeValue("User", "user_progresspoints",
+                            partnerScore + Integer.parseInt(prevScoreList.get(1)),
+                            "user_id", this.partnerID);
+    }
+    
+    /**
      * setUpDlg Method
      * When the setUpDlg page is used. 
      * Display the Dialogue Name, Level, Topic and Grammar on the page.
@@ -252,7 +284,7 @@ public class PerfmDlgCont implements ActionListener
                click = 1;
                System.out.println("No more cards");
                CardScrollPage.dispose();
-               new RatingV(this.id, this.time).show();
+               new RatingV(this.id, this.time, this.userID, this.partnerID).show();
            }
        }
            
@@ -271,9 +303,14 @@ public class PerfmDlgCont implements ActionListener
            try {
            
         if(e.getSource() == this.RatingPage.getOkButton()) {
-            RatingPage.dispose();
+            int userPoints = Integer.parseInt(
+           this.RatingPage.getYourRatingBoxC().getSelectedItem().toString());
+            int partnerPoints = Integer.parseInt(
+           this.RatingPage.getpartnerRatingBoxC().getSelectedItem().toString());
             
-            new MenuBarV().show();
+            ratingsToDatabase(userPoints, partnerPoints);
+//            RatingPage.dispose();
+//            new MenuBarV().show();
         }
            } catch (Exception e2) {
         }

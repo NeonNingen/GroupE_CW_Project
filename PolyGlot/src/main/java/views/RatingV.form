@@ -71,17 +71,8 @@
                                   <Component id="DlgC" min="-2" max="-2" attributes="0"/>
                                   <Component id="LvlC" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="TimeTakenC" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="PartnerRatingC" alignment="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="YourRatingC" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="OutOfTen1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="OutOfTen2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="yourRatingBoxC" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="partnerRatingBoxC" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -129,18 +120,18 @@
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="RatingYourRating" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="YourRatingC" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="OutOfTen1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="yourRatingBoxC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RatingPartnerRating" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="PartnerRatingC" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="OutOfTen2" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="RatingPartnerRating" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="OkBttn" min="-2" pref="66" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="partnerRatingBoxC" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-              <Component id="OkBttn" min="-2" pref="66" max="-2" attributes="0"/>
-              <EmptySpace pref="154" max="32767" attributes="0"/>
+              <EmptySpace pref="157" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -195,10 +186,6 @@
         <Property name="text" type="java.lang.String" value="Partner Rating:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="YourRatingC">
-    </Component>
-    <Component class="javax.swing.JTextField" name="PartnerRatingC">
-    </Component>
     <Component class="javax.swing.JButton" name="OkBttn">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
@@ -241,15 +228,31 @@
         <Property name="text" type="java.lang.String" value="Time Taken"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="OutOfTen1">
+    <Component class="javax.swing.JComboBox" name="yourRatingBoxC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="/10"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;})" type="code"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yourRatingBoxCActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="OutOfTen2">
+    <Component class="javax.swing.JComboBox" name="partnerRatingBoxC">
       <Properties>
-        <Property name="text" type="java.lang.String" value="/10"/>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10&quot;})" type="code"/>
+        </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="partnerRatingBoxCActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

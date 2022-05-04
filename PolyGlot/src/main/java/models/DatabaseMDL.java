@@ -419,6 +419,23 @@ public class DatabaseMDL {
     }
     
     /**
+     * changeValue
+     * Change an Existing int Value in a table
+     * @param tableName: String - Given table name.
+     * @param rowName: String - Given row name.
+     * @param value: int - Given value.
+     * @param keyColumn: String - Primary (key) column.
+     * @param keyValue: String - Key value being replaced.
+     */
+    public static void changeValue(String tableName, String rowName, 
+                                   int value, String keyColumn, String keyValue) {
+        
+        updateTable("UPDATE " + tableName + " set " + rowName + "= " + 
+                     value + " WHERE " + keyColumn + "= " + keyValue);
+        
+    }
+    
+    /**
      * QueryData
      * This is used to send a SQL statement to the database that will query
      * the existing tables for data requested.
@@ -583,11 +600,8 @@ public class DatabaseMDL {
                 }
             }
         }
-    }
+        }
     
-    /**
-     * imports the dialogues lists into the database
-     */
     public static void readDlgDatabase()
     {    
         try 
@@ -616,7 +630,6 @@ public class DatabaseMDL {
             String dlgID;
             int id=0;
             
-            //iterates through each row
             for (itr = list.iterator(); itr.hasNext();) 
             {
                 dlgID = "SPN";
@@ -630,7 +643,7 @@ public class DatabaseMDL {
                 String dlgSubCont = splitSt[2];
                 String dlgGramm = splitSt[3].replace("\"", "");
                 
-                //creates an id for dialogue list
+                
                 String dlgCode = String.format("%04d", id);
                 dlgID = dlgID.concat(dlgCode);
                 
@@ -648,9 +661,6 @@ public class DatabaseMDL {
         
     }
     
-    /**
-     * imports the conversations into the database
-     */
     public static void readCardDatabase()
     {    
         try 
@@ -689,7 +699,6 @@ public class DatabaseMDL {
                 {
                     if (!splitSt[0].equals("")) 
                     {
-                        //stores the value of a card into a variable depending on the level
                         String level = splitSt[0];
                         switch (level) 
                         {
@@ -719,7 +728,6 @@ public class DatabaseMDL {
 
                         }
 
-                         //recreating the dialogue id
                         id_dlg++;
                         dlgID = "SPN";
                         String dlgCode = String.format("%04d", id_dlg);
@@ -729,7 +737,6 @@ public class DatabaseMDL {
                     } 
                     else 
                     {
-                        //creates card id
                         id_card++;
                         card_order++;
                         
@@ -750,7 +757,8 @@ public class DatabaseMDL {
             }
             in.close();
             br.close();
-            fstream.close(); 
+            fstream.close();
+            
         }
         catch (IOException ex) 
         {
