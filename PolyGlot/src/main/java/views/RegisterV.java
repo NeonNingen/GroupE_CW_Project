@@ -45,7 +45,6 @@ public class RegisterV extends javax.swing.JFrame {
         registerPanel = new javax.swing.JPanel();
         regTitle = new javax.swing.JLabel();
         supportBttn = new javax.swing.JButton();
-        nameReg = new javax.swing.JTextField();
         SurnameReg = new javax.swing.JTextField();
         emailReg = new javax.swing.JTextField();
         groupIdSelect = new javax.swing.JComboBox<>();
@@ -65,6 +64,7 @@ public class RegisterV extends javax.swing.JFrame {
         hiddenErr5 = new javax.swing.JLabel();
         hiddenErr6 = new javax.swing.JLabel();
         tcBttnR = new javax.swing.JButton();
+        userNameReg = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -79,13 +79,6 @@ public class RegisterV extends javax.swing.JFrame {
         supportBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SupIcon.png"))); // NOI18N
         supportBttn.setBorder(null);
         supportBttn.setBackground(new java.awt.Color(135, 178, 240));
-
-        nameReg.setBackground(new java.awt.Color(135, 178, 240));
-        nameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        nameReg.setForeground(new java.awt.Color(255, 255, 255));
-        nameReg.setText("Name");
-        nameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        nameReg.addFocusListener(new LoginRegisterCont(this));
 
         SurnameReg.setBackground(new java.awt.Color(135, 178, 240));
         SurnameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -185,6 +178,14 @@ public class RegisterV extends javax.swing.JFrame {
         tcBttnR.setText("TC*");
         colorWhiteBttn(tcBttnR,"TC*");
 
+        userNameReg.setBackground(new java.awt.Color(135, 178, 240));
+        userNameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        userNameReg.setForeground(new java.awt.Color(255, 255, 255));
+        userNameReg.setText("User ID");
+        userNameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        userNameReg.setCaretPosition(4);
+        userNameReg.addFocusListener(new LoginRegisterCont(this));
+
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
         registerPanelLayout.setHorizontalGroup(
@@ -223,20 +224,12 @@ public class RegisterV extends javax.swing.JFrame {
                                     .addComponent(groupIdSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(registerPanelLayout.createSequentialGroup()
                                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(pwdReg1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING))
+                                            .addComponent(pwdReg1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(pwdReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(hiddenErr5)
                                             .addComponent(hiddenErr6)))))
-                            .addGroup(registerPanelLayout.createSequentialGroup()
-                                .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hiddenErr1))
-                            .addGroup(registerPanelLayout.createSequentialGroup()
-                                .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(hiddenErr2))
                             .addGroup(registerPanelLayout.createSequentialGroup()
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(useridReg, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
@@ -244,7 +237,16 @@ public class RegisterV extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(hiddenErr3)
-                                    .addComponent(hiddenErr4))))))
+                                    .addComponent(hiddenErr4)))
+                            .addGroup(registerPanelLayout.createSequentialGroup()
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(userNameReg)
+                                    .addComponent(SurnameReg, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(hiddenErr1)
+                                    .addComponent(hiddenErr2))))
+                        .addGap(13, 13, 13)))
                 .addGap(32, 32, 32))
         );
         registerPanelLayout.setVerticalGroup(
@@ -254,19 +256,19 @@ public class RegisterV extends javax.swing.JFrame {
                 .addComponent(supportBttn)
                 .addGap(3, 3, 3)
                 .addComponent(regTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(48, 48, 48)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(registerPanelLayout.createSequentialGroup()
                                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(hiddenErr2)
                                     .addGroup(registerPanelLayout.createSequentialGroup()
-                                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(hiddenErr1))
-                                        .addGap(25, 25, 25)
-                                        .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(hiddenErr2))
+                                        .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(hiddenErr1)
+                                            .addComponent(userNameReg, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(30, 30, 30)
+                                        .addComponent(SurnameReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(emailReg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(hiddenErr3))
@@ -282,13 +284,13 @@ public class RegisterV extends javax.swing.JFrame {
                     .addGroup(registerPanelLayout.createSequentialGroup()
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(pwdReg1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(pwdReg1Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(hiddenErr5))
                         .addGap(18, 18, 18)
                         .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pwdReg2Lbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(pwdReg2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(hiddenErr6))
                 .addGap(18, 18, 18)
                 .addGroup(registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -346,9 +348,11 @@ public class RegisterV extends javax.swing.JFrame {
         return groupIdSelect;
     }
 
-    public JTextField getNameReg() {
-        return nameReg;
+    public JTextField getUserNameReg() {
+        return userNameReg;
     }
+
+    
 
     public JPasswordField getPwdReg1() {
         return pwdReg1;
@@ -449,7 +453,6 @@ public class RegisterV extends javax.swing.JFrame {
     private javax.swing.JLabel hiddenErr4;
     private javax.swing.JLabel hiddenErr5;
     private javax.swing.JLabel hiddenErr6;
-    private javax.swing.JTextField nameReg;
     private javax.swing.JPasswordField pwdReg1;
     private javax.swing.JLabel pwdReg1Lbl;
     private javax.swing.JPasswordField pwdReg2;
@@ -460,6 +463,7 @@ public class RegisterV extends javax.swing.JFrame {
     private javax.swing.JButton supportBttn;
     private javax.swing.JButton tcBttnR;
     private javax.swing.JCheckBox termsCond;
+    private javax.swing.JTextField userNameReg;
     private javax.swing.JTextField useridReg;
     // End of variables declaration//GEN-END:variables
 }
