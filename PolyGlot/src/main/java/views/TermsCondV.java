@@ -4,9 +4,9 @@ package views;
 import controllers.LoginRegisterCont;
 import javax.swing.JButton;
 
-public class TermsCond extends javax.swing.JFrame {
+public class TermsCondV extends javax.swing.JFrame {
 
-    public TermsCond() {
+    public TermsCondV() {
         initComponents();
         this.rmvTCBttn.addActionListener(new LoginRegisterCont(this));
         colorRedBttn(this.rmvTCBttn,"X");

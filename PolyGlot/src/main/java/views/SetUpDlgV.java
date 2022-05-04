@@ -16,7 +16,7 @@ import models.UserMDL;
  */
 public class SetUpDlgV extends javax.swing.JFrame {
 
-    private String id;
+    private String dialogueID;
     
     /**
      * SetUpDlgV constructor 
@@ -28,7 +28,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
      * @param user - Instance of UserMDL
      */
     public SetUpDlgV(String dialogue_id, DialogueCont dlgCont, UserMDL user) {
-        this.id = dialogue_id;
+        this.dialogueID = dialogue_id;
         initComponents();
         setSize(414,667);
         startDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont, user));
@@ -380,11 +380,11 @@ public class SetUpDlgV extends javax.swing.JFrame {
     }
     
     public String getID() {
-        return this.id;
+        return this.dialogueID;
     }
     
     public void setID(String id) {
-        this.id = id;
+        this.dialogueID = id;
     }
     
     public JLabel getDlgIdC() {
