@@ -1,10 +1,3 @@
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> bee422ffc1b0428fea8a379bee59008846bd1e07
->>>>>>> Stashed changes
 package models;
 
 import java.io.BufferedReader;
@@ -28,24 +21,11 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
- * This class is used to: - Download SQLite Driver. - And creates the SQL
- * Database (if it does not exist). - Once the connect instance is closed, then
- * the connection is turned off.
- *
- * @author Zain -added main functions
- * @author Rafael
- * @author Monesha
-=======
->>>>>>> Stashed changes
  * This class is used to:
  * - Download SQLite Driver.
  * - And creates the SQL Database (if it does not exist).
  * - Once the connect instance is closed, then the connection is turned off.
  * @author Zain
->>>>>>> bee422ffc1b0428fea8a379bee59008846bd1e07
  */
 
 class Connect {
@@ -455,7 +435,6 @@ public class DatabaseMDL {
         
     }
     
-<<<<<<< Updated upstream
     /**
      * changeValue
      * Change an Existing int Value in a table with an addition search condition
@@ -476,28 +455,6 @@ public class DatabaseMDL {
     }
     
     /**
-=======
-    /**
-     * changeValue
-     * Change an Existing int Value in a table with an addition search condition
-     * @param tableName: String - Given table name.
-     * @param rowName: String - Given row name.
-     * @param value: int - Given value.
-     * @param keyColumn: String - Primary (key) column.
-     * @param keyValue: String - Key value being replaced.
-     */
-    public static void changeValue(String tableName, String rowName, 
-                                   int value, String keyColumn, String keyValue,
-                                   String keyColumn2, String keyValue2){
-        
-        updateTable("UPDATE " + tableName + " set " + rowName + "= " + 
-                     value + " WHERE " + keyColumn + "= '" + keyValue + "' AND "
-                    + keyColumn2 + "= '" + keyValue2 + "'");
-        
-    }
-    
-    /**
->>>>>>> Stashed changes
      * QueryData
      * This is used to send a SQL statement to the database that will query
      * the existing tables for data requested.
