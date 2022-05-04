@@ -43,39 +43,39 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                      <Component id="ratingSubtitle" min="-2" max="-2" attributes="0"/>
+                      <Component id="RatingSubtitle" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ratingTitle" min="-2" max="-2" attributes="0"/>
+                          <Component id="RatingTitle" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                              <Component id="ratingResultsText" min="-2" max="-2" attributes="0"/>
+                              <Component id="RatingResultsText" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="ratingLevel" min="-2" max="-2" attributes="0"/>
-                          <Component id="ratingDlgName" min="-2" max="-2" attributes="0"/>
-                          <Component id="ratingYourRating" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="ratingTimeTaken" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="ratingPartnerRating" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="RatingLevel" min="-2" max="-2" attributes="0"/>
+                          <Component id="RatingDlgName" min="-2" max="-2" attributes="0"/>
+                          <Component id="RatingYourRating" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="RatingTimeTaken" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="RatingPartnerRating" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dlgC" min="-2" max="-2" attributes="0"/>
-                          <Component id="lvlC" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="timeTakenC" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgC" min="-2" max="-2" attributes="0"/>
+                          <Component id="LvlC" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="TimeTakenC" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="yourRatingBoxC" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="partnerRatingBoxC" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                      <Component id="okBttn" min="-2" pref="150" max="-2" attributes="0"/>
+                      <Component id="OkBttn" min="-2" pref="150" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="89" max="32767" attributes="0"/>
@@ -86,37 +86,37 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-              <Component id="ratingTitle" min="-2" max="-2" attributes="0"/>
+              <Component id="RatingTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="ratingSubtitle" min="-2" max="-2" attributes="0"/>
+              <Component id="RatingSubtitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Component id="ratingResultsText" min="-2" max="-2" attributes="0"/>
+              <Component id="RatingResultsText" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ratingDlgName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dlgC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="RatingDlgName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="DlgC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ratingLevel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lvlC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="RatingLevel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LvlC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ratingTimeTaken" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="timeTakenC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="RatingTimeTaken" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="TimeTakenC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ratingYourRating" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="RatingYourRating" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="yourRatingBoxC" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="ratingPartnerRating" min="-2" max="-2" attributes="0"/>
+                      <Component id="RatingPartnerRating" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Component id="okBttn" min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="OkBttn" min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
                   <Component id="partnerRatingBoxC" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -126,7 +126,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="ratingTitle">
+    <Component class="javax.swing.JLabel" name="RatingTitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
@@ -134,7 +134,7 @@
         <Property name="text" type="java.lang.String" value="Congratulation on Finishing! "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingSubtitle">
+    <Component class="javax.swing.JLabel" name="RatingSubtitle">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="13" style="0"/>
@@ -142,7 +142,7 @@
         <Property name="text" type="java.lang.String" value="See results below:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingResultsText">
+    <Component class="javax.swing.JLabel" name="RatingResultsText">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="18" style="1"/>
@@ -150,32 +150,32 @@
         <Property name="text" type="java.lang.String" value="Results:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingDlgName">
+    <Component class="javax.swing.JLabel" name="RatingDlgName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dialogue Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingLevel">
+    <Component class="javax.swing.JLabel" name="RatingLevel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingYourRating">
+    <Component class="javax.swing.JLabel" name="RatingYourRating">
       <Properties>
         <Property name="text" type="java.lang.String" value="Your Rating:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingTimeTaken">
+    <Component class="javax.swing.JLabel" name="RatingTimeTaken">
       <Properties>
         <Property name="text" type="java.lang.String" value="Time Taken:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ratingPartnerRating">
+    <Component class="javax.swing.JLabel" name="RatingPartnerRating">
       <Properties>
         <Property name="text" type="java.lang.String" value="Partner Rating:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="okBttn">
+    <Component class="javax.swing.JButton" name="OkBttn">
       <Properties>
         <Property name="text" type="java.lang.String" value="OK"/>
         <Property name="borderPainted" type="boolean" value="false"/>
@@ -183,20 +183,20 @@
         <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="okBttnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="OkBttnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="dlgC">
+    <Component class="javax.swing.JLabel" name="DlgC">
       <Properties>
         <Property name="text" type="java.lang.String" value="Dialogue"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lvlC">
+    <Component class="javax.swing.JLabel" name="LvlC">
       <Properties>
         <Property name="text" type="java.lang.String" value="Level"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="timeTakenC">
+    <Component class="javax.swing.JLabel" name="TimeTakenC">
       <Properties>
         <Property name="text" type="java.lang.String" value="Time Taken"/>
       </Properties>
