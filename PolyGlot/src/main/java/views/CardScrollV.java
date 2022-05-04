@@ -24,7 +24,7 @@ import javax.swing.JTextArea;
 
 public class CardScrollV extends javax.swing.JFrame {
     
-    private int id;
+    private String id;
 
     /**
      * CardScrollV constructor 
@@ -36,7 +36,7 @@ public class CardScrollV extends javax.swing.JFrame {
      * @param setUpDlgCont - Instance of SetUpDlgV
      * @param dlgCont - Instance of dialougeCont
      */
-    public CardScrollV(int id, SetUpDlgV setUpDlgCont, DialogueCont dlgCont) {
+    public CardScrollV(String id, SetUpDlgV setUpDlgCont, DialogueCont dlgCont) {
         this.id = id;
         initComponents();
         setSize(414,667);
@@ -597,7 +597,7 @@ public class CardScrollV extends javax.swing.JFrame {
         return roleNameLbl;
     }
     
-    public int getID() {
+    public String getID() {
         return this.id;
     }
 

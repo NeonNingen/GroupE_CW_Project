@@ -130,8 +130,8 @@ public class DialogueCont implements ActionListener
         if(pressedSelesDlg== JOptionPane.YES_OPTION){
             activateClick(false);
             menuV.hide();
-            int id = Integer.parseInt(currentDlg.getDlg_id());
-            dlgSetUpPage= new SetUpDlgV(id, this, this.userID);
+            //int id = Integer.parseInt(currentDlg.getDlg_id());
+            dlgSetUpPage= new SetUpDlgV(currentDlg.getDlg_id(), this, this.userID);
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
             activateClick(true);

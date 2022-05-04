@@ -18,7 +18,7 @@ import javax.swing.*;
  */
 public class RatingV extends javax.swing.JFrame {
     
-    private int id;
+    private String id;
     private float time;
     
     /**
@@ -30,7 +30,7 @@ public class RatingV extends javax.swing.JFrame {
      * @param id: int - The dialogue_id from the dialogue table
      * @param time: float - Time in float values.
      */
-    public RatingV(int id, float time, String userID, String partnerID) {
+    public RatingV(String id, float time, String userID, String partnerID) {
         this.id = id;
         initComponents();
         setSize(414,667);
@@ -266,7 +266,7 @@ public class RatingV extends javax.swing.JFrame {
         this.TimeTakenC = TimeTakenC;
     }
     
-    public void setID(int id) {
+    public void setID(String id) {
         this.id = id;
     }
     
@@ -282,7 +282,7 @@ public class RatingV extends javax.swing.JFrame {
         return TimeTakenC;
     }
     
-    public int getID() {
+    public String getID() {
         return this.id;
     }
     
@@ -355,7 +355,7 @@ public class RatingV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RatingV(123, 30, "265", "345").setVisible(true);
+                new RatingV("", 30, "265", "345").setVisible(true);
             }
         });
     }

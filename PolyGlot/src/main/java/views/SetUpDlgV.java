@@ -15,7 +15,7 @@ import javax.swing.*;
  */
 public class SetUpDlgV extends javax.swing.JFrame {
 
-    private int id;
+    private String id;
     
     /**
      * SetUpDlgV constructor 
@@ -25,7 +25,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
      * @param id: int - The dialogue_id from the dialogue table
      * @param dlgCont - Instance of dialougeCont
      */
-    public SetUpDlgV(int id, DialogueCont dlgCont, String userID) {
+    public SetUpDlgV(String id, DialogueCont dlgCont, String userID) {
         this.id = id;
         initComponents();
         setSize(414,667);
@@ -373,11 +373,11 @@ public class SetUpDlgV extends javax.swing.JFrame {
         this.RoleBRadBttn = RoleBRadBttn;
     }
     
-    public int getID() {
+    public String getID() {
         return this.id;
     }
     
-    public void setID(int id) {
+    public void setID(String id) {
         this.id = id;
     }
     
@@ -424,7 +424,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 DialogueCont dlgCont= new DialogueCont(); 
-                new SetUpDlgV(123, dlgCont, "w12345").setVisible(true);
+                new SetUpDlgV("", dlgCont, "w12345").setVisible(true);
             }
         });
     }

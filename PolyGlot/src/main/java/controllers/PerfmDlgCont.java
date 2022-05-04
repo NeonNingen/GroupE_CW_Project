@@ -36,7 +36,7 @@ public class PerfmDlgCont implements ActionListener
     private String lang;
     private String roleName;
     private MenuBarV menu;
-    private int id;
+    private String id;
     private long start;
     private long end;
     private float time;
@@ -120,8 +120,8 @@ public class PerfmDlgCont implements ActionListener
                                              + "dialogue_topic, "
                                              + "dialogue_grammar "
                                              + "FROM Dialogue WHERE "
-                                             + "dialogue_id = " 
-                                             + this.id);
+                                             + "dialogue_id = '" 
+                                             + this.id + "'");
         
         return dialogueInfo;
     }
@@ -139,8 +139,8 @@ public class PerfmDlgCont implements ActionListener
         cardInfo = this.card.queryData("SELECT "
                                      + "card_text, card_role "
                                      + "FROM Card WHERE "
-                                     + "dialogue_id = " 
-                                     + this.id
+                                     + "dialogue_id = '" 
+                                     + this.id + "'"
                                      + " AND card_order = "
                                      + click);
         
