@@ -10,17 +10,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.lang.Exception;
 import javax.swing.BorderFactory;
-import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import views.CardScrollV;
 import views.SetUpDlgV;
-import views.RatingV;
 import models.DialogueMDL;
 import models.Card;
 import models.UserMDL;
+import views.LoginV;
 import views.MenuBarV;
-import views.ProgV;
 import views.RatingV;
 
 /**
@@ -41,11 +39,13 @@ public class PerfmDlgCont implements ActionListener
     private long start;
     private long end;
     private float time;
+    private String userID;
     public int click = 1;
     DialogueMDL dialogue;
     Card card;
     DialogueCont dlgCont;
     UserMDL userMDL;
+    LoginV loginPage;
     
     /**
      * Permfm constructor 
@@ -54,11 +54,12 @@ public class PerfmDlgCont implements ActionListener
      * @param SetUpDlgPage - Instance of SetUpDlgV
      * @param dlgCont - Instance of DialogueCont
      */
-    public PerfmDlgCont(SetUpDlgV SetUpDlgPage, DialogueCont dlgCont) {
+    public PerfmDlgCont(SetUpDlgV SetUpDlgPage, DialogueCont dlgCont, String userID) {
         this.SetUpDlgPage = SetUpDlgPage;
         this.dlgCont = dlgCont;
         this.dialogue = new DialogueMDL();
         this.id = this.SetUpDlgPage.getID();
+        this.userID = userID;
         setUpDlg();
     }
     
@@ -152,19 +153,19 @@ public class PerfmDlgCont implements ActionListener
     private Boolean checkUser() {
         Boolean realUser;
         
-            String userName = this.SetUpDlgPage.getDlgPartnerC().getText();
+            String userID = this.SetUpDlgPage.getDlgPartnerC().getText();
             Boolean RoleA = this.SetUpDlgPage.getRoleARadBttn().isSelected();
             Boolean RoleB = this.SetUpDlgPage.getRoleBRadBttn().isSelected();
             
             ArrayList<String> dlgName = new ArrayList<>();
             
-            if(!userName.equals("")) {
+            if(!userID.equals("")) {
                 dlgName = userMDL.queryData(
                                   "SELECT "
-                                + "user_id "
+                                + "user_name "
                                 + "FROM User WHERE "
-                                + "user_name = '" 
-                                + userName + "'");
+                                + "user_id = '" 
+                                + userID + "'");
             } else {
                 realUser = false;
             }
@@ -187,6 +188,8 @@ public class PerfmDlgCont implements ActionListener
         this.SetUpDlgPage.getDlgLevelC().setText(retrieveDialogueInfo().get(1));
         this.SetUpDlgPage.getDlgTopicC().setText(retrieveDialogueInfo().get(2));
         this.SetUpDlgPage.getDlgGrmmarC().setText(retrieveDialogueInfo().get(3));
+        this.SetUpDlgPage.getDlgIdC().setText(this.userID);
+        
     }
     
     /**
@@ -270,7 +273,7 @@ public class PerfmDlgCont implements ActionListener
         if(e.getSource() == this.RatingPage.getOkButton()) {
             RatingPage.dispose();
             
-            new ProgV().show();  // here you need menuBarV, not progV...
+            new MenuBarV().show();
         }
            } catch (Exception e2) {
         }

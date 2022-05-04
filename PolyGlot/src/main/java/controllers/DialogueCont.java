@@ -38,6 +38,7 @@ public class DialogueCont implements ActionListener
     private DialogueMDL currentDlg;
     private SetUpDlgV setUp;
     private String currentLang;
+    private String userID;
     String tableName= "Dialogue";
     int rowCount=0;
     int clmnCount=0;
@@ -82,11 +83,12 @@ public class DialogueCont implements ActionListener
         
     }
     
-    public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang) 
+    public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang, String userID) 
     {
         menuV= menu;
         dlgListPage= dlgView;
         dlgMdlClass= dlgModel;
+        this.userID = userID;
         this.currentLang= lang;
     }
     
@@ -128,9 +130,8 @@ public class DialogueCont implements ActionListener
         if(pressedSelesDlg== JOptionPane.YES_OPTION){
             activateClick(false);
             menuV.hide();
-            //int id = Integer.parseInt(currentDlg.getDlg_id());
-            String id = currentDlg.getDlg_id();
-//            dlgSetUpPage= new SetUpDlgV(id, this);
+            int id = Integer.parseInt(currentDlg.getDlg_id());
+            dlgSetUpPage= new SetUpDlgV(id, this, this.userID);
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
             activateClick(true);
@@ -269,9 +270,10 @@ public class DialogueCont implements ActionListener
             dlgSetUpPage.dispose();
             menuV.show();
             
-        }else if(e.getSource().equals(CardScrollPage.getCloseBttn())){ // still need furthe work
-            CardScrollPage.dispose(); // null value as I didn't manage to set up CardScollPage
+        }else if((!(CardScrollPage==null)) && e.getSource().equals(CardScrollPage.getCloseBttn())){
+            CardScrollPage.dispose();
             menuV.show();
+        
         }
     }
     

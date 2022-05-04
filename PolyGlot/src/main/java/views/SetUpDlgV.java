@@ -5,7 +5,6 @@
 package views;
 
 import controllers.DialogueCont;
-import controllers.MenuBarCont;
 import controllers.PerfmDlgCont;
 import javax.swing.*;
 
@@ -26,14 +25,13 @@ public class SetUpDlgV extends javax.swing.JFrame {
      * @param id: int - The dialogue_id from the dialogue table
      * @param dlgCont - Instance of dialougeCont
      */
-    public SetUpDlgV(int id, DialogueCont dlgCont) {
+    public SetUpDlgV(int id, DialogueCont dlgCont, String userID) {
         this.id = id;
         initComponents();
         setSize(414,667);
-        StartDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont));
+        StartDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont, userID));
         CloseBttn.addActionListener(dlgCont);
-        //CloseBttn.addActionListener(new PerfmDlgCont(this, lang));
-        CloseBttn.addActionListener(dlgCont);// Not working
+        CloseBttn.addActionListener(dlgCont);
         setDesign();
         colorBlueBttn(StartDlgBttn, "Begin");
     }
@@ -54,6 +52,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
         DlgLevelLbl.setFont(new java.awt.Font("Avenir Next", 1, 16));
         DlgNameLbl.setFont(new java.awt.Font("Avenir Next", 1, 16));
         DlgTopicLbl.setFont(new java.awt.Font("Avenir Next", 1, 16));
+        DlgIdLbl.setFont(new java.awt.Font("Avenir Next", 1, 16));
         PartnerLbl.setFont(new java.awt.Font("Avenir Next", 1, 16));
         
         //dlgGrmmarC.setBackground(new java.awt.Color(135, 170, 240));
@@ -62,6 +61,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
         dlgNameC.setFont(new java.awt.Font("Avenir Next", 1, 12));
         dlgPartnerC.setFont(new java.awt.Font("Avenir Next", 1, 12));
         dlgTopicC.setFont(new java.awt.Font("Avenir Next", 1, 12));
+        dlgIdC.setFont(new java.awt.Font("Avenir Next", 1, 12));
         
         
         RoleLbl.setFont(new java.awt.Font("Avenir Next", 1, 16));
@@ -114,6 +114,8 @@ public class SetUpDlgV extends javax.swing.JFrame {
         dlgLevelC = new javax.swing.JLabel();
         dlgNameC = new javax.swing.JLabel();
         CloseBttn = new javax.swing.JButton();
+        DlgIdLbl = new javax.swing.JLabel();
+        dlgIdC = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -158,59 +160,75 @@ public class SetUpDlgV extends javax.swing.JFrame {
         dlgNameC.setText("Dialogue Name");
 
         CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIconBlack.png"))); // NOI18N
+        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/closeIconBlack.png"))); // NOI18N
+        CloseBttn.setBorder(null);
         CloseBttn.setBorderPainted(false);
         CloseBttn.setContentAreaFilled(false);
-        CloseBttn.setFocusPainted(false);
         CloseBttn.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        DlgIdLbl.setText("Your ID:");
+
+        dlgIdC.setText("Your ID");
 
         javax.swing.GroupLayout SetUpPagePanelLayout = new javax.swing.GroupLayout(SetUpPagePanel);
         SetUpPagePanel.setLayout(SetUpPagePanelLayout);
         SetUpPagePanelLayout.setHorizontalGroup(
             SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(SetUpDlgTitle)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(DlgLevelLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(DlgNameLbl))
+                            .addComponent(DlgGramLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DlgIdLbl))
+                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                                        .addComponent(dlgNameC, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(dlgLevelC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                                        .addComponent(dlgIdC, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(dlgGrmmarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PartnerLbl)
+                            .addComponent(RoleLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SetUpPagePanelLayout.createSequentialGroup()
+                                .addComponent(StartDlgBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(163, Short.MAX_VALUE))
+                            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dlgPartnerC, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                                        .addComponent(RoleARadBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(RoleBRadBttn)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
+                        .addComponent(DlgTopicLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dlgTopicC, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SetUpPagePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63))
-            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DlgTopicLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(PartnerLbl)
-                                            .addComponent(RoleLbl))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(dlgPartnerC, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                                                .addComponent(RoleARadBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(RoleBRadBttn))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SetUpPagePanelLayout.createSequentialGroup()
-                                        .addComponent(StartDlgBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(82, 82, 82)))
-                                .addGap(12, 12, 12))
-                            .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(DlgLevelLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(DlgNameLbl))
-                                    .addComponent(DlgGramLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dlgGrmmarC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dlgLevelC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dlgNameC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(dlgTopicC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(SetUpPagePanelLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(SetUpDlgTitle)))
-                .addContainerGap(142, Short.MAX_VALUE))
         );
         SetUpPagePanelLayout.setVerticalGroup(
             SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,7 +253,11 @@ public class SetUpDlgV extends javax.swing.JFrame {
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DlgGramLbl)
                     .addComponent(dlgGrmmarC))
-                .addGap(66, 66, 66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DlgIdLbl)
+                    .addComponent(dlgIdC))
+                .addGap(44, 44, 44)
                 .addGroup(SetUpPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PartnerLbl)
                     .addComponent(dlgPartnerC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -358,10 +380,63 @@ public class SetUpDlgV extends javax.swing.JFrame {
     public int getID() {
         return this.id;
     }
+    
+    public void setID(int id) {
+        this.id = id;
+    }
+    
+    public JLabel getDlgIdC() {
+        return dlgIdC;
+    }
+
+      
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                DialogueCont dlgCont= new DialogueCont(); 
+                new SetUpDlgV(123, dlgCont, "w12345").setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseBttn;
     private javax.swing.JLabel DlgGramLbl;
+    private javax.swing.JLabel DlgIdLbl;
     private javax.swing.JLabel DlgLevelLbl;
     private javax.swing.JLabel DlgNameLbl;
     private javax.swing.JLabel DlgTopicLbl;
@@ -373,11 +448,13 @@ public class SetUpDlgV extends javax.swing.JFrame {
     private javax.swing.JPanel SetUpPagePanel;
     private javax.swing.JButton StartDlgBttn;
     private javax.swing.JLabel dlgGrmmarC;
+    private javax.swing.JLabel dlgIdC;
     private javax.swing.JLabel dlgLevelC;
     private javax.swing.JLabel dlgNameC;
     private javax.swing.JTextField dlgPartnerC;
     private javax.swing.ButtonGroup dlgRoleC;
     private javax.swing.JLabel dlgTopicC;
     // End of variables declaration//GEN-END:variables
+
 }
 

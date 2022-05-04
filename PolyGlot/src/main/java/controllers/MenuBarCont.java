@@ -152,7 +152,7 @@ public class MenuBarCont implements ActionListener
             
             String query;
             lang= user.getApplang();
-            DialogueCont cont= new DialogueCont(this.menuBar, dlgView, dlgModel, lang);
+            DialogueCont cont= new DialogueCont(this.menuBar, dlgView, dlgModel, lang, this.user.getUserID());
             query="SELECT * FROM Dialogue WHERE dialogue_language ='" + lang+ "'";
             cont.setDlgList(query); 
             activateBttn(this.menuBar.getDlgListBttn(),this.menuBar.getSettBttn(), this.menuBar.getUListBttn(),this.menuBar.getProVBttn());
