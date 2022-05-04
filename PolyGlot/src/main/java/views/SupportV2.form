@@ -298,6 +298,8 @@
                 <Component class="javax.swing.JButton" name="backBttnL">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Back to Login"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorLoginBttn(backBttnL, &quot;Back to Login&quot;);"/>
@@ -306,7 +308,12 @@
                 <Component class="javax.swing.JButton" name="backBttnR">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Back to Register"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backBttnRActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorRegisterBttn(backBttnR, &quot;Back to Register&quot;);"/>
                   </AuxValues>

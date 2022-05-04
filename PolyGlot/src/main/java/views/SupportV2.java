@@ -25,6 +25,8 @@ public class SupportV2 extends javax.swing.JFrame {
         this.backBttnL.addActionListener(new LoginRegisterCont(this));
         mainTextField();
         mainTitle();
+        colorWhiteBttn(backBttnL, "Back to Login");
+        colorWhiteBttn(backBttnR, "Back to Register");
 //        this.backButton.addActionListener(new LoginRegisterCont(this));
     }
     
@@ -169,10 +171,19 @@ public class SupportV2 extends javax.swing.JFrame {
         helpTitle.setText("Support Page");
 
         backBttnL.setText("Back to Login");
+        backBttnL.setBorderPainted(false);
+        backBttnL.setContentAreaFilled(false);
         colorLoginBttn(backBttnL, "Back to Login");
 
         backBttnR.setText("Back to Register");
+        backBttnR.setBorderPainted(false);
+        backBttnR.setContentAreaFilled(false);
         colorRegisterBttn(backBttnR, "Back to Register");
+        backBttnR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBttnRActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SupportContentLayout = new javax.swing.GroupLayout(SupportContent);
         SupportContent.setLayout(SupportContentLayout);
@@ -258,6 +269,10 @@ public class SupportV2 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void backBttnRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBttnRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_backBttnRActionPerformed
+
     public JLabel getjLabel1() {
         return jLabel1;
     }
@@ -332,6 +347,23 @@ public class SupportV2 extends javax.swing.JFrame {
         this.jTextArea4 = jTextArea4;
     }
 
+    /**
+     * Suggested by Aisana(w1775375) will change button look to be white with
+     * blue font
+     *
+     * @param bttn - select button the design of which you want to change
+     * @param bttnName - add text to be in that button
+     */
+    public void colorWhiteBttn(JButton bttn, String bttnName) {
+        bttn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bttn.setBackground(new java.awt.Color(238, 238, 238));
+        bttn.setForeground(new java.awt.Color(93, 150, 234));
+        bttn.setText(bttnName);
+        bttn.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(67, 152, 224), 1, true));
+        bttn.setMinimumSize(new java.awt.Dimension(168, 46));
+        bttn.setBorderPainted(true);
+        bttn.setContentAreaFilled(true);
+    }
     
     /**
      * @param args the command line arguments
