@@ -27,17 +27,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="DlgListContent" min="-2" max="-2" attributes="0"/>
+          <Component id="dlgListContent" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="DlgListContent" min="-2" max="-2" attributes="0"/>
+          <Component id="dlgListContent" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="DlgListContent">
+    <Container class="javax.swing.JPanel" name="dlgListContent">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -58,13 +58,13 @@
                           <Component id="resetBttn" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="ChooseLvlCbox" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="chooseLvlCbox" min="-2" pref="114" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ChooseTopicCbox" pref="138" max="32767" attributes="0"/>
+                          <Component id="chooseTopicCbox" pref="138" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ChooseGramCbox" min="-2" pref="132" max="-2" attributes="0"/>
+                  <Component id="chooseGramCbox" min="-2" pref="132" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -81,11 +81,11 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="ChooseLvlCbox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChooseTopicCbox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ChooseGramCbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chooseLvlCbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chooseTopicCbox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chooseGramCbox" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="418" max="32767" attributes="0"/>
+                  <EmptySpace pref="411" max="32767" attributes="0"/>
                   <Component id="resetBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -100,7 +100,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JComboBox" name="ChooseLvlCbox">
+        <Component class="javax.swing.JComboBox" name="chooseLvlCbox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="8" style="0"/>
@@ -116,7 +116,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ChooseTopicCbox">
+        <Component class="javax.swing.JComboBox" name="chooseTopicCbox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="8" style="0"/>
@@ -132,7 +132,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ChooseGramCbox">
+        <Component class="javax.swing.JComboBox" name="chooseGramCbox">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="8" style="0"/>

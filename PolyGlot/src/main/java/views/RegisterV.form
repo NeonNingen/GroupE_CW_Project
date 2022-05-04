@@ -543,6 +543,8 @@
         <Component class="javax.swing.JButton" name="tcBttnR">
           <Properties>
             <Property name="text" type="java.lang.String" value="TC*"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="colorWhiteBttn(tcBttnR,&quot;TC*&quot;);"/>

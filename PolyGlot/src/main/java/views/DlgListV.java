@@ -40,7 +40,7 @@ public class DlgListV extends javax.swing.JFrame {
         
         
         menu.setPageTitle("Dialogue List");
-        menu.setPageTopicContent(DlgListContent);
+        menu.setPageTopicContent(dlgListContent);
     }
     
     
@@ -51,9 +51,9 @@ public class DlgListV extends javax.swing.JFrame {
      */
     public void setActList(DialogueCont dlgCont){
         
-        ChooseGramCbox.addActionListener(dlgCont);
-        ChooseLvlCbox.addActionListener( dlgCont );
-        ChooseTopicCbox.addActionListener(dlgCont);
+        chooseGramCbox.addActionListener(dlgCont);
+        chooseLvlCbox.addActionListener( dlgCont );
+        chooseTopicCbox.addActionListener(dlgCont);
         resetBttn.addActionListener(dlgCont);
     }
     
@@ -70,10 +70,10 @@ public class DlgListV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DlgListContent = new javax.swing.JPanel();
-        ChooseLvlCbox = new javax.swing.JComboBox<>();
-        ChooseTopicCbox = new javax.swing.JComboBox<>();
-        ChooseGramCbox = new javax.swing.JComboBox<>();
+        dlgListContent = new javax.swing.JPanel();
+        chooseLvlCbox = new javax.swing.JComboBox<>();
+        chooseTopicCbox = new javax.swing.JComboBox<>();
+        chooseGramCbox = new javax.swing.JComboBox<>();
         jScrollDlgListTbl = new javax.swing.JScrollPane();
         jTableDlgList = new javax.swing.JTable();
         resetBttn = new javax.swing.JButton();
@@ -82,19 +82,19 @@ public class DlgListV extends javax.swing.JFrame {
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setResizable(false);
 
-        DlgListContent.setBackground(new java.awt.Color(255, 255, 255));
-        DlgListContent.setPreferredSize(new java.awt.Dimension(414, 480));
+        dlgListContent.setBackground(new java.awt.Color(255, 255, 255));
+        dlgListContent.setPreferredSize(new java.awt.Dimension(414, 480));
 
-        ChooseLvlCbox.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        ChooseLvlCbox.setMinimumSize(new java.awt.Dimension(96, 20));
-        ChooseLvlCbox.setPreferredSize(new java.awt.Dimension(120, 20));
+        chooseLvlCbox.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        chooseLvlCbox.setMinimumSize(new java.awt.Dimension(96, 20));
+        chooseLvlCbox.setPreferredSize(new java.awt.Dimension(120, 20));
 
-        ChooseTopicCbox.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        ChooseTopicCbox.setMinimumSize(new java.awt.Dimension(96, 20));
-        ChooseTopicCbox.setPreferredSize(new java.awt.Dimension(120, 20));
+        chooseTopicCbox.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        chooseTopicCbox.setMinimumSize(new java.awt.Dimension(96, 20));
+        chooseTopicCbox.setPreferredSize(new java.awt.Dimension(120, 20));
 
-        ChooseGramCbox.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        ChooseGramCbox.setPreferredSize(new java.awt.Dimension(120, 20));
+        chooseGramCbox.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
+        chooseGramCbox.setPreferredSize(new java.awt.Dimension(120, 20));
 
         jScrollDlgListTbl.setPreferredSize(new java.awt.Dimension(414, 470));
 
@@ -127,42 +127,42 @@ public class DlgListV extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout DlgListContentLayout = new javax.swing.GroupLayout(DlgListContent);
-        DlgListContent.setLayout(DlgListContentLayout);
-        DlgListContentLayout.setHorizontalGroup(
-            DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DlgListContentLayout.createSequentialGroup()
+        javax.swing.GroupLayout dlgListContentLayout = new javax.swing.GroupLayout(dlgListContent);
+        dlgListContent.setLayout(dlgListContentLayout);
+        dlgListContentLayout.setHorizontalGroup(
+            dlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgListContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(DlgListContentLayout.createSequentialGroup()
+                .addGroup(dlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(dlgListContentLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(resetBttn))
-                    .addGroup(DlgListContentLayout.createSequentialGroup()
-                        .addComponent(ChooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(dlgListContentLayout.createSequentialGroup()
+                        .addComponent(chooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ChooseTopicCbox, 0, 138, Short.MAX_VALUE)))
+                        .addComponent(chooseTopicCbox, 0, 138, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ChooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(chooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
-            .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DlgListContentLayout.createSequentialGroup()
+            .addGroup(dlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgListContentLayout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(14, Short.MAX_VALUE)))
         );
-        DlgListContentLayout.setVerticalGroup(
-            DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DlgListContentLayout.createSequentialGroup()
+        dlgListContentLayout.setVerticalGroup(
+            dlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dlgListContentLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ChooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChooseTopicCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ChooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(dlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chooseLvlCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chooseTopicCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chooseGramCbox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 411, Short.MAX_VALUE)
                 .addComponent(resetBttn)
                 .addContainerGap())
-            .addGroup(DlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DlgListContentLayout.createSequentialGroup()
+            .addGroup(dlgListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgListContentLayout.createSequentialGroup()
                     .addContainerGap(40, Short.MAX_VALUE)
                     .addComponent(jScrollDlgListTbl, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(42, Short.MAX_VALUE)))
@@ -172,11 +172,11 @@ public class DlgListV extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DlgListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(dlgListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DlgListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(dlgListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -189,20 +189,20 @@ public class DlgListV extends javax.swing.JFrame {
 
     
     public void setChooseGramCbox(JComboBox ChooseGramCbox) {
-        this.ChooseGramCbox=ChooseGramCbox;
+        this.chooseGramCbox=ChooseGramCbox;
     }
     
 
     public void setChooseLvlCbox(JComboBox ChooseLvlCbox) {
-        this.ChooseLvlCbox=ChooseLvlCbox;
+        this.chooseLvlCbox=ChooseLvlCbox;
     }
 
     public void setChooseTopicCbox(JComboBox ChooseTopicCbox) {
-        this.ChooseTopicCbox=ChooseTopicCbox;
+        this.chooseTopicCbox=ChooseTopicCbox;
     }
 
     public void setDlgListContent(JPanel DlgListContent) {
-        this.DlgListContent = DlgListContent;
+        this.dlgListContent = DlgListContent;
     }
 
     public void setjScrollDlgListTbl(JScrollPane jScrollDlgListTbl) {
@@ -216,7 +216,7 @@ public class DlgListV extends javax.swing.JFrame {
 
     public JComboBox<String> getChooseGramCbox() {
         
-        return ChooseGramCbox;
+        return chooseGramCbox;
         
     }
 
@@ -227,15 +227,15 @@ public class DlgListV extends javax.swing.JFrame {
     
     
     public JComboBox<String> getChooseLvlCbox() {
-        return ChooseLvlCbox;
+        return chooseLvlCbox;
     }
 
     public JComboBox<String> getChooseTopicCbox() {
-        return ChooseTopicCbox;
+        return chooseTopicCbox;
     }
 
     public JPanel getDlgListContent() {
-        return DlgListContent;
+        return dlgListContent;
     }
 
     public JScrollPane getjScrollDlgListTbl() {
@@ -285,28 +285,28 @@ public class DlgListV extends javax.swing.JFrame {
      */
     public void fillCmbx(ArrayList <String> grammar,ArrayList <String> lvl,ArrayList <String> topic){
         
-        this.ChooseGramCbox.removeAllItems();
-        this.ChooseGramCbox.addItem("Choose Grammar");
+        this.chooseGramCbox.removeAllItems();
+        this.chooseGramCbox.addItem("Choose Grammar");
         
         for(int i=0; i<grammar.size();i++){
-            this.ChooseGramCbox.addItem(grammar.get(i));
+            this.chooseGramCbox.addItem(grammar.get(i));
         }
         
         
         
-        this.ChooseLvlCbox.removeAllItems();
-        this.ChooseLvlCbox.addItem("Choose Level");
+        this.chooseLvlCbox.removeAllItems();
+        this.chooseLvlCbox.addItem("Choose Level");
         for(int i=0; i<lvl.size();i++){
-            this.ChooseLvlCbox.addItem(lvl.get(i));
+            this.chooseLvlCbox.addItem(lvl.get(i));
         }
         
         
         
-        this.ChooseTopicCbox.removeAllItems();
-        this.ChooseTopicCbox.addItem("Choose Topic");
+        this.chooseTopicCbox.removeAllItems();
+        this.chooseTopicCbox.addItem("Choose Topic");
         
         for(int i=0; i<topic.size();i++){
-            this.ChooseTopicCbox.addItem(topic.get(i));
+            this.chooseTopicCbox.addItem(topic.get(i));
         }
         
         
@@ -314,10 +314,10 @@ public class DlgListV extends javax.swing.JFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ChooseGramCbox;
-    private javax.swing.JComboBox<String> ChooseLvlCbox;
-    private javax.swing.JComboBox<String> ChooseTopicCbox;
-    private javax.swing.JPanel DlgListContent;
+    private javax.swing.JComboBox<String> chooseGramCbox;
+    private javax.swing.JComboBox<String> chooseLvlCbox;
+    private javax.swing.JComboBox<String> chooseTopicCbox;
+    private javax.swing.JPanel dlgListContent;
     private javax.swing.JScrollPane jScrollDlgListTbl;
     private javax.swing.JTable jTableDlgList;
     private javax.swing.JButton resetBttn;

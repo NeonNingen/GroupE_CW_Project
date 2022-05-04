@@ -179,6 +179,8 @@ public class RegisterV extends javax.swing.JFrame {
         hiddenErr6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconErr.png"))); // NOI18N
 
         tcBttnR.setText("TC*");
+        tcBttnR.setBorderPainted(false);
+        tcBttnR.setContentAreaFilled(false);
         colorWhiteBttn(tcBttnR,"TC*");
 
         userNameReg.setBackground(new java.awt.Color(135, 178, 240));

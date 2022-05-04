@@ -35,7 +35,7 @@ import views.ProgV;
 import views.SettingV;
 import views.SupportV;
 import views.SupportV2;
-import views.TermsCond;
+import views.TermsCondV;
 
 public class LoginRegisterCont implements ActionListener, FocusListener {
 
@@ -46,7 +46,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     private MenuBarV menubar;
     private SupportV2 supportPage;
     private SupportV supportMenu;
-    private TermsCond tc;
+    private TermsCondV termsCondPage;
     private AccessRecordMDL accessRecMDL;
     private Color errColor = new Color(238, 105, 94);
 
@@ -94,8 +94,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         this.supportPage = aThis;
     }
 
-    public LoginRegisterCont(TermsCond tc) {
-        this.tc = tc;
+    public LoginRegisterCont(TermsCondV tc) {
+        this.termsCondPage = tc;
     }
 
     /**
@@ -171,11 +171,11 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     public void actionPermTC(ActionEvent e) {
         if ((this.registerPage != null) && (e.getSource() == this.registerPage.getTcBttnR())) {
             this.registerPage.dispose();
-            this.tc = new TermsCond();
-            this.tc.setVisible(true);
+            this.termsCondPage = new TermsCondV();
+            this.termsCondPage.setVisible(true);
         }
-        if ((this.tc != null) && (e.getSource() == this.tc.getRmvTCBttn())) {
-            this.tc.dispose();
+        if ((this.termsCondPage != null) && (e.getSource() == this.termsCondPage.getRmvTCBttn())) {
+            this.termsCondPage.dispose();
             this.registerPage = new RegisterV();
             this.registerPage.setVisible(true);
         }

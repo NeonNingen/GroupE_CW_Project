@@ -34,7 +34,7 @@ public class UListStdV extends javax.swing.JFrame {
         MenuBarV menu = new MenuBarV();
         this.setContentPane(menu.getContentPane());
         menu.setPageTitle("User List");
-        menu.setPageTopicContent(UListContent);
+        menu.setPageTopicContent(userListContent);
         fillTable();
     }
 
@@ -52,19 +52,19 @@ public class UListStdV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        UListContent = new javax.swing.JPanel();
+        userListContent = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblofStd = new javax.swing.JTable();
-        GroupIdLbl = new javax.swing.JLabel();
-        GroupTeach = new javax.swing.JLabel();
+        groupIdLbl = new javax.swing.JLabel();
+        groupTeach = new javax.swing.JLabel();
         groupDisplay = new javax.swing.JLabel();
         teacherDisplay = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        UListContent.setBackground(new java.awt.Color(255, 255, 255));
-        UListContent.setMinimumSize(new java.awt.Dimension(414, 550));
-        UListContent.setPreferredSize(new java.awt.Dimension(414, 550));
+        userListContent.setBackground(new java.awt.Color(255, 255, 255));
+        userListContent.setMinimumSize(new java.awt.Dimension(414, 550));
+        userListContent.setPreferredSize(new java.awt.Dimension(414, 550));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setAutoscrolls(true);
@@ -92,19 +92,18 @@ public class UListStdV extends javax.swing.JFrame {
         });
         TblofStd.setRowMargin(2);
         TblofStd.setSelectionBackground(new java.awt.Color(135, 178, 240));
-        TblofStd.setSelectionForeground(new java.awt.Color(255, 255, 255));
         TblofStd.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TblofStd);
         TblofStd.getTableHeader().setForeground(new Color(255, 255, 255));
         TblofStd.getTableHeader().setBackground(new Color(135, 178, 240));
 
-        GroupIdLbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        GroupIdLbl.setForeground(new java.awt.Color(135, 178, 240));
-        GroupIdLbl.setText("Group ID:");
+        groupIdLbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        groupIdLbl.setForeground(new java.awt.Color(135, 178, 240));
+        groupIdLbl.setText("Group ID:");
 
-        GroupTeach.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        GroupTeach.setForeground(new java.awt.Color(135, 178, 240));
-        GroupTeach.setText("Teacher:");
+        groupTeach.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        groupTeach.setForeground(new java.awt.Color(135, 178, 240));
+        groupTeach.setText("Teacher:");
 
         groupDisplay.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         groupDisplay.setForeground(new java.awt.Color(135, 178, 240));
@@ -112,37 +111,37 @@ public class UListStdV extends javax.swing.JFrame {
         teacherDisplay.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         teacherDisplay.setForeground(new java.awt.Color(135, 178, 240));
 
-        javax.swing.GroupLayout UListContentLayout = new javax.swing.GroupLayout(UListContent);
-        UListContent.setLayout(UListContentLayout);
-        UListContentLayout.setHorizontalGroup(
-            UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UListContentLayout.createSequentialGroup()
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(UListContentLayout.createSequentialGroup()
+        javax.swing.GroupLayout userListContentLayout = new javax.swing.GroupLayout(userListContent);
+        userListContent.setLayout(userListContentLayout);
+        userListContentLayout.setHorizontalGroup(
+            userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userListContentLayout.createSequentialGroup()
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(userListContentLayout.createSequentialGroup()
                         .addGap(101, 101, 101)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GroupIdLbl)
-                            .addComponent(GroupTeach))
+                        .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(groupIdLbl)
+                            .addComponent(groupTeach))
                         .addGap(36, 36, 36)
-                        .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(groupDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
-                    .addGroup(UListContentLayout.createSequentialGroup()
+                    .addGroup(userListContentLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
-        UListContentLayout.setVerticalGroup(
-            UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UListContentLayout.createSequentialGroup()
+        userListContentLayout.setVerticalGroup(
+            userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userListContentLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GroupIdLbl)
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(groupIdLbl)
                     .addComponent(groupDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(UListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(GroupTeach)
-                    .addGroup(UListContentLayout.createSequentialGroup()
+                .addGroup(userListContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(groupTeach)
+                    .addGroup(userListContentLayout.createSequentialGroup()
                         .addComponent(teacherDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                         .addGap(2, 2, 2)))
                 .addGap(30, 30, 30)
@@ -156,14 +155,14 @@ public class UListStdV extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(UListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(UListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userListContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -211,11 +210,11 @@ public class UListStdV extends javax.swing.JFrame {
     }
 
     public JPanel getUListContent() {
-        return UListContent;
+        return userListContent;
     }
 
     public void setUListContent(JPanel UListContent) {
-        this.UListContent = UListContent;
+        this.userListContent = UListContent;
     }
     
     /**
@@ -256,47 +255,15 @@ public class UListStdV extends javax.swing.JFrame {
         getTblofStd().setModel(td);
     }
     
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UListStdV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UListStdV().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel GroupIdLbl;
-    private javax.swing.JLabel GroupTeach;
     private javax.swing.JTable TblofStd;
-    private javax.swing.JPanel UListContent;
     private javax.swing.JLabel groupDisplay;
+    private javax.swing.JLabel groupIdLbl;
+    private javax.swing.JLabel groupTeach;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel teacherDisplay;
+    private javax.swing.JPanel userListContent;
     // End of variables declaration//GEN-END:variables
 
    
