@@ -35,7 +35,7 @@ import views.SupportV2;
 import views.TermsCondV;
 
 /**
- * @author Amit Rahat Haider
+ * @author Amit Rahat 
  * @author Monesha Dhali - added main methods 
  */
 
