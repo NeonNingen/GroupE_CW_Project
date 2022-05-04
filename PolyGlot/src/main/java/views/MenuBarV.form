@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Component class="javax.swing.JButton" name="dlgHistBttn2">
+    <Component class="javax.swing.JButton" name="DlgHistBttn2">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Dialogue History"/>
       </Properties>
@@ -40,17 +40,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="menuBarPanel" min="-2" max="-2" attributes="0"/>
+          <Component id="MenuBarPanel" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="menuBarPanel" alignment="0" pref="700" max="32767" attributes="0"/>
+          <Component id="MenuBarPanel" alignment="0" pref="700" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="menuBarPanel">
+    <Container class="javax.swing.JPanel" name="MenuBarPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="99" type="rgb"/>
@@ -63,23 +63,23 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="pageTopicContent" alignment="0" max="32767" attributes="0"/>
+              <Component id="PageTopicContent" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="pageTitle" min="-2" max="-2" attributes="0"/>
+                  <Component id="PageTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
-                  <Component id="supportBttn" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="SupportBttn" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="proVBttn" min="-2" max="-2" attributes="0"/>
+                  <Component id="ProVBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="uListBttn" min="-2" max="-2" attributes="0"/>
+                  <Component id="UListBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dlgListBttn" min="-2" max="-2" attributes="0"/>
+                  <Component id="DlgListBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="settBttn" min="-2" max="-2" attributes="0"/>
+                  <Component id="SettBttn" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="26" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -89,17 +89,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="pageTitle" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="supportBttn" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="PageTitle" alignment="1" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="SupportBttn" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="pageTopicContent" min="-2" max="-2" attributes="0"/>
+                  <Component id="PageTopicContent" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="dlgListBttn" min="-2" max="-2" attributes="0"/>
-                      <Component id="settBttn" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="proVBttn" min="-2" max="-2" attributes="0"/>
-                      <Component id="uListBttn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="DlgListBttn" min="-2" max="-2" attributes="0"/>
+                      <Component id="SettBttn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="ProVBttn" min="-2" max="-2" attributes="0"/>
+                      <Component id="UListBttn" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -107,7 +107,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="pageTitle">
+        <Component class="javax.swing.JLabel" name="PageTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="24" style="1"/>
@@ -118,7 +118,7 @@
             <Property name="text" type="java.lang.String" value="Page Title"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="pageTopicContent">
+        <Container class="javax.swing.JPanel" name="PageTopicContent">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -144,7 +144,7 @@
             </DimensionLayout>
           </Layout>
         </Container>
-        <Component class="javax.swing.JButton" name="uListBttn">
+        <Component class="javax.swing.JButton" name="UListBttn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="33" type="rgb"/>
@@ -161,10 +161,10 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="uListBttnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UListBttnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="settBttn">
+        <Component class="javax.swing.JButton" name="SettBttn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="33" type="rgb"/>
@@ -181,10 +181,10 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="settBttnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SettBttnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="proVBttn">
+        <Component class="javax.swing.JButton" name="ProVBttn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="33" type="rgb"/>
@@ -198,7 +198,7 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="dlgListBttn">
+        <Component class="javax.swing.JButton" name="DlgListBttn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="cc" red="33" type="rgb"/>
@@ -215,10 +215,10 @@
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dlgListBttnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DlgListBttnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="supportBttn">
+        <Component class="javax.swing.JButton" name="SupportBttn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="6" style="0"/>

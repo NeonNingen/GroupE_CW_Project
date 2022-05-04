@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
-    <Container class="javax.swing.JDialog" name="confirmWindow">
+    <Container class="javax.swing.JDialog" name="ConfirmWindow">
       <Properties>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -15,7 +15,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="confirmWindowPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="ConfirmWindowPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -24,14 +24,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="confirmWindowPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="ConfirmWindowPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="confirmWindowPanel">
+        <Container class="javax.swing.JPanel" name="ConfirmWindowPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -53,7 +53,7 @@
                       <EmptySpace pref="85" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="results" min="-2" max="-2" attributes="0"/>
+                              <Component id="Results" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -61,44 +61,44 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
-                                          <Component id="dlgYRateLbl1" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="DlgYRateLbl1" min="-2" pref="145" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="dlgPartRateLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="dlgYRateLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <Component id="DlgPartRateLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <Component id="DlgYRateLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="dlgPartRateLbl1" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="DlgPartRateLbl1" min="-2" pref="145" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="dlgLvlLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="dlgNameLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="DlgLvlLbl" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
+                                              <Component id="DlgNameLbl" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="dlgNameLbl1" min="-2" pref="145" max="-2" attributes="0"/>
+                                                  <Component id="DlgNameLbl1" min="-2" pref="145" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="dlgLvlLbl1" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
-                                                      <Component id="dlgTimeLbl1" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                                      <Component id="DlgLvlLbl1" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
+                                                      <Component id="DlgTimeLbl1" alignment="1" min="-2" pref="145" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Component id="dlgTimeLbl" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="DlgTimeLbl" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="congratsLbl" min="-2" max="-2" attributes="0"/>
+                              <Component id="Congrats" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -115,33 +115,33 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="closedBttn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="congratsLbl" min="-2" max="-2" attributes="0"/>
+                      <Component id="Congrats" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="results" min="-2" max="-2" attributes="0"/>
+                      <Component id="Results" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dlgNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dlgNameLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgNameLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dlgLvlLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dlgLvlLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgLvlLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgLvlLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dlgTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dlgTimeLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgTimeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgTimeLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dlgYRateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dlgYRateLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgYRateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgYRateLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dlgPartRateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="dlgPartRateLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgPartRateLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgPartRateLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="197" max="32767" attributes="0"/>
                       <Component id="confBttn" min="-2" pref="55" max="-2" attributes="0"/>
@@ -151,57 +151,57 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="results">
+            <Component class="javax.swing.JLabel" name="Results">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Results"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgNameLbl">
+            <Component class="javax.swing.JLabel" name="DlgNameLbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dialogue Name:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgNameLbl1">
+            <Component class="javax.swing.JLabel" name="DlgNameLbl1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Order on Monday"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgLvlLbl">
+            <Component class="javax.swing.JLabel" name="DlgLvlLbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Level:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgLvlLbl1">
+            <Component class="javax.swing.JLabel" name="DlgLvlLbl1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgTimeLbl">
+            <Component class="javax.swing.JLabel" name="DlgTimeLbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Time Taken"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgTimeLbl1">
+            <Component class="javax.swing.JLabel" name="DlgTimeLbl1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="5 min"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgPartRateLbl">
+            <Component class="javax.swing.JLabel" name="DlgPartRateLbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Partner Rating"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgYRateLbl">
+            <Component class="javax.swing.JLabel" name="DlgYRateLbl">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Your rating"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgYRateLbl1">
+            <Component class="javax.swing.JLabel" name="DlgYRateLbl1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="10 points"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="dlgPartRateLbl1">
+            <Component class="javax.swing.JLabel" name="DlgPartRateLbl1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="10 points"/>
               </Properties>
@@ -224,7 +224,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="congratsLbl">
+            <Component class="javax.swing.JLabel" name="Congrats">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Congratulation in finishing!"/>
               </Properties>
@@ -233,7 +233,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="rateWindow">
+    <Container class="javax.swing.JDialog" name="RateWindow">
       <Properties>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -248,7 +248,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="rateWindowPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="RateWindowPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -260,7 +260,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="rateWindowPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="RateWindowPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -268,7 +268,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="rateWindowPanel">
+        <Container class="javax.swing.JPanel" name="RateWindowPanel">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[400, 500]"/>
@@ -287,7 +287,7 @@
                       <EmptySpace pref="145" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="rateSlider" min="-2" max="-2" attributes="0"/>
+                              <Component id="RateSlider" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -304,7 +304,7 @@
                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="rateLbl" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="rateSlider" min="-2" max="-2" attributes="0"/>
+                      <Component id="RateSlider" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="212" max="32767" attributes="0"/>
                       <Component id="rateBttn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
@@ -318,7 +318,7 @@
                 <Property name="text" type="java.lang.String" value="Rate your partner"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSlider" name="rateSlider">
+            <Component class="javax.swing.JSlider" name="RateSlider">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Grande" size="14" style="0"/>
@@ -396,24 +396,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                          <Component id="dlgNameAsTitle" min="-2" max="-2" attributes="0"/>
+                          <Component id="DlgNameAsTitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="roleNameLbl2" min="-2" max="-2" attributes="0"/>
-                              <Component id="prevCardBttn" linkSize="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="PrevCardBttn" linkSize="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
                                   <Component id="roleNameLbl1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="roleNameLbl" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="nextCardBttn" linkSize="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NextCardBttn" linkSize="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="vocabC" min="-2" max="-2" attributes="0"/>
@@ -432,7 +432,7 @@
                           <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="closeBttn" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="CloseBttn" min="-2" pref="34" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -443,9 +443,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="closeBttn" min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="CloseBttn" min="-2" pref="36" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="dlgNameAsTitle" min="-2" max="-2" attributes="0"/>
+                  <Component id="DlgNameAsTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   <Component id="cardScrollPaneExtra" min="-2" pref="280" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -455,8 +455,8 @@
                   </Group>
                   <EmptySpace pref="120" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="prevCardBttn" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="nextCardBttn" linkSize="2" alignment="3" max="-2" attributes="0"/>
+                      <Component id="PrevCardBttn" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="NextCardBttn" linkSize="2" alignment="3" max="-2" attributes="0"/>
                       <Component id="roleNameLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="roleNameLbl1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -465,7 +465,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="closeBttn">
+        <Component class="javax.swing.JButton" name="CloseBttn">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="8" style="0"/>
@@ -478,10 +478,10 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="closeBttnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CloseBttnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="dlgNameAsTitle">
+        <Component class="javax.swing.JLabel" name="DlgNameAsTitle">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Grande" size="18" style="1"/>
@@ -497,7 +497,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="prevCardBttn">
+        <Component class="javax.swing.JButton" name="PrevCardBttn">
           <Properties>
             <Property name="text" type="java.lang.String" value="previous"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -510,7 +510,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="nextCardBttn">
+        <Component class="javax.swing.JButton" name="NextCardBttn">
           <Properties>
             <Property name="text" type="java.lang.String" value="next"/>
             <Property name="borderPainted" type="boolean" value="false"/>

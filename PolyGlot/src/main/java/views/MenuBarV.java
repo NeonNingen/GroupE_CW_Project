@@ -34,12 +34,12 @@ public class MenuBarV extends javax.swing.JFrame {
         initComponents();
         setSize(430,700);
         setDesign();
-        uListBttn.addActionListener(menuC);
-        proVBttn.addActionListener(menuC);
-        supportBttn.addActionListener(menuC);
-        dlgListBttn.addActionListener(menuC);
-        settBttn.addActionListener(menuC);
-        dlgHistBttn2.addActionListener(menuC);   
+        UListBttn.addActionListener(menuC);
+        ProVBttn.addActionListener(menuC);
+        SupportBttn.addActionListener(menuC);
+        DlgListBttn.addActionListener(menuC);
+        SettBttn.addActionListener(menuC);
+        DlgHistBttn2.addActionListener(menuC);   
     }
 
     public MenuBarV(MenuBarCont menuC) 
@@ -50,12 +50,12 @@ public class MenuBarV extends javax.swing.JFrame {
         menuC.setPage(this);
         
         setDesign();
-        uListBttn.addActionListener(menuC);
-        proVBttn.addActionListener(menuC);
-        supportBttn.addActionListener(menuC);
-        dlgListBttn.addActionListener(menuC);
-        settBttn.addActionListener(menuC);
-        dlgHistBttn2.addActionListener(menuC);
+        UListBttn.addActionListener(menuC);
+        ProVBttn.addActionListener(menuC);
+        SupportBttn.addActionListener(menuC);
+        DlgListBttn.addActionListener(menuC);
+        SettBttn.addActionListener(menuC);
+        DlgHistBttn2.addActionListener(menuC);
     }
 
     
@@ -63,15 +63,15 @@ public class MenuBarV extends javax.swing.JFrame {
      * Methods will initiate main panel colour (colour for app background page), set font to test and  icons for menubar buttons
      */
     public void setDesign(){
-        menuBarPanel.setBackground(new java.awt.Color(135, 170, 240));
-        pageTitle.setFont(new java.awt.Font("Avenir Next", 1, 18));
+        MenuBarPanel.setBackground(new java.awt.Color(135, 170, 240));
+        PageTitle.setFont(new java.awt.Font("Avenir Next", 1, 18));
         icons=getIconsList();
         selIc= getIconsListB();
-        setIcons(proVBttn);
-        setIcons(uListBttn);
-        setIcons(dlgListBttn);
-        setIcons(settBttn);
-        setIcons(supportBttn);
+        setIcons(ProVBttn);
+        setIcons(UListBttn);
+        setIcons(DlgListBttn);
+        setIcons(SettBttn);
+        setIcons(SupportBttn);
     }
     
     /** by Aisana (w1775375)
@@ -81,62 +81,62 @@ public class MenuBarV extends javax.swing.JFrame {
      */
     public void updateIcon(JButton bttn){ // 0- profile, 1- Ulist, 2-DlgLIst, 3-Settings
         Dimension newPrefSize= new Dimension (100,100);
-        if(bttn.equals(proVBttn)){
-            proVBttn.removeAll();
+        if(bttn.equals(ProVBttn)){
+            ProVBttn.removeAll();
             
-            proVBttn.setPreferredSize(newPrefSize);
-            proVBttn.setLocation(18,555);
-            proVBttn.setBackground(new java.awt.Color(135, 170, 240));
-            proVBttn.setIcon(selIc.get(0));
+            ProVBttn.setPreferredSize(newPrefSize);
+            ProVBttn.setLocation(18,555);
+            ProVBttn.setBackground(new java.awt.Color(135, 170, 240));
+            ProVBttn.setIcon(selIc.get(0));
             
             
-            setIcons(uListBttn);
-            setIcons(dlgListBttn);
-            setIcons(settBttn);
+            setIcons(UListBttn);
+            setIcons(DlgListBttn);
+            setIcons(SettBttn);
         }
-        if(bttn.equals(uListBttn)){
-            uListBttn.removeAll();
-            uListBttn.setPreferredSize(newPrefSize);
-            uListBttn.setLocation(118,555);
-            uListBttn.setBackground(new java.awt.Color(135, 170, 240));
+        if(bttn.equals(UListBttn)){
+            UListBttn.removeAll();
+            UListBttn.setPreferredSize(newPrefSize);
+            UListBttn.setLocation(118,555);
+            UListBttn.setBackground(new java.awt.Color(135, 170, 240));
             
             
-            uListBttn.setIcon(selIc.get(1));
+            UListBttn.setIcon(selIc.get(1));
             
-            setIcons(proVBttn);
-            setIcons(dlgListBttn);
-            setIcons(settBttn);
+            setIcons(ProVBttn);
+            setIcons(DlgListBttn);
+            setIcons(SettBttn);
             
         }
-        if(bttn.equals(dlgListBttn)){
-            dlgListBttn.removeAll(); 
-            dlgListBttn.setPreferredSize(newPrefSize);
-            dlgListBttn.setLocation(218,555);
-            dlgListBttn.setBackground(new java.awt.Color(135, 170, 240));
+        if(bttn.equals(DlgListBttn)){
+            DlgListBttn.removeAll(); 
+            DlgListBttn.setPreferredSize(newPrefSize);
+            DlgListBttn.setLocation(218,555);
+            DlgListBttn.setBackground(new java.awt.Color(135, 170, 240));
             
            
-            dlgListBttn.setIcon(selIc.get(2));
-            setIcons(proVBttn);
-            setIcons(uListBttn);
-            setIcons(settBttn);
+            DlgListBttn.setIcon(selIc.get(2));
+            setIcons(ProVBttn);
+            setIcons(UListBttn);
+            setIcons(SettBttn);
         }
-        if(bttn.equals(settBttn)){
-            settBttn.removeAll();
-            settBttn.setBackground(new java.awt.Color(135, 170, 240));
-            settBttn.setPreferredSize(newPrefSize);
-            settBttn.setLocation(318,555);
+        if(bttn.equals(SettBttn)){
+            SettBttn.removeAll();
+            SettBttn.setBackground(new java.awt.Color(135, 170, 240));
+            SettBttn.setPreferredSize(newPrefSize);
+            SettBttn.setLocation(318,555);
             
-            settBttn.setIcon(selIc.get(3));
-            setIcons(proVBttn);
-            setIcons(uListBttn);
-            setIcons(dlgListBttn);
+            SettBttn.setIcon(selIc.get(3));
+            setIcons(ProVBttn);
+            setIcons(UListBttn);
+            setIcons(DlgListBttn);
         }
         
-        if(bttn.equals(supportBttn) || bttn.equals(dlgHistBttn2)){
-            setIcons(proVBttn);
-            setIcons(uListBttn);
-            setIcons(dlgListBttn);
-            setIcons(settBttn);
+        if(bttn.equals(SupportBttn) || bttn.equals(DlgHistBttn2)){
+            setIcons(ProVBttn);
+            setIcons(UListBttn);
+            setIcons(DlgListBttn);
+            setIcons(SettBttn);
         }
     }
     
@@ -147,55 +147,55 @@ public class MenuBarV extends javax.swing.JFrame {
      */
     public void setIcons(JButton bttn){
         Dimension preferredSize = new Dimension(100,100);
-        if(bttn.equals(proVBttn)){
-            proVBttn.removeAll();
-            proVBttn.setText("");
-            proVBttn.setPreferredSize(preferredSize);
-            proVBttn.setLocation(18,555);
-            proVBttn.setBackground(new java.awt.Color(135, 170, 240));
+        if(bttn.equals(ProVBttn)){
+            ProVBttn.removeAll();
+            ProVBttn.setText("");
+            ProVBttn.setPreferredSize(preferredSize);
+            ProVBttn.setLocation(18,555);
+            ProVBttn.setBackground(new java.awt.Color(135, 170, 240));
             
-            proVBttn.setIcon(icons.get(0));
+            ProVBttn.setIcon(icons.get(0));
             
         }
-        if(bttn.equals(uListBttn)){
-            uListBttn.removeAll(); 
-            uListBttn.setText("");
+        if(bttn.equals(UListBttn)){
+            UListBttn.removeAll(); 
+            UListBttn.setText("");
             
-            uListBttn.setPreferredSize(preferredSize);
-            uListBttn.setLocation(118,555);  
-            uListBttn.setBackground(new java.awt.Color(135, 170, 240));
-            uListBttn.setIcon(icons.get(1));
+            UListBttn.setPreferredSize(preferredSize);
+            UListBttn.setLocation(118,555);  
+            UListBttn.setBackground(new java.awt.Color(135, 170, 240));
+            UListBttn.setIcon(icons.get(1));
           
             
         }
-        if(bttn.equals(dlgListBttn)){
-            dlgListBttn.removeAll();
-            dlgListBttn.setText("");
+        if(bttn.equals(DlgListBttn)){
+            DlgListBttn.removeAll();
+            DlgListBttn.setText("");
             
-            dlgListBttn.setPreferredSize(preferredSize);
-            dlgListBttn.setLocation(218,555);
-            dlgListBttn.setBackground(new java.awt.Color(135, 170, 240));
-            dlgListBttn.setIcon(icons.get(2));
+            DlgListBttn.setPreferredSize(preferredSize);
+            DlgListBttn.setLocation(218,555);
+            DlgListBttn.setBackground(new java.awt.Color(135, 170, 240));
+            DlgListBttn.setIcon(icons.get(2));
             
         }
-        if(bttn.equals(settBttn)){
-            settBttn.removeAll(); 
-            settBttn.setText("");
-            settBttn.setPreferredSize(preferredSize);
-            settBttn.setLocation(318,555);
-            settBttn.setBackground(new java.awt.Color(135, 170, 240));
+        if(bttn.equals(SettBttn)){
+            SettBttn.removeAll(); 
+            SettBttn.setText("");
+            SettBttn.setPreferredSize(preferredSize);
+            SettBttn.setLocation(318,555);
+            SettBttn.setBackground(new java.awt.Color(135, 170, 240));
             
-            settBttn.setIcon(icons.get(3));
+            SettBttn.setIcon(icons.get(3));
             
         }
         
-        if(bttn.equals(supportBttn)){
+        if(bttn.equals(SupportBttn)){
             Dimension supSize= new Dimension (20,20);
-            supportBttn.removeAll();
-            supportBttn.setText("");
-            supportBttn.setPreferredSize(supSize);
-            supportBttn.setBackground(new java.awt.Color(135, 170, 240));
-            supportBttn.setIcon(icons.get(4));
+            SupportBttn.removeAll();
+            SupportBttn.setText("");
+            SupportBttn.setPreferredSize(supSize);
+            SupportBttn.setBackground(new java.awt.Color(135, 170, 240));
+            SupportBttn.setIcon(icons.get(4));
         }
         
     }
@@ -299,17 +299,17 @@ public class MenuBarV extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dlgHistBttn2 = new javax.swing.JButton();
-        menuBarPanel = new javax.swing.JPanel();
-        pageTitle = new javax.swing.JLabel();
-        pageTopicContent = new javax.swing.JPanel();
-        uListBttn = new javax.swing.JButton();
-        settBttn = new javax.swing.JButton();
-        proVBttn = new javax.swing.JButton();
-        dlgListBttn = new javax.swing.JButton();
-        supportBttn = new javax.swing.JButton();
+        DlgHistBttn2 = new javax.swing.JButton();
+        MenuBarPanel = new javax.swing.JPanel();
+        PageTitle = new javax.swing.JLabel();
+        PageTopicContent = new javax.swing.JPanel();
+        UListBttn = new javax.swing.JButton();
+        SettBttn = new javax.swing.JButton();
+        ProVBttn = new javax.swing.JButton();
+        DlgListBttn = new javax.swing.JButton();
+        SupportBttn = new javax.swing.JButton();
 
-        dlgHistBttn2.setText("View Dialogue History");
+        DlgHistBttn2.setText("View Dialogue History");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
@@ -317,118 +317,118 @@ public class MenuBarV extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(500, 700));
         setResizable(false);
 
-        menuBarPanel.setBackground(new java.awt.Color(153, 153, 153));
-        menuBarPanel.setPreferredSize(new java.awt.Dimension(450, 680));
+        MenuBarPanel.setBackground(new java.awt.Color(153, 153, 153));
+        MenuBarPanel.setPreferredSize(new java.awt.Dimension(450, 680));
 
-        pageTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        pageTitle.setForeground(new java.awt.Color(255, 255, 255));
-        pageTitle.setText("Page Title");
+        PageTitle.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        PageTitle.setForeground(new java.awt.Color(255, 255, 255));
+        PageTitle.setText("Page Title");
 
-        pageTopicContent.setBackground(new java.awt.Color(255, 255, 255));
-        pageTopicContent.setMinimumSize(new java.awt.Dimension(450, 515));
-        pageTopicContent.setPreferredSize(new java.awt.Dimension(450, 515));
+        PageTopicContent.setBackground(new java.awt.Color(255, 255, 255));
+        PageTopicContent.setMinimumSize(new java.awt.Dimension(450, 515));
+        PageTopicContent.setPreferredSize(new java.awt.Dimension(450, 515));
 
-        javax.swing.GroupLayout pageTopicContentLayout = new javax.swing.GroupLayout(pageTopicContent);
-        pageTopicContent.setLayout(pageTopicContentLayout);
-        pageTopicContentLayout.setHorizontalGroup(
-            pageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout PageTopicContentLayout = new javax.swing.GroupLayout(PageTopicContent);
+        PageTopicContent.setLayout(PageTopicContentLayout);
+        PageTopicContentLayout.setHorizontalGroup(
+            PageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        pageTopicContentLayout.setVerticalGroup(
-            pageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        PageTopicContentLayout.setVerticalGroup(
+            PageTopicContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 515, Short.MAX_VALUE)
         );
 
-        uListBttn.setBackground(new java.awt.Color(51, 204, 255));
-        uListBttn.setText("User List");
-        uListBttn.setBorder(null);
-        uListBttn.setBorderPainted(false);
-        uListBttn.setFocusPainted(false);
-        uListBttn.setPreferredSize(new java.awt.Dimension(100, 100));
-        uListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        uListBttn.addActionListener(new java.awt.event.ActionListener() {
+        UListBttn.setBackground(new java.awt.Color(51, 204, 255));
+        UListBttn.setText("User List");
+        UListBttn.setBorder(null);
+        UListBttn.setBorderPainted(false);
+        UListBttn.setFocusPainted(false);
+        UListBttn.setPreferredSize(new java.awt.Dimension(100, 100));
+        UListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        UListBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uListBttnActionPerformed(evt);
+                UListBttnActionPerformed(evt);
             }
         });
 
-        settBttn.setBackground(new java.awt.Color(51, 204, 255));
-        settBttn.setText("Settings");
-        settBttn.setBorder(null);
-        settBttn.setBorderPainted(false);
-        settBttn.setFocusPainted(false);
-        settBttn.setPreferredSize(new java.awt.Dimension(100, 100));
-        settBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        settBttn.addActionListener(new java.awt.event.ActionListener() {
+        SettBttn.setBackground(new java.awt.Color(51, 204, 255));
+        SettBttn.setText("Settings");
+        SettBttn.setBorder(null);
+        SettBttn.setBorderPainted(false);
+        SettBttn.setFocusPainted(false);
+        SettBttn.setPreferredSize(new java.awt.Dimension(100, 100));
+        SettBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        SettBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settBttnActionPerformed(evt);
+                SettBttnActionPerformed(evt);
             }
         });
 
-        proVBttn.setBackground(new java.awt.Color(51, 204, 255));
-        proVBttn.setText("Profile");
-        proVBttn.setBorderPainted(false);
-        proVBttn.setFocusPainted(false);
-        proVBttn.setPreferredSize(new java.awt.Dimension(100, 100));
-        proVBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        ProVBttn.setBackground(new java.awt.Color(51, 204, 255));
+        ProVBttn.setText("Profile");
+        ProVBttn.setBorderPainted(false);
+        ProVBttn.setFocusPainted(false);
+        ProVBttn.setPreferredSize(new java.awt.Dimension(100, 100));
+        ProVBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        dlgListBttn.setBackground(new java.awt.Color(51, 204, 255));
-        dlgListBttn.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        dlgListBttn.setText("Dialogue List");
-        dlgListBttn.setBorderPainted(false);
-        dlgListBttn.setFocusPainted(false);
-        dlgListBttn.setPreferredSize(new java.awt.Dimension(100, 100));
-        dlgListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        dlgListBttn.addActionListener(new java.awt.event.ActionListener() {
+        DlgListBttn.setBackground(new java.awt.Color(51, 204, 255));
+        DlgListBttn.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        DlgListBttn.setText("Dialogue List");
+        DlgListBttn.setBorderPainted(false);
+        DlgListBttn.setFocusPainted(false);
+        DlgListBttn.setPreferredSize(new java.awt.Dimension(100, 100));
+        DlgListBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        DlgListBttn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dlgListBttnActionPerformed(evt);
+                DlgListBttnActionPerformed(evt);
             }
         });
 
-        supportBttn.setFont(new java.awt.Font("Lucida Grande", 0, 6)); // NOI18N
-        supportBttn.setText("Help");
-        supportBttn.setBorderPainted(false);
-        supportBttn.setFocusPainted(false);
-        supportBttn.setPreferredSize(new java.awt.Dimension(25, 25));
-        supportBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        SupportBttn.setFont(new java.awt.Font("Lucida Grande", 0, 6)); // NOI18N
+        SupportBttn.setText("Help");
+        SupportBttn.setBorderPainted(false);
+        SupportBttn.setFocusPainted(false);
+        SupportBttn.setPreferredSize(new java.awt.Dimension(25, 25));
+        SupportBttn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        javax.swing.GroupLayout menuBarPanelLayout = new javax.swing.GroupLayout(menuBarPanel);
-        menuBarPanel.setLayout(menuBarPanelLayout);
-        menuBarPanelLayout.setHorizontalGroup(
-            menuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pageTopicContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout MenuBarPanelLayout = new javax.swing.GroupLayout(MenuBarPanel);
+        MenuBarPanel.setLayout(MenuBarPanelLayout);
+        MenuBarPanelLayout.setHorizontalGroup(
+            MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(PageTopicContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuBarPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pageTitle)
+                .addComponent(PageTitle)
                 .addGap(110, 110, 110)
-                .addComponent(supportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
-            .addGroup(menuBarPanelLayout.createSequentialGroup()
+            .addGroup(MenuBarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(proVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(uListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(settBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
         );
-        menuBarPanelLayout.setVerticalGroup(
-            menuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menuBarPanelLayout.createSequentialGroup()
+        MenuBarPanelLayout.setVerticalGroup(
+            MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuBarPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(menuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pageTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(supportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PageTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SupportBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pageTopicContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PageTopicContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(menuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(dlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(settBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(proVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(uListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(MenuBarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DlgListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SettBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ProVBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UListBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -436,44 +436,44 @@ public class MenuBarV extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(MenuBarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+            .addComponent(MenuBarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void dlgListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dlgListBttnActionPerformed
+    private void DlgListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DlgListBttnActionPerformed
 
-    }//GEN-LAST:event_dlgListBttnActionPerformed
+    }//GEN-LAST:event_DlgListBttnActionPerformed
 
-    private void settBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settBttnActionPerformed
+    private void SettBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettBttnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_settBttnActionPerformed
+    }//GEN-LAST:event_SettBttnActionPerformed
 
-    private void uListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uListBttnActionPerformed
+    private void UListBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UListBttnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_uListBttnActionPerformed
+    }//GEN-LAST:event_UListBttnActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton dlgHistBttn2;
-    private javax.swing.JButton dlgListBttn;
-    private javax.swing.JPanel menuBarPanel;
-    private javax.swing.JLabel pageTitle;
-    private javax.swing.JPanel pageTopicContent;
-    private javax.swing.JButton proVBttn;
-    private javax.swing.JButton settBttn;
-    private javax.swing.JButton supportBttn;
-    private javax.swing.JButton uListBttn;
+    private javax.swing.JButton DlgHistBttn2;
+    private javax.swing.JButton DlgListBttn;
+    private javax.swing.JPanel MenuBarPanel;
+    private javax.swing.JLabel PageTitle;
+    private javax.swing.JPanel PageTopicContent;
+    private javax.swing.JButton ProVBttn;
+    private javax.swing.JButton SettBttn;
+    private javax.swing.JButton SupportBttn;
+    private javax.swing.JButton UListBttn;
     // End of variables declaration//GEN-END:variables
 
     public void setPageTitle(String text) {
-        this.pageTitle.setText(text);
+        this.PageTitle.setText(text);
     }
 
   
@@ -483,12 +483,12 @@ public class MenuBarV extends javax.swing.JFrame {
      * @param PageTopicContent - panel from another page from which you want to display the content
      */
     public void setPageTopicContent(JPanel PageTopicContent) {
-        this.pageTopicContent.removeAll();
-        this.pageTopicContent.revalidate();
-        this.pageTopicContent.repaint();
-        this.pageTopicContent.add(PageTopicContent);
-        this.pageTopicContent.revalidate();
-        this.pageTopicContent.repaint();
+        this.PageTopicContent.removeAll();
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
+        this.PageTopicContent.add(PageTopicContent);
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
     }
     
     /** by Aisana (w1775375)
@@ -498,15 +498,15 @@ public class MenuBarV extends javax.swing.JFrame {
      * @param PageTopicContent - panel from another page from which you want to display the content
      */
     public void setProgPageTopicContent(JPanel PageTopicContent) {
-        this.pageTopicContent.removeAll(); 
-        this.pageTopicContent.revalidate();
-        this.pageTopicContent.repaint();
-        this.pageTopicContent.add(PageTopicContent);
-        this.pageTopicContent.revalidate();
-        this.pageTopicContent.repaint();
-        dlgHistBttn2.setBounds(100, 400, 250, 40);
-        colorWhiteBttn(dlgHistBttn2, "View Dialogue History");
-        PageTopicContent.add(dlgHistBttn2);
+        this.PageTopicContent.removeAll(); 
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
+        this.PageTopicContent.add(PageTopicContent);
+        this.PageTopicContent.revalidate();
+        this.PageTopicContent.repaint();
+        DlgHistBttn2.setBounds(100, 400, 250, 40);
+        colorWhiteBttn(DlgHistBttn2, "View Dialogue History");
+        PageTopicContent.add(DlgHistBttn2);
         PageTopicContent.revalidate();
         PageTopicContent.repaint();
     }
@@ -531,53 +531,53 @@ public class MenuBarV extends javax.swing.JFrame {
 
     
     public void setDlgListBttn(JButton DlgListBttn) {
-        this.dlgListBttn = DlgListBttn;
+        this.DlgListBttn = DlgListBttn;
     }
 
 
     public void setProVBttn(JButton ProVBttn) {
-        this.proVBttn = ProVBttn;
+        this.ProVBttn = ProVBttn;
     }
 
     public void setSettBttn(JButton SettBttn) {
-        this.settBttn = SettBttn;
+        this.SettBttn = SettBttn;
     }
 
     public void setSupportBttn(JButton SupportBttn) {
-        this.supportBttn = SupportBttn;
+        this.SupportBttn = SupportBttn;
     }
 
     public void setUListBttn(JButton UListBttn) {
-        this.uListBttn = UListBttn;
+        this.UListBttn = UListBttn;
     }
     
     public JButton getDlgListBttn() { 
-        return dlgListBttn; 
+        return DlgListBttn; 
           
     }
 
     public JLabel getPageTitle() {
-        return pageTitle;
+        return PageTitle;
     }
 
     public JPanel getPageTopicContent() {
-        return pageTopicContent;
+        return PageTopicContent;
     }
 
     public JButton getProVBttn() {
-        return proVBttn;
+        return ProVBttn;
     }
 
     public JButton getSettBttn() {
-        return settBttn;
+        return SettBttn;
     }
 
     public JButton getSupportBttn() {
-        return supportBttn;
+        return SupportBttn;
     }
 
     public JButton getUListBttn() { 
-        return uListBttn; 
+        return UListBttn; 
           
     }
 
@@ -586,11 +586,11 @@ public class MenuBarV extends javax.swing.JFrame {
     }
 
     public JButton getDlgHistBttn2() {
-        return dlgHistBttn2;
+        return DlgHistBttn2;
     }
 
     public JPanel getMenuBarPanel() {
-        return menuBarPanel;
+        return MenuBarPanel;
     }
     
    
