@@ -8,8 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
- * @author Amit
- * @author Monesha
+ * @author Amit Rahat Haider
+ * @author Monesha Dhali
  */
 
 public class AccessRecordMDL extends DatabaseMDL {

@@ -7,8 +7,6 @@ package views;
 import controllers.DialogueCont;
 import controllers.MenuBarCont;
 import controllers.PerfmDlgCont;
-import java.awt.Color;
-import java.awt.Font;
 import javax.swing.*;
 import models.DialogueMDL;
 import models.UserMDL;

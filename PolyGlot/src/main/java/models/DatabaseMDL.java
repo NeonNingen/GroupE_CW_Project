@@ -25,7 +25,9 @@ import java.util.logging.Logger;
  * - Download SQLite Driver.
  * - And creates the SQL Database (if it does not exist).
  * - Once the connect instance is closed, then the connection is turned off.
- * @author Zain
+ * @author Zain - added main methods
+ * @author Rafael
+ * @author Monesha
  */
 
 class Connect {

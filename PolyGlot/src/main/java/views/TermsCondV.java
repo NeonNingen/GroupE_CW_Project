@@ -1,10 +1,11 @@
-/**
- * @author: Monesha Dhali
- */
 package views;
 
 import controllers.LoginRegisterCont;
 import javax.swing.JButton;
+
+/**
+ * @author: Monesha Dhali
+ */
 
 public class TermsCondV extends javax.swing.JFrame {
 

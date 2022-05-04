@@ -4,8 +4,8 @@ package models;
 import java.util.ArrayList;
 
 /**
- * @author Amit
- * @author Monesha 
+ * @author Amit Rahat Haider
+ * @author Monesha Dhali
  */
 
 public class UserMDL extends DatabaseMDL {

@@ -1,6 +1,3 @@
-/**
- * @author: Monesha Dhali
- */
 
 package views;
 
@@ -10,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import models.UserMDL;
+
+/**
+ * @author: Monesha Dhali
+ */
 
 public class SettingV extends javax.swing.JFrame {
 

@@ -12,6 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * @author: Monesha Dhali
+ */
+
 public class RegisterV extends javax.swing.JFrame {
 
     ArrayList<String> groupList = new ArrayList<String>();

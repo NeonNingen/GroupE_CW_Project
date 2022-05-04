@@ -35,8 +35,8 @@ import views.SupportV2;
 import views.TermsCondV;
 
 /**
- * @author Amit
- * @author Monesha - added main methods 
+ * @author Amit Rahat Haider
+ * @author Monesha Dhali - added main methods 
  */
 
 public class LoginRegisterCont implements ActionListener, FocusListener {
