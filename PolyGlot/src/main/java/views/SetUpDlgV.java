@@ -6,6 +6,7 @@ package views;
 
 import controllers.DialogueCont;
 import controllers.PerfmDlgCont;
+import java.awt.event.WindowListener;
 import javax.swing.*;
 
 
@@ -34,6 +35,8 @@ public class SetUpDlgV extends javax.swing.JFrame {
         CloseBttn.addActionListener(dlgCont);
         setDesign();
         colorBlueBttn(StartDlgBttn, "Begin");
+        
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
     public SetUpDlgV() {

@@ -36,6 +36,8 @@ public class RatingV extends javax.swing.JFrame {
         setSize(414,667);
         this.OkBttn.addActionListener(new PerfmDlgCont(this, time, userID, partnerID));
         setDesign();
+        
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
 

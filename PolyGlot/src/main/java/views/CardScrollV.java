@@ -13,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
@@ -46,6 +47,7 @@ public class CardScrollV extends javax.swing.JFrame {
         PrevCardBttn.addActionListener(cont);
         CloseBttn.addActionListener(dlgCont);
         setDesign();
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
