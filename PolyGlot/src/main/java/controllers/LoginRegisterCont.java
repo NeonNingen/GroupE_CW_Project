@@ -45,7 +45,8 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     private SupportV supportMenu;
     private MenuBarCont menuCont;
     private AccessRecordMDL accessRecMDL;
-
+    private Color errColor = new Color(238, 105, 94);
+    
     //Constrcutors
     public LoginRegisterCont(LoginV loginPage) {
         this.loginPage = loginPage;
@@ -62,13 +63,6 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     public LoginRegisterCont(UserMDL user) {
         this.userMDL = user;
         this.accessRecMDL = new AccessRecordMDL();
-        //this.loginPage = new LoginV();
-    }
-
-    public void setAccRec(SettingV set, MenuBarV menu, AccessRecordMDL accessRC) {
-        this.settingPage = set;
-        this.menubar = menu;
-        this.accessRecMDL = accessRC;
     }
 
     public LoginRegisterCont(RegisterV reg) {
@@ -82,30 +76,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     }
 
     /**
-     * suggested by Aiasana method to set/reference up view and model for
-     * profile page
-     *
-     * @param login
-     * @param prog
-     */
-    public void setProgClasses(LoginV login, ProgV prog) {
-        this.loginPage = login;
-        this.profilePage = prog;
-    }
-
-    /**
-     * Suggested by Aisana [feedback] method that will retrieve specific user
-     * based on login view input
-     *
-     */
-//    public UserMDL getUserInfo(){ 
-//        return userMDL;
-//    }
-
-    /**
-     * Suggested by Aisana (for main and menubar functionalities) Method will
-     * begin app with a specific userMDL
-     *
+     * Suggested by Aisana (for main and menubar functionalities) Method will begin app with a specific userMDL
      * @param user - reference for user model object
      */
     public void startApp() {
@@ -113,38 +84,45 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         loginPage.show();
     }
 
+    public void setAccRec(SettingV set, MenuBarV menu, AccessRecordMDL accessRC) {
+        this.settingPage = set;
+        this.menubar = menu;
+        this.accessRecMDL = accessRC;
+    }
+
     public void setSmallSupport(SupportV support) {
         this.supportMenu = support;
     }
 
-    //Methods created by Monesha
-    //These are small methods that triggers an action made by user
-    //Events get activated when user is choosing a language in Setting page
+    
+    /**
+     * @author: Monesha
+     * @Desc: Events get activated when user is choosing a language in Setting page
+     * @param e : ActionEvent
+     */
     public void choosingLang(ActionEvent e) {
         if (!(this.settingPage == null) && e.getSource() == this.settingPage.getSelectLang()) {
             String langChoice = (String) settingPage.getSelectLang().getSelectedItem();
             System.out.println("User choose language: " + langChoice);
-            //this.settingPage.changeLangOrder(langChoice);
-            //settingPage.getSelectLang().setSelectedItem(langChoice);
-            //settingPage.setLangChoice(langChoice);
             this.userMDL.setApplang(langChoice);
             settingPage.setSelectedLang(this.userMDL);
             userMDL.chooseLangdb(userMDL.getUserID(), langChoice);
-
         }
     }
 
-    //Events get activated when user is pressing on the help button in login/ register page
+    /**
+     * @author: Monesha and Rahat Haider Amit
+     * @Desc: Events get activated when user is pressing on the help button in login/ register page
+     * @param e : ActionEvent
+     */
     public void actionPermHelp(ActionEvent e) {
         this.supportPage = new SupportV2();
         if ((this.registerPage != null) && (e.getSource() == this.registerPage.getSupportBttn())) {
             this.registerPage.dispose();
             this.supportPage.setVisible(true);
-        } else {
-            if ((this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn())) {
+        } else if((this.loginPage != null) && (e.getSource() == this.loginPage.getSupportBttn())) {
                 this.loginPage.dispose();
                 this.supportPage.setVisible(true);
-            }
         }
     }
 
@@ -188,7 +166,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                         Logger.getLogger(LoginRegisterCont.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                } else if (e.getSource() == this.loginPage.getRegisterBttn()) {
+                } else if ((this.loginPage!=null) && e.getSource() == this.loginPage.getRegisterBttn()) {
                     loginPage.dispose();
                     this.registerPage = new RegisterV();
                     this.registerPage.setVisible(true);
@@ -210,6 +188,63 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         }
     }
 
+    
+    /**
+     * @author: Monesha
+     * @Desc: setting field to null when user focuses on the JTextField
+     * @param txt 
+     */
+    private void rmvFocus(JTextField txt){
+        txt.setText("");
+        txt.removeFocusListener(this);
+    }
+    
+    /**
+     * @author: Monesha
+     * @Desc: setting field to null when user focuses on the JPasswordField
+     * @param txt 
+     */
+    private void rmvFocus(JPasswordField txt){
+        txt.setText("");
+        txt.removeFocusListener(this);
+    }
+    
+    /**
+     * @author: Omit Rahat Haider and Monesha
+     * @param e : FocusEvent - set the text to null when the user focuses on a field for the 1st time
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+        if ((this.loginPage != null)&&(e.getSource() == loginPage.getuNameLogin())) {
+            rmvFocus(loginPage.getuNameLogin());
+        }
+        if ((this.loginPage != null)&& (e.getSource() == loginPage.getPwdLogin())) {
+            rmvFocus(loginPage.getPwdLogin());
+        } 
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getNameReg())) {
+            rmvFocus(registerPage.getNameReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getSurnameReg())) {
+            rmvFocus(registerPage.getSurnameReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getEmailReg())) {
+            rmvFocus(registerPage.getEmailReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getUseridReg())) {
+            rmvFocus(registerPage.getUseridReg());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg1())) {
+            rmvFocus(registerPage.getPwdReg1());
+        }
+        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg2())) {
+            rmvFocus(registerPage.getPwdReg2());
+        }
+    }
+    
+    @Override
+    public void focusLost(FocusEvent e) {
+    }
+  
     private ArrayList<String> checkUser() throws NoSuchAlgorithmException {
         Boolean userExist = false;
         String username = loginPage.getuNameLogin().getText();
@@ -240,9 +275,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
                     result = userMDL.queryData(query);
                 }
-
             }
-
         } else {
             result = new ArrayList<>();
         }
@@ -268,7 +301,6 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
         loginPage.dispose();
         MenuBarCont menuCont = new MenuBarCont(userMDL, accessRecMDL);
-
         MenuBarV menu = new MenuBarV(menuCont);
         menuCont.activateBttn(menu.getProVBttn(), menu.getUListBttn(), menu.getDlgListBttn(), menu.getSettBttn());
         menu.setPageTitle("Profile");
@@ -279,16 +311,20 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     //temp method for login
     private void openPage2(String username) {
         ArrayList<String> result = new ArrayList<>();
-        String query
-                = "SELECT * FROM User WHERE user_id= '" + username + "'";
-
+        String query = "SELECT * FROM User WHERE user_id= '" + username + "'";
         result = userMDL.queryData(query);
         openPage(result);
     }
 
-    //Methods by Monesha
-    //It validates the inputs entered by User
-    public void registerUser(ActionEvent e) throws NoSuchAlgorithmException {
+    
+    
+    /**
+     * @author: Monesha
+     * @Desc: This function validates the inputs entered by the user, then registers the user officially
+     * @param e: ActionEvent - This gets activated if the user presses the register button
+     * @throws NoSuchAlgorithmException 
+     */
+    private void registerUser(ActionEvent e) throws NoSuchAlgorithmException {
         String uName = registerPage.getNameReg().getText().trim().toLowerCase();
         String uSurname = registerPage.getSurnameReg().getText().trim().toLowerCase();
         String uEmail = registerPage.getEmailReg().getText().trim();
@@ -297,20 +333,18 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
 
         String uPwd = registerPage.getPwdReg1().getText();
         String uPwdConfirm = registerPage.getPwdReg2().getText();
-
         boolean selectTermCond = registerPage.getTermsCond().isSelected();
 
-        if (checkRegData(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) {
+        if (isRegDataValid(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm, selectTermCond) == true) {
             String currentUserID = userID;
             this.userMDL = new UserMDL(userID, uName, uSurname, uEmail, uGroup, "Student");
 
             String salt = getSalt(getRandomInteger(16, 40));
             String secure_pwd = generateSecurePwd(uPwd, salt);
             userMDL.insertRegDets(userID, uName, uSurname, uEmail, uGroup, secure_pwd);
-
             accessRecMDL.setLoginTime(userMDL.getUserID());
             accessRecMDL.storeAccessRecord(userMDL.getUserID());
-
+            this.accessRecMDL = accessRecMDL;
             this.registerPage.dispose();
 
             MenuBarCont menuC = new MenuBarCont(userMDL, accessRecMDL); //added by Amit (start)
@@ -318,10 +352,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
             menuC.activateBttn(menu.getSettBttn(), menu.getProVBttn(), menu.getUListBttn(), menu.getDlgListBttn());
             SettingV setting = new SettingV(userMDL);
             this.settingPage = setting;
-            setAccRec(settingPage, menu, accessRecMDL);
+            this.menubar = menu;
+        
             setting.setContListener(this); //added by Amit (end)
             userMDL.createLangData(currentUserID, settingPage.getLangList());
-
             menu.setPageTitle("Setting");
             menu.setPageTopicContent(settingPage.getSettingContent());
             menu.setVisible(true);
@@ -329,11 +363,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
     }
 
     //Checks if the userid is unique
-    private boolean uniqueID(String userID) {
+    private boolean isUniqueID(String userID) {
         ArrayList<String> result;
         String query = "SELECT user_id FROM User WHERE user_id = '" + userID + "'";
         result = accessRecMDL.queryData(query);
-
         if (!result.isEmpty()) {
             System.out.println("user_id already used. Choose another user id");
             return false;
@@ -343,20 +376,37 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         }
     }
 
+    /**
+     * @author: Monesha
+     * @Desc: Displays the error symbol and the turns the border to red (HCI)
+     * @param txt:JTextField - Specifying the JTextField that needs to implement action on
+     * @param lbl:JLabel - The icon error being displayed
+     * @param color: Colour - the warning colour
+     * @param state: Boolean - If the icon state should be displayed / or not
+     */
     private void nameErrMsg(JTextField txt, JLabel lbl, Color color, Boolean state) {
         txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
+        txt.setForeground(color);
         lbl.setVisible(state);
     }
 
+    /**
+     * @author: Monesha
+     * @Desc: Displays the error symbol and the turns the border to red (HCI)
+     * @param txt:JPasswordField - Specifying the JPasswordField that needs to implement action on
+     * @param lbl:JLabel - The icon error being displayed
+     * @param color: Colour - the warning colour
+     * @param state: Boolean - If the icon state should be displayed / or not
+     */
     private void nameErrMsg(JPasswordField txt, JLabel lbl, Color color, Boolean state) {
         txt.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, color));
         lbl.setVisible(state);
     }
     
-    private boolean emptyCheck(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm) {
+    //Checks if any input field entered by the user in the register page is empty
+    private boolean isRegEmpty(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm) {
         this.registerPage.getTermsCond().setForeground(new Color(238, 105, 94));
         String msgEpty = "Please fill in the necessary info of the form";
-        JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
         if (uName.isEmpty() || uSurname.isEmpty() || uEmail.isEmpty() || uGroup.isEmpty() || uPwd.isEmpty() || uPwdConfirm.isEmpty()) {
             nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getSurnameReg(), this.registerPage.getHiddenErr2(), new Color(238, 105, 94), true);
@@ -364,50 +414,29 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
             nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
             nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
-
+            JOptionPane.showMessageDialog(null, msgEpty, "Problem", JOptionPane.ERROR_MESSAGE);
             return false;
         }
-//        if (uName.isEmpty()) {
-//            nameErrMsg(this.registerPage.getNameReg(), this.registerPage.getHiddenErr1(), new Color(238, 105, 94), true);
-//            return false;
-//        }
-//        if (uEmail.isEmpty()) {
-//            nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
-//            return false;
-//        }
-//        if(userID.isEmpty()){
-//            nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
-//            return false;
-//        }
-//        if (uPwd.isEmpty()) {
-//            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
-//            return false;
-//        }
-//        if (uPwdConfirm.isEmpty()) {
-//            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
-//            return false;
-//        }
         return true;
     }
 
-    public boolean checkRegData(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
-        boolean emptyChceks = emptyCheck(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm);
+    //Checks if all the details entered by the user is valid and follows the valid format
+    public boolean isRegDataValid(String userID, String uName, String uSurname, String uEmail, String uGroup, String uPwd, String uPwdConfirm, boolean selectTermCond) {
+        boolean emptyChceks = isRegEmpty(userID, uName, uSurname, uEmail, uGroup, uPwd, uPwdConfirm);
         if (emptyChceks == false) {
             return false;
         } else {
             if (selectTermCond == false) {
                 String msgTC = "Please agree our terms and condition before using our application";
                 JOptionPane.showMessageDialog(null, msgTC, "Problem", JOptionPane.ERROR_MESSAGE);
-                this.registerPage.getTermsCond().setForeground(Color.red);
-                System.out.println(msgTC);
+                this.registerPage.getTermsCond().setForeground(errColor);
                 return false;
             } else {
                 boolean isValidEmail = isValidEmail(uEmail);
                 if (isValidEmail == false) {
                     String msgE1 = "Email not Valid";
                     JOptionPane.showMessageDialog(null, msgE1, "Problem", JOptionPane.ERROR_MESSAGE);
-                    nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), new Color(238, 105, 94), true);
-                    System.out.println(msgE1);
+                    nameErrMsg(this.registerPage.getEmailReg(), this.registerPage.getHiddenErr3(), errColor, true);
                     return false;
                 } else {
                     boolean isValidPwd = isValidPassword(uPwd);
@@ -417,25 +446,21 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
                                     Insert at least 8 chars. 
                                     Insert Lower case, uppercase, digit, special character at least once. Do not include any white spaces!""";
                         JOptionPane.showMessageDialog(null, msgVP, "Problem", JOptionPane.ERROR_MESSAGE);
-                        nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
-                        System.out.println(msgVP);
+                        nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), errColor, true);
                         return false;
                     } else {
-                        System.out.println("Correct password format entered");
                         if (!(uPwd.equalsIgnoreCase(uPwdConfirm))) {
                             String msgMP = "Password don't match";
                             JOptionPane.showMessageDialog(null, msgMP, "Problem", JOptionPane.ERROR_MESSAGE);
-                            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), new Color(238, 105, 94), true);
-                            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), new Color(238, 105, 94), true);
-                            System.out.println(msgMP);
+                            nameErrMsg(this.registerPage.getPwdReg1(), this.registerPage.getHiddenErr5(), errColor, true);
+                            nameErrMsg(this.registerPage.getPwdReg2(), this.registerPage.getHiddenErr6(), errColor, true);
                             return false;
                         } else {
-                            boolean isValidUserID = uniqueID(userID);
+                            boolean isValidUserID = isUniqueID(userID);
                             if (isValidUserID == false) {
                                 String msgUid = "User id is already in use.";
                                 JOptionPane.showMessageDialog(null, msgUid, "Problem", JOptionPane.ERROR_MESSAGE);
-                                nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), new Color(238, 105, 94), true);
-                                System.out.println(msgUid);
+                                nameErrMsg(this.registerPage.getUseridReg(), this.registerPage.getHiddenErr4(), errColor, true);
                                 return false;
                             } else {
                                 System.out.println("All Registered details are entered correctly. Data is being processed...");
@@ -465,9 +490,10 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         System.out.println("Email being valid status: " + matcher.matches());
         return matcher.matches();
     }
-
+    
+    
     //Methods by Monesha
-    //GENERATING SECURE PASSWORDS 
+    //Methods for GENERATING SECURE PASSWORDS 
     private final int ITERATIONS = 100;
     private final int KEY_LENGHT = 256;
 
@@ -516,47 +542,4 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         returnValue = newSecurePWD.equalsIgnoreCase(storedPWD);
         return returnValue; //IF TRUE password matches
     }
-
-    
-    private void rmvFocus(JTextField txt){
-        txt.setText("");
-        txt.removeFocusListener(this);
-    }
-    private void rmvFocus(JPasswordField txt){
-        txt.setText("");
-        txt.removeFocusListener(this);
-    }
-    
-    @Override
-    public void focusGained(FocusEvent e) {
-        if ((this.loginPage != null)&&(e.getSource() == loginPage.getuNameLogin())) {
-            rmvFocus(loginPage.getuNameLogin());
-        }
-        if ((this.loginPage != null)&& (e.getSource() == loginPage.getPwdLogin())) {
-            rmvFocus(loginPage.getPwdLogin());
-        } 
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getNameReg())) {
-            rmvFocus(registerPage.getNameReg());
-        }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getSurnameReg())) {
-            rmvFocus(registerPage.getSurnameReg());
-        }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getEmailReg())) {
-            rmvFocus(registerPage.getEmailReg());
-        }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getUseridReg())) {
-            rmvFocus(registerPage.getUseridReg());
-        }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg1())) {
-            rmvFocus(registerPage.getPwdReg1());
-        }
-        if ((this.registerPage != null)&&(e.getSource() == registerPage.getPwdReg2())) {
-            rmvFocus(registerPage.getPwdReg2());
-        }
-    }
-    
-    @Override
-    public void focusLost(FocusEvent e) {
-    }
-
 }

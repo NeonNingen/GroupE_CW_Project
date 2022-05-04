@@ -117,7 +117,6 @@ public class UserMDL extends DatabaseMDL {
             String sqlInput = "INSERT INTO LangProcess(langName, progressPoint, user_id) "
                     + "VALUES ('" + langList.get(i) + "',0,'" + user_id + "')";
             updateTable(sqlInput);
-            System.out.println("New record is created for all the language available in this application. ");
         }
     }
 
