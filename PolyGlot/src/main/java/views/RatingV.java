@@ -10,6 +10,7 @@ import controllers.PerfmDlgCont;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
+import models.UserMDL;
 
 
 /**
@@ -30,14 +31,12 @@ public class RatingV extends javax.swing.JFrame {
      * @param id: int - The dialogue_id from the dialogue table
      * @param time: float - Time in float values.
      */
-    public RatingV(String id, float time, String userID, String partnerID) {
+    public RatingV(String id, float time, UserMDL user, String partnerID) {
         this.id = id;
         initComponents();
         setSize(414,667);
-        this.OkBttn.addActionListener(new PerfmDlgCont(this, time, userID, partnerID));
+        this.OkBttn.addActionListener(new PerfmDlgCont(this, time, user, partnerID));
         setDesign();
-        
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
 
@@ -87,7 +86,6 @@ public class RatingV extends javax.swing.JFrame {
         RatingTimeTaken = new javax.swing.JLabel();
         RatingPartnerRating = new javax.swing.JLabel();
         OkBttn = new javax.swing.JButton();
-        CloseBttn = new javax.swing.JButton();
         DlgC = new javax.swing.JLabel();
         LvlC = new javax.swing.JLabel();
         TimeTakenC = new javax.swing.JLabel();
@@ -130,13 +128,6 @@ public class RatingV extends javax.swing.JFrame {
             }
         });
 
-        CloseBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        CloseBttn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CloseIconBlack.png"))); // NOI18N
-        CloseBttn.setBorderPainted(false);
-        CloseBttn.setContentAreaFilled(false);
-        CloseBttn.setFocusPainted(false);
-        CloseBttn.setPreferredSize(new java.awt.Dimension(25, 25));
-
         DlgC.setText("Dialogue");
 
         LvlC.setText("Level");
@@ -164,47 +155,39 @@ public class RatingV extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addComponent(RatingSubtitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RatingTitle)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(161, 161, 161)
-                                .addComponent(RatingSubtitle))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(RatingTitle)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(82, 82, 82)
-                                        .addComponent(RatingResultsText))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(RatingLevel)
-                                    .addComponent(RatingDlgName)
-                                    .addComponent(RatingYourRating)
-                                    .addComponent(RatingTimeTaken)
-                                    .addComponent(RatingPartnerRating))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(DlgC)
-                                    .addComponent(LvlC)
-                                    .addComponent(TimeTakenC)
-                                    .addComponent(yourRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(partnerRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addComponent(OkBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 83, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                .addGap(82, 82, 82)
+                                .addComponent(RatingResultsText))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(RatingLevel)
+                            .addComponent(RatingDlgName)
+                            .addComponent(RatingYourRating)
+                            .addComponent(RatingTimeTaken)
+                            .addComponent(RatingPartnerRating))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DlgC)
+                            .addComponent(LvlC)
+                            .addComponent(TimeTakenC)
+                            .addComponent(yourRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(partnerRatingBoxC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(OkBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
+                .addGap(46, 46, 46)
                 .addComponent(RatingTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(RatingSubtitle)
@@ -311,59 +294,8 @@ public class RatingV extends javax.swing.JFrame {
     public void setpartnerRatingBoxC(JComboBox<String> rating) {
         partnerRatingBoxC = rating;
     }
-      
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RatingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RatingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RatingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RatingV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RatingV("SPN0001", 30, "w222333", "wcry999").setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CloseBttn;
     private javax.swing.JLabel DlgC;
     private javax.swing.JLabel LvlC;
     private javax.swing.JButton OkBttn;

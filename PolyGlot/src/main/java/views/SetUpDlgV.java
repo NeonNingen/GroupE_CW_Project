@@ -6,8 +6,8 @@ package views;
 
 import controllers.DialogueCont;
 import controllers.PerfmDlgCont;
-import java.awt.event.WindowListener;
 import javax.swing.*;
+import models.UserMDL;
 
 
 /**
@@ -23,20 +23,19 @@ public class SetUpDlgV extends javax.swing.JFrame {
      * Used to construct an instance of the class to be invoked
      * Designated to PermDlgCont and DialogueCont
      * Instanced by both as a page
-     * @param id: int - The dialogue_id from the dialogue table
+     * @param dialogue_id: int - The dialogue_id from the dialogue table
      * @param dlgCont - Instance of dialougeCont
+     * @param user - Instance of UserMDL
      */
-    public SetUpDlgV(String dialogue_id, DialogueCont dlgCont, String userID) {
+    public SetUpDlgV(String dialogue_id, DialogueCont dlgCont, UserMDL user) {
         this.id = dialogue_id;
         initComponents();
         setSize(414,667);
-        StartDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont, userID));
+        StartDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont, user));
         CloseBttn.addActionListener(dlgCont);
         CloseBttn.addActionListener(dlgCont);
         setDesign();
         colorBlueBttn(StartDlgBttn, "Begin");
-        
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
     
     public SetUpDlgV() {
@@ -392,49 +391,6 @@ public class SetUpDlgV extends javax.swing.JFrame {
         return dlgIdC;
     }
 
-      
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SetUpDlgV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                DialogueCont dlgCont= new DialogueCont(); 
-                new SetUpDlgV("SPN0001", dlgCont, "w12345").setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseBttn;

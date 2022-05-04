@@ -9,10 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.lang.Exception;
+import java.util.Arrays;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
+import models.AccessRecordMDL;
 import views.CardScrollV;
 import views.SetUpDlgV;
 import models.DialogueMDL;
@@ -20,6 +22,7 @@ import models.Card;
 import models.UserMDL;
 import views.LoginV;
 import views.MenuBarV;
+import views.ProgV;
 import views.RatingV;
 
 /**
@@ -37,16 +40,16 @@ public class PerfmDlgCont implements ActionListener
     private String roleName;
     private MenuBarV menu;
     private String id;
+    private String userID;
     private long start;
     private long end;
     private float time;
-    private String userID;
     private String partnerID;
     public int click = 1;
     DialogueMDL dialogue;
     Card card;
     DialogueCont dlgCont;
-    UserMDL userMDL;
+    UserMDL user;
     LoginV loginPage;
     
     
@@ -57,12 +60,13 @@ public class PerfmDlgCont implements ActionListener
      * @param SetUpDlgPage - Instance of SetUpDlgV
      * @param dlgCont - Instance of DialogueCont
      */
-    public PerfmDlgCont(SetUpDlgV SetUpDlgPage, DialogueCont dlgCont, String userID) {
+    public PerfmDlgCont(SetUpDlgV SetUpDlgPage, DialogueCont dlgCont, UserMDL user) {
         this.SetUpDlgPage = SetUpDlgPage;
         this.dlgCont = dlgCont;
         this.dialogue = new DialogueMDL();
         this.id = this.SetUpDlgPage.getID();
-        this.userID = userID;
+        this.user = user;
+        this.userID = user.getUserID();
         setUpDlg();
     }
     
@@ -72,15 +76,19 @@ public class PerfmDlgCont implements ActionListener
      * Designated to CardScrollV for the next and previous buttons
      * @param CardScrollPage - Instance of CardScrollV
      * @param SetUpDlgPage - Instance of SetUpDlgPageV
+     * @param user - Instance of UserMDL
+     * @param partnerID: String - Partner ID
      */
-    public PerfmDlgCont(CardScrollV CardScrollPage, SetUpDlgV SetUpDlgPage) {
+    public PerfmDlgCont(CardScrollV CardScrollPage, SetUpDlgV SetUpDlgPage, UserMDL user, String partnerID) {
         this.start = System.currentTimeMillis();
         this.CardScrollPage = CardScrollPage;
         this.SetUpDlgPage = SetUpDlgPage;
         this.dialogue = new DialogueMDL();
         this.id = this.CardScrollPage.getID();
+        this.user = user;
+        this.partnerID = partnerID;
         this.CardScrollPage.getDlgNameAsTitle().setText(retrieveDialogueInfo().get(0));
-        cardScroll(0, 1);
+        cardScroll();
         this.end = System.currentTimeMillis();
         this.time = (end - start) / 1000F;
     }
@@ -92,12 +100,13 @@ public class PerfmDlgCont implements ActionListener
      * @param RatingPage - Instance of RatingV
      * @param time: float - Float value for time.
      */
-    public PerfmDlgCont(RatingV RatingPage, float time, String userID, String partnerID) {
+    public PerfmDlgCont(RatingV RatingPage, float time, UserMDL user, String partnerID) {
         this.RatingPage = RatingPage;
         this.dialogue = new DialogueMDL();
         this.id = this.RatingPage.getID();
         this.time = time;
-        this.userID = userID;
+        this.user = user;
+        this.userID = user.getUserID();
         this.partnerID = partnerID;
         Rating();
         
@@ -133,16 +142,17 @@ public class PerfmDlgCont implements ActionListener
      * Then @return a String Array of values which allow the cards to be scrolled
      * 
     */
-    public ArrayList<String> retrieveCardInfo() {
-        
+    public ArrayList<String> retrieveCardInfo(String role) {
+
         ArrayList<String> cardInfo = new ArrayList<>();
         cardInfo = this.card.queryData("SELECT "
-                                     + "card_text, card_role "
+                                     + "card_text, card_role, card_vocab "
                                      + "FROM Card WHERE "
                                      + "dialogue_id = '" 
                                      + this.id + "'"
                                      + " AND card_order = "
-                                     + click);
+                                     + click + " AND card_role = '"
+                                     + role + "'");
         
         return cardInfo;
     }
@@ -165,7 +175,7 @@ public class PerfmDlgCont implements ActionListener
             ArrayList<String> dlgName = new ArrayList<>();
             
             if(!userID.equals("")) {
-                dlgName = userMDL.queryData(
+                dlgName = user.queryData(
                                   "SELECT "
                                 + "user_name "
                                 + "FROM User WHERE "
@@ -193,7 +203,7 @@ public class PerfmDlgCont implements ActionListener
     private void ratingsToDatabase(int userScore, int partnerScore) {
         
         ArrayList<String> prevScoreList = new ArrayList<>();
-        prevScoreList = userMDL.queryData(
+        prevScoreList = user.queryData(
                                   "SELECT "
                                 + "user_progresspoints "
                                 + "FROM User WHERE "
@@ -201,13 +211,15 @@ public class PerfmDlgCont implements ActionListener
                                 + this.userID + "' "
                                 + "or user_id = '"
                                 + this.partnerID + "'");
+        
+        System.out.println(prevScoreList);
                                 
-        userMDL.changeValue("User", "user_progresspoints",
-                            userScore + Integer.parseInt(prevScoreList.get(0)),
-                            "user_id", this.userID);
-        userMDL.changeValue("User", "user_progresspoints",
-                            partnerScore + Integer.parseInt(prevScoreList.get(1)),
-                            "user_id", this.partnerID);
+//        user.changeValue("User", "user_progresspoints",
+//                            userScore + Integer.parseInt(prevScoreList.get(0)),
+//                            "user_id", this.userID);
+//        user.changeValue("User", "user_progresspoints",
+//                            partnerScore + Integer.parseInt(prevScoreList.get(1)),
+//                            "user_id", this.partnerID);
     }
     
     /**
@@ -230,10 +242,26 @@ public class PerfmDlgCont implements ActionListener
      * Display the Card Text area and Role name on the page. 
      * Display the card collection in the console 
      */
-    private void cardScroll(int textValue, int roleValue) {
-        this.CardScrollPage.getCardTxtDisplayTxtArea().setText(retrieveCardInfo().get(textValue));
-        this.CardScrollPage.getRoleNameLbl().setText(retrieveCardInfo().get(roleValue));
-        System.out.println(retrieveCardInfo());
+    
+    private void cardScroll() {
+        String role;
+        
+        if(this.SetUpDlgPage.getRoleARadBttn().isSelected()) {
+            role = "A";
+            this.CardScrollPage.getCardTxtDisplayTxtArea().setText(retrieveCardInfo(role).get(0));
+            this.CardScrollPage.getRoleNameLbl().setText(retrieveCardInfo(role).get(1));
+            this.CardScrollPage.getVocabC().setText(retrieveCardInfo(role).get(2));
+        } else{
+            click += 1;
+            role = "B";
+            this.CardScrollPage.getCardTxtDisplayTxtArea().setText(retrieveCardInfo(role).get(0));
+            this.CardScrollPage.getRoleNameLbl().setText(retrieveCardInfo(role).get(1));
+            this.CardScrollPage.getVocabC().setText(retrieveCardInfo(role).get(2));
+            click -= 1;
+        }
+        
+        
+        
     }
     
     /**
@@ -263,9 +291,9 @@ public class PerfmDlgCont implements ActionListener
        {
            boolean realUser = checkUser();
            if (realUser == true) {
-               System.out.println(SetUpDlgPage.getDlgPartnerC().getText());
+               this.partnerID = SetUpDlgPage.getDlgPartnerC().getText();
                SetUpDlgPage.dispose();
-               new CardScrollV(this.id, this.SetUpDlgPage, this.dlgCont).show();
+               new CardScrollV(this.id, this.SetUpDlgPage, this.dlgCont, this.user, this.partnerID).show();
            } else {
                JOptionPane.showMessageDialog(this.SetUpDlgPage, "User is invalid", "INVALID NAME", 0);
                Border border = BorderFactory.createLineBorder(Color.RED);
@@ -278,20 +306,20 @@ public class PerfmDlgCont implements ActionListener
         try {
        if(e.getSource() == this.CardScrollPage.getNextCardBttn()) {
            try {
-               click += 1;
-               cardScroll(0, 1);
+               click += 2;
+               cardScroll();
            } catch (Exception e2) {
                click = 1;
                System.out.println("No more cards");
                CardScrollPage.dispose();
-               new RatingV(this.id, this.time, this.userID, this.partnerID).show();
+               new RatingV(this.id, this.time, this.user, this.partnerID).show();
            }
        }
            
         if(e.getSource() == this.CardScrollPage.getPrevCardBttn()) {
            try {
-               click -= 1;
-               cardScroll(0, 1);
+               click -= 2;
+               cardScroll();
            } catch (Exception e2) {
                click = 1;
                System.out.println("No cards this way");
@@ -303,16 +331,26 @@ public class PerfmDlgCont implements ActionListener
            try {
            
         if(e.getSource() == this.RatingPage.getOkButton()) {
+            System.out.println(this.partnerID);
             int userPoints = Integer.parseInt(
            this.RatingPage.getYourRatingBoxC().getSelectedItem().toString());
             int partnerPoints = Integer.parseInt(
            this.RatingPage.getpartnerRatingBoxC().getSelectedItem().toString());
             
             ratingsToDatabase(userPoints, partnerPoints);
-//            RatingPage.dispose();
-//            new MenuBarV().show();
+            
+            RatingPage.dispose();
+            AccessRecordMDL accessRecMDL = new AccessRecordMDL();
+            accessRecMDL.storeAccessRecord(this.user.getUserID());
+            MenuBarCont menuCont = new MenuBarCont(this.user, accessRecMDL);
+            MenuBarV menu = new MenuBarV(menuCont);
+            menuCont.activateBttn(menu.getProVBttn(), menu.getUListBttn(), menu.getDlgListBttn(), menu.getSettBttn());
+            menu.setPageTitle("Profile");
+            menu.setProgPageTopicContent(new ProgV(this.user).getProgViewContent());
+            menu.show();
         }
            } catch (Exception e2) {
+               System.out.println(e2);
         }
         }
 

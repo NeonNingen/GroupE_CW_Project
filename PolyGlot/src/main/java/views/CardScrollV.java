@@ -13,9 +13,9 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import models.UserMDL;
 
 
 /**
@@ -38,16 +38,15 @@ public class CardScrollV extends javax.swing.JFrame {
      * @param setUpDlgCont - Instance of SetUpDlgV
      * @param dlgCont - Instance of dialougeCont
      */
-    public CardScrollV(String id, SetUpDlgV setUpDlgCont, DialogueCont dlgCont) {
+    public CardScrollV(String id, SetUpDlgV setUpDlgCont, DialogueCont dlgCont, UserMDL user, String partnerID) {
         this.id = id;
         initComponents();
         setSize(414,667);
-        PerfmDlgCont cont = new PerfmDlgCont(this, setUpDlgCont);
+        PerfmDlgCont cont = new PerfmDlgCont(this, setUpDlgCont, user, partnerID);
         NextCardBttn.addActionListener(cont);
         PrevCardBttn.addActionListener(cont);
         CloseBttn.addActionListener(dlgCont);
         setDesign();
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
     @SuppressWarnings("unchecked")
@@ -84,6 +83,8 @@ public class CardScrollV extends javax.swing.JFrame {
         cardScrollPaneExtra = new javax.swing.JScrollPane();
         cardTxtDisplayTxtArea = new javax.swing.JTextArea();
         roleNameLbl1 = new javax.swing.JLabel();
+        roleNameLbl2 = new javax.swing.JLabel();
+        vocabC = new javax.swing.JLabel();
 
         ConfirmWindow.setResizable(false);
         ConfirmWindow.setSize(new java.awt.Dimension(400, 600));
@@ -347,10 +348,41 @@ public class CardScrollV extends javax.swing.JFrame {
         roleNameLbl1.setForeground(new java.awt.Color(255, 255, 255));
         roleNameLbl1.setText("Role:");
 
+        roleNameLbl2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        roleNameLbl2.setForeground(new java.awt.Color(255, 255, 255));
+        roleNameLbl2.setText("Vocab:");
+
+        vocabC.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        vocabC.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout cardScrollPagePanelLayout = new javax.swing.GroupLayout(cardScrollPagePanel);
         cardScrollPagePanel.setLayout(cardScrollPagePanelLayout);
         cardScrollPagePanelLayout.setHorizontalGroup(
             cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
+                .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(DlgNameAsTitle)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(roleNameLbl2)
+                            .addComponent(PrevCardBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
+                                .addGap(0, 33, Short.MAX_VALUE)
+                                .addComponent(roleNameLbl1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(roleNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(70, 70, 70)
+                                .addComponent(NextCardBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
+                                .addComponent(vocabC)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardScrollPagePanelLayout.createSequentialGroup()
                 .addContainerGap(92, Short.MAX_VALUE)
                 .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,22 +392,6 @@ public class CardScrollV extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardScrollPagePanelLayout.createSequentialGroup()
                         .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
-            .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
-                .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(DlgNameAsTitle)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(PrevCardBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(roleNameLbl1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(roleNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(NextCardBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
         );
 
         cardScrollPagePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {NextCardBttn, PrevCardBttn});
@@ -385,21 +401,20 @@ public class CardScrollV extends javax.swing.JFrame {
             .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(CloseBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DlgNameAsTitle)
-                        .addGap(68, 68, 68)
-                        .addComponent(cardScrollPaneExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(249, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardScrollPagePanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(PrevCardBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NextCardBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(roleNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(roleNameLbl1))
-                        .addGap(16, 16, 16))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DlgNameAsTitle)
+                .addGap(68, 68, 68)
+                .addComponent(cardScrollPaneExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(roleNameLbl2)
+                    .addComponent(vocabC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PrevCardBttn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NextCardBttn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roleNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roleNameLbl1)))
         );
 
         cardScrollPagePanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {NextCardBttn, PrevCardBttn});
@@ -603,14 +618,17 @@ public class CardScrollV extends javax.swing.JFrame {
         return roleNameLbl;
     }
     
+    public JLabel getVocabC() {
+        return vocabC;
+    }
+    
     public String getID() {
         return this.id;
     }
 
-    public void setID() {
+    public void setID(String id) {
         this.id = id;
     }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CloseBttn;
@@ -643,6 +661,8 @@ public class CardScrollV extends javax.swing.JFrame {
     private javax.swing.JLabel rateLbl;
     private javax.swing.JLabel roleNameLbl;
     private javax.swing.JLabel roleNameLbl1;
+    private javax.swing.JLabel roleNameLbl2;
+    private javax.swing.JLabel vocabC;
     // End of variables declaration//GEN-END:variables
 
 }

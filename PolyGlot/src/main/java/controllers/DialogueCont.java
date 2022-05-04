@@ -14,6 +14,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.DialogueMDL;
+import models.UserMDL;
 import views.CardScrollV;
 import views.DlgHistV;
 import views.DlgListV;
@@ -38,10 +39,10 @@ public class DialogueCont implements ActionListener
     private DialogueMDL currentDlg;
     private SetUpDlgV setUp;
     private String currentLang;
-    private String userID;
     String tableName= "Dialogue";
     int rowCount=0;
     int clmnCount=0;
+    UserMDL user;
     
     // array lists used for dlg list page
     ArrayList<DialogueMDL> dlgList = new ArrayList <DialogueMDL>();
@@ -83,12 +84,12 @@ public class DialogueCont implements ActionListener
         
     }
     
-    public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang, String userID) 
+    public DialogueCont(MenuBarV menu, DlgListV dlgView, DialogueMDL dlgModel, String lang, UserMDL user) 
     {
         menuV= menu;
         dlgListPage= dlgView;
         dlgMdlClass= dlgModel;
-        this.userID = userID;
+        this.user = user;
         this.currentLang= lang;
     }
     
@@ -131,7 +132,7 @@ public class DialogueCont implements ActionListener
             activateClick(false);
             menuV.hide();
             //int id = Integer.parseInt(currentDlg.getDlg_id());
-            dlgSetUpPage= new SetUpDlgV(currentDlg.getDlg_id(), this, this.userID);
+            dlgSetUpPage= new SetUpDlgV(currentDlg.getDlg_id(), this, this.user);
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
             activateClick(true);
