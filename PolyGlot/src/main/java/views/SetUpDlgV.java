@@ -38,10 +38,6 @@ public class SetUpDlgV extends javax.swing.JFrame {
         setDesign();
         colorBlueBttn(StartDlgBttn, "Begin");
     }
-    
-    public SetUpDlgV() {
-        
-    }
 
     /** by Aisana (w1775375)
      * Methods will initiate main panel colour (colour for app background page), set font to test and  icons for menubar buttons

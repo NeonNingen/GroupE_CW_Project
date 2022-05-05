@@ -341,6 +341,7 @@ public class DatabaseMDL {
      * @param user_type: String - What category is the user, Teacher or Student.
      * @param admin_access: String - Access to admin level features.
      * @param user_group_id: String - What group ID is the user under.
+     * @param current_Lang: String - User's selected language option
      */
     public static void insertTable(String user_id, String name, String sname,
                                    String email, String pswd, 
@@ -845,12 +846,12 @@ public class DatabaseMDL {
         ArrayList<ArrayList<String>> value = new ArrayList<ArrayList<String>>();
         sc.useDelimiter(",");
         sc.nextLine();
-        for (int i = 0; i<12; i++) {
+        for (int i = 0; i<11; i++) {
             userList.add(sc.next());
         }
         value.add(userList);
         userList = new ArrayList<String>();
-        for (int i = 12; i<24; i++) {
+        for (int i = 11; i<22; i++) {
             userList.add(sc.next());
         }
         sc.close();
@@ -861,7 +862,7 @@ public class DatabaseMDL {
                         value.get(i).get(2), value.get(i).get(3),
                         value.get(i).get(4), value.get(i).get(5),
                         Integer.parseInt(value.get(i).get(6)), value.get(i).get(7),
-                        value.get(i).get(8), value.get(i).get(9), value.get(i).get(10)
+                        value.get(i).get(8), value.get(i).get(9)
                         );
         }
     }

@@ -131,7 +131,6 @@ public class DialogueCont implements ActionListener
         if(pressedSelesDlg== JOptionPane.YES_OPTION){
             activateClick(false);
             menuV.hide();
-            //int id = Integer.parseInt(currentDlg.getDlg_id());
             dlgSetUpPage= new SetUpDlgV(currentDlg, this, this.user);
             dlgSetUpPage.show();
         }else if(pressedSelesDlg== JOptionPane.NO_OPTION){
@@ -270,12 +269,7 @@ public class DialogueCont implements ActionListener
         }else if((!(dlgSetUpPage==null)) && e.getSource().equals(dlgSetUpPage.getCloseBttn())){
             dlgSetUpPage.dispose();
             menuV.show();
-            
-        }else if((!(CardScrollPage==null)) && e.getSource().equals(CardScrollPage.getCloseBttn())){
-            CardScrollPage.dispose();
-            menuV.show();
-        
-        }
+    }
     }
     
     /** by Aisana (w1775375)

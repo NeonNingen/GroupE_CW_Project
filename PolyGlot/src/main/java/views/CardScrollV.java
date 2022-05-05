@@ -49,7 +49,6 @@ public class CardScrollV extends javax.swing.JFrame {
                                             dialogue);
         nextCardBttn.addActionListener(cont);
         prevCardBttn.addActionListener(cont);
-        closeBttn.addActionListener(dlgCont);
         setDesign();
     }
 
@@ -79,7 +78,6 @@ public class CardScrollV extends javax.swing.JFrame {
         rateSlider = new javax.swing.JSlider();
         rateBttn = new javax.swing.JButton();
         cardScrollPagePanel = new javax.swing.JPanel();
-        closeBttn = new javax.swing.JButton();
         dlgNameAsTitle = new javax.swing.JLabel();
         roleNameLbl = new javax.swing.JLabel();
         prevCardBttn = new javax.swing.JButton();
@@ -301,17 +299,6 @@ public class CardScrollV extends javax.swing.JFrame {
         cardScrollPagePanel.setMinimumSize(new java.awt.Dimension(414, 550));
         cardScrollPagePanel.setPreferredSize(new java.awt.Dimension(414, 550));
 
-        closeBttn.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        closeBttn.setBorderPainted(false);
-        closeBttn.setContentAreaFilled(false);
-        closeBttn.setFocusPainted(false);
-        closeBttn.setPreferredSize(new java.awt.Dimension(25, 25));
-        closeBttn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                closeBttnActionPerformed(evt);
-            }
-        });
-
         dlgNameAsTitle.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         dlgNameAsTitle.setText("Dialogue Name");
 
@@ -377,7 +364,7 @@ public class CardScrollV extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
-                                .addGap(0, 31, Short.MAX_VALUE)
+                                .addGap(0, 33, Short.MAX_VALUE)
                                 .addComponent(roleNameLbl1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(roleNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,14 +375,9 @@ public class CardScrollV extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardScrollPagePanelLayout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
-                .addGroup(cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardScrollPagePanelLayout.createSequentialGroup()
-                        .addComponent(cardScrollPaneExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardScrollPagePanelLayout.createSequentialGroup()
-                        .addComponent(closeBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cardScrollPaneExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
 
         cardScrollPagePanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nextCardBttn, prevCardBttn});
@@ -403,9 +385,7 @@ public class CardScrollV extends javax.swing.JFrame {
         cardScrollPagePanelLayout.setVerticalGroup(
             cardScrollPagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cardScrollPagePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(closeBttn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(48, 48, 48)
                 .addComponent(dlgNameAsTitle)
                 .addGap(68, 68, 68)
                 .addComponent(cardScrollPaneExtra, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -437,10 +417,6 @@ public class CardScrollV extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void closeBttnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBttnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_closeBttnActionPerformed
     
     public void setCardTxtDisplayTxtArea(JTextArea CardTxtDisplayTxtArea) {
         this.cardTxtDisplayTxtArea = CardTxtDisplayTxtArea;
@@ -493,10 +469,6 @@ public class CardScrollV extends javax.swing.JFrame {
     /**
      * Setter and Getters for each JSwing Object and Integer object
      */
-    
-    public void setCloseBttn(JButton CloseBttn) {
-        this.closeBttn = CloseBttn;
-    }
 
     public void setConfirmWindow(JDialog ConfirmWindow) {
         this.confirmWindow = ConfirmWindow;
@@ -562,9 +534,6 @@ public class CardScrollV extends javax.swing.JFrame {
      *
      * @return
      */
-    public JButton getCloseBttn() {
-        return closeBttn;
-    }
 
     public JDialog getConfirmWindow() {
         return confirmWindow;
@@ -634,7 +603,6 @@ public class CardScrollV extends javax.swing.JFrame {
     private javax.swing.JPanel cardScrollPagePanel;
     private javax.swing.JScrollPane cardScrollPaneExtra;
     private javax.swing.JTextArea cardTxtDisplayTxtArea;
-    private javax.swing.JButton closeBttn;
     private javax.swing.JButton closedBttn;
     private javax.swing.JButton confBttn;
     private javax.swing.JDialog confirmWindow;
