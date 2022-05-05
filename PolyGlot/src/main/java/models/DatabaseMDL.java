@@ -841,7 +841,7 @@ public class DatabaseMDL {
     
     public static void readUserDatabase() throws FileNotFoundException
     {    
-        Scanner sc = new Scanner(new File("C:\\Users\\zainc\\OneDrive - University of Westminster\\2022_2023\\Software Development Group\\GroupE_CW_Project\\PolyGlot\\src\\main\\resources\\databaseFile\\Workbook with Conversations for Computer Science - User.csv"));
+        Scanner sc = new Scanner(new File(".\\src\\main\\resources\\databaseFile\\Workbook with Conversations for Computer Science - User.csv"));
         ArrayList<String> userList = new ArrayList<String>();
         ArrayList<ArrayList<String>> value = new ArrayList<ArrayList<String>>();
         sc.useDelimiter(",");
