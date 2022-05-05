@@ -9,6 +9,10 @@ import views.UListStdV;
 import views.UListTchV;
 import views.ProgV;
 
+/**
+ * 
+ * @author Rahat Amit
+ */
 public class UserCont implements ActionListener {
 
     private UListStdV uListStudentPage;

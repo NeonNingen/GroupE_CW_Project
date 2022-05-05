@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * 
+ * @author Rahat Amit and Monesha
+ */
 public class LoginV extends javax.swing.JFrame {
 
     public LoginV() {

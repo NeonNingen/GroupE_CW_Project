@@ -18,8 +18,8 @@ import javax.swing.table.DefaultTableModel;
 import models.UserMDL;
 
 /**
- *
- * @author mones
+ * 
+ * @author Monesha and Rahat Amit
  */
 public class UListTchV extends javax.swing.JFrame {
 
