@@ -353,7 +353,7 @@ public class DatabaseMDL {
                          + "user_email, user_pswd, user_lang_lvl, "
                          + "user_progresspoints, "
                          + "user_type, admin_access, user_group_id, "
-                         + "user_pswdVis, current_Lang) VALUES "
+                         + "current_Lang) VALUES "
                          + "('" + user_id + "','" + name + "','" + sname
                          + "','" + email + "','" + pswd 
                          + "','" + lang_lvl + "'," + progress_points + ",'" 
@@ -862,7 +862,7 @@ public class DatabaseMDL {
                         value.get(i).get(2), value.get(i).get(3),
                         value.get(i).get(4), value.get(i).get(5),
                         Integer.parseInt(value.get(i).get(6)), value.get(i).get(7),
-                        value.get(i).get(8), value.get(i).get(9)
+                        value.get(i).get(8), value.get(i).get(9), value.get(i).get(10)
                         );
         }
     }
