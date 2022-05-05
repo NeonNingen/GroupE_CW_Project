@@ -35,6 +35,7 @@ public class SetUpDlgV extends javax.swing.JFrame {
         StartDlgBttn.addActionListener(new PerfmDlgCont(this, dlgCont, user, dialogue));
         CloseBttn.addActionListener(dlgCont);
         CloseBttn.addActionListener(dlgCont);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setDesign();
         colorBlueBttn(StartDlgBttn, "Begin");
     }

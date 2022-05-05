@@ -686,31 +686,31 @@ public class DatabaseMDL {
 
                 id++;
 
-                if (id <= (list.size() / 2)) {
+                
+                String str = itr.next().toString();
+
+                String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                String dlgLvl = splitSt[0];
+                String dlgSubCont = splitSt[1];
+                String dlgContext = splitSt[2];
+                String dlgGramm = splitSt[3].replace("\"", "");
+                
+                if(dlgGramm.equals(""))
+                    dlgGramm = "No grammar";
+                    
+                int divideList = list.size()/2;
+                
+                if (id <= divideList) {
+                    
                     dlgID = "SPN";
-                    String str = itr.next().toString();
-
-                    String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-                    String dlgLvl = splitSt[0];
-                    String dlgSubCont = splitSt[1];
-                    String dlgContext = splitSt[2];
-                    String dlgGramm = splitSt[3].replace("\"", "");
-
                     String dlgCode = String.format("%04d", id);
                     dlgID = dlgID.concat(dlgCode);
 
                     insertTable(dlgID, dlgContext, dlgSubCont, dlgLvl, dlgGramm, 5, "incomplete", 0, "Spanish");
                 } else {
                     dlgID = "FR";
-                    String str = itr.next().toString();
-
-                    String[] splitSt = str.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
-                    String dlgLvl = splitSt[0];
-                    String dlgSubCont = splitSt[1];
-                    String dlgContext = splitSt[2];
-                    String dlgGramm = splitSt[3].replace("\"", "");
-
-                    String dlgCode = String.format("%04d", id - 31);
+                    
+                    String dlgCode = String.format("%04d", id - divideList);
                     dlgID = dlgID.concat(dlgCode);
 
                     insertTable(dlgID, dlgContext, dlgSubCont, dlgLvl, dlgGramm, 5, "incomplete", 0, "French");

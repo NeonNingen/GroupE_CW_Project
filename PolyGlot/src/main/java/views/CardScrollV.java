@@ -13,6 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import models.DialogueMDL;
@@ -49,6 +50,7 @@ public class CardScrollV extends javax.swing.JFrame {
                                             dialogue);
         nextCardBttn.addActionListener(cont);
         prevCardBttn.addActionListener(cont);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         setDesign();
     }
 
