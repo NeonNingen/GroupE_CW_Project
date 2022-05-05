@@ -346,8 +346,7 @@ public class DatabaseMDL {
                                    String email, String pswd, 
                                    String lang_lvl, int progress_points, 
                                    String user_type, String admin_access,
-                                   String user_group_id, String user_pswdVis,
-                                   String current_Lang) {
+                                   String user_group_id, String current_Lang) {
         
         updateTable("INSERT INTO User (user_id, user_name, user_sname,"
                          + "user_email, user_pswd, user_lang_lvl, "
@@ -358,8 +357,7 @@ public class DatabaseMDL {
                          + "','" + email + "','" + pswd 
                          + "','" + lang_lvl + "'," + progress_points + ",'" 
                          +  user_type + "','" + admin_access + "','" 
-                         + user_group_id + "','" + user_pswdVis + "','" 
-                         + current_Lang + "')");
+                         + user_group_id + "','" + current_Lang + "')");
         
     }
         
@@ -863,8 +861,8 @@ public class DatabaseMDL {
                         value.get(i).get(2), value.get(i).get(3),
                         value.get(i).get(4), value.get(i).get(5),
                         Integer.parseInt(value.get(i).get(6)), value.get(i).get(7),
-                        value.get(i).get(8), value.get(i).get(9), value.get(i).get(10),
-                        value.get(i).get(11));
+                        value.get(i).get(8), value.get(i).get(9), value.get(i).get(10)
+                        );
         }
     }
    

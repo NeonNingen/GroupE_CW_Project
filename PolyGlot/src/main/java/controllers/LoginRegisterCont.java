@@ -383,7 +383,7 @@ public class LoginRegisterCont implements ActionListener, FocusListener {
         String langLvl = userDetails.get(5);
         String uType = userDetails.get(7);
         String groupID = userDetails.get(9);
-        String appLang = userDetails.get(11);
+        String appLang = userDetails.get(10);
         int uProgPoints = Integer.parseInt(userDetails.get(6));
 
         this.userMDL = new UserMDL(uName, uSurname, uEmail, langLvl, uProgPoints, uType, userID, groupID, appLang);
