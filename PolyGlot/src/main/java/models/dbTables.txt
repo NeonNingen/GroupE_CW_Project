@@ -9,7 +9,6 @@ user_progresspoints  INTEGER not NULL,
 user_type  VARCHAR (20),
 admin_access  VARCHAR (50) not NULL,
 user_group_id  VARCHAR (50) not NULL,
-user_pswdVis VARCHAR (30),
 current_Lang VARCHAR (30),
 CONSTRAINT u_user_pk PRIMARY KEY (user_id))
 
