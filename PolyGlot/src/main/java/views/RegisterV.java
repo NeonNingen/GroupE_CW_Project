@@ -190,10 +190,15 @@ public class RegisterV extends javax.swing.JFrame {
         userNameReg.setBackground(new java.awt.Color(135, 178, 240));
         userNameReg.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         userNameReg.setForeground(new java.awt.Color(255, 255, 255));
-        userNameReg.setText("User ID");
+        userNameReg.setText("Name");
         userNameReg.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         userNameReg.setCaretPosition(4);
         userNameReg.addFocusListener(new LoginRegisterCont(this));
+        userNameReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameRegActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout registerPanelLayout = new javax.swing.GroupLayout(registerPanel);
         registerPanel.setLayout(registerPanelLayout);
@@ -339,6 +344,10 @@ public class RegisterV extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void userNameRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameRegActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameRegActionPerformed
 
     //The necessary getter and setters are displayed below
     public JTextField getSurnameReg() {
